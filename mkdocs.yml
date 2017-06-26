@@ -1,1 +1,51 @@
-site_name: My Docs
+# Informações do Projeto
+site_name: Tutoriais
+site_description: 'Tutoriais para iniciantes'
+site_author: 'Gefferson Balles'
+site_url: 'http://geffersonballes.github.io/Tutoriais'
+
+# Documentos e Temas
+docs_dir: 'docs'
+theme : 'material'
+
+# Copyright
+copyright: '© 2017 Geffersonballes'
+
+# Opções
+extra:
+  palette:
+    primary: 'indigo'
+    accent: 'light blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  feature:
+    tabs: true
+  social:
+    - type: 'github'
+      link: 'https://github.com/geffersonballes'
+    - type: 'twitter'
+      link: 'https://twitter.com/Geffersonballes'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/in/geff/'
+
+# Extensions
+markdown_extensions:
+  - codehilite:
+      css_class: code
+      linenums: True
+      guess_lang: True
+      pygments_style: friendly
+      noclasses: True
+  - admonition
+  - toc:
+      permalink: '«'
+
+
+# Paginas
+pages:
+  - 'Home': 'index.md'
+  - 'Redes':
+    - 'Cabeamento':
+      - 'Crimpagem': 'redes/cabeamento/crimpagem.md'
+      - 'Instalação': 'redes/cabeamento/instalacao.md'
