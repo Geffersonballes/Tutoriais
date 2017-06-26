@@ -6,7 +6,7 @@ site_url: 'http://geffersonballes.github.io/Tutoriais'
 
 # Documentos e Temas
 docs_dir: 'docs'
-theme : 'bootswatch'
+theme : 'material'
 
 # Copyright
 copyright: '© 2017 Geffersonballes'
