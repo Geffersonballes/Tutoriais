@@ -48,4 +48,3 @@ pages:
   - 'Redes':
     - 'Cabeamento':
       - 'Crimpagem': 'redes/cabeamento/crimpagem.md'
-      - 'Instalação': 'redes/cabeamento/instalacao.md'
