@@ -3,10 +3,20 @@
 
     
     <url>
-     <loc>/</loc>
+     <loc>http://geffersonballes.github.io/Tutoriais/</loc>
      <lastmod>2017-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
+    <url>
+     <loc>http://geffersonballes.github.io/Tutoriais</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
