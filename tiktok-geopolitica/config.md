@@ -4,6 +4,8 @@
 |---|---|---|
 | Nome da série | Peça por Peça (provisório) | definir |
 | TikTok para publicar | Metricool, marca `ballestech` (blogId 8049742), TikTok pessoal `geffersonballes1` | ✅ conectado |
+| YouTube Shorts | Metricool, canal `UCfamwKNkLBtNjhjZLPQdDfg`, mesmo post do TikTok | ✅ aprovado |
+| Horários dos posts | 10:00 (produção da manhã), 18:00 (da tarde), 13:00 do dia seguinte (da noite) | ✅ aprovado |
 | TikTok para métricas | Windsor `tiktok_organic`, conta "Gefferson Balles" | conectado (só leitura) |
 | Fuso | America/Cuiaba | ok |
 | Voz | **pt-BR-AntonioNeural** (Microsoft, via edge-tts, gratuita), `--rate=+12%` | ✅ escolhida pelo dono |

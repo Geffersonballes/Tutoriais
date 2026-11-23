@@ -92,13 +92,22 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
    pelo caminho do vídeo. O link (`response.url`) é temporário, mas o Metricool copia o vídeo para o servidor dele
    no agendamento, então basta usá-lo logo em seguida.
 2. Envie o vídeo ao usuário (SendUserFile) com a legenda do post.
-3. Agende no Metricool (marca `ballestech`, blogId `8049742`, fuso `America/Cuiaba`, TikTok `geffersonballes1`),
-   no melhor horário livre (`getBestTimeToPostByNetwork`), com intervalo mínimo de 4 h entre posts:
-   - **Padrão (com aprovação):** `createScheduledPost` com `autoPublish: false` → o dono recebe um aviso no app
-     do Metricool e confirma a publicação com 1 toque. Só use `autoPublish: true` se o usuário autorizar
-     explicitamente a publicação 100 % automática (registre a autorização em `config.md`).
-   - `tiktokData`: `isAigc: true`, `privacyOption: PUBLIC_TO_EVERYONE`, comentários/dueto/stitch liberados.
-   - Legenda: ≤ 150 caracteres + 5–7 hashtags (#geopolitica #guerra #noticias #historia #aprendanotiktok + 2 do tema).
+3. Agende no Metricool **um post só para TikTok + YouTube Shorts** (marca `ballestech`, blogId `8049742`,
+   fuso `America/Cuiaba`; TikTok `geffersonballes1`, YouTube canal `UCfamwKNkLBtNjhjZLPQdDfg`).
+   **Horários fixos aprovados pelo dono** (melhores das duas redes segundo o Metricool):
+   | Produção | Post |
+   |---|---|
+   | manhã (07:45) | **10:00** do mesmo dia |
+   | tarde (14:20) | **18:00** do mesmo dia |
+   | noite (17:50) | **13:00** do dia seguinte |
+   Se o horário já passou ou está ocupado, use o próximo livre entre 10:00, 13:00, 16:00 e 18:00 (mínimo 3 h entre posts).
+   - `providers: [{"network":"tiktok"},{"network":"youtube"}]`, `autoPublish: false` → o dono confirma no app.
+     Só use `autoPublish: true` se o usuário autorizar a publicação 100 % automática (registre em `config.md`).
+   - `tiktokData`: `isAigc: true`, `privacyOption: PUBLIC_TO_EVERYONE`, comentários/dueto/stitch liberados, `title` = tema.
+   - `youtubeData`: `{"title": "<tema> #shorts" (≤ 100 caracteres), "type": "short", "privacy": "public",
+     "category": "EDUCATION", "madeForKids": false, "isAiGeneratedContent": true, "tags": [5–8 termos do tema]}`.
+   - Legenda (`text`, vale como descrição no YouTube): ≤ 150 caracteres + 5–7 hashtags
+     (#geopolitica #guerra #noticias #historia #aprendanotiktok + 2 do tema).
 4. Registre em `tiktok-geopolitica/historico.md`: data, tema, link do Metricool, horário.
 5. Faça commit e push dos arquivos da produção (frames, preview e final.mp4 ficam fora do git).
 
