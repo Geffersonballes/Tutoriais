@@ -1,10 +1,45 @@
-Você vai montar e operar, nesta conta, uma rotina automática de vídeos curtos para TikTok e YouTube Shorts
-chamada **"Peça por Peça"**: vídeos de ~2 min 30 s, verticais (1080×1920), em português do Brasil, sobre **guerras,
-conflitos e política mundial**, no formato de explicação em cascata. Tudo com ferramentas **gratuitas**:
-Blender (animação 3D), voz neural da Microsoft "Antonio" (edge-tts), Whisper (legendas), ffmpeg (montagem)
-e o conector **Metricool** (agendamento no TikTok e no YouTube). Trabalhe em português comigo.
+=====================================================================================================
+FICHA DO PROJETO — preencha antes de enviar (deixe em branco o que não souber)
+=====================================================================================================
+1. Nome da série/canal: ______________________  (ex.: "Peça por Peça")
+2. Assunto principal (nicho): ______________________  (ex.: guerras, conflitos e política mundial)
+3. Temas/subtemas que quero ver: ______________________  (ex.: armas, geopolítica, economia de guerra, história)
+4. Assuntos PROIBIDOS ou que quero evitar: ______________________
+5. Redes sociais onde publicar (marque):
+   [ ] TikTok   [ ] YouTube Shorts   [ ] Instagram Reels   [ ] Facebook Reels   [ ] outra: ________
+6. Perfis/contas de cada rede (como aparecem no Metricool): ______________________
+7. Quantos vídeos por dia: ____   Horários de publicação preferidos: ______________________
+8. Fuso horário: ______________________  (ex.: America/Cuiaba)
+9. Idioma dos vídeos: ______________________  (ex.: português do Brasil)
+10. Voz (gratuita, Microsoft): [ ] Antonio (masculina)  [ ] Francisca (feminina)  [ ] Thalita (feminina)
+11. Duração dos vídeos: ____ (ex.: 2 a 2,5 minutos)
+12. Tom do narrador: [ ] sério/documentário  [ ] descontraído  [ ] outro: ________
+13. Pedido de comentário no final (CTA): ______________________  (ex.: "comente GENERAL / RECRUTA")
+14. Publicação: [ ] eu confirmo cada post no app do Metricool   [ ] pode publicar sozinho
+15. Visual: [ ] 3D estilo maquete no Blender (gratuito)   [ ] outro: ________
+16. Tenho acesso ao GitHub "Geffersonballes/Tutoriais" nesta conta: [ ] sim  [ ] não  [ ] não sei
+17. Observações: ______________________
+=====================================================================================================
 
-Comece agora pela PARTE 1 e só me pergunte o que for decisão minha.
+Você vai montar e operar, nesta conta, uma rotina automática de vídeos curtos verticais (1080×1920) no
+formato de explicação em cascata, seguindo a FICHA acima. Tudo com ferramentas **gratuitas**: Blender
+(animação 3D), voz neural da Microsoft (edge-tts), Whisper (legendas), ffmpeg (montagem) e o conector
+**Metricool** (agendamento nas redes). Trabalhe em português comigo.
+
+**ANTES DE QUALQUER COISA — faça a entrevista:**
+1. Leia a FICHA. Para cada item em branco ou ambíguo, me pergunte (use perguntas de múltipla escolha quando
+   der, no máximo 4 por vez, sempre com a sua recomendação marcada). Não comece a construir antes de ter:
+   nicho e temas, redes e perfis, quantidade por dia, horários e fuso, voz, e modo de publicação.
+2. Chame `getBrandSettings` do Metricool e confira se as redes e perfis que marquei estão conectados.
+   Se faltar alguma, me diga qual conectar e espere.
+3. Me devolva um RESUMO DO PLANO (nicho, redes, horários, voz, visual, como os vídeos serão aprovados) e só
+   siga para a PARTE 1 depois do meu "ok".
+4. Grave as respostas em `config.md` (na pasta do projeto) e use-as em tudo daqui em diante.
+
+**Adapte o restante deste prompt à FICHA:** onde ele fala em "guerras, conflitos e política mundial",
+"Peça por Peça", "TikTok + YouTube", voz "Antonio", CTA "GENERAL/RECRUTA", horários 10h/18h/13h ou fuso
+America/Cuiaba, troque pelo que eu respondi. Esses valores são só o exemplo de um projeto que já funciona.
+Se o nicho não for guerra, adapte também os modelos 3D, as regras de conteúdo sensível e as fontes de notícia.
 
 ---------------------------------------------------------------------------------------------------
 PARTE 1 — DE ONDE VEM O CÓDIGO
@@ -114,9 +149,9 @@ qualidade → link público → agendamento → histórico, commit e push. A cad
 ---------------------------------------------------------------------------------------------------
 PARTE 4 — PUBLICAÇÃO COM O CONECTOR METRICOOL
 ---------------------------------------------------------------------------------------------------
-1. Chame `getBrandSettings` e me mostre as marcas e redes conectadas. Pergunte em qual perfil de TikTok e
-   canal de YouTube devo publicar (se faltar, eu conecto no Metricool) e anote blogId, fuso e redes em
-   `tiktok-geopolitica/config.md`.
+1. Use o que foi confirmado na entrevista (redes, perfis, blogId, fuso) e anote em `config.md`.
+   Para Instagram Reels use `instagramData: {type: "REEL", isAiGenerated: true}`; para Facebook,
+   `facebookData: {type: "REEL"}` — sempre no MESMO post das outras redes.
 2. Link público do vídeo: o Metricool só aceita URL pública. Use o Picsart (`picsart_upload_local_files`
    devolve um comando curl; o link vale pouco tempo, mas o Metricool copia o arquivo no agendamento).
    O upload pelo Google Drive daqui é limitado a 10 MB — não serve para vídeo.
@@ -126,19 +161,20 @@ PARTE 4 — PUBLICAÇÃO COM O CONECTOR METRICOOL
    title: <tema>}`, `youtubeData: {title: "<tema> #shorts", type: "short", privacy: "public",
    category: "EDUCATION", madeForKids: false, isAiGeneratedContent: true, tags: [...]}`,
    `text` = legenda (≤ 150 caracteres + 5–7 hashtags).
-4. Horários (Cuiabá; confirme com `getBestTimeToPostByNetwork`): produção das 07:45 → post 10:00;
-   produção das 14:20 → post 18:00; produção das 17:50 → post 13:00 do dia seguinte. Mínimo 3 h entre posts.
+4. Horários: os da FICHA. Se eu não tiver escolhido, consulte `getBestTimeToPostByNetwork` para cada rede e
+   me proponha os melhores (exemplo que funciona: produção 07:45 → post 10:00; 14:20 → 18:00; 17:50 → 13:00 do
+   dia seguinte). Mínimo 3 h entre posts. Cada produção leva ~2 h (o render é o mais lento).
 5. Métricas (opcional): conector Windsor.ai, fonte `tiktok_organic` (só leitura).
 
 ---------------------------------------------------------------------------------------------------
 PARTE 5 — AUTOMAÇÃO E REGRAS
 ---------------------------------------------------------------------------------------------------
 - Faça primeiro UM vídeo completo e me mande o final.mp4 para eu aprovar antes de agendar.
-- Depois de aprovado, crie 3 tarefas agendadas diárias (07:45, 14:20 e 17:50, fuso America/Cuiaba) que
-  disparam NESTA conversa (é ela que tem os conectores), cada uma pedindo "produza e agende 1 vídeo seguindo
+- Depois de aprovado, crie as tarefas agendadas diárias (uma por vídeo do dia, ~2 h antes de cada post, no
+  fuso da FICHA) que disparam NESTA conversa (é ela que tem os conectores), cada uma pedindo "produza e agende 1 vídeo seguindo
   a skill tiktok-peca-por-peca".
 - Nunca publique sem os portões (fatos, conformidade, qualidade) e sem a minha confirmação no app.
 - Proibido: rostos de líderes reais, sangue, vítimas, imagens realistas que pareçam registro real de ataque,
   torcer por um lado, cópia de marca/personagem de outros canais, fatos sem 2 fontes.
-- Não use serviços pagos (ElevenLabs etc.) sem eu pedir: a voz é a do Antonio e o visual sai do Blender.
+- Não use serviços pagos (ElevenLabs etc.) sem eu pedir: a voz é a da FICHA (edge-tts) e o visual sai do Blender.
 - Arquivos pesados (frames, prévias, .mp4) ficam fora do git (.gitignore).
