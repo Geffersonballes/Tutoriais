@@ -1,8 +1,8 @@
 # Série 2 — "Fase por Fase" (games e o que estiver em alta)
 
 - **Redes:** TikTok `geffersonballes1` + YouTube Shorts (mesmo canal da série 1). Instagram: NÃO, por enquanto.
-- **Quantidade:** 2 vídeos por dia (além dos 3 da série 1 de geopolítica).
-- **Horários (America/Cuiaba):** 15:30 e 21:30 ✅ (1º vídeo aprovado em 23/11). Produções automáticas às 09:30 e 11:40.
+- **Quantidade:** 3 vídeos por dia (desde 24/11; a série 1 de geopolítica caiu para 2). Motivo: no canal do YouTube (público gamer de PUBG/CS2) o 1º vídeo de games fez 303 views em 1 h contra 1 view do de geopolítica.
+- **Horários (America/Cuiaba):** 13:00, 15:30 e 21:30 ✅. Produções automáticas: 17:50 (post 13:00 do dia seguinte), 09:30 (post 15:30) e 11:40 (post 21:30).
 - **Duração:** 60–80 s (público de games é mais rápido; também reduz o render pela metade).
 - **Formato:** cascata "Se você… Então você… Esse é o… Mas…" ou "Por que ___?", 6–8 blocos, gancho nos 3 s.
 - **Visual:** Blender estilo B (miniatura 3D realista), mesmo motor `tiktok-geopolitica/motor/`.

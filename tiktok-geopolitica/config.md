@@ -15,5 +15,5 @@
 | Custo por vídeo | ~16 imagens × 518 + voz ~2.200 ≈ 10.500 créditos ElevenLabs (≈ US$ 1,05) | estimativa |
 | Fonte | Montserrat (OFL), em `assets/fonts/` | ✅ |
 | CTA padrão | GENERAL / RECRUTA | ok |
-| Frequência | 3 vídeos/dia — produções automáticas às 06:20, 14:20 e 17:50 (Cuiabá) | ✅ aprovado |
+| Frequência | 2 vídeos/dia (desde 24/11; a série 2 de games ficou com 3) — produções às 06:20 (post 10:00) e 14:20 (post 18:00) | ✅ aprovado |
 | Publicação | Metricool `createScheduledPost` com **`autoPublish: true`** — publicação 100 % automática no TikTok e no YouTube, autorizada pelo dono em 23/11/2026 | ✅ aprovado |
