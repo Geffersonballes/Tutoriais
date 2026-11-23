@@ -1,3 +1,5 @@
+> **Atualização:** a forma recomendada agora é o repositório público **github.com/Geffersonballes/kit-videos-automaticos** (template). Basta criar um repositório a partir dele e dizer ao Claude: "Siga o arquivo COMECE_AQUI.md". Este arquivo fica como alternativa.
+
 =====================================================================================================
 FICHA DO PROJETO — preencha antes de enviar (deixe em branco o que não souber)
 =====================================================================================================
