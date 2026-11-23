@@ -50,7 +50,9 @@ Este sistema já existe pronto no repositório GitHub **Geffersonballes/Tutoriai
 - `.claude/agents/` (18 agentes) e `.claude/skills/tiktok-peca-por-peca/SKILL.md` (a rotina)
 - `tiktok-geopolitica/` inteira (motor de vídeo, fontes, céus HDRI, documentação, vídeo-modelo)
 Se conseguir, leia `tiktok-geopolitica/motor/README.md` e o SKILL.md e pule para a PARTE 4.
-Se NÃO tiver acesso, reconstrua tudo pelas PARTES 2 e 3 abaixo.
+Se NÃO tiver acesso, procure `pacote_peca_por_peca.zip` na raiz do meu repositório e descompacte.
+Se também não houver o pacote, reconstrua tudo pelas PARTES 2 e 3 abaixo.
+(Detalhes de GitHub na conta nova: veja as "INSTRUÇÕES DE GITHUB" que vou colar junto, se houver.)
 
 ---------------------------------------------------------------------------------------------------
 PARTE 2 — PREPARAR A MÁQUINA (rode e salve como script de configuração do ambiente)
