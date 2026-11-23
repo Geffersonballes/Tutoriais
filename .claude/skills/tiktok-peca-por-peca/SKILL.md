@@ -125,3 +125,5 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
 ## 8. Desempenho (`analista-de-desempenho`, 1× por dia)
 Windsor `tiktok_organic` (conta "Gefferson Balles"): views, retenção, comentários, seguidores dos vídeos de
 48 h e 7 dias atrás → `tiktok-geopolitica/aprendizados.md`. Leia esse arquivo antes de escolher a próxima pauta.
+
+**Hashtags:** siga `tiktok-geopolitica/hashtags.md` (6 de alcance #fyp #foryou #paravoce #viral #tiktokbrasil #shorts + nicho + tema + #aprendanotiktok).
