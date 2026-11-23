@@ -349,3 +349,71 @@ def modo_realista(hdri=None, samples=4, res=(540, 960), foco=None, abertura=0.35
         cam.data.dof.use_dof = True; cam.data.dof.aperture_fstop = abertura
         if foco is not None: cam.data.dof.focus_object = foco
     return bg, sol
+
+# ---------- modelos navais e de economia (vídeo Ormuz) ----------
+def petroleiro(nome, cor_casco=(0.55, 0.12, 0.10, 1), escala=1.0):
+    """Superpetroleiro: casco com proa afilada, convés com tubulação, castelo branco na popa e chaminé. Frente = +Y."""
+    e = escala
+    casco = caixa(nome, (0, 0, 0), (1.6 * e, 9.0 * e, 1.0 * e), cor_casco)
+    proa = cilindro(_id("proa"), (0, 0, 0), 0.8 * e, 1.0 * e, cor_casco, seg=3); filho(casco, proa)
+    proa.location = (0, 4.9 * e, 0); proa.rotation_euler = (0, 0, math.radians(90)); proa.scale = (1, 1.0, 1)
+    conves = caixa(_id("conves"), (0, 0, 0), (1.5 * e, 8.6 * e, 0.12 * e), (0.30, 0.42, 0.30, 1)); filho(casco, conves); conves.location = (0, 0, 0.55 * e)
+    tubo = caixa(_id("tubo"), (0, 0, 0), (0.12 * e, 6.5 * e, 0.12 * e), (0.85, 0.75, 0.35, 1)); filho(casco, tubo); tubo.location = (0, 0.6 * e, 0.68 * e)
+    for k in range(4):
+        tq = cilindro(_id("tampa"), (0, 0, 0), 0.22 * e, 0.1 * e, (0.85, 0.75, 0.35, 1), seg=8); filho(casco, tq); tq.location = (0.45 * e, (-1.5 + k * 1.6) * e, 0.66 * e)
+    castelo = caixa(_id("castelo"), (0, 0, 0), (1.4 * e, 1.3 * e, 1.3 * e), C["branco"]); filho(casco, castelo); castelo.location = (0, -3.7 * e, 1.2 * e)
+    ponte = caixa(_id("ponte"), (0, 0, 0), (1.7 * e, 0.5 * e, 0.3 * e), C["branco"]); filho(casco, ponte); ponte.location = (0, -3.4 * e, 1.9 * e)
+    chamine = caixa(_id("chamine"), (0, 0, 0), (0.45 * e, 0.45 * e, 0.8 * e), C["ameaca"]); filho(casco, chamine); chamine.location = (0, -4.1 * e, 2.1 * e)
+    linha = caixa(_id("linhaagua"), (0, 0, 0), (1.62 * e, 9.02 * e, 0.12 * e), (0.10, 0.10, 0.12, 1)); filho(casco, linha); linha.location = (0, 0, -0.35 * e)
+    return casco
+
+def navio_guerra(nome, escala=1.0):
+    """Fragata cinza com canhão na proa, superestrutura escalonada e mastro de radar. Frente = +Y."""
+    e = escala; cinza = (0.55, 0.58, 0.62, 1)
+    casco = caixa(nome, (0, 0, 0), (1.2 * e, 7.0 * e, 0.8 * e), cinza)
+    proa = cilindro(_id("proaG"), (0, 0, 0), 0.6 * e, 0.8 * e, cinza, seg=3); filho(casco, proa); proa.location = (0, 3.8 * e, 0); proa.rotation_euler = (0, 0, math.radians(90))
+    s1 = caixa(_id("sup1"), (0, 0, 0), (1.0 * e, 2.6 * e, 0.8 * e), (0.65, 0.68, 0.72, 1)); filho(casco, s1); s1.location = (0, -0.5 * e, 0.8 * e)
+    s2 = caixa(_id("sup2"), (0, 0, 0), (0.8 * e, 1.4 * e, 0.6 * e), (0.70, 0.72, 0.76, 1)); filho(casco, s2); s2.location = (0, 0.0, 1.5 * e)
+    mastro = cilindro(_id("mastroG"), (0, 0, 0), 0.08 * e, 1.6 * e, C["escuro"], seg=5); filho(casco, mastro); mastro.location = (0, 0.1 * e, 2.4 * e)
+    radar_g = caixa(_id("radarG"), (0, 0, 0), (0.9 * e, 0.12 * e, 0.3 * e), C["branco"]); filho(casco, radar_g); radar_g.location = (0, 0.1 * e, 3.1 * e)
+    torre = cilindro(_id("torreG"), (0, 0, 0), 0.35 * e, 0.35 * e, cinza, seg=8); filho(casco, torre); torre.location = (0, 2.4 * e, 0.6 * e)
+    cano = cilindro(_id("canoG"), (0, 0, 0), 0.07 * e, 1.2 * e, C["escuro"], seg=5); filho(casco, cano); cano.location = (0, 3.0 * e, 0.75 * e); cano.rotation_euler = (math.radians(-80), 0, 0)
+    heli = caixa(_id("heli"), (0, 0, 0), (1.1 * e, 1.4 * e, 0.06 * e), (0.35, 0.37, 0.40, 1)); filho(casco, heli); heli.location = (0, -2.9 * e, 0.45 * e)
+    return casco
+
+def barco_rapido(nome, escala=1.0):
+    e = escala; b = caixa(nome, (0, 0, 0), (0.6 * e, 2.0 * e, 0.35 * e), (0.30, 0.32, 0.30, 1))
+    p = cilindro(_id("proaR"), (0, 0, 0), 0.3 * e, 0.35 * e, (0.30, 0.32, 0.30, 1), seg=3); filho(b, p); p.location = (0, 1.15 * e, 0); p.rotation_euler = (0, 0, math.radians(90))
+    cab = caixa(_id("cabR"), (0, 0, 0), (0.45 * e, 0.5 * e, 0.35 * e), C["branco"]); filho(b, cab); cab.location = (0, -0.2 * e, 0.35 * e)
+    return b
+
+def mina(nome, escala=1.0):
+    m = esfera(nome, (0, 0, 0), 0.6 * escala, (0.15, 0.16, 0.17, 1), sub=1)
+    for k in range(8):
+        a = k * math.pi / 4
+        for z in (0.25, -0.25):
+            sp = cilindro(_id("espinho"), (0, 0, 0), 0.06 * escala, 0.5 * escala, (0.25, 0.25, 0.25, 1), seg=4); filho(m, sp)
+            sp.location = (math.cos(a) * 0.62 * escala, math.sin(a) * 0.62 * escala, z * escala); sp.rotation_euler = (math.radians(90), 0, a + math.pi / 2)
+    return m
+
+def barril(nome, escala=1.0, cor=(0.12, 0.30, 0.55, 1)):
+    b = cilindro(nome, (0, 0, 0), 1.0 * escala, 2.6 * escala, cor, seg=16)
+    for z in (-0.8, 0.0, 0.8):
+        filho(b, anel(_id("aro"), (0, 0, z * escala), 1.02 * escala, 0.06 * escala, (0.08, 0.18, 0.35, 1), seg=24))
+    tampa = cilindro(_id("tampaB"), (0, 0, 0), 0.2 * escala, 0.1 * escala, (0.8, 0.8, 0.8, 1), seg=8); filho(b, tampa); tampa.location = (0.5 * escala, 0, 1.32 * escala)
+    return b
+
+def seta3d(nome, comprimento=4.0, cor=None):
+    """Seta para cima (+Z), base na origem."""
+    cor = cor or C["ameaca"]
+    haste = cilindro(nome, (0, 0, comprimento * 0.35), 0.35, comprimento * 0.7, cor, seg=8)
+    ponta = cilindro(_id("pontaS"), (0, 0, comprimento * 0.35 + comprimento * 0.15), 0.8, comprimento * 0.3, cor, seg=8, r2=0.0); filho(haste, ponta)
+    ponta.location = (0, 0, comprimento * 0.5)
+    return haste
+
+def bomba_combustivel(nome):
+    corpo = caixa(nome, (0, 0, 1.5), (1.4, 0.9, 3.0), C["ameaca"])
+    visor = caixa(_id("visor"), (0, 0, 0), (1.0, 0.05, 0.7), (0.1, 0.1, 0.1, 1)); filho(corpo, visor); visor.location = (0, -0.47, 0.7)
+    topo = caixa(_id("topoB"), (0, 0, 0), (1.6, 1.0, 0.3), C["branco"]); filho(corpo, topo); topo.location = (0, 0, 1.6)
+    mang = cilindro(_id("mang"), (0, 0, 0), 0.08, 1.6, C["escuro"], seg=6); filho(corpo, mang); mang.location = (0.8, 0, 0.0)
+    return corpo
