@@ -80,9 +80,10 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
 (fora dos 15 % inferiores e da coluna de botões à direita), sem tela preta, duração 1:50–2:50, áudio −14 LUFS.
 
 ## 7. Entrega e agendamento (`publicador`)
-1. Suba `final.mp4` para o Google Drive (`create_file` com referência de arquivo `sha256:<hash>:<caminho>`,
-   `contentMimeType: video/mp4`, `disableConversionToGoogleType: true`) e também para o OneDrive em
-   `Área de Trabalho/Editor de vídeo/Peça por Peça/` (pasta autorizada no CLAUDE.md).
+1. Gere um link público do `final.mp4` pelo Picsart (aceita até 100 MB; o Google Drive daqui só aceita 10 MB):
+   chame `picsart_upload_local_files` com o nome e o tamanho do arquivo e rode o `curl` devolvido, trocando `{path}`
+   pelo caminho do vídeo. O link (`response.url`) é temporário, mas o Metricool copia o vídeo para o servidor dele
+   no agendamento, então basta usá-lo logo em seguida.
 2. Envie o vídeo ao usuário (SendUserFile) com a legenda do post.
 3. Agende no Metricool (marca `ballestech`, blogId `8049742`, fuso `America/Cuiaba`, TikTok `geffersonballes1`),
    no melhor horário livre (`getBestTimeToPostByNetwork`), com intervalo mínimo de 4 h entre posts:
