@@ -1,4 +1,5 @@
-site/serie-games/producao/*/frames/
+site/
+serie-games/producao/*/frames/
 serie-games/producao/*/preview*/
 serie-games/producao/*/*.mp4
 serie-games/producao/*/*.wav
