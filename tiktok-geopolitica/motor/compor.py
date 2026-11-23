@@ -23,7 +23,7 @@ def tempo(seg, palavra, n=0):
     hits = [x["s"] for x in LEG if x["seg"] == seg and palavra.lower() in x["w"].lower()]
     return hits[min(n, len(hits) - 1)]
 
-SUBST = {"quatro": "4", "cem": "100", "I-F-F.": "IFF"}
+SUBST = G.get("subst", {"quatro": "4", "cem": "100", "I-F-F.": "IFF"})
 palavras = []
 pular = 0
 for i, x in enumerate(LEG):

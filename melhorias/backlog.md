@@ -9,3 +9,5 @@
 | 5 | Visual B | Cena noturna do vídeo 01 ficou escura demais | QC 23/11 | baixo | baixo | aberto |
 | 6 | YouTube | Capa dos Shorts no YouTube escolhida pelo YouTube (canal não verificado) — verificar o canal para liberar capa | análise 23/11 | médio | baixo (dono) | aberto |
 | 7 | Estratégia | Geopolítica tem ~1 view no canal gamer do YouTube — avaliar postar geopolítica só no TikTok | análise 23/11 | alto | baixo | aguardando dados (quarta 25/11) |
+| 8 | Composição | Legenda trocava "quatro" por "4" em "sessenta e quatro" — agora `subst` por vídeo no grafismos.json (corrigido) | QC 23/11 | baixo | baixo | feito |
+| 9 | Visual C | CTA final encosta na cabeça do Pixel no close — subir CTA ou afastar a câmera no bloco final | QC 23/11 | baixo | baixo | aberto |
