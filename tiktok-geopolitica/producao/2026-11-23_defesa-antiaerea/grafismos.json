@@ -1,0 +1,45 @@
+{
+  "rotulos": [
+    {"texto": "RADAR", "de": [1, "Esse"], "ate": [1, "@fim", 0, 0.3]},
+    {"texto": "ALERTA ANTECIPADO", "de": [2, "Esse"], "ate": [2, "@fim", 0, 0.3]},
+    {"texto": "IFF", "de": [3, "Esse"], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "INTERCEPTADOR", "de": [4, "Esse"], "ate": [4, "@fim", 0, 0.3]},
+    {"texto": "PONTO DE ENCONTRO", "de": [5, "vai"], "ate": [5, "@fim", 0, 0.3]},
+    {"texto": "DEFESA EM CAMADAS", "de": [6, "Essa"], "ate": [6, "@fim", 0, 0.3]},
+    {"texto": "TRIAGEM", "de": [7, "Essa"], "ate": [7, "@fim", 0, 0.3]},
+    {"texto": "MOBILIDADE", "de": [8, "caminhões"], "ate": [8, "@fim", 0, 0.3]},
+    {"texto": "COMANDO E CONTROLE", "de": [9, "Esse"], "ate": [9, "@fim", 0, 0.3]},
+    {"texto": "DEFESA ANTIAÉREA", "de": [11, "construiu"], "ate": [11, "@fim", 0, 0.45], "y": 0.2}
+  ],
+  "pilulas": [
+    {"texto": "MÍSSIL US$ 4 MILHÕES", "ponto": "vermelho", "tam": 52, "de": [0, "milhões"], "ate": [0, "@fim", 0, 0.3], "y": 0.15},
+    {"texto": "DRONE ~US$ 35 MIL", "ponto": "azul", "tam": 52, "de": [0, "trinta"], "ate": [0, "@fim", 0, 0.3], "y": 0.23},
+    {"texto": "MÍSSIL", "ponto": "vermelho", "de": [1, "míssil"], "ate": [1, "Então"], "y": 0.3},
+    {"texto": "ECO", "ponto": "azul", "de": [1, "eco"], "ate": [1, "Esse"], "y": 0.3},
+    {"texto": "HORIZONTE", "ponto": "azul", "de": [2, "horizonte"], "ate": [2, "Esse"], "y": 0.3},
+    {"texto": "AMIGO OU INIMIGO?", "ponto": "azul", "de": [3, "pontinho"], "ate": [3, "Esse"], "y": 0.3},
+    {"texto": "SENHA SECRETA", "ponto": "azul", "de": [3, "senha"], "ate": [3, "Esse"], "y": 0.36},
+    {"texto": "BALA CAI", "ponto": "vermelho", "de": [4, "cai"], "ate": [4, "Então"], "y": 0.3},
+    {"texto": "+5x A VELOCIDADE DO SOM", "ponto": "vermelho", "de": [5, "cinco"], "ate": [5, "Se"], "y": 0.3},
+    {"texto": "ERROU", "ponto": "vermelho", "de": [5, "erra"], "ate": [5, "vai"], "y": 0.3},
+    {"texto": "CADA UM: MILHÕES", "ponto": "vermelho", "de": [6, "custa"], "ate": [6, "Então"], "y": 0.3},
+    {"texto": "ENXAME BARATO", "ponto": "azul", "de": [6, "enxames"], "ate": [6, "Então"], "y": 0.36},
+    {"texto": "LONGO ALCANCE", "ponto": "vermelho", "de": [6, "Míssil", 1], "ate": [6, "Essa"], "y": 0.3},
+    {"texto": "CANHÃO", "ponto": "vermelho", "de": [6, "canhão"], "ate": [6, "Essa"], "y": 0.36},
+    {"texto": "LASER", "ponto": "azul", "de": [6, "laser"], "ate": [6, "Essa"], "y": 0.42},
+    {"texto": "100 FOGUETES", "ponto": "vermelho", "de": [7, "chegam"], "ate": [7, "Então"], "y": 0.3},
+    {"texto": "CAMPO VAZIO = DEIXA CAIR", "ponto": "azul", "de": [7, "campo"], "ate": [7, "Essa"], "y": 0.3},
+    {"texto": "RADAR = LANTERNA", "ponto": "vermelho", "de": [8, "brilha"], "ate": [8, "caminhões"], "y": 0.3},
+    {"texto": "ISCA", "ponto": "azul", "de": [8, "isca"], "ate": [8, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "TUDO EM REDE", "ponto": "azul", "de": [9, "rede"], "ate": [9, "Esse"], "y": 0.3},
+    {"texto": "NENHUMA DEFESA É PERFEITA", "ponto": "vermelho", "de": [10, "nenhuma"], "ate": [10, "@fim", 0, 0.3], "y": 0.3}
+  ],
+  "fontes": [
+    {"texto": "Valores estimados: orçamento do Exército dos EUA (2027) e CSIS", "de": [0, "milhões"], "ate": [0, "@fim", 0, 0.3]}
+  ],
+  "cta": {
+    "linha1": [12, "Se"], "t1a": "JÁ SABIA? COMENTE", "t1b": "“GENERAL”",
+    "linha2": [12, "Se", 1], "t2a": "NÃO SABIA? COMENTE", "t2b": "“RECRUTA”",
+    "marca_de": [12, "recruta", 0, 0.4], "marca": "PEÇA POR PEÇA · siga pra próxima"
+  }
+}

@@ -1,0 +1,13 @@
+Imagina gastar um míssil de quatro milhões de dólares pra derrubar um drone de uns trinta e cinco mil. Parece loucura. Mas faz sentido.
+Se um míssil vem na direção da sua cidade, você só vê quando ele já chegou. Então você liga uma antena que grita ondas pro céu e escuta o eco que volta. Esse é o radar.
+Mas a Terra é curva. Um míssil voando baixinho se esconde atrás do horizonte. Então você coloca o radar lá no alto, dentro de um avião. Esse é o avião de alerta antecipado.
+Mas na tela tudo é só um pontinho. Pode ser o inimigo... ou um avião seu. Então todo avião amigo responde uma senha secreta quando o radar pergunta. Esse é o I-F-F. Amigo ou inimigo.
+Achou o inimigo. Agora você atira? Uma bala cai muito antes de chegar lá. Então você lança um foguete que persegue o alvo sozinho. Esse é o míssil interceptador.
+Mas um míssil balístico pode descer a mais de cinco vezes a velocidade do som. Se você mira onde ele está, erra. Então o computador calcula onde ele vai estar, e manda o interceptador pra lá. É acertar uma bala com outra bala.
+Mas cada interceptador custa milhões. E o inimigo manda enxames de drones baratos. Se você gastar míssil caro em drone barato, quebra antes dele. Então você monta camadas: míssil caro pro que é perigoso, canhão rápido e até laser pro que é barato. Essa é a defesa em camadas.
+Mas e se chegam cem foguetes ao mesmo tempo? Você não tem cem interceptadores prontos. Então o computador calcula onde cada um vai cair. Se cai em campo vazio, deixa cair. Só atira no que vai acertar gente. Essa é a triagem de ameaças.
+Mas o radar, quando liga, brilha igual uma lanterna no escuro. O inimigo segue esse sinal e atira nele primeiro. Então você coloca tudo em caminhões: dispara e muda de lugar. E espalha radares falsos de isca.
+Mas radar, avião, lançador, laser... cada um vê só um pedaço. Então você liga todos numa rede só, e um centro de comando enxerga o céu inteiro e decide em segundos. Esse é o comando e controle.
+E mesmo assim nenhuma defesa pega tudo. Por isso, quando a sirene toca, você ainda corre pro abrigo.
+Parabéns. Você construiu uma defesa antiaérea.
+Se você já sabia, comente general. Se não sabia, comente recruta.
