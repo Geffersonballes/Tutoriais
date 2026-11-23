@@ -107,7 +107,7 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
    **Horários fixos aprovados pelo dono** (melhores das duas redes segundo o Metricool):
    | Produção | Post |
    |---|---|
-   | manhã (07:45) | **10:00** do mesmo dia |
+   | manhã (06:20; render leva ~2h20) | **10:00** do mesmo dia |
    | tarde (14:20) | **18:00** do mesmo dia |
    | noite (17:50) | **13:00** do dia seguinte |
    Se o horário já passou ou está ocupado, use o próximo livre entre 10:00, 13:00, 16:00 e 18:00 (mínimo 3 h entre posts).
