@@ -181,7 +181,7 @@ def overlay(t):
 # ---------- áudio: narração + whooshes nos cortes ----------
 def audio():
     narr = os.path.join(PASTA, "narracao.mp3"); out = os.path.join(PASTA, "audio_mix.wav")
-    cortes = sorted(set(round(min(x["s"] for x in LEG if x["seg"] == s) - 0.2, 2) for s in range(1, 13)))
+    cortes = sorted(set(round(min(x["s"] for x in LEG if x["seg"] == s) - 0.2, 2) for s in range(1, max(x["seg"] for x in LEG) + 1)))
     pops = [it["_a"] for it in G["rotulos"]]
     fl = []; inputs = ["-i", narr]
     for k, c in enumerate(cortes):
