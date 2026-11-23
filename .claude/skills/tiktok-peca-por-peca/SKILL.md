@@ -81,10 +81,20 @@ modelo do vídeo 01 e rode:
 python3 tiktok-geopolitica/motor/compor.py $P $P/grafismos.json 5,30,60   # prévia
 python3 tiktok-geopolitica/motor/compor.py $P $P/grafismos.json           # final.mp4 + capa.jpg
 ```
+**Capa obrigatória** em `grafismos.json`: `"capa": {"linhas": ["33 KM DE MAR", "QUE PODEM", "PARAR O MUNDO"],
+"destaque": [0], "dur": 1.3}` — 2 a 4 linhas, no máximo ~6 palavras no total, curiosa e verdadeira (sem
+promessa que o vídeo não cumpre). Ela aparece grande no meio no 1º 1,3 s e vira a capa da grade do perfil
+(o TikTok pessoal usa o 1º quadro). A narração do gancho continua por baixo.
 
 ## 6. Controle de qualidade (`controle-de-qualidade` ⛔)
 Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro, nada cortado na área segura
-(fora dos 15 % inferiores e da coluna de botões à direita), sem tela preta, duração 1:50–2:50, áudio −14 LUFS.
+(fora dos 15 % inferiores e da coluna de botões à direita), sem tela preta, duração 1:50–2:50, áudio −14 LUFS. Mais o **checklist do post**:
+- [ ] **Capa:** o 1º quadro (`capa.jpg`) mostra o título grande, legível no tamanho da grade (olhe em 270 px).
+- [ ] **Gancho:** a cena mais forte (explosão, ameaça, número chocante) aparece nos 3 primeiros segundos.
+- [ ] **Título:** curto, curioso e verdadeiro; o vídeo responde à pergunta da capa.
+- [ ] **Legenda:** sem erro e sem tapar o objeto principal da cena (rótulos e pílulas acima, legenda a 63 % da altura).
+- [ ] **Começo e fim:** não começa nem termina no meio de uma frase; o CTA aparece completo.
+- [ ] **Crédito/fonte:** número na tela tem fonte; selo "Conteúdo gerado com IA" visível.
 
 ## 7. Entrega e agendamento (`publicador`)
 1. Gere um link público do `final.mp4` pelo Picsart (aceita até 100 MB; o Google Drive daqui só aceita 10 MB):
