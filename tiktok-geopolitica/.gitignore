@@ -1,0 +1,5 @@
+producao/*/frames/
+producao/*/preview/
+producao/*/render_*.log
+producao/*/audio_mix.wav
+producao/*/final.mp4
