@@ -5,7 +5,7 @@
 - **Horários (America/Cuiaba):** 13:00, 15:30 e 21:30 ✅. Produções automáticas: 17:50 (post 13:00 do dia seguinte), 09:30 (post 15:30) e 11:40 (post 21:30).
 - **Duração:** 60–80 s (público de games é mais rápido; também reduz o render pela metade).
 - **Formato:** cascata "Se você… Então você… Esse é o… Mas…" ou "Por que ___?", 6–8 blocos, gancho nos 3 s.
-- **Visual:** Blender estilo B (miniatura 3D realista), mesmo motor `tiktok-geopolitica/motor/`.
+- **Visual:** Blender estilo C (cartoon 3D com o mascote original Pixel, `motor/cartoon.py`) — desde 23/11.
   Objetos ORIGINAIS: nunca recriar personagem, mapa, logotipo, arte ou capa de jogo. Nomes de jogos e
   empresas só como texto/citação jornalística. Nada de gameplay ou trailer de terceiros.
 - **Voz:** edge-tts `pt-BR-AntonioNeural --rate=+12%` (grátis). ElevenLabs: não usar.

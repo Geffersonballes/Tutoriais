@@ -19,6 +19,24 @@ mecanismo: custo, tecnologia, economia, bastidores, recordes ("Por que GTA 6 cus
 `revisor-de-conformidade` ⛔ com as regras de games: sem arte/personagem/logotipo de jogo, sem gameplay,
 sem incentivo a pirataria ou builds vazadas, sem apostas/loot box como promoção.
 
+## Estilo visual C — cartoon 3D com o mascote Pixel (desde 23/11)
+- Use `tiktok-geopolitica/motor/cartoon.py`: `pixel()` (mascote ORIGINAL: moletom laranja, fone verde-limão,
+  cabelo escuro; gestos `acenar`, `apontar`, `comemorar`, `pensar`, `espanto`, `respirar`) e `modo_cartoon()`
+  no lugar de `modo_realista()` (céu em degradê, cores vivas, quinas arredondadas, sem desfoque).
+  Exemplo mínimo: `motor/exemplo_cartoon.py`; referência: `assets/estilo/referencia_C_pixel.jpg`.
+- Linguagem de câmera do formato "Como funciona": o Pixel em primeiro plano reage/explica em cada bloco
+  (gesto no verbo principal), cenas FECHADAS (quarto gamer, servidor, estádio, mapa em miniatura) e cortes a
+  cada bloco. Mostre o mecanismo em objetos simples e coloridos.
+- `samples=8`, 540×960, PASSO=2, 2 processos (~7 s/quadro).
+- Proibido copiar personagem, nome ou cenário de outros canais (ex.: o canal de referência tem um mascote
+  próprio de camiseta amarela e boné — o Pixel NÃO pode se parecer com ele) e de jogos.
+
+## Pautas: todos os jogos
+Não só GTA: CS2, PUBG, Free Fire, Valorant, LoL, Minecraft, Roblox, Fortnite, EA FC, consoles, PC gamer.
+Formato que mais rende no nicho: "Como ___ funciona?" (ex.: "Como o servidor sabe que seu tiro acertou?",
+"Como a zona do battle royale decide onde fechar?", "Como o anti-cheat pega trapaceiro?", "Por que dá lag?",
+"Como o matchmaking escolhe seu time?"). Notícia quente (lançamento, recorde) entra quando o radar der nota alta.
+
 ## 3–6. Narração, cena, composição, QC
 Igual à série 1, pasta `serie-games/producao/AAAA-MM-DD_slug/`. Cena em
 `tiktok-geopolitica/motor/cena_<slug>.py` usando `lowpoly.py` (cidade, carros, prédios, moedas, setas,

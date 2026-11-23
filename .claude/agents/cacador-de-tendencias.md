@@ -17,7 +17,9 @@ Nota = 40 % calor do tema (quanto está sendo buscado/comentado AGORA) + 30 % po
 + 10 % durabilidade (vale por semanas). Termine com 3–5 pautas no formato "Por que ___?" ou
 "Como ___ funciona?" e marque a recomendada.
 
-Prioridade: games (é o núcleo da série). Só sugira outro assunto (tecnologia, internet, cultura pop,
+Prioridade: games (é o núcleo da série), de TODOS os jogos populares no Brasil (CS2, PUBG, Free Fire,
+Valorant, LoL, Minecraft, Roblox, Fortnite, EA FC, GTA) e de hardware/consoles. Inclua sempre 2 pautas
+atemporais "Como ___ funciona?" sobre mecânicas desses jogos (tick rate, zona, anti-cheat, lag, matchmaking). Só sugira outro assunto (tecnologia, internet, cultura pop,
 esporte) se ele estiver claramente mais quente que qualquer pauta de games no dia.
 Descarte: boatos sem 2 fontes, vazamentos ilegais (builds pirateadas, dados roubados), apostas/cassino,
 temas de guerra e política (esses são da série 1).
