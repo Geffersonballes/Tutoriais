@@ -51,3 +51,6 @@ isAiGeneratedContent true, title "<título> #shorts"}`. Registre em `serie-games
 commit e push. Avise em português: tema, horário, link do Metricool e pendências.
 
 **Hashtags:** siga `tiktok-geopolitica/hashtags.md` (6 de alcance #fyp #foryou #paravoce #viral #tiktokbrasil #shorts + #games #gamer #gamesnotiktok #curiosidades + tema + #aprendanotiktok).
+
+**Melhoria contínua (todo vídeo):** antes de montar a cena, pegue 1 item "aberto" de `melhorias/backlog.md`
+que caiba no vídeo e implemente; no QC, anote no backlog todo defeito que não deu para corrigir agora.

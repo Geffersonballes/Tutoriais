@@ -127,3 +127,6 @@ Windsor `tiktok_organic` (conta "Gefferson Balles"): views, retenção, comentá
 48 h e 7 dias atrás → `tiktok-geopolitica/aprendizados.md`. Leia esse arquivo antes de escolher a próxima pauta.
 
 **Hashtags:** siga `tiktok-geopolitica/hashtags.md` (6 de alcance #fyp #foryou #paravoce #viral #tiktokbrasil #shorts + nicho + tema + #aprendanotiktok).
+
+**Melhoria contínua (todo vídeo):** antes de montar a cena, pegue 1 item "aberto" de `melhorias/backlog.md`
+que caiba no vídeo e implemente; no QC, anote no backlog todo defeito que não deu para corrigir agora.
