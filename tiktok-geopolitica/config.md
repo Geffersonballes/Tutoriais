@@ -16,4 +16,4 @@
 | Fonte | Montserrat (OFL), em `assets/fonts/` | ✅ |
 | CTA padrão | GENERAL / RECRUTA | ok |
 | Frequência | 3 vídeos/dia — produções automáticas às 07:45, 14:20 e 17:50 (Cuiabá) | ✅ aprovado |
-| Publicação | Metricool `createScheduledPost` com `autoPublish: false`: o dono confirma cada post no app do Metricool | ✅ aprovado |
+| Publicação | Metricool `createScheduledPost` com **`autoPublish: true`** — publicação 100 % automática no TikTok e no YouTube, autorizada pelo dono em 23/11/2026 | ✅ aprovado |

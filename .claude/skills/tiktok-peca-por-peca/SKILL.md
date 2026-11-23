@@ -101,8 +101,9 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
    | tarde (14:20) | **18:00** do mesmo dia |
    | noite (17:50) | **13:00** do dia seguinte |
    Se o horário já passou ou está ocupado, use o próximo livre entre 10:00, 13:00, 16:00 e 18:00 (mínimo 3 h entre posts).
-   - `providers: [{"network":"tiktok"},{"network":"youtube"}]`, `autoPublish: false` → o dono confirma no app.
-     Só use `autoPublish: true` se o usuário autorizar a publicação 100 % automática (registre em `config.md`).
+   - `providers: [{"network":"tiktok"},{"network":"youtube"}]`, **`autoPublish: true`** (publicação automática
+     autorizada pelo dono em 23/11/2026 — com `false` o TikTok fica parado na caixa de entrada do app).
+     Por isso os portões (fatos, conformidade, qualidade) são obrigatórios: se algum reprovar, NÃO agende.
    - `tiktokData`: `isAigc: true`, `privacyOption: PUBLIC_TO_EVERYONE`, comentários/dueto/stitch liberados, `title` = tema.
    - `youtubeData`: `{"title": "<tema> #shorts" (≤ 100 caracteres), "type": "short", "privacy": "public",
      "category": "EDUCATION", "madeForKids": false, "isAiGeneratedContent": true, "tags": [5–8 termos do tema]}`.
