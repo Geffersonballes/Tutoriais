@@ -7,7 +7,9 @@
 | TikTok para métricas | Windsor `tiktok_organic`, conta "Gefferson Balles" | conectado (só leitura) |
 | Fuso | America/Cuiaba | ok |
 | Voz (ElevenLabs) | Fernando Will Narração & Storytelling — `SWnJtSNPFBZm03EETsy1`, modelo `eleven_multilingual_v2` | ✅ |
-| Render 3D | Blender 4.2 LTS (Workbench), 720×1280 → 1080×1920, 30 fps | ✅ |
+| Visual | Estilo B: ilustrações 3D realistas em miniatura (ElevenLabs gpt-image-2.5-sunburst, 9:16 2K, referência `assets/estilo/referencia_B.png`) animadas por `motor/ilustrado.py` | ✅ aprovado |
+| Plano B visual | Blender 4.2 LTS low-poly (`motor/lowpoly.py`) | reserva |
+| Custo por vídeo | ~16 imagens × 518 + voz ~2.200 ≈ 10.500 créditos ElevenLabs (≈ US$ 1,05) | estimativa |
 | Fonte | Montserrat (OFL), em `assets/fonts/` | ✅ |
 | CTA padrão | GENERAL / RECRUTA | ok |
 | Frequência | 3 vídeos/dia — produções automáticas às 07:45, 14:20 e 17:50 (Cuiabá) | ✅ aprovado |

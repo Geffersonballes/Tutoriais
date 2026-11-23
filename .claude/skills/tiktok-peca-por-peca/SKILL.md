@@ -46,26 +46,37 @@ python3 tiktok-geopolitica/motor/palavras.py /tmp/narr.wav $P/palavras.json $P/n
 python3 tiktok-geopolitica/motor/alinhar.py $P      # -> legendas.json + tempos de cada cena
 ```
 
-## 4. Cenas 3D (`diretor-de-arte`)
-- Copie `motor/cena_defesa.py` para `motor/cena_<slug>.py` e reescreva as cenas. Use SÓ a biblioteca
-  `motor/lowpoly.py` (cidade, mísseis, drones, aviões, radar, caminhões, navios = caixas/cilindros, bonecos,
-  explosões, fumaça, anéis). Se precisar de um modelo novo (navio, tanque, mapa, bandeira genérica), crie a
-  função em `lowpoly.py` para reaproveitar nos próximos vídeos.
-- Sincronize tudo com `T(cena, "palavra")` — nunca tempos fixos.
-- Regras visuais: corte seco só entre cenas; câmera sempre se movendo; objeto novo nasce com `pop`;
-  conceito revelado fica amarelo com `destacar`; ameaça = vermelho, defesa = amarelo; objetos GRANDES no quadro
-  (mísseis já têm escala ×2,4; drones ≥ 2,4; aviões ≥ 2).
-- **Proibido:** rostos de líderes reais, bandeiras usadas de forma ofensiva, sangue, corpos, vítimas,
-  imagens realistas de guerra. Tudo estilizado.
-- Prévia antes do render completo (confira a folha de contato com Read):
+## 4. Ilustrações animadas (`diretor-de-arte`) — ESTILO PADRÃO "B"
+Visual aprovado pelo dono: **3D realista em miniatura** (tilt-shift, luz suave de fim de tarde, veículos e cidades
+detalhados, claramente maquete — nunca parecendo foto real). Referência: `tiktok-geopolitica/assets/estilo/referencia_B.png`
+(geração ElevenLabs `lVqhhKVLhbHRz9ZXTCxI`).
+
+1. **Planeje as tomadas**: 14 a 18 imagens por vídeo (1 por cena + 1 extra nas cenas longas, gancho e final).
+   Cada tomada = imagem + movimento de câmera + efeitos sincronizados com palavras da narração.
+2. **Gere as imagens** (ElevenLabs, ~518 créditos cada em 2K):
+   - `creative_create_flow` (nome "Peça por Peça — <slug>") → `creative_add_flow_asset_node` com
+     `generation_id: lVqhhKVLhbHRz9ZXTCxI` (referência de estilo).
+   - Para cada tomada: `creative_add_flow_node` (`image-generation`, `gpt-image-2.5-sunburst`,
+     `model_parameters: {"aspect_ratio": "9:16", "resolution": "2K", "quality": "high"}`, `connect_from: [ref]`).
+     Prompt começa SEMPRE com: "Use the reference image ONLY for its visual style: stylized-realistic 3D miniature,
+     tilt-shift depth of field, soft global illumination, clean readable shapes. New scene, vertical 9:16 composition:"
+     e termina com: "Keep the main action in the middle of the frame; calmer top 20% and bottom 25% (captions).
+     No text, no letters, no logos, no flags, no faces of real people, no blood, no victims."
+   - `creative_run_flow_nodes` em lotes de até 20, `generations_count: 1` (nunca repita: cobra de novo); acompanhe com
+     `creative_get_flow_run_status` e baixe cada `content_url` para `$P/img/NN.png`.
+   - Confira as imagens (folha de contato com Read). Só regenere uma imagem se estiver errada de verdade.
+3. **Escreva `$P/tomadas.json`** (formato documentado no topo de `motor/ilustrado.py`): `img`, `de` (palavra da
+   narração), `mov` (zoom_in, zoom_out, pan_esq, pan_dir, pan_cima, pan_baixo), `foco`, e `efeitos`
+   (`aneis` = radar/sinal, `rastro` = míssil/foguete/drone, `explosao`, `seta`, `pulso`, `alvo`).
+   Coordenadas em frações da imagem — confira na folha de contato onde está cada objeto.
+4. **Gere os quadros**:
 ```bash
-blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P preview 2,10,20,30,...
+python3 -I tiktok-geopolitica/motor/ilustrado.py $P preview 3,15,40      # prévia
+python3 -I tiktok-geopolitica/motor/ilustrado.py $P                      # todos os quadros (~2 min)
 ```
-- Render completo em 4 processos (≈ 25 min para 2:30). Rode em segundo plano e espere a notificação:
-```bash
-N=$(blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P | grep FRAMES | cut -d' ' -f2)
-# divida 1..N em 4 faixas e lance:  blender ... -- $P range a,b  (uma por processo, com nohup)
-```
+**Plano B** (se faltar crédito na ElevenLabs): motor 3D low-poly do Blender — copie `motor/cena_defesa.py` para
+`motor/cena_<slug>.py`, use `motor/lowpoly.py` e renderize com `blender -b --factory-startup -P ... -- $P range a,b`
+em 4 processos (≈ 25 min).
 
 ## 5. Composição (`editor-de-video`)
 Escreva `producao/<pasta>/grafismos.json` (rótulos amarelos, pílulas vermelhas/azuis, fontes, CTA) no
