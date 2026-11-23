@@ -159,7 +159,7 @@ def rastro(fn, t0, t1, cor=None, r=0.9, cada=0.07, vida=1.3):
 
 # ---------- modelos ----------
 def predio(loc, w, d, h, cor):
-    b = caixa(_id("pred"), (loc[0], loc[1], h / 2), (w, d, h), cor)
+    b = caixa(_id("pred"), (loc[0], loc[1], h / 2), (w, d, h), cor, unico="predio%d" % PREDIOS.index(cor) if cor in PREDIOS else None)
     t = caixa(_id("teto"), (loc[0], loc[1], h + 0.15), (w * 1.04, d * 1.04, 0.3), tuple(c * 0.8 for c in cor[:3]) + (1,))
     filho(b, t); t.location = (0, 0, h / 2 + 0.15); return b
 
@@ -282,35 +282,70 @@ def configurar_render(res_x=720, res_y=1280):
     s.view_settings.view_transform = "Standard"; s.view_settings.exposure = 0.45; s.view_settings.look = "None"
     if s.world is None: s.world = bpy.data.worlds.new("W")
 
-def modo_realista(hdri=None, samples=16):
-    """EEVEE com luz realista: materiais PBR, céu HDRI, sombras suaves, AgX. Chame depois de montar a cena."""
+def _lin(c):
+    return tuple((x / 12.92) if x <= 0.04045 else ((x + 0.055) / 1.055) ** 2.4 for x in c[:3]) + (1.0,)
+
+def modo_realista(hdri=None, samples=4, res=(540, 960), foco=None, abertura=0.35):
+    """Estilo B no Blender: EEVEE, céu HDRI de pôr do sol, sol quente, materiais PBR, quinas arredondadas
+    e desfoque tilt-shift (efeito maquete). Chame depois de montar a cena."""
     s = bpy.context.scene
     s.render.engine = "BLENDER_EEVEE_NEXT"
+    s.render.resolution_x, s.render.resolution_y = res
     s.eevee.taa_render_samples = samples
-    try:
-        s.eevee.use_shadows = True; s.eevee.use_raytracing = True
-        s.eevee.ray_tracing_options.resolution_scale = "2"
-    except Exception: pass
-    s.view_settings.view_transform = "AgX"; s.view_settings.look = "AgX - Medium High Contrast"; s.view_settings.exposure = 0.3
+    for k, v in (("use_shadows", True), ("use_raytracing", True), ("shadow_ray_count", 1), ("shadow_step_count", 4)):
+        try: setattr(s.eevee, k, v)
+        except Exception: pass
+    s.view_settings.view_transform = "AgX"; s.view_settings.look = "AgX - Punchy"; s.view_settings.exposure = -0.2
     for m in bpy.data.materials:
         m.use_nodes = True
         b = m.node_tree.nodes.get("Principled BSDF")
-        if b:
-            b.inputs["Base Color"].default_value = m.diffuse_color
-            b.inputs["Roughness"].default_value = 0.55
-            # anima a cor base junto com diffuse_color (destaques amarelos)
-            ad = m.animation_data
-            if ad and ad.action:
-                for fc in ad.action.fcurves:
-                    if fc.data_path == "diffuse_color":
-                        for kp in fc.keyframe_points:
-                            b.inputs["Base Color"].default_value[fc.array_index] = kp.co[1]
-                            b.inputs["Base Color"].keyframe_insert("default_value", index=fc.array_index, frame=kp.co[0])
+        if not b: continue
+        b.inputs["Base Color"].default_value = _lin(m.diffuse_color)
+        b.inputs["Roughness"].default_value = 0.7
+        ad = m.animation_data
+        if ad and ad.action:
+            for fc in ad.action.fcurves:
+                if fc.data_path == "diffuse_color" and fc.array_index < 3:
+                    for kp in fc.keyframe_points:
+                        v = list(b.inputs["Base Color"].default_value); v[fc.array_index] = _lin((kp.co[1],) * 3)[0]
+                        b.inputs["Base Color"].default_value = v
+                        b.inputs["Base Color"].keyframe_insert("default_value", frame=kp.co[0])
+    # fachadas com janelas (prédios)
+    for m in bpy.data.materials:
+        if not m.name or not any(k[1] and str(k[1]).startswith("predio") for k, v in _mats.items() if v == m): continue
+        nt = m.node_tree; b = nt.nodes.get("Principled BSDF"); parede = b.inputs["Base Color"].default_value[:]
+        tc = nt.nodes.new("ShaderNodeTexCoord"); sx = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(tc.outputs["Object"], sx.inputs[0])
+        ad = nt.nodes.new("ShaderNodeMath"); ad.operation = "ADD"; nt.links.new(sx.outputs[0], ad.inputs[0]); nt.links.new(sx.outputs[1], ad.inputs[1])
+        cb = nt.nodes.new("ShaderNodeCombineXYZ"); nt.links.new(ad.outputs[0], cb.inputs[0]); nt.links.new(sx.outputs[2], cb.inputs[1])
+        br = nt.nodes.new("ShaderNodeTexBrick"); nt.links.new(cb.outputs[0], br.inputs["Vector"])
+        br.inputs["Scale"].default_value = 1.0; br.inputs["Mortar Size"].default_value = 0.32; br.inputs["Brick Width"].default_value = 0.9; br.inputs["Row Height"].default_value = 0.75
+        br.inputs["Color1"].default_value = (0.03, 0.05, 0.08, 1); br.inputs["Color2"].default_value = (0.20, 0.25, 0.32, 1); br.inputs["Mortar"].default_value = parede
+        geo = nt.nodes.new("ShaderNodeNewGeometry"); sn = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(geo.outputs["Normal"], sn.inputs[0])
+        ab = nt.nodes.new("ShaderNodeMath"); ab.operation = "ABSOLUTE"; nt.links.new(sn.outputs[2], ab.inputs[0])
+        gt = nt.nodes.new("ShaderNodeMath"); gt.operation = "GREATER_THAN"; gt.inputs[1].default_value = 0.5; nt.links.new(ab.outputs[0], gt.inputs[0])
+        mx = nt.nodes.new("ShaderNodeMix"); mx.data_type = "RGBA"; nt.links.new(gt.outputs[0], mx.inputs["Factor"])
+        nt.links.new(br.outputs["Color"], mx.inputs[6]); mx.inputs[7].default_value = parede
+        nt.links.new(mx.outputs[2], b.inputs["Base Color"])
+    # grama com variação de cor
+    gm = _mats.get((tuple(round(c, 3) for c in C["grama"]), None))
+    if gm:
+        nt = gm.node_tree; b = nt.nodes.get("Principled BSDF"); nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 0.08
+        cr = nt.nodes.new("ShaderNodeValToRGB"); cr.color_ramp.elements[0].color = _lin((0.36, 0.62, 0.22, 1)); cr.color_ramp.elements[1].color = _lin((0.62, 0.78, 0.36, 1))
+        nt.links.new(nz.outputs["Fac"], cr.inputs[0]); nt.links.new(cr.outputs[0], b.inputs["Base Color"])
+    # quinas arredondadas (maquete) nos objetos de caixa
+    for o in bpy.data.objects:
+        if o.type == "MESH" and len(o.data.polygons) <= 12 and max(o.dimensions) < 40:
+            md = o.modifiers.new("bevel", "BEVEL"); md.width = min(0.12, min(o.dimensions) * 0.12 + 0.001); md.segments = 2
     w = s.world; w.use_nodes = True; nt = w.node_tree
     bg = nt.nodes.get("Background")
     if hdri and bg:
         env = nt.nodes.new("ShaderNodeTexEnvironment"); env.image = bpy.data.images.load(hdri)
-        nt.links.new(env.outputs["Color"], bg.inputs["Color"]); bg.inputs["Strength"].default_value = 1.0
-    sol = bpy.data.lights.new("sol", "SUN"); sol.energy = 3.5; sol.angle = math.radians(3)
+        nt.links.new(env.outputs["Color"], bg.inputs["Color"]); bg.inputs["Strength"].default_value = 1.1
+    sol = bpy.data.lights.new("sol", "SUN"); sol.energy = 4.5; sol.angle = math.radians(2.5); sol.color = (1.0, 0.80, 0.58)
     so = bpy.data.objects.new("sol", sol); bpy.context.collection.objects.link(so)
-    so.rotation_euler = (math.radians(50), math.radians(10), math.radians(35))
+    so.rotation_euler = (math.radians(62), math.radians(0), math.radians(-140))
+    cam = s.camera
+    if cam is not None:
+        cam.data.dof.use_dof = True; cam.data.dof.aperture_fstop = abertura
+        if foco is not None: cam.data.dof.focus_object = foco
+    return bg, sol

@@ -16,7 +16,7 @@ Se já houver 3 vídeos agendados para hoje no Metricool (`getScheduledPosts`), 
 ```bash
 bash tiktok-geopolitica/motor/instalar.sh
 ```
-Blender 4.2 (Workbench, sem GPU), Mesa EGL, faster-whisper, Pillow, ffmpeg.
+Blender 4.2 (EEVEE em CPU), Mesa EGL, faster-whisper, edge-tts, Pillow, ffmpeg.
 
 ## 1. Pauta (agentes `cacador-de-noticias` → `editor-de-pauta`)
 - Rode o `cacador-de-noticias` (ele dispara os 3 subagentes de notícias em paralelo) e grave
@@ -48,37 +48,31 @@ python3 tiktok-geopolitica/motor/palavras.py /tmp/narr.wav $P/palavras.json $P/n
 python3 tiktok-geopolitica/motor/alinhar.py $P      # -> legendas.json + tempos de cada cena
 ```
 
-## 4. Ilustrações animadas (`diretor-de-arte`) — ESTILO PADRÃO "B"
-Visual aprovado pelo dono: **3D realista em miniatura** (tilt-shift, luz suave de fim de tarde, veículos e cidades
-detalhados, claramente maquete — nunca parecendo foto real). Referência: `tiktok-geopolitica/assets/estilo/referencia_B.png`
-(geração ElevenLabs `lVqhhKVLhbHRz9ZXTCxI`).
+## 4. Animação 3D no Blender (`diretor-de-arte`) — ESTILO "B" EM VÍDEO
+Decisão do dono: **tudo em vídeo animado no Blender**, sem ElevenLabs. Visual-alvo = estilo B (3D realista em
+miniatura: tilt-shift, céu real, sol dourado, quinas arredondadas, prédios com janelas). Referência visual:
+`tiktok-geopolitica/assets/estilo/referencia_B.png`. O modo `REALISTA=1` liga isso (`modo_realista()` em `lowpoly.py`:
+EEVEE, céu HDRI CC0 da Poly Haven, materiais PBR, janelas, grama com textura, desfoque tilt-shift focado no `alvo`).
 
-1. **Planeje as tomadas**: 14 a 18 imagens por vídeo (1 por cena + 1 extra nas cenas longas, gancho e final).
-   Cada tomada = imagem + movimento de câmera + efeitos sincronizados com palavras da narração.
-2. **Gere as imagens** (ElevenLabs, ~518 créditos cada em 2K):
-   - `creative_create_flow` (nome "Peça por Peça — <slug>") → `creative_add_flow_asset_node` com
-     `generation_id: lVqhhKVLhbHRz9ZXTCxI` (referência de estilo).
-   - Para cada tomada: `creative_add_flow_node` (`image-generation`, `gpt-image-2.5-sunburst`,
-     `model_parameters: {"aspect_ratio": "9:16", "resolution": "2K", "quality": "high"}`, `connect_from: [ref]`).
-     Prompt começa SEMPRE com: "Use the reference image ONLY for its visual style: stylized-realistic 3D miniature,
-     tilt-shift depth of field, soft global illumination, clean readable shapes. New scene, vertical 9:16 composition:"
-     e termina com: "Keep the main action in the middle of the frame; calmer top 20% and bottom 25% (captions).
-     No text, no letters, no logos, no flags, no faces of real people, no blood, no victims."
-   - `creative_run_flow_nodes` em lotes de até 20, `generations_count: 1` (nunca repita: cobra de novo); acompanhe com
-     `creative_get_flow_run_status` e baixe cada `content_url` para `$P/img/NN.png`.
-   - Confira as imagens (folha de contato com Read). Só regenere uma imagem se estiver errada de verdade.
-3. **Escreva `$P/tomadas.json`** (formato documentado no topo de `motor/ilustrado.py`): `img`, `de` (palavra da
-   narração), `mov` (zoom_in, zoom_out, pan_esq, pan_dir, pan_cima, pan_baixo), `foco`, e `efeitos`
-   (`aneis` = radar/sinal, `rastro` = míssil/foguete/drone, `explosao`, `seta`, `pulso`, `alvo`).
-   Coordenadas em frações da imagem — confira na folha de contato onde está cada objeto.
-4. **Gere os quadros**:
+1. Copie `motor/cena_defesa.py` para `motor/cena_<slug>.py` e reescreva as cenas usando `motor/lowpoly.py`.
+   Sincronize tudo com `T(cena, "palavra")`. Mantenha o bloco `if os.environ.get("REALISTA")` no fim.
+   **A cada vídeo, melhore 1 ou 2 modelos** em `lowpoly.py` (mais detalhe nos caminhões, navios, tanques, aviões,
+   sacos de areia, caixas de munição) — o visual deve se aproximar da referência B vídeo após vídeo.
+2. Prévia (meia resolução, ~4 s por quadro) e conferência com Read:
 ```bash
-python3 -I tiktok-geopolitica/motor/ilustrado.py $P preview 3,15,40      # prévia
-python3 -I tiktok-geopolitica/motor/ilustrado.py $P                      # todos os quadros (~2 min)
+REALISTA=1 blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P preview 3,15,40,80
 ```
-**Plano B** (se faltar crédito na ElevenLabs): motor 3D low-poly do Blender — copie `motor/cena_defesa.py` para
-`motor/cena_<slug>.py`, use `motor/lowpoly.py` e renderize com `blender -b --factory-startup -P ... -- $P range a,b`
-em 4 processos (≈ 25 min).
+3. Render final a 15 quadros/s (o compor duplica para 30 fps), em 2 processos, em segundo plano (~1h30):
+```bash
+N=$(REALISTA=1 blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P | grep FRAMES | cut -d' ' -f2)
+H=$(( (N/2/2)*2 + 1 ))
+REALISTA=1 PASSO=2 nohup blender -b --factory-startup -P .../cena_<slug>.py -- $P range 1,$((H-1)) > $P/render_a.log 2>&1 &
+REALISTA=1 PASSO=2 nohup blender -b --factory-startup -P .../cena_<slug>.py -- $P range $H,$N > $P/render_b.log 2>&1 &
+```
+   Espere com um comando em segundo plano que termina quando o Blender acabar (você é avisado).
+
+**Alternativa só para cenas-chave:** imagens de IA do Canva (`generate-image`) animadas com `motor/ilustrado.py`,
+se o limite de IA do Canva permitir. Nunca use ElevenLabs.
 
 ## 5. Composição (`editor-de-video`)
 Escreva `producao/<pasta>/grafismos.json` (rótulos amarelos, pílulas vermelhas/azuis, fontes, CTA) no

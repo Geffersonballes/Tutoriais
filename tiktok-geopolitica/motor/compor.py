@@ -177,9 +177,12 @@ if __name__ == "__main__":
                            "-i", aud, "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-profile:v", "high",
                            "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     dur_audio = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", aud], capture_output=True, text=True).stdout)
-    frames = frames[: int(dur_audio * FPS)]
-    for k, nome in enumerate(frames):
+    # quadros podem ter sido renderizados com passo (ex.: 1 a cada 2): usa o último quadro disponível
+    nums = sorted(int(x[2:6]) for x in frames)
+    import bisect
+    for k in range(int(dur_audio * FPS)):
         t = k / FPS
+        nome = "f_%04d.jpg" % nums[max(0, bisect.bisect_right(nums, k + 1) - 1)]
         base = Image.open(os.path.join(PASTA, "frames", nome)).convert("RGBA").resize((W, H), Image.BICUBIC)
         base.alpha_composite(overlay(t))
         ff.stdin.write(base.convert("RGB").tobytes())
