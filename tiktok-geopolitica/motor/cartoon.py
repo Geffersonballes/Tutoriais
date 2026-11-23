@@ -9,7 +9,7 @@ from lowpoly import _id, _lin, _mats
 PELE = (0.96, 0.76, 0.60, 1); MOLETOM = (1.0, 0.48, 0.12, 1); CALCA = (0.20, 0.24, 0.32, 1)
 FONE = (0.55, 0.95, 0.20, 1); CABELO = (0.16, 0.10, 0.08, 1); TENIS = (0.97, 0.97, 0.97, 1); PRETO = (0.03, 0.03, 0.04, 1)
 
-def suave(ob):
+def liso(ob):
     for o in todos(ob):
         if o.type == "MESH":
             for p in o.data.polygons: p.use_smooth = True
@@ -20,7 +20,7 @@ def capsula(nome, loc, r, h, cor, unico=None):
     c = cilindro(nome, loc, r, h, cor, seg=20, unico=unico)
     for z in (h / 2, -h / 2):
         e = esfera(_id("cap"), (0, 0, z), r, cor, sub=3, unico=unico); filho(c, e); e.location = (0, 0, z)
-    return suave(c)
+    return liso(c)
 
 def sorriso(nome, R=0.14, r=0.03, cor=(0.40, 0.08, 0.06, 1)):
     """Meio anel (só a metade de baixo) = sorriso."""
@@ -31,7 +31,7 @@ def sorriso(nome, R=0.14, r=0.03, cor=(0.40, 0.08, 0.06, 1)):
     bmesh.ops.delete(bm, geom=[v for v in bm.verts if v.co.y > 0.02], context="VERTS")
     bm.to_mesh(ob.data); bm.free()
     ob.rotation_euler = (math.radians(90), 0, 0)
-    ob.data.materials.append(mat(cor)); return suave(ob)
+    ob.data.materials.append(mat(cor)); return liso(ob)
 
 def pixel(nome, loc=(0, 0, 0), moletom=MOLETOM, calca=CALCA, escala=1.0):
     """Mascote da série. Retorna dict com o objeto raiz e os pivôs de animação."""
@@ -41,12 +41,12 @@ def pixel(nome, loc=(0, 0, 0), moletom=MOLETOM, calca=CALCA, escala=1.0):
     for lado, x in (("E", -0.26), ("D", 0.26)):
         q = vazio(f"{nome}_quadril{lado}", (x, 0, 1.05)); filho(raiz, q)
         perna = capsula(_id("perna"), (0, 0, -0.45), 0.2, 0.6, calca); filho(q, perna); perna.location = (0, 0, -0.45)
-        ten = esfera(_id("tenis"), (0, -0.08, -0.95), 0.24, TENIS, sub=3); ten.scale = (1, 1.45, 0.6); filho(q, ten); ten.location = (0, -0.08, -0.95); suave(ten)
+        ten = esfera(_id("tenis"), (0, -0.08, -0.95), 0.24, TENIS, sub=3); ten.scale = (1, 1.45, 0.6); filho(q, ten); ten.location = (0, -0.08, -0.95); liso(ten)
         P["perna" + lado] = q
     # tronco (moletom com capuz nas costas e bolso)
     tronco = capsula(_id("tronco"), (0, 0, 1.55), 0.46, 0.55, moletom); filho(raiz, tronco); tronco.location = (0, 0, 1.55)
     tronco.scale = (1.0, 0.78, 1.0)
-    capuz = esfera(_id("capuz"), (0, 0.32, 0.45), 0.36, moletom, sub=3); capuz.scale = (1.2, 0.7, 0.6); filho(tronco, capuz); capuz.location = (0, 0.34, 0.42); suave(capuz)
+    capuz = esfera(_id("capuz"), (0, 0.32, 0.45), 0.36, moletom, sub=3); capuz.scale = (1.2, 0.7, 0.6); filho(tronco, capuz); capuz.location = (0, 0.34, 0.42); liso(capuz)
     bolso = caixa(_id("bolso"), (0, -0.43, -0.12), (0.52, 0.06, 0.2), tuple(c * 0.85 for c in moletom[:3]) + (1,)); filho(tronco, bolso); bolso.location = (0, -0.44, -0.12)
     P["tronco"] = tronco
     # braços com ombro e cotovelo
@@ -55,29 +55,29 @@ def pixel(nome, loc=(0, 0, 0), moletom=MOLETOM, calca=CALCA, escala=1.0):
         sup = capsula(_id("braco"), (0, 0, -0.25), 0.14, 0.32, moletom); filho(ombro, sup); sup.location = (0, 0, -0.25)
         cot = vazio(f"{nome}_cotovelo{lado}", (0, 0, -0.52)); filho(ombro, cot)
         ant = capsula(_id("antebraco"), (0, 0, -0.22), 0.12, 0.26, PELE); filho(cot, ant); ant.location = (0, 0, -0.22)
-        mao = esfera(_id("mao"), (0, 0, -0.5), 0.16, PELE, sub=3); filho(cot, mao); mao.location = (0, 0, -0.5); suave(mao)
+        mao = esfera(_id("mao"), (0, 0, -0.5), 0.16, PELE, sub=3); filho(cot, mao); mao.location = (0, 0, -0.5); liso(mao)
         ombro.rotation_euler = (0, math.radians(-8 if lado == "D" else 8), 0)
         P["ombro" + lado] = ombro; P["cotovelo" + lado] = cot
     # cabeça grande (proporção de brinquedo)
     pesc = vazio(f"{nome}_pescoco", (0, 0, 2.05)); filho(raiz, pesc); P["cabeca"] = pesc
-    cab = esfera(_id("cabeca"), (0, 0, 0.55), 0.58, PELE, sub=4); filho(pesc, cab); cab.location = (0, 0, 0.55); cab.scale = (1.0, 0.95, 1.02); suave(cab)
+    cab = esfera(_id("cabeca"), (0, 0, 0.55), 0.58, PELE, sub=4); filho(pesc, cab); cab.location = (0, 0, 0.55); cab.scale = (1.0, 0.95, 1.02); liso(cab)
     for x in (-0.2, 0.2):   # olhos com brilho
-        o = esfera(_id("olho"), (x, -0.5, 0.62), 0.085, PRETO, sub=3); o.scale = (1, 0.6, 1.25); filho(pesc, o); o.location = (x, -0.5, 0.62); suave(o)
+        o = esfera(_id("olho"), (x, -0.5, 0.62), 0.085, PRETO, sub=3); o.scale = (1, 0.6, 1.25); filho(pesc, o); o.location = (x, -0.5, 0.62); liso(o)
         b = esfera(_id("brilho"), (x + 0.025, -0.56, 0.67), 0.025, (1, 1, 1, 1), sub=2); filho(pesc, b); b.location = (x + 0.025, -0.555, 0.67)
         s = caixa(_id("sobr"), (x, -0.5, 0.8), (0.16, 0.04, 0.035), CABELO); filho(pesc, s); s.location = (x, -0.51, 0.81)
         s.rotation_euler = (0, math.radians(-10 if x < 0 else 10), 0)
     boca = sorriso(_id("boca")); filho(pesc, boca); boca.location = (0, -0.53, 0.47)
-    nariz = esfera(_id("nariz"), (0, -0.58, 0.53), 0.06, (0.93, 0.66, 0.52, 1), sub=2); filho(pesc, nariz); nariz.location = (0, -0.57, 0.53); suave(nariz)
+    nariz = esfera(_id("nariz"), (0, -0.58, 0.53), 0.06, (0.93, 0.66, 0.52, 1), sub=2); filho(pesc, nariz); nariz.location = (0, -0.57, 0.53); liso(nariz)
     # cabelo espetado
     for k in range(7):
         a = -0.45 + k * 0.15
         sp = cilindro(_id("mecha"), (0, 0, 0), 0.14, 0.42, CABELO, seg=6, r2=0.0); filho(pesc, sp)
         sp.location = (a, 0.05 + abs(a) * 0.2, 1.08 - abs(a) * 0.3); sp.rotation_euler = (math.radians(-25), math.radians(a * 70), 0)
-    topo = esfera(_id("cabelo"), (0, 0.06, 0.82), 0.56, CABELO, sub=3); topo.scale = (1.02, 0.98, 0.55); filho(pesc, topo); topo.location = (0, 0.06, 0.86); suave(topo)
+    topo = esfera(_id("cabelo"), (0, 0.06, 0.82), 0.56, CABELO, sub=3); topo.scale = (1.02, 0.98, 0.55); filho(pesc, topo); topo.location = (0, 0.06, 0.86); liso(topo)
     # fone de ouvido (marca registrada do Pixel)
     arco = anel(_id("arcoFone"), (0, 0, 0.62), 0.62, 0.05, FONE, seg=32); filho(pesc, arco); arco.location = (0, 0, 0.62); arco.rotation_euler = (math.radians(90), 0, 0); arco.scale = (1.0, 1.0, 1.0)
     for x in (-0.6, 0.6):
-        cp = cilindro(_id("concha"), (0, 0, 0), 0.2, 0.14, FONE, seg=20); cp.rotation_euler = (0, math.radians(90), 0); filho(pesc, cp); cp.location = (x, 0, 0.55); suave(cp)
+        cp = cilindro(_id("concha"), (0, 0, 0), 0.2, 0.14, FONE, seg=20); cp.rotation_euler = (0, math.radians(90), 0); filho(pesc, cp); cp.location = (x, 0, 0.55); liso(cp)
     mic = cilindro(_id("mic"), (0, 0, 0), 0.025, 0.42, PRETO, seg=6); filho(pesc, mic); mic.location = (-0.5, -0.25, 0.42); mic.rotation_euler = (math.radians(70), 0, math.radians(-30))
     return P
 

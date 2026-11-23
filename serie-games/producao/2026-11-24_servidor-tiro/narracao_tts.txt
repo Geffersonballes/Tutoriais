@@ -1,0 +1,7 @@
+Você atirou primeiro. Mas quem caiu foi você. Como o jogo decide quem acertou?
+Se dez jogadores atiram ao mesmo tempo, então alguém precisa ser o juiz. Esse é o servidor: um computador que guarda a versão oficial da partida.
+Mas ele não olha o jogo o tempo todo. Ele tira fotos da partida em intervalos fixos. Cada foto é um tick. No CS2, são sessenta e quatro por segundo.
+E se o seu tiro cai entre duas fotos, então o CS2 anota o instante exato do clique. Esse é o sub-tick.
+Mas o seu clique ainda precisa viajar até o servidor. Se a sua internet demora, então ele chega atrasado. Esse é o ping.
+Por isso o servidor volta no tempo e confere onde o inimigo estava quando você atirou. Isso é a compensação de lag. E é por isso que às vezes você cai já atrás da parede.
+Já sabia? Comenta headshot. Não sabia? Comenta bot.
