@@ -6,7 +6,8 @@
 | TikTok para publicar | Metricool, marca `ballestech` (blogId 8049742), TikTok pessoal `geffersonballes1` | ✅ conectado |
 | TikTok para métricas | Windsor `tiktok_organic`, conta "Gefferson Balles" | conectado (só leitura) |
 | Fuso | America/Cuiaba | ok |
-| Voz (ElevenLabs) | Fernando Will Narração & Storytelling — `SWnJtSNPFBZm03EETsy1`, modelo `eleven_multilingual_v2` | ✅ |
+| Voz | **pt-BR-AntonioNeural** (Microsoft, via edge-tts, gratuita), `--rate=+12%` | ✅ escolhida pelo dono |
+| ElevenLabs | Plano gratuito — **não usar** na rotina (decisão do dono) | — |
 | Visual | Estilo B: ilustrações 3D realistas em miniatura (ElevenLabs gpt-image-2.5-sunburst, 9:16 2K, referência `assets/estilo/referencia_B.png`) animadas por `motor/ilustrado.py` | ✅ aprovado |
 | Plano B visual | Blender 4.2 LTS low-poly (`motor/lowpoly.py`) | reserva |
 | Custo por vídeo | ~16 imagens × 518 + voz ~2.200 ≈ 10.500 créditos ElevenLabs (≈ US$ 1,05) | estimativa |

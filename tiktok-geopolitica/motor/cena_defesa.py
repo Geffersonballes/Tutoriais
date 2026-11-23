@@ -478,6 +478,9 @@ for o in bpy.data.objects:
         visivel_janelas(o, [(tt6, S[6][1]), (S[9][0], S[12][1])])
 
 # ---------- render ----------
+if os.environ.get("REALISTA"):
+    modo_realista(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "hdri", "ceu_parcialmente_nublado_2k.hdr"))
+
 saida = os.path.join(PASTA, "frames")
 os.makedirs(saida, exist_ok=True)
 if len(args) > 1 and args[1] == "preview":

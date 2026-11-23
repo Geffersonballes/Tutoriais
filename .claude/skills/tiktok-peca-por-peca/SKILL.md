@@ -37,9 +37,11 @@ Blender 4.2 (Workbench, sem GPU), Mesa EGL, faster-whisper, Pillow, ffmpeg.
 
 Pasta: `tiktok-geopolitica/producao/AAAA-MM-DD_<slug>/` com um `status.md` atualizado a cada etapa.
 
-## 3. Narração (`narrador`)
-ElevenLabs `creative_generate_speech`, voz **Fernando Will** `SWnJtSNPFBZm03EETsy1`, modelo
-`eleven_multilingual_v2`, `generations_count: 1` (nunca repita a chamada: cobra de novo). Baixe para `narracao.mp3`.
+## 3. Narração (`narrador`) — voz gratuita Microsoft "Antonio"
+Voz oficial da série: **pt-BR-AntonioNeural** (edge-tts, gratuita e sem limite). Não use ElevenLabs.
+```bash
+edge-tts --voice pt-BR-AntonioNeural --rate=+12% --file $P/narracao_tts.txt --write-media $P/narracao.mp3
+```
 ```bash
 ffmpeg -v error -y -i $P/narracao.mp3 -ac 1 -ar 16000 /tmp/narr.wav
 python3 tiktok-geopolitica/motor/palavras.py /tmp/narr.wav $P/palavras.json $P/narracao_tts.txt

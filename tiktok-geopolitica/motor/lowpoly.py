@@ -281,3 +281,36 @@ def configurar_render(res_x=720, res_y=1280):
     s.render.image_settings.file_format = "JPEG"; s.render.image_settings.quality = 95
     s.view_settings.view_transform = "Standard"; s.view_settings.exposure = 0.45; s.view_settings.look = "None"
     if s.world is None: s.world = bpy.data.worlds.new("W")
+
+def modo_realista(hdri=None, samples=16):
+    """EEVEE com luz realista: materiais PBR, céu HDRI, sombras suaves, AgX. Chame depois de montar a cena."""
+    s = bpy.context.scene
+    s.render.engine = "BLENDER_EEVEE_NEXT"
+    s.eevee.taa_render_samples = samples
+    try:
+        s.eevee.use_shadows = True; s.eevee.use_raytracing = True
+        s.eevee.ray_tracing_options.resolution_scale = "2"
+    except Exception: pass
+    s.view_settings.view_transform = "AgX"; s.view_settings.look = "AgX - Medium High Contrast"; s.view_settings.exposure = 0.3
+    for m in bpy.data.materials:
+        m.use_nodes = True
+        b = m.node_tree.nodes.get("Principled BSDF")
+        if b:
+            b.inputs["Base Color"].default_value = m.diffuse_color
+            b.inputs["Roughness"].default_value = 0.55
+            # anima a cor base junto com diffuse_color (destaques amarelos)
+            ad = m.animation_data
+            if ad and ad.action:
+                for fc in ad.action.fcurves:
+                    if fc.data_path == "diffuse_color":
+                        for kp in fc.keyframe_points:
+                            b.inputs["Base Color"].default_value[fc.array_index] = kp.co[1]
+                            b.inputs["Base Color"].keyframe_insert("default_value", index=fc.array_index, frame=kp.co[0])
+    w = s.world; w.use_nodes = True; nt = w.node_tree
+    bg = nt.nodes.get("Background")
+    if hdri and bg:
+        env = nt.nodes.new("ShaderNodeTexEnvironment"); env.image = bpy.data.images.load(hdri)
+        nt.links.new(env.outputs["Color"], bg.inputs["Color"]); bg.inputs["Strength"].default_value = 1.0
+    sol = bpy.data.lights.new("sol", "SUN"); sol.energy = 3.5; sol.angle = math.radians(3)
+    so = bpy.data.objects.new("sol", sol); bpy.context.collection.objects.link(so)
+    so.rotation_euler = (math.radians(50), math.radians(10), math.radians(35))
