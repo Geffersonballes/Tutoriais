@@ -1,0 +1,49 @@
+# Sobe tudo na VPS: banco, Evolution API (WhatsApp) e o robô.
+#   cp .env.example .env   (e preencha)
+#   docker compose up -d evolution
+#   (ler o QR Code — ver README)
+#   docker compose up -d robo
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: evolution
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: evolution
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  evolution:
+    # Versão a confirmar no Passo 5 (ver README)
+    image: evoapicloud/evolution-api:v2.2.3
+    restart: unless-stopped
+    depends_on: [postgres]
+    ports:
+      - "127.0.0.1:8080:8080"   # só acessível de dentro da VPS (use túnel SSH)
+    environment:
+      SERVER_URL: http://localhost:8080
+      AUTHENTICATION_API_KEY: ${EVOLUTION_API_KEY}
+      DATABASE_ENABLED: "true"
+      DATABASE_PROVIDER: postgresql
+      DATABASE_CONNECTION_URI: postgresql://evolution:${POSTGRES_PASSWORD}@postgres:5432/evolution?schema=public
+      CACHE_REDIS_ENABLED: "false"
+      CACHE_LOCAL_ENABLED: "true"
+      LANGUAGE: pt-BR
+    volumes:
+      - evolution_instances:/evolution/instances
+
+  robo:
+    build: .
+    restart: unless-stopped
+    depends_on: [evolution]
+    env_file: .env
+    environment:
+      EVOLUTION_URL: http://evolution:8080
+      BANCO: /app/dados/historico.db
+    volumes:
+      - ./dados:/app/dados
+
+volumes:
+  pgdata:
+  evolution_instances:
