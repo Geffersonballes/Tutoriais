@@ -10,4 +10,5 @@
 | Render 3D | Blender 4.2 LTS (Workbench), 720×1280 → 1080×1920, 30 fps | ✅ |
 | Fonte | Montserrat (OFL), em `assets/fonts/` | ✅ |
 | CTA padrão | GENERAL / RECRUTA | ok |
-| Frequência | 1 vídeo/dia | sugestão |
+| Frequência | 3 vídeos/dia — produções automáticas às 07:45, 14:20 e 17:50 (Cuiabá) | ✅ aprovado |
+| Publicação | Metricool `createScheduledPost` com `autoPublish: false`: o dono confirma cada post no app do Metricool | ✅ aprovado |
