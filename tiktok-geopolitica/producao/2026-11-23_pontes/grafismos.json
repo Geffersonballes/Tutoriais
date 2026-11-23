@@ -1,0 +1,33 @@
+{
+  "capa": {"linhas": ["POR QUE TODO", "MUNDO MIRA", "NAS PONTES?"], "destaque": [2], "dur": 1.3},
+  "rotulos": [
+    {"texto": "ARTÉRIAS", "de": [1, "Essas"], "ate": [1, "@fim", 0, 0.3]},
+    {"texto": "GARGALO", "de": [2, "Esse"], "ate": [2, "@fim", 0, 0.3]},
+    {"texto": "LINHA DE SUPRIMENTO", "de": [3, "Essa"], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "INTERDIÇÃO", "de": [4, "Isso"], "ate": [4, "@fim", 0, 0.3]},
+    {"texto": "PONTE DA CRIMEIA", "de": [6, "Crimeia"], "ate": [6, "@fim", 0, 0.3]},
+    {"texto": "CONTROLE O RITMO", "de": [7, "controla", 1], "ate": [7, "@fim", 0, 0.3], "y": 0.2}
+  ],
+  "pilulas": [
+    {"texto": "KIEV · 2 PONTES NA MESMA NOITE", "ponto": "vermelho", "tam": 44, "de": [0, "pontes"], "ate": [0, "@fim", 0, 0.3], "y": 0.15},
+    {"texto": "UCRÂNIA ATACA A PONTE DA CRIMEIA", "ponto": "azul", "tam": 44, "de": [0, "Ucrânia"], "ate": [0, "@fim", 0, 0.3], "y": 0.22},
+    {"texto": "CAMINHÕES · TRENS · AMBULÂNCIAS", "ponto": "azul", "de": [1, "caminhões"], "ate": [1, "Essas"], "y": 0.3},
+    {"texto": "MINUTOS → HORAS DE FILA", "ponto": "vermelho", "de": [2, "minutos"], "ate": [2, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "MUNIÇÃO", "ponto": "azul", "de": [3, "bala"], "ate": [3, "Essa"], "y": 0.3},
+    {"texto": "COMBUSTÍVEL", "ponto": "azul", "de": [3, "combustível"], "ate": [3, "Essa"], "y": 0.36},
+    {"texto": "SOLDADOS", "ponto": "azul", "de": [3, "soldado"], "ate": [3, "Essa"], "y": 0.42},
+    {"texto": "SEM MUNIÇÃO NA FRENTE", "ponto": "vermelho", "de": [4, "munição"], "ate": [4, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "PONTES FLUTUANTES", "ponto": "azul", "de": [5, "flutuantes"], "ate": [5, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "BALSAS", "ponto": "azul", "de": [5, "balsas"], "ate": [5, "@fim", 0, 0.3], "y": 0.36},
+    {"texto": "DEFESA ANTIAÉREA", "ponto": "azul", "de": [5, "antiaérea"], "ate": [5, "@fim", 0, 0.3], "y": 0.42},
+    {"texto": "RÚSSIA → PENÍNSULA", "ponto": "vermelho", "de": [6, "liga"], "ate": [6, "@fim", 0, 0.3], "y": 0.3}
+  ],
+  "fontes": [
+    {"texto": "Fontes: AFP via O Povo (17/11/2026), Kyiv Independent, Meduza", "de": [0, "pontes"], "ate": [0, "@fim", 0, 0.3]}
+  ],
+  "cta": {
+    "linha1": [8, "Se"], "t1a": "JÁ SABIA? COMENTE", "t1b": "“GENERAL”",
+    "linha2": [8, "Se", 1], "t2a": "NÃO SABIA? COMENTE", "t2b": "“RECRUTA”",
+    "marca_de": [8, "recruta", 0, 0.4], "marca": "PEÇA POR PEÇA · siga pra próxima"
+  }
+}
