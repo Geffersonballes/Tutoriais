@@ -16,7 +16,7 @@ Se já houver 3 vídeos agendados para hoje no Metricool (`getScheduledPosts`), 
 ```bash
 bash tiktok-geopolitica/motor/instalar.sh
 ```
-Blender 4.2 (Workbench, sem GPU), Mesa EGL, faster-whisper, Pillow, ffmpeg.
+Blender 4.2 (EEVEE em CPU), Mesa EGL, faster-whisper, edge-tts, Pillow, ffmpeg.
 
 ## 1. Pauta (agentes `cacador-de-noticias` → `editor-de-pauta`)
 - Rode o `cacador-de-noticias` (ele dispara os 3 subagentes de notícias em paralelo) e grave
@@ -37,35 +37,42 @@ Blender 4.2 (Workbench, sem GPU), Mesa EGL, faster-whisper, Pillow, ffmpeg.
 
 Pasta: `tiktok-geopolitica/producao/AAAA-MM-DD_<slug>/` com um `status.md` atualizado a cada etapa.
 
-## 3. Narração (`narrador`)
-ElevenLabs `creative_generate_speech`, voz **Fernando Will** `SWnJtSNPFBZm03EETsy1`, modelo
-`eleven_multilingual_v2`, `generations_count: 1` (nunca repita a chamada: cobra de novo). Baixe para `narracao.mp3`.
+## 3. Narração (`narrador`) — voz gratuita Microsoft "Antonio"
+Voz oficial da série: **pt-BR-AntonioNeural** (edge-tts, gratuita e sem limite). Não use ElevenLabs.
+```bash
+edge-tts --voice pt-BR-AntonioNeural --rate=+12% --file $P/narracao_tts.txt --write-media $P/narracao.mp3
+```
 ```bash
 ffmpeg -v error -y -i $P/narracao.mp3 -ac 1 -ar 16000 /tmp/narr.wav
 python3 tiktok-geopolitica/motor/palavras.py /tmp/narr.wav $P/palavras.json $P/narracao_tts.txt
 python3 tiktok-geopolitica/motor/alinhar.py $P      # -> legendas.json + tempos de cada cena
 ```
 
-## 4. Cenas 3D (`diretor-de-arte`)
-- Copie `motor/cena_defesa.py` para `motor/cena_<slug>.py` e reescreva as cenas. Use SÓ a biblioteca
-  `motor/lowpoly.py` (cidade, mísseis, drones, aviões, radar, caminhões, navios = caixas/cilindros, bonecos,
-  explosões, fumaça, anéis). Se precisar de um modelo novo (navio, tanque, mapa, bandeira genérica), crie a
-  função em `lowpoly.py` para reaproveitar nos próximos vídeos.
-- Sincronize tudo com `T(cena, "palavra")` — nunca tempos fixos.
-- Regras visuais: corte seco só entre cenas; câmera sempre se movendo; objeto novo nasce com `pop`;
-  conceito revelado fica amarelo com `destacar`; ameaça = vermelho, defesa = amarelo; objetos GRANDES no quadro
-  (mísseis já têm escala ×2,4; drones ≥ 2,4; aviões ≥ 2).
-- **Proibido:** rostos de líderes reais, bandeiras usadas de forma ofensiva, sangue, corpos, vítimas,
-  imagens realistas de guerra. Tudo estilizado.
-- Prévia antes do render completo (confira a folha de contato com Read):
+## 4. Animação 3D no Blender (`diretor-de-arte`) — ESTILO "B" EM VÍDEO
+Decisão do dono: **tudo em vídeo animado no Blender**, sem ElevenLabs. Visual-alvo = estilo B (3D realista em
+miniatura: tilt-shift, céu real, sol dourado, quinas arredondadas, prédios com janelas). Referência visual:
+`tiktok-geopolitica/assets/estilo/referencia_B.png`. O modo `REALISTA=1` liga isso (`modo_realista()` em `lowpoly.py`:
+EEVEE, céu HDRI CC0 da Poly Haven, materiais PBR, janelas, grama com textura, desfoque tilt-shift focado no `alvo`).
+
+1. Copie `motor/cena_defesa.py` para `motor/cena_<slug>.py` e reescreva as cenas usando `motor/lowpoly.py`.
+   Sincronize tudo com `T(cena, "palavra")`. Mantenha o bloco `if os.environ.get("REALISTA")` no fim.
+   **A cada vídeo, melhore 1 ou 2 modelos** em `lowpoly.py` (mais detalhe nos caminhões, navios, tanques, aviões,
+   sacos de areia, caixas de munição) — o visual deve se aproximar da referência B vídeo após vídeo.
+2. Prévia (meia resolução, ~4 s por quadro) e conferência com Read:
 ```bash
-blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P preview 2,10,20,30,...
+REALISTA=1 blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P preview 3,15,40,80
 ```
-- Render completo em 4 processos (≈ 25 min para 2:30). Rode em segundo plano e espere a notificação:
+3. Render final a 15 quadros/s (o compor duplica para 30 fps), em 2 processos, em segundo plano (~1h30):
 ```bash
-N=$(blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P | grep FRAMES | cut -d' ' -f2)
-# divida 1..N em 4 faixas e lance:  blender ... -- $P range a,b  (uma por processo, com nohup)
+N=$(REALISTA=1 blender -b --factory-startup -P tiktok-geopolitica/motor/cena_<slug>.py -- $P | grep FRAMES | cut -d' ' -f2)
+H=$(( (N/2/2)*2 + 1 ))
+REALISTA=1 PASSO=2 nohup blender -b --factory-startup -P .../cena_<slug>.py -- $P range 1,$((H-1)) > $P/render_a.log 2>&1 &
+REALISTA=1 PASSO=2 nohup blender -b --factory-startup -P .../cena_<slug>.py -- $P range $H,$N > $P/render_b.log 2>&1 &
 ```
+   Espere com um comando em segundo plano que termina quando o Blender acabar (você é avisado).
+
+**Alternativa só para cenas-chave:** imagens de IA do Canva (`generate-image`) animadas com `motor/ilustrado.py`,
+se o limite de IA do Canva permitir. Nunca use ElevenLabs.
 
 ## 5. Composição (`editor-de-video`)
 Escreva `producao/<pasta>/grafismos.json` (rótulos amarelos, pílulas vermelhas/azuis, fontes, CTA) no
@@ -74,26 +81,52 @@ modelo do vídeo 01 e rode:
 python3 tiktok-geopolitica/motor/compor.py $P $P/grafismos.json 5,30,60   # prévia
 python3 tiktok-geopolitica/motor/compor.py $P $P/grafismos.json           # final.mp4 + capa.jpg
 ```
+**Capa obrigatória** em `grafismos.json`: `"capa": {"linhas": ["33 KM DE MAR", "QUE PODEM", "PARAR O MUNDO"],
+"destaque": [0], "dur": 1.3}` — 2 a 4 linhas, no máximo ~6 palavras no total, curiosa e verdadeira (sem
+promessa que o vídeo não cumpre). Ela aparece grande no meio no 1º 1,3 s e vira a capa da grade do perfil
+(o TikTok pessoal usa o 1º quadro). A narração do gancho continua por baixo.
 
 ## 6. Controle de qualidade (`controle-de-qualidade` ⛔)
 Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro, nada cortado na área segura
-(fora dos 15 % inferiores e da coluna de botões à direita), sem tela preta, duração 1:50–2:50, áudio −14 LUFS.
+(fora dos 15 % inferiores e da coluna de botões à direita), sem tela preta, duração 1:50–2:50, áudio −14 LUFS. Mais o **checklist do post**:
+- [ ] **Capa:** o 1º quadro (`capa.jpg`) mostra o título grande, legível no tamanho da grade (olhe em 270 px).
+- [ ] **Gancho:** a cena mais forte (explosão, ameaça, número chocante) aparece nos 3 primeiros segundos.
+- [ ] **Título:** curto, curioso e verdadeiro; o vídeo responde à pergunta da capa.
+- [ ] **Legenda:** sem erro e sem tapar o objeto principal da cena (rótulos e pílulas acima, legenda a 63 % da altura).
+- [ ] **Começo e fim:** não começa nem termina no meio de uma frase; o CTA aparece completo.
+- [ ] **Crédito/fonte:** número na tela tem fonte; selo "Conteúdo gerado com IA" visível.
 
 ## 7. Entrega e agendamento (`publicador`)
-1. Suba `final.mp4` para o Google Drive (`create_file` com referência de arquivo `sha256:<hash>:<caminho>`,
-   `contentMimeType: video/mp4`, `disableConversionToGoogleType: true`) e também para o OneDrive em
-   `Área de Trabalho/Editor de vídeo/Peça por Peça/` (pasta autorizada no CLAUDE.md).
+1. Gere um link público do `final.mp4` pelo Picsart (aceita até 100 MB; o Google Drive daqui só aceita 10 MB):
+   chame `picsart_upload_local_files` com o nome e o tamanho do arquivo e rode o `curl` devolvido, trocando `{path}`
+   pelo caminho do vídeo. O link (`response.url`) é temporário, mas o Metricool copia o vídeo para o servidor dele
+   no agendamento, então basta usá-lo logo em seguida.
 2. Envie o vídeo ao usuário (SendUserFile) com a legenda do post.
-3. Agende no Metricool (marca `ballestech`, blogId `8049742`, fuso `America/Cuiaba`, TikTok `geffersonballes1`),
-   no melhor horário livre (`getBestTimeToPostByNetwork`), com intervalo mínimo de 4 h entre posts:
-   - **Padrão (com aprovação):** `createScheduledPost` com `autoPublish: false` → o dono recebe um aviso no app
-     do Metricool e confirma a publicação com 1 toque. Só use `autoPublish: true` se o usuário autorizar
-     explicitamente a publicação 100 % automática (registre a autorização em `config.md`).
-   - `tiktokData`: `isAigc: true`, `privacyOption: PUBLIC_TO_EVERYONE`, comentários/dueto/stitch liberados.
-   - Legenda: ≤ 150 caracteres + 5–7 hashtags (#geopolitica #guerra #noticias #historia #aprendanotiktok + 2 do tema).
+3. Agende no Metricool **um post só para TikTok + YouTube Shorts** (marca `ballestech`, blogId `8049742`,
+   fuso `America/Cuiaba`; TikTok `geffersonballes1`, YouTube canal `UCfamwKNkLBtNjhjZLPQdDfg`).
+   **Horários fixos aprovados pelo dono** (melhores das duas redes segundo o Metricool):
+   | Produção | Post |
+   |---|---|
+   | manhã (06:20; render leva ~2h20) | **10:00** do mesmo dia |
+   | tarde (14:20) | **18:00** do mesmo dia |
+   | noite (17:50) | agora é da série 2 (games), post 13:00 do dia seguinte — ver skill games-fase-por-fase |
+   Se o horário já passou ou está ocupado, use o próximo livre entre 10:00, 13:00, 16:00 e 18:00 (mínimo 3 h entre posts).
+   - `providers: [{"network":"tiktok"},{"network":"youtube"}]`, **`autoPublish: true`** (publicação automática
+     autorizada pelo dono em 23/11/2026 — com `false` o TikTok fica parado na caixa de entrada do app).
+     Por isso os portões (fatos, conformidade, qualidade) são obrigatórios: se algum reprovar, NÃO agende.
+   - `tiktokData`: `isAigc: true`, `privacyOption: PUBLIC_TO_EVERYONE`, comentários/dueto/stitch liberados, `title` = tema.
+   - `youtubeData`: `{"title": "<tema> #shorts" (≤ 100 caracteres), "type": "short", "privacy": "public",
+     "category": "EDUCATION", "madeForKids": false, "isAiGeneratedContent": true, "tags": [5–8 termos do tema]}`.
+   - Legenda (`text`, vale como descrição no YouTube): ≤ 150 caracteres + 5–7 hashtags
+     (#geopolitica #guerra #noticias #historia #aprendanotiktok + 2 do tema).
 4. Registre em `tiktok-geopolitica/historico.md`: data, tema, link do Metricool, horário.
 5. Faça commit e push dos arquivos da produção (frames, preview e final.mp4 ficam fora do git).
 
 ## 8. Desempenho (`analista-de-desempenho`, 1× por dia)
 Windsor `tiktok_organic` (conta "Gefferson Balles"): views, retenção, comentários, seguidores dos vídeos de
 48 h e 7 dias atrás → `tiktok-geopolitica/aprendizados.md`. Leia esse arquivo antes de escolher a próxima pauta.
+
+**Hashtags:** siga `tiktok-geopolitica/hashtags.md` (6 de alcance #fyp #foryou #paravoce #viral #tiktokbrasil #shorts + nicho + tema + #aprendanotiktok).
+
+**Melhoria contínua (todo vídeo):** antes de montar a cena, pegue 1 item "aberto" de `melhorias/backlog.md`
+que caiba no vídeo e implemente; no QC, anote no backlog todo defeito que não deu para corrigir agora.

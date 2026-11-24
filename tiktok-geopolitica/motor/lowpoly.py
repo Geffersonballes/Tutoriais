@@ -159,7 +159,7 @@ def rastro(fn, t0, t1, cor=None, r=0.9, cada=0.07, vida=1.3):
 
 # ---------- modelos ----------
 def predio(loc, w, d, h, cor):
-    b = caixa(_id("pred"), (loc[0], loc[1], h / 2), (w, d, h), cor)
+    b = caixa(_id("pred"), (loc[0], loc[1], h / 2), (w, d, h), cor, unico="predio%d" % PREDIOS.index(cor) if cor in PREDIOS else None)
     t = caixa(_id("teto"), (loc[0], loc[1], h + 0.15), (w * 1.04, d * 1.04, 0.3), tuple(c * 0.8 for c in cor[:3]) + (1,))
     filho(b, t); t.location = (0, 0, h / 2 + 0.15); return b
 
@@ -281,3 +281,139 @@ def configurar_render(res_x=720, res_y=1280):
     s.render.image_settings.file_format = "JPEG"; s.render.image_settings.quality = 95
     s.view_settings.view_transform = "Standard"; s.view_settings.exposure = 0.45; s.view_settings.look = "None"
     if s.world is None: s.world = bpy.data.worlds.new("W")
+
+def _lin(c):
+    return tuple((x / 12.92) if x <= 0.04045 else ((x + 0.055) / 1.055) ** 2.4 for x in c[:3]) + (1.0,)
+
+def modo_realista(hdri=None, samples=4, res=(540, 960), foco=None, abertura=0.35):
+    """Estilo B no Blender: EEVEE, céu HDRI de pôr do sol, sol quente, materiais PBR, quinas arredondadas
+    e desfoque tilt-shift (efeito maquete). Chame depois de montar a cena."""
+    s = bpy.context.scene
+    s.render.engine = "BLENDER_EEVEE_NEXT"
+    s.render.resolution_x, s.render.resolution_y = res
+    s.eevee.taa_render_samples = samples
+    for k, v in (("use_shadows", True), ("use_raytracing", True), ("shadow_ray_count", 1), ("shadow_step_count", 4)):
+        try: setattr(s.eevee, k, v)
+        except Exception: pass
+    s.view_settings.view_transform = "AgX"; s.view_settings.look = "AgX - Punchy"; s.view_settings.exposure = -0.2
+    for m in bpy.data.materials:
+        m.use_nodes = True
+        b = m.node_tree.nodes.get("Principled BSDF")
+        if not b: continue
+        b.inputs["Base Color"].default_value = _lin(m.diffuse_color)
+        b.inputs["Roughness"].default_value = 0.7
+        ad = m.animation_data
+        if ad and ad.action:
+            for fc in ad.action.fcurves:
+                if fc.data_path == "diffuse_color" and fc.array_index < 3:
+                    for kp in fc.keyframe_points:
+                        v = list(b.inputs["Base Color"].default_value); v[fc.array_index] = _lin((kp.co[1],) * 3)[0]
+                        b.inputs["Base Color"].default_value = v
+                        b.inputs["Base Color"].keyframe_insert("default_value", frame=kp.co[0])
+    # fachadas com janelas (prédios)
+    for m in bpy.data.materials:
+        if not m.name or not any(k[1] and str(k[1]).startswith("predio") for k, v in _mats.items() if v == m): continue
+        nt = m.node_tree; b = nt.nodes.get("Principled BSDF"); parede = b.inputs["Base Color"].default_value[:]
+        tc = nt.nodes.new("ShaderNodeTexCoord"); sx = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(tc.outputs["Object"], sx.inputs[0])
+        ad = nt.nodes.new("ShaderNodeMath"); ad.operation = "ADD"; nt.links.new(sx.outputs[0], ad.inputs[0]); nt.links.new(sx.outputs[1], ad.inputs[1])
+        cb = nt.nodes.new("ShaderNodeCombineXYZ"); nt.links.new(ad.outputs[0], cb.inputs[0]); nt.links.new(sx.outputs[2], cb.inputs[1])
+        br = nt.nodes.new("ShaderNodeTexBrick"); nt.links.new(cb.outputs[0], br.inputs["Vector"])
+        br.inputs["Scale"].default_value = 1.0; br.inputs["Mortar Size"].default_value = 0.32; br.inputs["Brick Width"].default_value = 0.9; br.inputs["Row Height"].default_value = 0.75
+        br.inputs["Color1"].default_value = (0.03, 0.05, 0.08, 1); br.inputs["Color2"].default_value = (0.20, 0.25, 0.32, 1); br.inputs["Mortar"].default_value = parede
+        geo = nt.nodes.new("ShaderNodeNewGeometry"); sn = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(geo.outputs["Normal"], sn.inputs[0])
+        ab = nt.nodes.new("ShaderNodeMath"); ab.operation = "ABSOLUTE"; nt.links.new(sn.outputs[2], ab.inputs[0])
+        gt = nt.nodes.new("ShaderNodeMath"); gt.operation = "GREATER_THAN"; gt.inputs[1].default_value = 0.5; nt.links.new(ab.outputs[0], gt.inputs[0])
+        mx = nt.nodes.new("ShaderNodeMix"); mx.data_type = "RGBA"; nt.links.new(gt.outputs[0], mx.inputs["Factor"])
+        nt.links.new(br.outputs["Color"], mx.inputs[6]); mx.inputs[7].default_value = parede
+        nt.links.new(mx.outputs[2], b.inputs["Base Color"])
+    # grama com variação de cor
+    gm = _mats.get((tuple(round(c, 3) for c in C["grama"]), None))
+    if gm:
+        nt = gm.node_tree; b = nt.nodes.get("Principled BSDF"); nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 0.08
+        cr = nt.nodes.new("ShaderNodeValToRGB"); cr.color_ramp.elements[0].color = _lin((0.36, 0.62, 0.22, 1)); cr.color_ramp.elements[1].color = _lin((0.62, 0.78, 0.36, 1))
+        nt.links.new(nz.outputs["Fac"], cr.inputs[0]); nt.links.new(cr.outputs[0], b.inputs["Base Color"])
+    # quinas arredondadas (maquete) nos objetos de caixa
+    for o in bpy.data.objects:
+        if o.type == "MESH" and len(o.data.polygons) <= 12 and max(o.dimensions) < 40:
+            md = o.modifiers.new("bevel", "BEVEL"); md.width = min(0.12, min(o.dimensions) * 0.12 + 0.001); md.segments = 2
+    w = s.world; w.use_nodes = True; nt = w.node_tree
+    bg = nt.nodes.get("Background")
+    if hdri and bg:
+        env = nt.nodes.new("ShaderNodeTexEnvironment"); env.image = bpy.data.images.load(hdri)
+        nt.links.new(env.outputs["Color"], bg.inputs["Color"]); bg.inputs["Strength"].default_value = 1.1
+    sol = bpy.data.lights.new("sol", "SUN"); sol.energy = 4.5; sol.angle = math.radians(2.5); sol.color = (1.0, 0.80, 0.58)
+    so = bpy.data.objects.new("sol", sol); bpy.context.collection.objects.link(so)
+    so.rotation_euler = (math.radians(62), math.radians(0), math.radians(-140))
+    cam = s.camera
+    if cam is not None:
+        cam.data.dof.use_dof = True; cam.data.dof.aperture_fstop = abertura
+        if foco is not None: cam.data.dof.focus_object = foco
+    return bg, sol
+
+# ---------- modelos navais e de economia (vídeo Ormuz) ----------
+def petroleiro(nome, cor_casco=(0.55, 0.12, 0.10, 1), escala=1.0):
+    """Superpetroleiro: casco com proa afilada, convés com tubulação, castelo branco na popa e chaminé. Frente = +Y."""
+    e = escala
+    casco = caixa(nome, (0, 0, 0), (1.6 * e, 9.0 * e, 1.0 * e), cor_casco)
+    proa = cilindro(_id("proa"), (0, 0, 0), 0.8 * e, 1.0 * e, cor_casco, seg=3); filho(casco, proa)
+    proa.location = (0, 4.9 * e, 0); proa.rotation_euler = (0, 0, math.radians(90)); proa.scale = (1, 1.0, 1)
+    conves = caixa(_id("conves"), (0, 0, 0), (1.5 * e, 8.6 * e, 0.12 * e), (0.30, 0.42, 0.30, 1)); filho(casco, conves); conves.location = (0, 0, 0.55 * e)
+    tubo = caixa(_id("tubo"), (0, 0, 0), (0.12 * e, 6.5 * e, 0.12 * e), (0.85, 0.75, 0.35, 1)); filho(casco, tubo); tubo.location = (0, 0.6 * e, 0.68 * e)
+    for k in range(4):
+        tq = cilindro(_id("tampa"), (0, 0, 0), 0.22 * e, 0.1 * e, (0.85, 0.75, 0.35, 1), seg=8); filho(casco, tq); tq.location = (0.45 * e, (-1.5 + k * 1.6) * e, 0.66 * e)
+    castelo = caixa(_id("castelo"), (0, 0, 0), (1.4 * e, 1.3 * e, 1.3 * e), C["branco"]); filho(casco, castelo); castelo.location = (0, -3.7 * e, 1.2 * e)
+    ponte = caixa(_id("ponte"), (0, 0, 0), (1.7 * e, 0.5 * e, 0.3 * e), C["branco"]); filho(casco, ponte); ponte.location = (0, -3.4 * e, 1.9 * e)
+    chamine = caixa(_id("chamine"), (0, 0, 0), (0.45 * e, 0.45 * e, 0.8 * e), C["ameaca"]); filho(casco, chamine); chamine.location = (0, -4.1 * e, 2.1 * e)
+    linha = caixa(_id("linhaagua"), (0, 0, 0), (1.62 * e, 9.02 * e, 0.12 * e), (0.10, 0.10, 0.12, 1)); filho(casco, linha); linha.location = (0, 0, -0.35 * e)
+    return casco
+
+def navio_guerra(nome, escala=1.0):
+    """Fragata cinza com canhão na proa, superestrutura escalonada e mastro de radar. Frente = +Y."""
+    e = escala; cinza = (0.55, 0.58, 0.62, 1)
+    casco = caixa(nome, (0, 0, 0), (1.2 * e, 7.0 * e, 0.8 * e), cinza)
+    proa = cilindro(_id("proaG"), (0, 0, 0), 0.6 * e, 0.8 * e, cinza, seg=3); filho(casco, proa); proa.location = (0, 3.8 * e, 0); proa.rotation_euler = (0, 0, math.radians(90))
+    s1 = caixa(_id("sup1"), (0, 0, 0), (1.0 * e, 2.6 * e, 0.8 * e), (0.65, 0.68, 0.72, 1)); filho(casco, s1); s1.location = (0, -0.5 * e, 0.8 * e)
+    s2 = caixa(_id("sup2"), (0, 0, 0), (0.8 * e, 1.4 * e, 0.6 * e), (0.70, 0.72, 0.76, 1)); filho(casco, s2); s2.location = (0, 0.0, 1.5 * e)
+    mastro = cilindro(_id("mastroG"), (0, 0, 0), 0.08 * e, 1.6 * e, C["escuro"], seg=5); filho(casco, mastro); mastro.location = (0, 0.1 * e, 2.4 * e)
+    radar_g = caixa(_id("radarG"), (0, 0, 0), (0.9 * e, 0.12 * e, 0.3 * e), C["branco"]); filho(casco, radar_g); radar_g.location = (0, 0.1 * e, 3.1 * e)
+    torre = cilindro(_id("torreG"), (0, 0, 0), 0.35 * e, 0.35 * e, cinza, seg=8); filho(casco, torre); torre.location = (0, 2.4 * e, 0.6 * e)
+    cano = cilindro(_id("canoG"), (0, 0, 0), 0.07 * e, 1.2 * e, C["escuro"], seg=5); filho(casco, cano); cano.location = (0, 3.0 * e, 0.75 * e); cano.rotation_euler = (math.radians(-80), 0, 0)
+    heli = caixa(_id("heli"), (0, 0, 0), (1.1 * e, 1.4 * e, 0.06 * e), (0.35, 0.37, 0.40, 1)); filho(casco, heli); heli.location = (0, -2.9 * e, 0.45 * e)
+    return casco
+
+def barco_rapido(nome, escala=1.0):
+    e = escala; b = caixa(nome, (0, 0, 0), (0.6 * e, 2.0 * e, 0.35 * e), (0.30, 0.32, 0.30, 1))
+    p = cilindro(_id("proaR"), (0, 0, 0), 0.3 * e, 0.35 * e, (0.30, 0.32, 0.30, 1), seg=3); filho(b, p); p.location = (0, 1.15 * e, 0); p.rotation_euler = (0, 0, math.radians(90))
+    cab = caixa(_id("cabR"), (0, 0, 0), (0.45 * e, 0.5 * e, 0.35 * e), C["branco"]); filho(b, cab); cab.location = (0, -0.2 * e, 0.35 * e)
+    return b
+
+def mina(nome, escala=1.0):
+    m = esfera(nome, (0, 0, 0), 0.6 * escala, (0.15, 0.16, 0.17, 1), sub=1)
+    for k in range(8):
+        a = k * math.pi / 4
+        for z in (0.25, -0.25):
+            sp = cilindro(_id("espinho"), (0, 0, 0), 0.06 * escala, 0.5 * escala, (0.25, 0.25, 0.25, 1), seg=4); filho(m, sp)
+            sp.location = (math.cos(a) * 0.62 * escala, math.sin(a) * 0.62 * escala, z * escala); sp.rotation_euler = (math.radians(90), 0, a + math.pi / 2)
+    return m
+
+def barril(nome, escala=1.0, cor=(0.12, 0.30, 0.55, 1)):
+    b = cilindro(nome, (0, 0, 0), 1.0 * escala, 2.6 * escala, cor, seg=16)
+    for z in (-0.8, 0.0, 0.8):
+        filho(b, anel(_id("aro"), (0, 0, z * escala), 1.02 * escala, 0.06 * escala, (0.08, 0.18, 0.35, 1), seg=24))
+    tampa = cilindro(_id("tampaB"), (0, 0, 0), 0.2 * escala, 0.1 * escala, (0.8, 0.8, 0.8, 1), seg=8); filho(b, tampa); tampa.location = (0.5 * escala, 0, 1.32 * escala)
+    return b
+
+def seta3d(nome, comprimento=4.0, cor=None):
+    """Seta para cima (+Z), base na origem."""
+    cor = cor or C["ameaca"]
+    haste = cilindro(nome, (0, 0, comprimento * 0.35), 0.35, comprimento * 0.7, cor, seg=8)
+    ponta = cilindro(_id("pontaS"), (0, 0, comprimento * 0.35 + comprimento * 0.15), 0.8, comprimento * 0.3, cor, seg=8, r2=0.0); filho(haste, ponta)
+    ponta.location = (0, 0, comprimento * 0.5)
+    return haste
+
+def bomba_combustivel(nome):
+    corpo = caixa(nome, (0, 0, 1.5), (1.4, 0.9, 3.0), C["ameaca"])
+    visor = caixa(_id("visor"), (0, 0, 0), (1.0, 0.05, 0.7), (0.1, 0.1, 0.1, 1)); filho(corpo, visor); visor.location = (0, -0.47, 0.7)
+    topo = caixa(_id("topoB"), (0, 0, 0), (1.6, 1.0, 0.3), C["branco"]); filho(corpo, topo); topo.location = (0, 0, 1.6)
+    mang = cilindro(_id("mang"), (0, 0, 0), 0.08, 1.6, C["escuro"], seg=6); filho(corpo, mang); mang.location = (0.8, 0, 0.0)
+    return corpo

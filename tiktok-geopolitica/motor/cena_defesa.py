@@ -478,15 +478,32 @@ for o in bpy.data.objects:
         visivel_janelas(o, [(tt6, S[6][1]), (S[9][0], S[12][1])])
 
 # ---------- render ----------
+if os.environ.get("REALISTA"):
+    bgw, sol = modo_realista(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "hdri", "ceu_parcialmente_nublado_2k.hdr"), foco=alvo)
+    # cena da noite: céu e sol apagam
+    for t, forca, energia in ((S[8][0] - 0.05, 1.1, 4.5), (S[8][0], 0.12, 0.5), (S[8][1] - 0.05, 0.12, 0.5), (S[8][1], 1.1, 4.5)):
+        bgw.inputs["Strength"].default_value = forca; bgw.inputs["Strength"].keyframe_insert("default_value", frame=f(t))
+        sol.energy = energia; sol.keyframe_insert("energy", frame=f(t))
+    for a in (bgw.id_data.animation_data, sol.animation_data):
+        if a and a.action:
+            for fc in a.action.fcurves:
+                for kp in fc.keyframe_points: kp.interpolation = "CONSTANT"
+    # luz do "holofote" do radar na cena da noite
+    lz = bpy.data.lights.new("lanterna", "SPOT"); lz.energy = 0; lz.spot_size = math.radians(40); lz.color = (1, 0.95, 0.7)
+    lzo = bpy.data.objects.new("lanterna", lz); scn.collection.objects.link(lzo); lzo.location = (0, EY - 1.5, 6); lzo.rotation_euler = (math.radians(20), 0, 0)
+    for t, e in ((T(8, "liga") - 0.05, 0), (T(8, "liga"), 60000), (T(8, "caminhões"), 60000), (T(8, "caminhões") + 0.05, 0)):
+        lz.energy = e; lz.keyframe_insert("energy", frame=f(t))
+
 saida = os.path.join(PASTA, "frames")
 os.makedirs(saida, exist_ok=True)
 if len(args) > 1 and args[1] == "preview":
-    scn.render.resolution_percentage = 50
+    scn.render.resolution_percentage = int(os.environ.get("PCT", "50"))
     for t in [float(x) for x in args[2].split(",")]:
         scn.frame_set(f(t)); scn.render.filepath = os.path.join(PASTA, "preview", f"p_{t:06.2f}.jpg"); bpy.ops.render.render(write_still=True)
 elif len(args) > 1 and args[1] == "range":
     a, b = [int(x) for x in args[2].split(",")]
     scn.frame_start, scn.frame_end = a, b
+    scn.frame_step = int(os.environ.get("PASSO", "1"))
     scn.render.filepath = os.path.join(saida, "f_")
     bpy.ops.render.render(animation=True)
 else:

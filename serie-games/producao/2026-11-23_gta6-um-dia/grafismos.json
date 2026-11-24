@@ -1,0 +1,35 @@
+{
+  "capa": {"linhas": ["GTA 6 SE PAGOU", "EM UM", "ÚNICO DIA?"], "destaque": [0], "dur": 1.3},
+  "rotulos": [
+    {"texto": "EXÉRCITO DE DEVS", "de": [1, "desenvolvedores"], "ate": [1, "Analistas"], "y": 0.2},
+    {"texto": "PRÉ-VENDA", "de": [2, "Essa"], "ate": [2, "@fim", 0, 0.3]},
+    {"texto": "US$ 3,79 BI", "de": [3, "três"], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "QUASE 5×", "de": [4, "Quase"], "ate": [4, "@fim", 0, 0.3]},
+    {"texto": "VENDA DIGITAL", "de": [5, "digital"], "ate": [5, "Até"]},
+    {"texto": "CAUDA LONGA", "de": [6, "começo"], "ate": [6, "@fim", 0, 0.3]}
+  ],
+  "pilulas": [
+    {"texto": "+ DE US$ 1 BILHÃO", "ponto": "vermelho", "tam": 52, "de": [0, "bilhão"], "ate": [0, "@fim", 0, 0.3], "y": 0.15},
+    {"texto": "1 DIA", "ponto": "azul", "tam": 52, "de": [0, "único"], "ate": [0, "@fim", 0, 0.3], "y": 0.23},
+    {"texto": "CUSTO ESTIMADO: US$ 1–1,5 BI", "ponto": "vermelho", "de": [1, "Analistas"], "ate": [1, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "32,5 MILHÕES DE CÓPIAS", "ponto": "azul", "de": [2, "trinta"], "ate": [2, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "US$ 79,99", "ponto": "azul", "de": [3, "oitenta"], "ate": [3, "Segundo"], "y": 0.3},
+    {"texto": "R$ 449,90", "ponto": "azul", "de": [3, "quatrocentos"], "ate": [3, "Segundo"], "y": 0.36},
+    {"texto": "GTA 5 (2013): ~US$ 800 MI", "ponto": "vermelho", "de": [4, "oitocentos"], "ate": [4, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "GTA 6 (2026): US$ 3,79 BI", "ponto": "azul", "de": [4, "Quase"], "ate": [4, "@fim", 0, 0.3], "y": 0.36},
+    {"texto": "CÓDIGO NA CAIXA", "ponto": "azul", "de": [5, "código"], "ate": [5, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "SEM DISCO", "ponto": "vermelho", "de": [5, "disco"], "ate": [5, "@fim", 0, 0.3], "y": 0.36},
+    {"texto": "EDIÇÃO DE US$ 99,99", "ponto": "azul", "de": [6, "edição"], "ate": [6, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "ATUALIZAÇÕES", "ponto": "azul", "de": [6, "atualizações"], "ate": [6, "@fim", 0, 0.3], "y": 0.36}
+  ],
+  "fontes": [
+    {"texto": "Fontes: Rockstar/Take-Two via CNBC e Reuters (20/11/2026)", "de": [2, "trinta"], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "Custo: estimativas de analistas (Wedbush, CNBC) · GTA 5: GamesRadar/CNBC", "de": [1, "Analistas"], "ate": [1, "@fim", 0, 0.3]},
+    {"texto": "Fonte: CNBC; GamesRadar (GTA 5, 2013)", "de": [4, "oitocentos"], "ate": [4, "@fim", 0, 0.3]}
+  ],
+  "cta": {
+    "linha1": [7, "Já"], "t1a": "JÁ JOGOU? COMENTE", "t1b": "“ZEREI”",
+    "linha2": [7, "Ainda"], "t2a": "AINDA NÃO? COMENTE", "t2b": "“NA FILA”",
+    "marca_de": [7, "fila"], "marca": "FASE POR FASE"
+  }
+}

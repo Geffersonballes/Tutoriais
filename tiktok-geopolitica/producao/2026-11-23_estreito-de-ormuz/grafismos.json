@@ -1,0 +1,43 @@
+{
+  "rotulos": [
+    {"texto": "SUPERPETROLEIROS", "de": [1, "Esses"], "ate": [1, "@fim", 0, 0.3]},
+    {"texto": "ESTREITO DE ORMUZ", "de": [2, "Esse"], "ate": [2, "@fim", 0, 0.3]},
+    {"texto": "1/5 DO PETRÓLEO", "de": [3, "quinto"], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "NEGAÇÃO DE ÁREA", "de": [4, "Essa"], "ate": [4, "@fim", 0, 0.3]},
+    {"texto": "SEGURO DE GUERRA", "de": [5, "Esse"], "ate": [5, "@fim", 0, 0.3]},
+    {"texto": "OLEODUTOS DE DESVIO", "de": [7, "Esses"], "ate": [7, "@fim", 0, 0.3]},
+    {"texto": "COMBOIO", "de": [9, "comboio"], "ate": [9, "@fim", 0, 0.3]},
+    {"texto": "DISSUASÃO", "de": [10, "dissuasão"], "ate": [10, "@fim", 0, 0.3]},
+    {"texto": "ESTREITO DE ORMUZ", "de": [11, "entendeu"], "ate": [11, "@fim", 0, 0.45], "y": 0.2}
+  ],
+  "pilulas": [
+    {"texto": "MINAS NO ESTREITO", "ponto": "vermelho", "tam": 52, "de": [0, "minas"], "ate": [0, "@fim", 0, 0.3], "y": 0.15},
+    {"texto": "MEXE NO SEU BOLSO", "ponto": "azul", "tam": 52, "de": [0, "bolso"], "ate": [0, "@fim", 0, 0.3], "y": 0.23},
+    {"texto": "2 MILHÕES DE BARRIS", "ponto": "azul", "de": [1, "milhões"], "ate": [1, "Esses"], "y": 0.3},
+    {"texto": "IRÃ", "ponto": "vermelho", "de": [2, "Irã"], "ate": [2, "Esse"], "y": 0.3},
+    {"texto": "OMÃ", "ponto": "azul", "de": [2, "Omã"], "ate": [2, "Esse"], "y": 0.36},
+    {"texto": "33 KM", "ponto": "azul", "de": [3, "trinta"], "ate": [3, "quinto"], "y": 0.3},
+    {"texto": "2 FAIXAS DE 3 KM", "ponto": "azul", "de": [3, "faixas"], "ate": [3, "quinto"], "y": 0.36},
+    {"texto": "BARCOS RÁPIDOS", "ponto": "vermelho", "de": [4, "barcos"], "ate": [4, "Essa"], "y": 0.3},
+    {"texto": "MINAS", "ponto": "vermelho", "de": [4, "minas"], "ate": [4, "Essa"], "y": 0.36},
+    {"texto": "MÍSSEIS NA COSTA", "ponto": "vermelho", "de": [4, "mísseis"], "ate": [4, "Essa"], "y": 0.42},
+    {"texto": "SÓ A AMEAÇA", "ponto": "vermelho", "de": [5, "ameaça"], "ate": [5, "Esse"], "y": 0.3},
+    {"texto": "PREÇO DO PETRÓLEO ↑", "ponto": "vermelho", "tam": 46, "de": [6, "preço"], "ate": [6, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "COMBUSTÍVEL NO BRASIL", "ponto": "azul", "de": [6, "Brasil"], "ate": [6, "@fim", 0, 0.3], "y": 0.36},
+    {"texto": "ARÁBIA SAUDITA → MAR VERMELHO", "ponto": "azul", "de": [7, "Arábia"], "ate": [7, "Esses"], "y": 0.3},
+    {"texto": "EMIRADOS → GOLFO DE OMÃ", "ponto": "azul", "de": [7, "Emirados"], "ate": [7, "Esses"], "y": 0.36},
+    {"texto": "SÓ UMA PEQUENA PARTE", "ponto": "vermelho", "de": [8, "pequena"], "ate": [8, "@fim", 0, 0.3], "y": 0.3},
+    {"texto": "CAÇA-MINAS", "ponto": "azul", "de": [9, "caça"], "ate": [9, "Guerra"], "y": 0.36},
+    {"texto": "GUERRA DOS PETROLEIROS · ANOS 80", "ponto": "azul", "de": [9, "Guerra"], "ate": [9, "@fim", 0, 0.3], "y": 0.42},
+    {"texto": "IRÃ TAMBÉM EXPORTA POR AQUI", "ponto": "vermelho", "de": [10, "exporta"], "ate": [10, "dissuasão"], "y": 0.3}
+  ],
+  "fontes": [
+    {"texto": "Fontes: EIA e IEA (fluxo de petróleo); relatos da UKMTO e agências (nov/2026)", "de": [0, "minas"], "ate": [0, "@fim", 0, 0.3]},
+    {"texto": "Fonte: EIA — 20 milhões de barris/dia (2024)", "de": [3, "quinto"], "ate": [3, "@fim", 0, 0.3]}
+  ],
+  "cta": {
+    "linha1": [12, "Se"], "t1a": "JÁ SABIA? COMENTE", "t1b": "“ALMIRANTE”",
+    "linha2": [12, "Se", 1], "t2a": "NÃO SABIA? COMENTE", "t2b": "“MARINHEIRO”",
+    "marca_de": [12, "marinheiro", 0, 0.4], "marca": "PEÇA POR PEÇA · siga pra próxima"
+  }
+}

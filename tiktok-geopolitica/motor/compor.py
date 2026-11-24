@@ -23,7 +23,7 @@ def tempo(seg, palavra, n=0):
     hits = [x["s"] for x in LEG if x["seg"] == seg and palavra.lower() in x["w"].lower()]
     return hits[min(n, len(hits) - 1)]
 
-SUBST = {"quatro": "4", "cem": "100", "I-F-F.": "IFF"}
+SUBST = G.get("subst", {"quatro": "4", "cem": "100", "I-F-F.": "IFF"})
 palavras = []
 pular = 0
 for i, x in enumerate(LEG):
@@ -96,8 +96,42 @@ def pilula(txt, ponto, escala=1.0, fnt=None):
 
 SELO = pilula("Conteúdo gerado com IA", "azul", fnt=F_SELO); SELO.putalpha(SELO.getchannel("A").point(lambda a: int(a * 0.55)))
 
+# ---------- capa: título grande no meio nos primeiros segundos ----------
+# O TikTok (conta pessoal) usa o 1º quadro como capa na grade do perfil; por isso o título entra no início
+# do vídeo e some em fade. Em grafismos.json: "capa": {"linhas": ["33 KM", "QUE PODEM", "PARAR O MUNDO"],
+# "destaque": [0], "dur": 1.3}. Linhas de destaque saem em amarelo; as outras em branco.
+def camada_capa():
+    c = G.get("capa")
+    if not c: return None
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    # faixa escura suave atrás do título (gradiente vertical)
+    for y in range(int(H * 0.30), int(H * 0.62)):
+        u = (y - H * 0.30) / (H * 0.32); a = int(150 * math.sin(math.pi * u))
+        d.line([(0, y), (W, y)], fill=(0, 0, 0, a))
+    linhas = c["linhas"]; dest = set(c.get("destaque", [0]))
+    tams = []
+    for txt in linhas:
+        tam = 190
+        while tam > 60 and fonte(tam, "Black").getbbox(txt, stroke_width=12)[2] > W * 0.90: tam -= 6
+        tams.append(tam)
+    alt = sum(t * 1.08 for t in tams); y = H * 0.46 - alt / 2
+    for txt, tam, i in zip(linhas, tams, range(len(linhas))):
+        y += tam * 0.54
+        texto_contorno(d, (W / 2, y), txt, fonte(tam, "Black"), AMARELO if i in dest else BRANCO, 12)
+        y += tam * 0.54
+    return im
+CAPA = camada_capa()
+CAPA_DUR = G.get("capa", {}).get("dur", 1.3)
+
 def overlay(t):
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
+    if CAPA is not None and t < CAPA_DUR:
+        f = min(1.0, (CAPA_DUR - t) / 0.3)
+        cam = CAPA if f >= 1 else CAPA.copy()
+        if f < 1: cam.putalpha(cam.getchannel("A").point(lambda a: int(a * f)))
+        ov.alpha_composite(cam)
+        ov.alpha_composite(SELO, (36, 60))
+        return ov  # durante a capa, só o título (e o selo de IA)
     # selo IA
     ov.alpha_composite(SELO, (36, 60))
     # rótulos (nome do conceito)
@@ -147,7 +181,7 @@ def overlay(t):
 # ---------- áudio: narração + whooshes nos cortes ----------
 def audio():
     narr = os.path.join(PASTA, "narracao.mp3"); out = os.path.join(PASTA, "audio_mix.wav")
-    cortes = sorted(set(round(min(x["s"] for x in LEG if x["seg"] == s) - 0.2, 2) for s in range(1, 13)))
+    cortes = sorted(set(round(min(x["s"] for x in LEG if x["seg"] == s) - 0.2, 2) for s in range(1, max(x["seg"] for x in LEG) + 1)))
     pops = [it["_a"] for it in G["rotulos"]]
     fl = []; inputs = ["-i", narr]
     for k, c in enumerate(cortes):
@@ -176,11 +210,16 @@ if __name__ == "__main__":
     ff = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                            "-i", aud, "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-profile:v", "high",
                            "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
-    for k, nome in enumerate(frames):
+    dur_audio = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", aud], capture_output=True, text=True).stdout)
+    # quadros podem ter sido renderizados com passo (ex.: 1 a cada 2): usa o último quadro disponível
+    nums = sorted(int(x[2:6]) for x in frames)
+    import bisect
+    for k in range(int(dur_audio * FPS)):
         t = k / FPS
+        nome = "f_%04d.jpg" % nums[max(0, bisect.bisect_right(nums, k + 1) - 1)]
         base = Image.open(os.path.join(PASTA, "frames", nome)).convert("RGBA").resize((W, H), Image.BICUBIC)
         base.alpha_composite(overlay(t))
         ff.stdin.write(base.convert("RGB").tobytes())
-        if k == int(5.6 * FPS): base.convert("RGB").save(os.path.join(PASTA, "capa.jpg"), quality=92)
+        if k == (0 if CAPA is not None else int(5.6 * FPS)): base.convert("RGB").save(os.path.join(PASTA, "capa.jpg"), quality=92)
     ff.stdin.close(); ff.wait()
     print("OK", out)
