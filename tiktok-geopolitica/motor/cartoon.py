@@ -158,6 +158,53 @@ def camera_cartoon(lens=24):
         cam_key(t, (x + lado, y - d, altura + dz), (x, y, altura + dzt))
     return cam, alvo, cam_key, plano
 
+
+# ---------- cenários fechados reutilizáveis (backlog #2) ----------
+def sala_fechada(nome, x, piso, parede, prof=4.5, larg=22):
+    """Piso + parede de fundo + rodapé: enquadramento sem vazio (copiado de cena_gta30 e generalizado)."""
+    caixa(nome + "Piso", (x, 0, -0.1), (larg, 18, 0.2), piso)
+    caixa(nome + "Fundo", (x, prof, 3.5), (larg, 0.4, 7.0), parede)
+    caixa(nome + "Rodape", (x, prof - 0.25, 0.2), (larg, 0.12, 0.4), tuple(c * 0.8 for c in parede[:3]) + (1,))
+
+def quarto_gamer(x, piso=(0.36, 0.40, 0.62, 1), parede=(0.55, 0.38, 0.85, 1), tela=(0.30, 0.85, 1.0, 1)):
+    """Quarto de streamer genérico (sem marca): mesa, monitor de lado, PC com LED, webcam no tripé,
+    luz de anel, braço de microfone, lâmpada 'ao vivo' na parede. O Pixel fica em (x, 1.0) virado para -Y.
+    Retorna dict com 'pc', 'monitor', 'tela', 'live' (lâmpada), 'webcam'."""
+    sala_fechada(f"Q{x}", x, piso, parede, prof=3.6)
+    Q = {}
+    caixa(_id("mesa"), (x, 0.05, 1.05), (3.6, 1.1, 0.12), (0.30, 0.22, 0.18, 1))
+    for dx in (-1.6, 1.6):
+        caixa(_id("peMesa"), (x + dx, 0.05, 0.5), (0.12, 0.9, 1.0), (0.18, 0.18, 0.22, 1))
+    mon = caixa(_id("monitor"), (x + 1.15, 0.25, 1.75), (1.5, 0.1, 0.9), PRETO); mon.rotation_euler = (0, 0, math.radians(-35))
+    tl = caixa(_id("telaQ"), (0, 0, 0), (1.38, 0.02, 0.78), tela, unico=_id("tq")); filho(mon, tl); tl.location = (0, -0.06, 0)
+    caixa(_id("pe"), (x + 1.15, 0.3, 1.25), (0.12, 0.12, 0.4), PRETO)
+    pc = caixa(_id("pc"), (x + 2.4, 0.6, 0.95), (0.7, 1.2, 1.9), (0.12, 0.12, 0.16, 1))
+    led = caixa(_id("ledpc"), (0, 0, 0), (0.02, 1.0, 1.6), (0.75, 0.25, 0.95, 1)); filho(pc, led); led.location = (-0.36, 0, 0)
+    tri = cilindro(_id("tripe"), (x - 1.0, -0.15, 1.45), 0.03, 0.7, PRETO, seg=6)
+    wc = caixa(_id("webcam"), (x - 1.0, -0.15, 1.85), (0.32, 0.22, 0.2), (0.15, 0.15, 0.18, 1))
+    lente = cilindro(_id("lente"), (0, 0, 0), 0.07, 0.06, (0.3, 0.6, 1.0, 1), seg=12); filho(wc, lente); lente.rotation_euler = (math.radians(90), 0, 0); lente.location = (0, 0.12, 0)
+    wc.rotation_euler = (0, 0, math.radians(-40))   # lente (+Y local) olhando para o streamer
+    anelL = anel(_id("anelLuz"), (x - 0.2, 2.6, 2.6), 0.9, 0.08, (1.0, 0.98, 0.90, 1))
+    anelL.rotation_euler = (math.radians(90), 0, 0)
+    caixa(_id("hasteAnel"), (x - 0.2, 2.65, 0.85), (0.06, 0.06, 1.7), PRETO)
+    live = esfera(_id("live"), (x - 2.2, 3.35, 3.6), 0.28, (0.95, 0.15, 0.18, 1), sub=3, unico=_id("lv")); liso(live)
+    for k in range(3):
+        caixa(_id("prat"), (x + 1.8, 3.3, 2.8 + k * 0.7), (1.6, 0.4, 0.06), (0.98, 0.84, 0.40, 1))
+        caixa(_id("enfeite"), (x + 1.4 + k * 0.35, 3.3, 2.95 + k * 0.7), (0.22, 0.22, 0.25), (0.3 + k * 0.3, 0.8, 0.5, 1))
+    Q.update(pc=pc, monitor=mon, tela=tl, live=live, webcam=wc); return Q
+
+def data_center(x, piso=(0.62, 0.72, 0.98, 1), parede=(0.20, 0.24, 0.42, 1), n=6):
+    """Fundo de data center: fileira de racks escuros com LEDs verdes na parede do fundo."""
+    sala_fechada(f"D{x}", x, piso, parede, prof=5.0)
+    leds = []
+    for k in range(n):
+        rx = x - (n - 1) * 0.75 + k * 1.5
+        caixa(_id("rackF"), (rx, 4.2, 2.2), (1.3, 1.0, 4.4), (0.12, 0.13, 0.18, 1))
+        for j in range(6):
+            l = caixa(_id("ledF"), (rx, 3.68, 0.6 + j * 0.62), (1.0, 0.04, 0.12), (0.20, 0.95, 0.45, 1) if (j + k) % 3 else (0.3, 0.7, 1.0, 1))
+            leds.append(l)
+    return leds
+
 # ---------- render cartoon ----------
 def modo_cartoon(samples=6, res=(540, 960), ceu=((0.36, 0.64, 0.98), (0.80, 0.92, 1.0))):
     """Estilo C: EEVEE, céu em degradê, sol branco suave + luz de preenchimento, cores saturadas e foscas,

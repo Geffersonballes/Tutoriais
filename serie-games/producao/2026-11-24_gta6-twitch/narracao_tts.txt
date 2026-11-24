@@ -1,0 +1,7 @@
+Mais de três milhões de pessoas assistindo GTA 6 ao mesmo tempo, só na Twitch. Como isso não caiu?
+Segundo o Streams Charts, foi o maior pico de um jogo na história da plataforma. Só o brasileiro Alanzoka passou de duzentas mil pessoas. E tudo começa com um único vídeo saindo do streamer.
+Se ele manda um vídeo só, então alguém precisa receber. Esse é o servidor de entrada, o ingest: a porta da live.
+Mas nem todo mundo tem internet boa. Então uma máquina refaz o vídeo em várias qualidades: mil e oitenta, setecentos e vinte, quatrocentos e oitenta. Isso é a transcodificação.
+E se três milhões puxassem tudo de um lugar só, ele derretia. Então a rede copia a live para servidores perto de cada cidade. Essa é a C-D-N. Você assiste do mais perto, não do streamer.
+Mas o chat é mais difícil: cada mensagem precisa chegar a todo mundo, milhares por segundo. E quando o servidor da sua região lota, ou sua internet oscila, a imagem cai de qualidade ou trava. É o lag.
+Assistiu a live? Comenta estava lá. Não viu? Comenta perdi.

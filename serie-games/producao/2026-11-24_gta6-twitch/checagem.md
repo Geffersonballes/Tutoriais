@@ -1,0 +1,18 @@
+# Checagem — Como milhões de pessoas assistiram GTA 6 ao mesmo tempo? — APROVADO
+
+| Afirmação no roteiro | Fontes | Status |
+|---|---|---|
+| "Mais de três milhões de pessoas assistindo GTA 6 ao mesmo tempo, só na Twitch" (pico ~3,29 mi; recontagem 3,31 mi) | Dot Esports https://dotesports.com/gta/news/gta-6-twitch-viewership-record · Wccftech https://wccftech.com/grand-theft-auto-vi-twitch-viewers-record-league-of-legends/ · GGRecon https://www.ggrecon.com/articles/gta-6-twitch-viewership-record/ · Insider Gaming https://insider-gaming.com/gta-6-streaming-launch-record/ | ✅ (todas citam dados preliminares do Streams Charts → atribuído na narração e na tela) |
+| "Segundo o Streams Charts, foi o maior pico de um jogo na história da plataforma" | Dot Esports · Wccftech · GGRecon (acima). Obs.: não é o recorde geral da Twitch (categoria "Special Events" e o evento La Velada 2025 foram maiores) — por isso o texto diz "de um jogo" | ✅ |
+| "O brasileiro Alanzoka passou de duzentas mil pessoas" | esports.gg https://esports.gg/news/grand-theft-auto-6/gta-6-breaks-streaming-record-with-6-38-million-viewers/ (244.716, Streams Charts) · Cut.Pro https://cut.pro/pt-BR/blog/gta-6-recorde-twitch-alanzoka-audiencia-2026 · Critical Hits https://criticalhits.com.br/games/brasileiros-ocupam-duas-das-tres-maiores-lives-de-gta-6/ (293 mil) · Folha PE https://www.folhape.com.br/cultura/quem-e-alanzoka-streamer-brasileiro-que-viralizou-apos-live-de-gta/525126/ (300 mil+) | ✅ Números variam (227 mil a 300 mil+ conforme horário/fonte); usamos o piso comum "mais de 200 mil". O "300 mil" fica de fora (fonte única) |
+| O streamer envia um único vídeo; um servidor de entrada (ingest) o recebe | Twitch Engineering — Ingesting Live Video Streams at Global Scale (2022) https://blog.twitch.tv/en/2022/04/26/ingesting-live-video-streams-at-global-scale · Twitch Engineering overview (2015) https://blog.twitch.tv/en/2015/12/18/twitch-engineering-an-introduction-and-overview-a23917b71a25 | ✅ |
+| O vídeo é refeito em várias qualidades (transcodificação: 1080, 720, 480) | Twitch — Live Video Transmuxing/Transcoding (2017) https://blog.twitch.tv/en/2017/10/10/live-video-transmuxing-transcoding-f-fmpeg-vs-twitch-transcoder-part-i-489c1c125f28/ · Twitch State of Engineering 2023 https://blog.twitch.tv/en/2023/09/28/twitch-state-of-engineering-2023 | ✅ (exemplo de qualidades = as opções padrão do player) |
+| A rede copia a live para servidores perto das cidades (CDN); cada um assiste do mais perto | Twitch — Low latency, high reach (2021) https://blog.twitch.tv/2021/10/25/low-latency-high-reach-creating-an-unparalleled-live-video-streaming-network-at-twitch · Twitch State of Engineering 2023 (transcodificação "para a CDN da Twitch") | ✅ |
+| Chat: cada mensagem precisa chegar a todo mundo; milhares por segundo | Twitch Engineering overview 2015 (chat entrega 10+ bi de mensagens/dia, distribuição em leque Pubsub→Edge) · Breaking the Monolith at Twitch (2022) https://blog.twitch.tv/en/2022/03/30/breaking-the-monolith-at-twitch | ✅ ("milhares por segundo" é ordem de grandeza conservadora) |
+| Servidor da região lotado ou internet oscilando → qualidade cai ou trava (lag) | comportamento padrão de streaming adaptativo (HLS, citado no post de 2017) | ✅ |
+
+Descartado: total somando Twitch+YouTube+Kick (6,38 a 7,91 mi — dados preliminares que mudaram várias vezes) e o "300 mil" do Alanzoka (fonte única).
+
+**Conformidade:** nenhum logotipo, arte, personagem ou gameplay de GTA ou da Twitch; nomes só como texto/narração.
+Nenhum rosto ou imagem do Alanzoka nem de outro streamer real — o mascote original Pixel faz "um streamer" genérico
+(fone, webcam no tripé, luz de anel). Selo "Conteúdo gerado com IA" na tela (padrão do compor).
