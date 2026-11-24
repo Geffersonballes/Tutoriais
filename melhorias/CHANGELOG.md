@@ -8,3 +8,5 @@
 - Estilo C cartoon 3D com mascote original Pixel (`motor/cartoon.py`) para a série de games.
 - Produção da manhã antecipada para 06:20 (render real ~2h20).
 - Sistema de melhoria contínua: agentes `melhoria-continua` e `olheiro-de-referencias`, backlog e changelog.
+- Geopolítica sai do YouTube (fica só no TikTok); YouTube só games. Motivo: GTA 6 1,1 mil views vs Ormuz 3 e Pontes 2 no canal gamer.
+- Canal do YouTube verificado: posts enviam videoCoverMilliseconds 600 (capa com título).
