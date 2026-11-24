@@ -5,4 +5,4 @@
 - Proporção: 3 vídeos de games + 2 de geopolítica por dia.
 - Visual: série 1 estilo B (maquete), série 2 estilo C (cartoon, mascote Pixel).
 - Cortes de vídeos de terceiros (ex.: GTA 6 do YouTube): não fazer agora.
-- Selo "Conteúdo gerado com IA" na tela: NÃO (24/11). A declaração de IA nas plataformas (isAigc / isAiGeneratedContent) continua sempre ligada.
+- Selo "Conteúdo gerado com IA" na tela: SIM, sempre (24/11), além da declaração de IA nas plataformas (isAigc / isAiGeneratedContent).

@@ -95,10 +95,9 @@ def pilula(txt, ponto, escala=1.0, fnt=None):
     if escala != 1.0: im = im.resize((max(1, int(im.width * escala)), max(1, int(im.height * escala))), Image.LANCZOS)
     return im
 
-# Selo na tela DESLIGADO por decisão do dono (24/11). A declaração de IA continua obrigatória nas plataformas:
-# isAigc (TikTok) e isAiGeneratedContent (YouTube) = true em todo post. Para religar: "selo_ia": true no grafismos.json.
+# Selo "Conteúdo gerado com IA" na tela: LIGADO (decisão do dono, 24/11), além de isAigc / isAiGeneratedContent no post.
 SELO = None
-if G.get("selo_ia"):
+if G.get("selo_ia", True):
     SELO = pilula("Conteúdo gerado com IA", "azul", fnt=F_SELO); SELO.putalpha(SELO.getchannel("A").point(lambda a: int(a * 0.55)))
 
 # ---------- capa: título grande no meio nos primeiros segundos ----------
