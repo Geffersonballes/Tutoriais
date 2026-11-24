@@ -29,8 +29,9 @@ pular = 0
 for i, x in enumerate(LEG):
     if pular: pular -= 1; continue
     w = x["w"]; lw = re.sub(r"[^\wÀ-ÿ-]", "", w)
-    if lw.lower() == "trinta": lw = "35"; pular = 2
-    elif lw.lower() == "cinco" and x["seg"] == 5: lw = "5x"
+    LEGADO = "subst" not in G   # ajustes fixos do vídeo 01 só valem sem "subst" no grafismos.json
+    if LEGADO and lw.lower() == "trinta": lw = "35"; pular = 2
+    elif LEGADO and lw.lower() == "cinco" and x["seg"] == 5: lw = "5x"
     else: lw = SUBST.get(w, SUBST.get(lw.lower(), lw))
     if not lw: continue
     palavras.append({"w": lw[:1].upper() + lw[1:], "s": x["s"], "e": x["e"], "seg": x["seg"], "i": i})

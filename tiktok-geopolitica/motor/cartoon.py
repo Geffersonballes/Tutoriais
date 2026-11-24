@@ -189,7 +189,7 @@ def modo_cartoon(samples=6, res=(540, 960), ceu=((0.36, 0.64, 0.98), (0.80, 0.92
                     for kp in fc.keyframe_points:
                         v = list(b.inputs["Base Color"].default_value); v[fc.array_index] = _lin((kp.co[1],) * 3)[0]
                         b.inputs["Base Color"].default_value = v
-                        b.inputs["Base Color"].keyframe_insert("default_value", frame=kp.co[0])
+                        b.inputs["Base Color"].keyframe_insert("default_value", frame=kp.co[0], index=fc.array_index)
     for o in bpy.data.objects:
         if o.type == "MESH" and len(o.data.polygons) <= 12 and max(o.dimensions) < 60:
             md = o.modifiers.new("bevel", "BEVEL"); md.width = min(0.25, min(o.dimensions) * 0.18 + 0.001); md.segments = 3

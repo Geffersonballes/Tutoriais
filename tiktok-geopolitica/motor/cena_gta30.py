@@ -111,7 +111,7 @@ t0, t1 = S[0]
 apontar(eu, T(0, "trinta") - 0.2, 1.6, "D", 55)
 destacar(cons.data.materials[0], T(0, "PlayStation"), BRANCO, 1.2)
 pensar(eu, T(0, "Por") - 0.1, 1.4)
-cam_key(t0, (0.4, -5.6, 2.3), (0.6, 2.0, 2.2)); cam_key(T(0, "Até"), (1.6, -5.2, 2.2), (2.2, 2.0, 2.0))
+cam_key(t0, (0.4, -5.6, 2.3), (0.6, 2.0, 2.2)); cam_key(T(0, "Até"), (2.8, -5.0, 2.2), (3.1, 2.0, 2.0))
 cam_key(T(0, "Por") - 0.2, (-0.6, -4.2, 2.3), (-1.2, 0.4, 2.4)); cam_key(t1 - 0.05, (-0.8, -4.0, 2.3), (-1.3, 0.4, 2.5))
 
 # =====================================================================
@@ -135,26 +135,29 @@ for k in range(NP):
     ln = caixa(_id("linhaP"), (0, 0, 0), (2.7, 0.01, 0.05), ESCURO); filho(h, ln); ln.location = (0, -0.02, -2.5)
     num = cilindro(_id("canto"), (0, 0, 0), 0.12, 0.02, CORES[(k + 2) % 6], seg=12); num.rotation_euler = (math.radians(90), 0, 0)
     filho(h, num); num.location = (1.25, -0.02, -0.25)
+    tvis = 0 if k == 0 else (flips[k - 1] + 0.06 if k - 1 < len(flips) else FIM)
+    tsome = flips[k] + 0.11 if k < len(flips) else None
+    for o in (bb, num): visivel(o, tvis, tsome)
     if k < len(flips):
         tf = flips[k]; h.rotation_mode = "XYZ"
         key(h, "rotation_euler", tf, (0, 0, 0)); key(h, "rotation_euler", tf + 0.1, (math.radians(165), 0, 0))
-        visivel(h, 0, tf + 0.11)
+        for o in (pg, ln): visivel(o, 0, tsome)
 # cronômetro: 33 ms por quadro
-crono = cilindro("crono", (43.4, 2.0, 3.0), 0.75, 0.2, BRANCO, seg=28); crono.rotation_euler = (math.radians(90), 0, 0)
-aro = anel("aroCrono", (0, 0, 0), 0.78, 0.07, VERMELHO); filho(crono, aro); aro.location = (0, 0, 0); aro.rotation_euler = (0, 0, 0)
-botao = cilindro("botaoCrono", (0, 0, 0), 0.14, 0.2, VERMELHO, seg=10); filho(crono, botao); botao.location = (0, 0.95, 0); botao.rotation_euler = (math.radians(90), 0, 0)
-ponteiro = caixa("ponteiroC", (43.4, 1.86, 3.0), (0.06, 0.03, 0.6), ESCURO); ponteiro.rotation_mode = "XYZ"
-for v in ponteiro.data.vertices: v.co.z += 0.28
+crono = cilindro("crono", (41.7, 1.7, 4.75), 0.6, 0.2, BRANCO, seg=28); crono.rotation_euler = (math.radians(90), 0, 0)
+aro = anel("aroCrono", (0, 0, 0), 0.62, 0.07, VERMELHO); filho(crono, aro); aro.location = (0, 0, 0); aro.rotation_euler = (0, 0, 0)
+botao = cilindro("botaoCrono", (0, 0, 0), 0.14, 0.2, VERMELHO, seg=10); filho(crono, botao); botao.location = (0, 0.78, 0); botao.rotation_euler = (math.radians(90), 0, 0)
+ponteiro = caixa("ponteiroC", (41.7, 1.56, 4.75), (0.06, 0.03, 0.5), ESCURO); ponteiro.rotation_mode = "XYZ"
+for v in ponteiro.data.vertices: v.co.z += 0.22
 tcr = T(1, "trinta", 1) - 0.3
 visivel(crono, tcr); pop(crono, tcr); visivel(ponteiro, tcr); pop(ponteiro, tcr)
 k = 0; t = tcr
 while t < t1:
     key(ponteiro, "rotation_euler", t, (0, math.radians(36 * k * (2 if t > t60 else 1)), 0)); t += 0.25; k += 1
-g1 = pixel("guia1", (37.9, 0.6, 0)); girar(g1["raiz"], -10); respirar(g1, t0, t1 + 1)
+g1 = pixel("guia1", (38.5, 0.0, 0)); girar(g1["raiz"], 12); respirar(g1, t0, t1 + 1)
 acenar(g1, t0 + 0.1, 1.3); apontar(g1, T(1, "quadro") - 0.3, 1.8, "D", 50)
 apontar(g1, T(1, "trinta", 1) - 0.2, 1.6, "D", 75); espanto(g1, t60 - 0.1, 1.4)
-cam_key(t0, (39.6, -4.6, 2.3), (39.4, 1.4, 2.4)); cam_key(T(1, "Cada"), (40.0, -5.4, 2.4), (40.2, 1.8, 2.4))
-cam_key(T(1, "trinta", 1) - 0.4, (41.4, -5.2, 2.5), (41.6, 1.8, 2.6)); cam_key(t1 - 0.05, (40.6, -5.8, 2.5), (40.8, 1.8, 2.5))
+cam_key(t0, (39.2, -4.4, 2.3), (39.2, 1.0, 2.4)); cam_key(T(1, "Cada"), (40.0, -5.6, 2.6), (40.0, 1.6, 2.7))
+cam_key(T(1, "trinta", 1) - 0.4, (40.3, -5.4, 3.0), (40.4, 1.6, 3.2)); cam_key(t1 - 0.05, (40.1, -5.8, 2.9), (40.2, 1.6, 3.0))
 
 # =====================================================================
 # ZONA C (x = 80) — fábrica de quadros: CPU monta, GPU pinta  (blocos 2 e 5)
@@ -208,7 +211,7 @@ visivel(coroa, S[5][0] + 0.2)  # coroa só aparece no bloco 5
 acenar(guiaC, t0 + 0.1, 1.2); apontar(guiaC, T(2, "CPU") - 0.3, 1.6, "D", 60); pensar(guiaC, T(2, "decide"), 1.4)
 apontar(guiaC, T(2, "GPU") - 0.3, 1.8, "D", 45)
 plano(t0, (77.4, 0.2), "geral", altura=1.9); plano(T(2, "CPU") - 0.4, (77.2, 0.6), "medio", altura=2.1)
-plano(T(2, "GPU") - 0.4, (81.2, 0.6), "medio", altura=2.0); plano(t1 - 0.05, (81.8, 0.6), "medio", altura=2.0)
+plano(T(2, "GPU") - 0.4, (82.2, 0.8), "close", altura=2.0); plano(t1 - 0.05, (82.5, 0.8), "close", altura=2.0)
 
 # ---- bloco 5: o Pro = pintor mais forte, mesma CPU ----
 t0, t1 = S[5]
@@ -293,16 +296,16 @@ cam_key(t1 - 0.05, (121.0, -8.2, 3.6), (121.2, -1.4, 2.6))
 # ZONA E (x = 160) — 60 instável x 30 travado: duas fileiras de lâmpadas  (bloco 4)
 # =====================================================================
 t0, t1 = S[4]
-sala("E", 160, (0.66, 0.60, 0.92, 1), (0.30, 0.34, 0.48, 1), prof=3.2)
-OFF = (0.30, 0.32, 0.40, 1)
+sala("E", 160, (0.66, 0.60, 0.92, 1), (0.98, 0.72, 0.84, 1), prof=3.2)
+OFF = (0.22, 0.24, 0.30, 1)
 def fileira(z, nome):
-    caixa(_id("trilho"), (161.4, 2.85, z), (5.0, 0.2, 0.75), (0.16, 0.17, 0.22, 1))
+    caixa(_id("trilho"), (161.4, 2.85, z), (5.2, 0.2, 0.85), (0.16, 0.17, 0.22, 1))
     lamps = []
     for k in range(8):
-        lp = cilindro(_id(nome), (159.3 + k * 0.6, 2.7, z), 0.24, 0.12, OFF, seg=20, unico=_id("lm")); lp.rotation_euler = (math.radians(90), 0, 0)
+        lp = cilindro(_id(nome), (159.3 + k * 0.6, 2.7, z), 0.27, 0.12, OFF, seg=20, unico=_id("lm")); lp.rotation_euler = (math.radians(90), 0, 0)
         lamps.append(lp.data.materials[0])
     return lamps
-topo = fileira(4.1, "lampT"); baixo = fileira(2.6, "lampB")
+topo = fileira(4.7, "lampT"); baixo = fileira(3.6, "lampB")
 def acender(m, t, cor, dur=0.28):
     cor_key(m, t - 0.02, OFF); cor_key(m, t, cor); cor_key(m, t + dur, cor); cor_key(m, t + dur + 0.04, OFF)
 # 30 travado: ritmo sempre igual
@@ -319,30 +322,30 @@ while t < t1:
     else:
         acender(baixo[k % 8], t, AMARELO, 0.12); t += random.choice((0.15, 0.15, 0.2, 0.45))
     k += 1
-metr = cilindro("metronomo", (164.6, 2.4, 1.3), 0.7, 2.6, (0.55, 0.36, 0.24, 1), seg=4, r2=0.2); metr.rotation_euler = (0, 0, math.radians(45))
-pend = vazio("pendulo", (164.6, 1.85, 0.6)); haste = caixa("hastePend", (0, 0, 0), (0.06, 0.06, 2.0), BRANCO); filho(pend, haste); haste.location = (0, 0, 1.0)
+metr = cilindro("metronomo", (163.6, 1.2, 1.3), 0.7, 2.6, (0.55, 0.36, 0.24, 1), seg=4, r2=0.2); metr.rotation_euler = (0, 0, math.radians(45))
+pend = vazio("pendulo", (163.6, 0.65, 0.6)); haste = caixa("hastePend", (0, 0, 0), (0.06, 0.06, 2.0), BRANCO); filho(pend, haste); haste.location = (0, 0, 1.0)
 peso = caixa("pesoPend", (0, 0, 0), (0.3, 0.12, 0.3), AMARELO); filho(pend, peso); peso.location = (0, 0, 1.4)
 pend.rotation_mode = "XYZ"; k = 0; t = t0
 while t < t1 + 0.3:
     key(pend, "rotation_euler", t, (0, math.radians(25 if k % 2 else -25), 0)); t += 0.6; k += 1
-gE = pixel("guiaE", (157.9, -0.6, 0)); girar(gE["raiz"], -12); respirar(gE, t0, t1 + 1)
+gE = pixel("guiaE", (160.1, -1.5, 0)); girar(gE["raiz"], 10); respirar(gE, t0, t1 + 1)
 pensar(gE, t0 + 0.2, 1.6); apontar(gE, T(4, "Porque") - 0.2, 1.4, "D", 25); espanto(gE, teng, 1.2)
 apontar(gE, T(4, "travado") - 0.3, 1.8, "D", 75); comemorar(gE, T(4, "ritmo") - 0.2, 1.2)
-cam_key(t0, (160.2, -4.8, 2.6), (160.6, 2.4, 2.9)); cam_key(T(4, "Porque") - 0.3, (161.0, -4.6, 2.3), (161.6, 2.4, 2.6))
-cam_key(T(4, "Trinta") - 0.3, (161.2, -4.6, 3.6), (161.6, 2.4, 3.6)); cam_key(t1 - 0.05, (161.0, -5.2, 3.4), (161.4, 2.4, 3.3))
+cam_key(t0, (161.0, -5.6, 2.9), (161.2, 2.4, 3.2)); cam_key(T(4, "Porque") - 0.3, (161.3, -6.0, 2.9), (161.4, 2.4, 3.3))
+cam_key(T(4, "Trinta") - 0.3, (161.4, -5.6, 3.4), (161.4, 2.4, 3.7)); cam_key(t1 - 0.05, (161.3, -6.0, 3.3), (161.3, 2.4, 3.5))
 
 # =====================================================================
 # ZONA F (x = 200) — medidor de FPS: Pro quase sempre em 30; o comum às vezes cai  (fim do bloco 5)
 # =====================================================================
 tds = T(5, "Segundo"); t1 = S[5][1]
 sala("F", 200, (0.98, 0.80, 0.60, 1), (0.48, 0.82, 0.70, 1), prof=3.6)
-cPro = console("consPro", (199.0, 2.1), pro=True); cBase = console("consBase", (202.2, 2.1))
+cPro = console("consPro", (199.9, 1.6), pro=True); cBase = console("consBase", (202.7, 1.6))
 def medidor(x):
-    caixa(_id("tuboM"), (x, 2.3, 1.75), (0.7, 0.5, 3.5), (0.86, 0.90, 0.96, 1))
-    b = de_baixo(caixa(_id("barra"), (x, 2.0, 0.05), (0.5, 0.3, 1.0), VERDE, unico=_id("bm")))
-    caixa(_id("linha30"), (x, 1.95, 3.0), (0.95, 0.1, 0.08), VERMELHO)
+    caixa(_id("tuboM"), (x, 1.9, 1.85), (0.8, 0.3, 3.7), (0.20, 0.22, 0.30, 1))
+    b = de_baixo(cilindro(_id("barra"), (x, 1.62, 0.1), 0.27, 1.0, VERDE, seg=16, unico=_id("bm")))
+    caixa(_id("linha30"), (x, 1.55, 3.05), (1.0, 0.08, 0.1), AMARELO)
     return b
-bPro = medidor(200.0); bBase = medidor(203.2)
+bPro = medidor(200.85); bBase = medidor(203.65)
 def nivel(b, t, h): b.scale = (1, 1, h); b.keyframe_insert("scale", frame=f(t))
 t = tds - 0.3
 nivel(bPro, t, 0.05); nivel(bBase, t, 0.05)
@@ -356,10 +359,10 @@ while t < t1 + 0.4:
     nivel(bBase, t, 2.25 if queda_ else 2.95 + (0.03 if k % 2 else -0.04))
     cor_key(mB, t, VERMELHO if queda_ else VERDE)
     t += 0.3; k += 1
-gF = pixel("guiaF", (197.6, -0.4, 0)); girar(gF["raiz"], -10); respirar(gF, tds - 0.3, t1 + 1)
+gF = pixel("guiaF", (199.0, -0.8, 0)); girar(gF["raiz"], 12); respirar(gF, tds - 0.3, t1 + 1)
 apontar(gF, T(5, "Pro", 1) - 0.2, 1.6, "D", 30); comemorar(gF, T(5, "queda") - 0.2, 1.0); espanto(gF, tcai - 0.1, 1.0)
-cam_key(tds - 0.02, (200.2, -5.6, 2.6), (200.4, 1.8, 2.3)); cam_key(tcm - 0.2, (200.4, -5.6, 2.6), (200.6, 1.8, 2.3))
-cam_key(tcm + 0.1, (202.0, -4.6, 2.5), (202.4, 2.0, 2.3)); cam_key(t1 - 0.05, (202.0, -4.8, 2.5), (202.4, 2.0, 2.3))
+cam_key(tds - 0.02, (200.3, -5.4, 2.6), (200.3, 1.6, 2.2)); cam_key(tcm - 0.2, (200.5, -5.6, 2.6), (200.5, 1.6, 2.2))
+cam_key(tcm + 0.1, (203.0, -4.4, 2.5), (203.1, 1.6, 2.2)); cam_key(t1 - 0.05, (203.0, -4.6, 2.5), (203.1, 1.6, 2.2))
 
 # =====================================================================
 # 6 — CTA de volta à sala (Pixel acena; câmera um pouco mais aberta: CTA não encosta na cabeça)
