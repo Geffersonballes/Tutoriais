@@ -14,4 +14,4 @@ Checklist do post (reprove se qualquer item falhar):
 - Título: curto, curioso e verdadeiro; o vídeo responde à pergunta da capa.
 - Legenda: sem erro e sem tapar o objeto principal da cena.
 - Começo e fim: não corta frase no meio; CTA completo no fim.
-- Crédito/fonte: todo número na tela tem fonte; selo de IA visível.
+- Crédito/fonte: todo número na tela tem fonte; sem selo de IA na tela (a declaração de IA vai nas configurações do post).

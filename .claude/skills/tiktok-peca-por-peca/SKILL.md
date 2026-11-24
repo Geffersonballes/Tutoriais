@@ -94,7 +94,7 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
 - [ ] **Título:** curto, curioso e verdadeiro; o vídeo responde à pergunta da capa.
 - [ ] **Legenda:** sem erro e sem tapar o objeto principal da cena (rótulos e pílulas acima, legenda a 63 % da altura).
 - [ ] **Começo e fim:** não começa nem termina no meio de uma frase; o CTA aparece completo.
-- [ ] **Crédito/fonte:** número na tela tem fonte; selo "Conteúdo gerado com IA" visível.
+- [ ] **Crédito/fonte:** número na tela tem fonte; SEM selo de IA na tela (decisão do dono 24/11) — a declaração vai no post: isAigc / isAiGeneratedContent = true.
 
 ## 7. Entrega e agendamento (`publicador`)
 1. Gere um link público do `final.mp4` pelo Picsart (aceita até 100 MB; o Google Drive daqui só aceita 10 MB):
