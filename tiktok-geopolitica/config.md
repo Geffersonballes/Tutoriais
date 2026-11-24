@@ -4,7 +4,7 @@
 |---|---|---|
 | Nome da série | Peça por Peça (provisório) | definir |
 | TikTok para publicar | Metricool, marca `ballestech` (blogId 8049742), TikTok pessoal `geffersonballes1` | ✅ conectado |
-| YouTube Shorts | Metricool, canal `UCfamwKNkLBtNjhjZLPQdDfg`, mesmo post do TikTok | ✅ aprovado |
+| YouTube Shorts | ❌ desde 24/11 — a série de guerra sai só no TikTok; o YouTube do canal ficou só para games (decisão do dono, 23/11) | ✅ decidido |
 | Horários dos posts | 10:00 (produção da manhã), 18:00 (da tarde), 13:00 do dia seguinte (da noite) | ✅ aprovado |
 | TikTok para métricas | Windsor `tiktok_organic`, conta "Gefferson Balles" | conectado (só leitura) |
 | Fuso | America/Cuiaba | ok |
