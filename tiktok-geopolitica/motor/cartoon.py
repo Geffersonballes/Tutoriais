@@ -138,6 +138,26 @@ def hud(nome, loc, cor=(0.10, 0.12, 0.18, 1), w=2.6, h=1.2):
     filho(p, caixa(_id("hudB"), (0, -0.07, 0), (w * 0.94, 0.02, h * 0.86), (0.20, 0.95, 0.55, 1)))
     return p
 
+
+# ---------- câmera fechada (backlog #1: nada de chão vazio) ----------
+PLANOS = {"close": (4.6, 0.25, 0.0), "medio": (6.5, 0.6, 0.1), "geral": (8.5, 1.4, 0.3)}
+def camera_cartoon(lens=24):
+    """Cria câmera + alvo com TRACK_TO. Retorna (cam, alvo, cam_key, plano)."""
+    scn = bpy.context.scene
+    cd = bpy.data.cameras.new("cam"); cd.lens = lens; cd.clip_end = 2000
+    cam = bpy.data.objects.new("cam", cd); scn.collection.objects.link(cam); scn.camera = cam
+    alvo = vazio("alvo")
+    tc = cam.constraints.new("TRACK_TO"); tc.target = alvo; tc.track_axis = "TRACK_NEGATIVE_Z"; tc.up_axis = "UP_Y"
+    def cam_key(t, loc, tgt):
+        for ob, v in ((cam, loc), (alvo, tgt)):
+            ob.location = v; ob.keyframe_insert("location", frame=f(t))
+    def plano(t, centro, tipo="medio", lado=0.0, altura=1.8):
+        """Enquadramento padrão olhando de -Y para 'centro' (x, y): close ≈ 4,6 m, médio ≈ 6,5 m, geral ≈ 8,5 m.
+        A câmera fica quase na altura do alvo, levemente acima, para o chão não ocupar a metade de baixo."""
+        d, dz, dzt = PLANOS[tipo]; x, y = centro[0], centro[1]
+        cam_key(t, (x + lado, y - d, altura + dz), (x, y, altura + dzt))
+    return cam, alvo, cam_key, plano
+
 # ---------- render cartoon ----------
 def modo_cartoon(samples=6, res=(540, 960), ceu=((0.36, 0.64, 0.98), (0.80, 0.92, 1.0))):
     """Estilo C: EEVEE, céu em degradê, sol branco suave + luz de preenchimento, cores saturadas e foscas,
