@@ -1,0 +1,7 @@
+GTA seis roda a só trinta quadros por segundo. Até no PlayStation cinco Pro. Por quê?
+Todo jogo é um desenho animado. Cada desenho é um quadro. A trinta por segundo, cada um tem trinta e três milésimos para ficar pronto. A sessenta, só metade.
+Cada quadro passa por dois trabalhadores. A CPU é o cérebro: decide o que acontece. A GPU é o pintor: transforma isso em imagem.
+Só que a cidade do GTA seis é enorme. Multidões, trânsito, física de batidas. A CPU recalcula tudo isso em todo quadro. Segundo a Digital Foundry, é ela que segura o jogo.
+E por que não sessenta, mesmo instável? Porque quadro que atrasa parece engasgo. Trinta travado chega sempre no mesmo ritmo.
+E o Pro? Ganhou um pintor bem mais forte, mas a CPU é quase a mesma. Pintar rápido não adianta se o cérebro não terminou. Segundo a Digital Foundry, o Pro segura os trinta quase sem queda. O modelo comum às vezes cai.
+Já jogou? Comenta zerei. Ainda não? Comenta na fila.
