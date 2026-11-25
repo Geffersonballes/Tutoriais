@@ -12,7 +12,12 @@ Regras:
   escolha e qualidade das ofertas → `promo-curador-de-ofertas`; frases e textos dos grupos →
   `promo-redator`; Instagram/anúncios → `promo-divulgacao-instagram`; riscos legais e de
   banimento → `promo-conformidade` (tem veto); novos clientes → `promo-onboarding-cliente`;
-  registrar o aprendizado → `promo-documentador`.
+  registrar o aprendizado → `promo-documentador`; garimpo de produtos → `promo-minerador-de-produtos`;
+  o que está em alta → `promo-cacador-de-tendencias`; números (cliques, pedidos, comissão) →
+  `promo-analista-de-metricas`; reações e engajamento por post → `promo-analista-de-postagens`;
+  textos que vendem e testes A/B → `promo-copywriter`; revisão antes de publicar → `promo-critico`;
+  preço, planos e roteiro do produto → `promo-gerente-de-produto`; saúde diária dos robôs →
+  `promo-gerente-de-operacoes`.
 - Ao fim de cada passo, garanta que o `promo-documentador` atualizou o manual e o diário, e que houve commit
   e push no branch de trabalho.
 - Credenciais (App ID/Secret da Shopee, senha da VPS, apikey da Evolution) **nunca** no chat nem no Git.

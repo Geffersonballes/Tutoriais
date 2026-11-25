@@ -150,6 +150,20 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | `promo-conformidade` | Riscos (afiliados, WhatsApp, CDC, LGPD, Meta); tem veto |
 | `promo-onboarding-cliente` | Coloca cada cliente novo no ar (`clientes/<apelido>/status.md`) |
 | `promo-documentador` | Mantém este manual e o diário atualizados |
+| `promo-minerador-de-produtos` | Garimpa produtos (placar desconto × vendas × nota × comissão) e monta a fila do dia |
+| `promo-cacador-de-tendencias` | O que está em alta (TikTok, Trends, campanhas da Shopee, datas) |
+| `promo-analista-de-metricas` | Cliques, pedidos e comissão por post, nicho e horário; relatório semanal |
+| `promo-analista-de-postagens` | Reações e saídas por post; testes A/B |
+| `promo-copywriter` | Copy de conversão (anúncios, chamadas, venda do produto) |
+| `promo-critico` | Lê como membro ou cliente cético; nota de 0 a 10, PODE IR ou REFAZER |
+| `promo-gerente-de-produto` | Planos, preço, roteiro e metas do produto (`PRODUTO.md`) |
+| `promo-gerente-de-operacoes` | Checagem diária 🟢🟡🔴 dos robôs de todos os clientes |
+
+**Coleta de dados que ainda precisa ser programada** (para os analistas):
+1. `subId` por post no link curto (medir cliques e pedidos de cada post).
+2. Comando `relatorio` que puxa o `conversionReport` da Shopee.
+3. Webhook da Evolution API → tabela `eventos` (reações, entradas e saídas de membros).
+4. Comando `saude` para a checagem diária do gerente de operações.
 
 ## 8. Ideias para o produto (decidir depois)
 
@@ -184,5 +198,7 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 25/11/2026 | ✅ **Chip do robô conectado** à Evolution API pelo QR Code (o código de 8 letras veio vazio; ver §3). |
 | 25/11/2026 | Lista de grupos OK. Grupo **Achadinhos da Lay** = `120363432803335927@g.us`. ⚠️ O número do robô **não é um chip novo**: está em vários outros grupos (família, escola, outros grupos de ofertas). Recomendado para os próximos clientes: chip exclusivo. |
 | 25/11/2026 | ✅ `enviar-teste` rodou sem erro ("Teste enviado para ...@g.us"). O horário do log sai no fuso de Cuiabá (`FUSO`). |
+| 25/11/2026 | ✅ Mensagem de teste chegou no grupo: imagem + ~tachado~ + *negrito* corretos. Observação: o remetente aparece como **"Laynner Balles"**, então o robô está no número pessoal (reforça: chip exclusivo). |
+| 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
