@@ -141,7 +141,9 @@ O compor.py acrescenta sozinho, depois da narração, a fala "Gostou do conteúd
 ## Áudio (obrigatório desde 24/11)
 O compor.py gera voz tratada + trilha original + efeitos (motor/audio.py). Escolha o clima no grafismos.json ("trilha": {"clima": "curioso|tenso|epico|divertido"}) conforme a emoção do tema. Todo aprendizado novo vai para produto/MANUAL_DA_AUTOMACAO.md.
 
-**MARCA E REDES (decisão do dono, 25/11 — vale acima do que estiver escrito antes):** agende na marca nova do Metricool `geffersonballes1`, **blogId `8356514`** (fuso America/Cuiaba). Não use mais a `ballestech` (8049742) — ela tem o mesmo TikTok e YouTube, e agendar nas duas duplicaria o post. Todo vídeo vai também para o **Facebook como Reel** (página Peça por Peça): acrescente `{"network":"facebook"}` em `providers` e `"facebookData": {"type": "REEL", "title": "<título curto>"}`. Guerra = TikTok + Facebook; games = TikTok + YouTube + Facebook.
+**MARCA E REDES (decisão do dono, 25/11 — vale acima do que estiver escrito antes):** agende na marca nova do Metricool `geffersonballes1`, **blogId `8356514`** (fuso America/Cuiaba). Não use mais a `ballestech` (8049742) — ela tem o mesmo TikTok e YouTube, e agendar nas duas duplicaria o post. Todo vídeo vai também para o **Facebook como Reel** (página Peça por Peça): acrescente `{"network":"facebook"}` em `providers` e `"facebookData": {"type": "REEL", "title": "<título curto>"}`. Guerra = TikTok + Facebook + Instagram + **YouTube Shorts** (decisão do dono 25/11, a partir do post dos inspetores nucleares); games = TikTok + YouTube + Facebook.
+
+**YOUTUBE NA GUERRA (25/11):** acrescente `{"network":"youtube"}` em `providers` e `"youtubeData": {"title": "<título curto> #shorts", "type": "short", "privacy": "public", "category": "NEWS_POLITICS", "madeForKids": false, "isAiGeneratedContent": true}`. Os vídeos de guerra antigos vão ao YouTube pela sessão do YouTube, não pela rotina diária.
 
 ## KWAI (25/11)
 Depois de agendar no Metricool, acrescente o vídeo à lista do Kwai no OneDrive, seguindo kwai/LEIA.md.
