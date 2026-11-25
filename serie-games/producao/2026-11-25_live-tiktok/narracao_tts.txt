@@ -1,0 +1,7 @@
+Você aperta Iniciar LIVE e, em segundos, alguém do outro lado do país já te vê. Como a sua imagem faz essa viagem?
+Primeiro, o celular. O vídeo cru é pesado demais. Então ele comprime cada imagem, para o vídeo caber no seu quatro G.
+Esse vídeo chega a um servidor de entrada, o ingest. Lá ele vira várias versões: alta, média e baixa. Isso é a transcodificação.
+Por quê? Nem todo mundo tem internet boa. No wi-fi, você recebe a alta. Com sinal fraco, a leve, e a live não para.
+E se mil pessoas entrarem? Seu celular não manda mil vídeos, manda um só. Cópias ficam em servidores perto de quem assiste. Essa é a C-D-N. E o seu celular nem sente.
+E o chat? Mensagens e presentes viajam por outro caminho, separado do vídeo e mais rápido. Por isso a conversa é quase na hora.
+Agora você sabe o caminho. Que tal fazer a sua primeira LIVE? Conta pra galera o que você joga.

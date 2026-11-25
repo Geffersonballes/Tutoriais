@@ -1,0 +1,13 @@
+[surprised] Você aperta Iniciar LIVE e, em segundos, alguém do outro lado do país já te vê. [curious] Como a sua imagem faz essa viagem?
+
+Primeiro, o celular. O vídeo cru é pesado demais. Então ele comprime cada imagem, para o vídeo caber no seu quatro G.
+
+Esse vídeo chega a um servidor de entrada, o ingest. [excited] Lá ele vira várias versões: alta, média e baixa. Isso é a transcodificação.
+
+[curious] Por quê? Nem todo mundo tem internet boa. No wi-fi, você recebe a alta. Com sinal fraco, a leve, e a live não para.
+
+[curious] E se mil pessoas entrarem? [mischievously] Seu celular não manda mil vídeos, manda um só. Cópias ficam em servidores perto de quem assiste. [dramatically] Essa é a C-D-N. E o seu celular nem sente.
+
+[curious] E o chat? Mensagens e presentes viajam por outro caminho, separado do vídeo e mais rápido. Por isso a conversa é quase na hora.
+
+[excited] Agora você sabe o caminho. Que tal fazer a sua primeira LIVE? Conta pra galera o que você joga.

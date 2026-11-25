@@ -1,0 +1,359 @@
+{
+ "capa": {
+  "linhas": [
+   "SUA LIVE",
+   "EM MILHÕES",
+   "DE CELULARES?"
+  ],
+  "destaque": [
+   0
+  ],
+  "dur": 1.3
+ },
+ "rotulos": [
+  {
+   "texto": "COMPRESSÃO",
+   "de": [
+    1,
+    "comprime"
+   ],
+   "ate": [
+    1,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "INGEST",
+   "de": [
+    2,
+    "ingest"
+   ],
+   "ate": [
+    2,
+    "versões"
+   ]
+  },
+  {
+   "texto": "TRANSCODIFICAÇÃO",
+   "de": [
+    2,
+    "transcodificação"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "CDN",
+   "de": [
+    4,
+    "C-D-N"
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "CHAT E PRESENTES",
+   "de": [
+    5,
+    "Mensagens"
+   ],
+   "ate": [
+    5,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "pilulas": [
+  {
+   "texto": "INICIAR LIVE",
+   "ponto": "vermelho",
+   "de": [
+    0,
+    "Iniciar"
+   ],
+   "ate": [
+    0,
+    "outro"
+   ],
+   "y": 0.3,
+   "tam": 48
+  },
+  {
+   "texto": "EM SEGUNDOS, LONGE",
+   "ponto": "azul",
+   "de": [
+    0,
+    "outro"
+   ],
+   "ate": [
+    0,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "VÍDEO CRU = PESADO",
+   "ponto": "vermelho",
+   "de": [
+    1,
+    "cru"
+   ],
+   "ate": [
+    1,
+    "comprime"
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "COMPRIMIDO = CABE NO 4G",
+   "ponto": "azul",
+   "de": [
+    1,
+    "comprime"
+   ],
+   "ate": [
+    1,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "SERVIDOR DE ENTRADA",
+   "ponto": "azul",
+   "de": [
+    2,
+    "servidor"
+   ],
+   "ate": [
+    2,
+    "versões"
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "ALTA",
+   "ponto": "azul",
+   "de": [
+    2,
+    "alta"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.29,
+   "tam": 44,
+   "x": 0.25
+  },
+  {
+   "texto": "MÉDIA",
+   "ponto": "azul",
+   "de": [
+    2,
+    "média"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.29,
+   "tam": 44,
+   "x": 0.5
+  },
+  {
+   "texto": "BAIXA",
+   "ponto": "vermelho",
+   "de": [
+    2,
+    "baixa"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.29,
+   "tam": 44,
+   "x": 0.75
+  },
+  {
+   "texto": "WI-FI → VERSÃO ALTA",
+   "ponto": "azul",
+   "de": [
+    3,
+    "wi-fi"
+   ],
+   "ate": [
+    3,
+    "sinal"
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "SINAL FRACO → VERSÃO LEVE",
+   "ponto": "vermelho",
+   "de": [
+    3,
+    "sinal"
+   ],
+   "ate": [
+    3,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "1 VÍDEO SÓ",
+   "ponto": "azul",
+   "de": [
+    4,
+    "manda",
+    1
+   ],
+   "ate": [
+    4,
+    "Cópias"
+   ],
+   "y": 0.3,
+   "tam": 48
+  },
+  {
+   "texto": "CÓPIAS PERTO DE QUEM ASSISTE",
+   "ponto": "azul",
+   "de": [
+    4,
+    "Cópias"
+   ],
+   "ate": [
+    4,
+    "Essa"
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "SEU CELULAR NEM SENTE",
+   "ponto": "azul",
+   "de": [
+    4,
+    "celular",
+    1
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "OUTRO CAMINHO, MAIS RÁPIDO",
+   "ponto": "vermelho",
+   "de": [
+    5,
+    "caminho"
+   ],
+   "ate": [
+    5,
+    "Por"
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "CONVERSA QUASE NA HORA",
+   "ponto": "azul",
+   "de": [
+    5,
+    "conversa"
+   ],
+   "ate": [
+    5,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.3
+  }
+ ],
+ "fontes": [
+  {
+   "texto": "Fontes: Wowza, Akamai, getstream.io",
+   "de": [
+    1,
+    "comprime"
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: getstream.io e Amazon IVS",
+   "de": [
+    5,
+    "Mensagens"
+   ],
+   "ate": [
+    5,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "cta": {
+  "linha1": [
+   6,
+   "Que"
+  ],
+  "t1a": "QUE TAL FAZER",
+  "t1b": "SUA 1ª LIVE?",
+  "linha2": [
+   6,
+   "Conta"
+  ],
+  "t2a": "CONTA PRA GALERA",
+  "t2b": "O QUE VOCÊ JOGA",
+  "marca_de": [
+   6,
+   "joga",
+   0,
+   0.3
+  ],
+  "marca": "PEÇA POR PEÇA"
+ },
+ "trilha": {
+  "clima": "curioso"
+ },
+ "subst": {
+  "quatro": "4G",
+  "g": "",
+  "c-d-n": "CDN",
+  "live": "LIVE"
+ }
+}
