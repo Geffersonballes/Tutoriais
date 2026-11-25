@@ -183,5 +183,6 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 25/11/2026 | `postgres` e `evolution` subiram (Up) na primeira tentativa. Criado `conectar-whatsapp.sh`. |
 | 25/11/2026 | ✅ **Chip do robô conectado** à Evolution API pelo QR Code (o código de 8 letras veio vazio; ver §3). |
 | 25/11/2026 | Lista de grupos OK. Grupo **Achadinhos da Lay** = `120363432803335927@g.us`. ⚠️ O número do robô **não é um chip novo**: está em vários outros grupos (família, escola, outros grupos de ofertas). Recomendado para os próximos clientes: chip exclusivo. |
+| 25/11/2026 | ✅ `enviar-teste` rodou sem erro ("Teste enviado para ...@g.us"). O horário do log sai no fuso de Cuiabá (`FUSO`). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
