@@ -388,13 +388,13 @@ t0, t1 = S[7]
 AMB.append((t0, "dia"))
 for ch in ("luz0", "luz1", "luz2", "luzH", "luzAgua", "luzCel"): luz(ch, t0, 1)
 tdef = T(7, "antiaérea") - 0.2; tbar = T(7, "barreiras") - 0.1; tsac = T(7, "sacos") - 0.1; tger = T(7, "geradores") - 0.1; trod = T(7, "cortes") - 0.1
-for k, (x, y) in enumerate(((-15, -19), (15, -19))):
+for k, (x, y) in enumerate(((-16, -10.5), (16, -10.5))):
     cn = canhao(_id("aa"), (x, y, 0.5)); visivel(cn, tdef + 0.2 * k); pop(cn, tdef + 0.2 * k)
 rd = radar("radarSub", (-24, 8, 0.75)); rdb, rdg = rd; visivel(rdb, tdef + 0.4); pop(rdb, tdef + 0.4)
 rdg.rotation_euler = (0, 0, 0); rdg.keyframe_insert("rotation_euler", frame=f(t0)); rdg.rotation_euler = (0, 0, math.radians(360 * 6)); rdg.keyframe_insert("rotation_euler", frame=f(FIM))
 tint = tdef + 1.5; pint = (-4, 36, 20)
 di = drone(_id("dint"), 0.9); visivel(di, tint - 1.4, tint); caminho(di, tint - 1.4, tint, lambda u: lerp((30, 170, 70), pint, u))
-rastro(lambda u: lerp((-15, -19, 3), pint, u), tint - 0.45, tint, C["defesa"], r=0.3, cada=0.04, vida=0.35)
+rastro(lambda u: lerp((-16, -10.5, 3), pint, u), tint - 0.45, tint, C["defesa"], r=0.3, cada=0.04, vida=0.35)
 explosao(pint, tint, r=5, n=14)
 for k, x in enumerate((-12.2, -4, 4, 12.2)):
     b = caixa(_id("muro"), (x, 0, 2.3), (0.6, 5.6, 4.3), CONC); visivel(b, tbar + 0.12 * k); pop(b, tbar + 0.12 * k)
@@ -445,7 +445,7 @@ fogo((RX - 1, -2.5, 6.8), th1, t1, r=1.3); fumaca((RX - 1, -2, 7), th1 + 0.2, t1
 fogo((RX - 12, 9.5, 6.8), th1 + 0.55, t1, r=1.1); fumaca((RX - 12, 10, 7), th1 + 0.75, t1, r=1.5, cada=0.4, sobe=14)
 for k, d in ((1, 0), (2, 0.55)):
     m = bpy.data.objects[f"tqRef{k}"].data.materials[0]; cor_key(m, th1 + d - 0.05, (0.93, 0.93, 0.91, 1)); cor_key(m, th1 + d + 0.4, (0.22, 0.20, 0.19, 1))
-shot(t0, t1, (RX + 12, -30, 8), (RX - 3, 2, 8), (RX + 4, -37, 12), (RX - 3, 2, 8))
+shot(t0, t1, (RX + 15, -37, 9), (RX - 3, 2, 8), (RX + 7, -44, 14), (RX - 3, 2, 8))
 
 # =====================================================================
 # 9/10 — FINAL (dia): a rede inteira funcionando, da usina à cidade

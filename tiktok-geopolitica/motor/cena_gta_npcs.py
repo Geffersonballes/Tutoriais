@@ -282,7 +282,7 @@ for k, (p, pd, x) in enumerate(peds2):
 for (nm, x, h, w, cor), (p, pd, _) in zip(CORPOS, peds2):
     m = pd.data.materials[0]; tn = T(2, nm)
     cor_key(m, tn - 0.08, (0.92, 0.92, 0.96, 1)); cor_key(m, tn + 0.05, AMARELO); cor_key(m, tn + 0.75, AMARELO); cor_key(m, tn + 1.0, (0.92, 0.92, 0.96, 1))
-gC = pixel("guiaC", (77.4, -1.3, 0), escala=0.9); girar(gC["raiz"], 16); respirar(gC, t0, t1 + 0.5)
+gC = pixel("guiaC", (77.9, -1.3, 0), escala=0.9); girar(gC["raiz"], 16); respirar(gC, t0, t1 + 0.5)
 pensar(gC, t0 + 0.1, 1.5); espanto(gC, T(2, "impossível") - 0.2, 1.3); apontar(gC, tcard, 1.6, "D", 95); comemorar(gC, taj + 0.5, 1.1); apontar(gC, T(2, "baixo") - 0.1, 1.4, "D", 45)
 cam_key(t0, (79.2, -7.2, 2.5), (79.6, 1.5, 2.2)); cam_key(tcard - 0.4, (79.3, -7.2, 2.5), (79.7, 1.5, 2.3))
 cam_key(tcard + 0.3, (79.6, -8.6, 3.5), (79.9, 1.5, 3.2)); cam_key(taj + 0.8, (79.7, -8.0, 3.0), (79.9, 1.5, 2.6)); cam_key(t1 - 0.05, (79.8, -7.6, 2.9), (80.0, 1.5, 2.5))
@@ -345,24 +345,24 @@ bracos(tes, T(4, "testemunha"), 0.9, -140, 15)
 gE = pixel("guiaE", (157.6, -1.7, 0), escala=0.85); girar(gE["raiz"], 22); respirar(gE, t0, tpol + 0.5)
 apontar(gE, tcr, 1.3, "D", 60); espanto(gE, tq, 1.6)
 cam_key(t0, (159.2, -6.8, 2.9), (159.2, 2.0, 2.4)); cam_key(tq - 0.2, (159.8, -7.0, 2.9), (159.8, 1.6, 2.4))
-cam_key(T(4, "testemunha"), (160.2, -6.8, 2.9), (160.2, 1.2, 2.4)); cam_key(tpol - 0.05, (160.3, -6.6, 2.9), (160.3, 1.2, 2.4))
+cam_key(T(4, "testemunha"), (159.9, -6.9, 2.9), (159.9, 1.2, 2.4)); cam_key(tpol - 0.05, (159.9, -6.7, 2.9), (159.9, 1.2, 2.4))
 
 # =====================================================================
 # ZONA F (x = 200) — a polícia recebe a descrição: roupa, carro, dupla  (bloco 4, 2ª parte)
 # =====================================================================
 sala_fechada("F", 200, (0.62, 0.72, 0.98, 1), (0.20, 0.24, 0.42, 1), prof=3.4)
 caixa("Falto", (200, 3.4, 11), (22, 0.4, 10), (0.20, 0.24, 0.42, 1))
-PR = prancheta("prancheta", (200.3, 3.0, 4.15), 1.0)
+PR = prancheta("prancheta", (200.2, 3.0, 4.5), 1.3)
 for nm in ("roupa", "carro", "dupla"):
     tn = T(4, nm) - 0.1; visivel(PR[nm], tn); pop(PR[nm], tn)
-pol = pedestre("policial", (198.9, 0.9, 0), MARINHO, calca=(0.08, 0.10, 0.22, 1), h=1.15, w=1.1, chapeu=MARINHO); girar(pol["raiz"], 150)
-rotk(pol["bracoD"], tpol, 0, -7); rotk(pol["bracoD"], T(4, "descrição"), -120, -7); rotk(pol["bracoD"], t1, -120, -7)
-lamp = esfera("giro", (198.0, 3.0, 5.3), 0.26, AZUL, sub=3, unico="giro"); liso(lamp); brilha(lamp)
+pol = pedestre("policial", (198.9, 0.9, 0), MARINHO, calca=(0.08, 0.10, 0.22, 1), h=1.15, w=1.1, chapeu=MARINHO, pele=PELES[1]); girar(pol["raiz"], 20)
+rotk(pol["bracoD"], tpol, 0, -7); rotk(pol["bracoE"], tpol, 0, 7); rotk(pol["bracoE"], T(4, "descrição"), -165, 20); rotk(pol["bracoE"], t1, -165, 20)
+lamp = esfera("giro", (197.2, 3.0, 5.9), 0.26, AZUL, sub=3, unico="giro"); liso(lamp); brilha(lamp)
 k = 0; t = tpol
 while t < t1: cor_key(lamp.data.materials[0], t, AZUL if k % 2 == 0 else VERMELHO); t += 0.35; k += 1
 gF = pixel("guiaF", (201.9, -1.2, 0), escala=0.9); girar(gF["raiz"], -14); respirar(gF, tpol, t1 + 0.5)
 apontar(gF, T(4, "roupa") - 0.2, 1.0, "E", 80); apontar(gF, T(4, "carro") - 0.2, 0.9, "E", 85); apontar(gF, T(4, "dupla") - 0.25, 1.2, "E", 90)
-cam_key(tpol, (200.3, -7.4, 3.1), (200.3, 2.0, 2.9)); cam_key(t1 - 0.05, (200.4, -6.9, 3.1), (200.4, 2.0, 2.9))
+cam_key(tpol, (200.3, -7.0, 3.2), (200.3, 2.0, 3.0)); cam_key(t1 - 0.05, (200.4, -6.5, 3.2), (200.4, 2.0, 3.0))
 
 # =====================================================================
 # ZONA G (x = 240) — a descrição não bate mais: trocou de roupa, separou da dupla  (bloco 5)
@@ -372,7 +372,7 @@ rua(240)
 PG = prancheta("pranchetaG", (238.6, 2.4, 4.3), 0.62)
 caixa("posteG", (238.6, 2.5, 1.9), (0.14, 0.14, 3.8), (0.25, 0.25, 0.30, 1))
 visivel(PG["carro"], 0, 0.05)   # aqui a descrição mostra só a roupa e a dupla
-polG = pedestre("policialG", (238.4, 1.0, 0), MARINHO, calca=(0.08, 0.10, 0.22, 1), h=1.15, w=1.1, chapeu=MARINHO); girar(polG["raiz"], 20)
+polG = pedestre("policialG", (238.4, 1.0, 0), MARINHO, calca=(0.08, 0.10, 0.22, 1), h=1.15, w=1.1, chapeu=MARINHO, pele=PELES[1]); girar(polG["raiz"], 20)
 jogG = pedestre("jogadorG", (241.0, 1.3, 0), VERMELHO, h=1.12, w=1.05, cabelo=CABELOS[0], unico="camJogG"); girar(jogG["raiz"], -15)
 parG = pedestre("parceiraG", (242.0, 1.5, 0), ROXO, h=1.05, w=0.95, cabelo=CABELOS[3]); girar(parG["raiz"], -10)
 ttr = T(5, "Trocou"); tsp = T(5, "separou") - 0.1; tnb = T(5, "bate") - 0.25; tdf = T(5, "difícil") - 0.3
@@ -395,7 +395,7 @@ ir(jogG, tdf, t1 + 0.4, (241.0, 1.3), (234.0, 0.2), per=0.6)
 gG = pixel("guiaG", (242.4, -1.4, 0), escala=0.9); girar(gG["raiz"], -16); respirar(gG, t0, t1 + 0.5)
 pensar(gG, t0 + 0.15, 1.6); apontar(gG, ttr - 0.1, 1.2, "E", 55); apontar(gG, tsp, 1.2, "D", 60); comemorar(gG, tnb + 0.2, 1.2); acenar(gG, tdf + 0.3, 1.3)
 cam_key(t0, (240.2, -7.4, 3.0), (240.2, 1.4, 2.7)); cam_key(ttr - 0.2, (240.8, -6.6, 2.8), (240.9, 1.3, 2.5))
-cam_key(tsp + 0.9, (241.0, -6.8, 2.8), (241.1, 1.3, 2.5)); cam_key(tnb, (239.9, -7.2, 3.1), (239.9, 1.4, 2.8)); cam_key(t1 - 0.05, (239.6, -7.0, 3.1), (239.6, 1.4, 2.8))
+cam_key(tsp + 0.9, (241.0, -6.8, 2.8), (241.1, 1.3, 2.5)); cam_key(tnb, (240.2, -7.4, 3.1), (240.2, 1.4, 2.8)); cam_key(t1 - 0.05, (240.2, -7.2, 3.1), (240.2, 1.4, 2.8))
 
 # =====================================================================
 # 6 — CTA de volta à rua cheia (câmera aberta: o CTA não encosta na cabeça — backlog #9)
