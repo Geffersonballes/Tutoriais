@@ -1,4 +1,4 @@
-# Textos do grupo "Achadinhos da Lay"
+# Textos do grupo "Achadinhos da Lay" — RASCUNHO (aguardando alterações do dono; não publicar)
 
 Prontos para copiar e colar no WhatsApp (copie só o que está dentro de cada bloco).
 Regras seguidas: transparência sobre afiliado, sem urgência falsa, sem promessas.

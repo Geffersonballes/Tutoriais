@@ -220,6 +220,7 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 25/11/2026 | ✅ Mensagem de teste chegou no grupo: imagem + ~tachado~ + *negrito* corretos. Observação: o remetente aparece como **"Laynner Balles"**, então o robô está no número pessoal (reforça: chip exclusivo). |
 | 25/11/2026 | Dono deu autonomia para os agentes escolherem os formatos. Redator escreveu 30 frases e 15 perguntas, o crítico revisou e os ajustes foram aplicados. Pedido do dono: mostrar o cupom quando houver. |
 | 25/11/2026 | ✅ **Formato aprovado pelo dono**: os 6 formatos chegaram perfeitos no celular (Passo 4 concluído). Falta só a Open API da Shopee para as ofertas reais. |
+| 25/11/2026 | Textos do grupo (`textos-do-grupo.md`) ficaram como **rascunho**: o dono vai alterar antes de aprovar. Nada publicado. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
