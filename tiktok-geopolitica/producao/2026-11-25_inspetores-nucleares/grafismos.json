@@ -35,8 +35,8 @@
     {"texto": "ACESSO LIMITADO", "ponto": "vermelho", "de": [7, "limitar"], "ate": [7, "Washington"], "y": 0.3},
     {"texto": "EUA E ISRAEL: IMPEDIR A BOMBA", "ponto": "azul", "de": [7, "Washington"], "ate": [7, "Teerã", 1], "y": 0.3},
     {"texto": "TEERÃ: PROGRAMA PACÍFICO", "ponto": "vermelho", "de": [7, "Teerã", 1], "ate": [7, "Esse"], "y": 0.36},
-    {"texto": "COREIA DO NORTE: SEM INSPETORES DESDE 2009", "ponto": "vermelho", "tam": 40, "de": [8, "Coreia"], "ate": [8, "Neste"], "y": 0.3},
-    {"texto": "YONGBYON: AMPLIAÇÃO PRONTA POR FORA", "ponto": "vermelho", "tam": 40, "de": [8, "ampliação"], "ate": [8, "Esse"], "y": 0.3}
+    {"texto": "COREIA DO NORTE: SEM INSPEÇÃO DESDE 2009", "ponto": "vermelho", "tam": 34, "de": [8, "Coreia"], "ate": [8, "Neste"], "y": 0.3},
+    {"texto": "YONGBYON: AMPLIAÇÃO PRONTA", "ponto": "vermelho", "tam": 40, "de": [8, "ampliação"], "ate": [8, "Esse"], "y": 0.3}
   ],
   "fontes": [
     {"texto": "Fontes: TASS/Kurir e Caspian Post (18–20/11/2026)", "de": [0, "passada"], "ate": [0, "@fim", 0, 0.3]},

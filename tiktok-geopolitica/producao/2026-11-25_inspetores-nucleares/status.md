@@ -6,8 +6,8 @@
 - [x] Cena Blender `motor/cena_nuclear.py` (REALISTA=1) — modelos novos em lowpoly.py: centrífuga (com listra que mostra o giro), cilindro de UF6, usina nuclear (reator + torres de resfriamento), satélite; giro com extrapolação linear (2 chaves por objeto)
 - [x] Backlog 10: explosões com emissão 1,2 e laranja mais escuro + bola de fogo
 - [x] grafismos.json (capa "90% / SEPARA A USINA / DA BOMBA", 8 rótulos, 24 pílulas, 4 fontes, CTA, trilha "curioso")
-- [ ] Render completo PASSO=2 (4.563 quadros, 2 processos, sob flock /tmp/render.lock) → render.sh
-- [ ] compor.py → final.mp4 + QC
+- [x] Render completo PASSO=2 (4.563 quadros → 2.282 renderizados, 2 processos, sob flock /tmp/render.lock; 14:41→18:34 UTC, ~3h50 com a fila) → render.sh
+- [x] compor.py → final.mp4 (2:32, 1080x1920, 30 fps, −14,1 LUFS) + QC APROVADO (capa "90% / SEPARA A USINA / DA BOMBA" legível, explosões no bunker em 1,3–2,3 s, selo de IA, fontes na tela, CTA completo, "Deixa o like" no fim, sem tela preta). Corrigido no QC: pílula da Coreia do Norte cortada na borda → texto menor
 - [ ] Agendamento: sessão principal (Metricool, só TikTok, isAigc) — 18:00
 Título sugerido: 90% separa uma usina de uma bomba: como se vigia um programa nuclear
 Título curto (TikTok): Como se vigia uma bomba atômica?
