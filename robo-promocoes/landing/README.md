@@ -29,6 +29,11 @@ Padrão combinado com a sessão do Instagram (`../instagram/PLANO-IG.md`):
 | Anúncio | `https://DOMINIO/?utm_source=instagram&utm_medium=paid_social&utm_campaign=encher-grupo-nov26` |
 | Aviso de grupo cheio | `https://DOMINIO/?utm_source=whatsapp&utm_medium=grupo_cheio&utm_campaign=rodizio` |
 
+## Formato: uma tela só (pedido do cliente #1)
+Logo 3D + frase de impacto (`titulo`, com o trecho entre `[ ]` em dourado) + `subtitulo` + 3 `destaques` + botão.
+Embaixo, numa linha pequena, vai o `aviso` obrigatório (afiliado, "não somos a Shopee", preço pode mudar, antigolpe).
+Cabe numa tela em celulares de 360×640 para cima. A versão longa (passos, regrinhas, FAQ) está no histórico do Git (commit cd08733..e anteriores).
+
 ## Visual (versão 3D, pedida pelo cliente #1)
 Fundo com piso em grade em perspectiva, anéis girando em volta da logo, cartões de vidro que inclinam com o mouse, botão com brilho correndo e entrada das seções em 3D.
 Feito **só com CSS** (sem three.js), então a página continua leve. Tudo desliga com "reduzir movimento". No título, o trecho entre `[colchetes]` em `config.js` fica dourado.

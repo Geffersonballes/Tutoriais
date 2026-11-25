@@ -33,17 +33,18 @@ window.LANDING = {
   pixelId: "",
 
   textos: {
-    tituloPagina: "Achadinhos da Lay | Grupo de ofertas no WhatsApp",
-    descricao: "Grupo gratuito no WhatsApp com achadinhos garimpados na Shopee para casa, beleza, criançada e utilidades. Grupo independente, com links de afiliado.",
+    tituloPagina: "Achadinhos da Lay | A gente garimpa, você só aproveita",
+    descricao: "Grupo gratuito no WhatsApp com ofertas com desconto selecionadas todo dia. Grupo independente, com links de afiliado.",
     selo: "Grupo gratuito no WhatsApp",
-    titulo: "Achadinhos para casa, beleza e criançada [direto no seu WhatsApp]", // o trecho entre [ ] fica dourado
-    subtitulo: "Ofertas garimpadas na Shopee, com preço e link de afiliado. Grupo independente: não somos a Shopee.",
-    botao: "Entrar no grupo de ofertas",
-    abaixoDoBotao: "Grátis · só admins postam · você sai quando quiser",
+    titulo: "A gente garimpa. [Você só aproveita.]", // o trecho entre [ ] fica dourado
+    subtitulo: "Ofertas com desconto escolhidas a dedo todo dia, direto no seu WhatsApp.",
+    // 3 frases curtas de impacto (aparecem como selos embaixo do título)
+    destaques: ["🔥 Ofertas novas todo dia", "🏷️ Desconto + link direto", "🔒 Ninguém chama no privado"],
+    botao: "Quero entrar no grupo",
+    abaixoDoBotao: "Só admins postam · silencie ou saia quando quiser",
+    // linha pequena do rodapé (transparência obrigatória: afiliado + independência + preço + golpe)
+    aviso: "Ofertas da Shopee divulgadas com links de afiliado: podemos receber comissão, sem custo extra para você. Grupo independente, não somos a Shopee. Preços e estoque podem mudar. ⚠️ A equipe nunca pede Pix nem chama no privado.",
     todosCheios: "Os grupos estão cheios. Um novo grupo abre em breve!",
-    nicho: "casa, beleza, criançada e utilidades",
   },
 
-  // Prints de ofertas reais (ex.: ["prints/oferta1.jpg"]). Vazio = a seção não aparece.
-  prints: [],
 };
