@@ -15,8 +15,7 @@ window.LANDING = {
     instagram: "", // ex.: "https://instagram.com/achadinhosdalay" (vazio = não aparece)
   },
 
-  // Cores da marca (RASCUNHO: trocar pelas cores da logo quando o dono enviar)
-  cores: {
+    cores: {
     // Tiradas da logo (preto + dourado). O botão é a cor de maior contraste da página.
     fundo: "#0B0B0B",
     texto: "#FFF6DD",
@@ -34,11 +33,11 @@ window.LANDING = {
   pixelId: "",
 
   textos: {
-    tituloPagina: "Achadinhos da Lay | Grupo de ofertas da Shopee no WhatsApp",
-    descricao: "Grupo gratuito no WhatsApp com achadinhos da Shopee para casa, beleza, criançada e utilidades. Só admins postam.",
+    tituloPagina: "Achadinhos da Lay | Grupo de ofertas no WhatsApp",
+    descricao: "Grupo gratuito no WhatsApp com achadinhos garimpados na Shopee para casa, beleza, criançada e utilidades. Grupo independente, com links de afiliado.",
     selo: "Grupo gratuito no WhatsApp",
-    titulo: "Achadinhos da Shopee direto no seu WhatsApp",
-    subtitulo: "Ofertas para casa, beleza, criançada e utilidades do dia a dia, com preço e link, num grupo organizado.",
+    titulo: "Achadinhos para casa, beleza e criançada [direto no seu WhatsApp]", // o trecho entre [ ] fica dourado
+    subtitulo: "Ofertas garimpadas na Shopee, com preço e link de afiliado. Grupo independente: não somos a Shopee.",
     botao: "Entrar no grupo de ofertas",
     abaixoDoBotao: "Grátis · só admins postam · você sai quando quiser",
     todosCheios: "Os grupos estão cheios. Um novo grupo abre em breve!",
