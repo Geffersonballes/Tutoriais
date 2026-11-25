@@ -6,7 +6,7 @@ e `../textos-do-grupo.md`.
 
 ## Objetivo
 Instagram **novo** do Achadinhos da Lay, com **postagem automática**, servindo de vitrine e funil para o
-grupo de WhatsApp (link do grupo na bio). Faz parte do produto que será vendido a outras contas: registrar
+grupo de WhatsApp. **Atualização:** a bio aponta para a landing page (`../landing/PLANO-LANDING.md`), que leva ao grupo. Faz parte do produto que será vendido a outras contas: registrar
 cada aprendizado no manual (§3.3 e no diário).
 
 ## Estado em 25/11/2026

@@ -127,12 +127,12 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 
 ## 3.3 Instagram do grupo (automação de postagens)
 
-Função do Instagram: **vitrine e funil** → levar gente para o link do grupo (na bio).
+Função do Instagram: **vitrine e funil** → bio aponta para a **landing page** (sessão própria, `landing/PLANO-LANDING.md`), que leva ao grupo.
 Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem automática):
 1. Criar a conta com **e-mail** (não com o número do robô), @ curto e parecido com o nome do grupo.
 2. Passar para **conta profissional** (Criador de conteúdo ou Empresa): exigida pela API e pelo Metricool.
 3. Criar a **Página do Facebook** "Achadinhos da Lay" e vincular ao Instagram (exigido pela API da Meta).
-4. Bio: o que é + "👇 Entre no grupo de ofertas" + link do grupo.
+4. Bio: o que é + "👇 Entre no grupo de ofertas" + link da **landing page** (não o convite direto do grupo).
 5. **Aquecer** 1 a 2 semanas com posts manuais antes de automatizar muito (contas novas que já começam
    automatizadas costumam sofrer restrição).
 6. Automação: via **Metricool** (o dono já usa no TikTok; conector disponível) ou pela Graph API da Meta.
@@ -249,6 +249,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | ✅ **Formato aprovado pelo dono**: os 6 formatos chegaram perfeitos no celular (Passo 4 concluído). Falta só a Open API da Shopee para as ofertas reais. |
 | 25/11/2026 | Textos do grupo (`textos-do-grupo.md`) ficaram como **rascunho**: o dono vai alterar antes de aprovar. Nada publicado. |
 | 25/11/2026 | Referência analisada: "Promos da Beco" (§3.2). Decidido: **Instagram novo** do Achadinhos da Lay, com postagem automática (§3.3). |
+| 25/11/2026 | Funil definido: Instagram → **landing page** → grupo. Criadas as sessões aninhadas do **Instagram** e da **Landing**. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
