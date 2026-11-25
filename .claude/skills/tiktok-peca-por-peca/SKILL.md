@@ -102,23 +102,28 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
    pelo caminho do vídeo. O link (`response.url`) é temporário, mas o Metricool copia o vídeo para o servidor dele
    no agendamento, então basta usá-lo logo em seguida.
 2. Envie o vídeo ao usuário (SendUserFile) com a legenda do post.
-3. Agende no Metricool **um post só para TikTok + YouTube Shorts** (marca `ballestech`, blogId `8049742`,
-   fuso `America/Cuiaba`; TikTok `geffersonballes1`, YouTube canal `UCfamwKNkLBtNjhjZLPQdDfg`).
-   **Horários fixos aprovados pelo dono** (melhores das duas redes segundo o Metricool):
+3. Agende no Metricool **um post só** para **TikTok + YouTube Shorts + Facebook Reel + Instagram Reel**
+   (marca `geffersonballes1`, **blogId `8356514`** — nunca a antiga `ballestech` 8049742, que duplicaria o post;
+   fuso `America/Cuiaba`). Não precisa de aprovação do dono a cada post (publicação automática autorizada em 23/11).
+   **Horários fixos aprovados pelo dono:**
    | Produção | Post |
    |---|---|
    | manhã (06:20; render leva ~2h20) | **10:00** do mesmo dia |
    | tarde (14:20) | **18:00** do mesmo dia |
    | noite (17:50) | agora é da série 2 (games), post 13:00 do dia seguinte — ver skill games-fase-por-fase |
    Se o horário já passou ou está ocupado, use o próximo livre entre 10:00, 13:00, 16:00 e 18:00 (mínimo 3 h entre posts).
-   - `providers: [{"network":"tiktok"},{"network":"youtube"}]`, **`autoPublish: true`** (publicação automática
-     autorizada pelo dono em 23/11/2026 — com `false` o TikTok fica parado na caixa de entrada do app).
-     Por isso os portões (fatos, conformidade, qualidade) são obrigatórios: se algum reprovar, NÃO agende.
+   - `providers: [{"network":"tiktok"},{"network":"youtube"},{"network":"facebook"},{"network":"instagram"}]`,
+     **`autoPublish: true`** (com `false` o TikTok fica parado na caixa de entrada do app), `draft: false`,
+     `videoCoverMilliseconds: 600`. Por isso os portões (fatos, conformidade, qualidade) são obrigatórios:
+     se algum reprovar, NÃO agende e avise o dono.
    - `tiktokData`: `isAigc: true`, `privacyOption: PUBLIC_TO_EVERYONE`, comentários/dueto/stitch liberados, `title` = tema.
-   - `youtubeData`: `{"title": "<tema> #shorts" (≤ 100 caracteres), "type": "short", "privacy": "public",
-     "category": "EDUCATION", "madeForKids": false, "isAiGeneratedContent": true, "tags": [5–8 termos do tema]}`.
-   - Legenda (`text`, vale como descrição no YouTube): ≤ 150 caracteres + 5–7 hashtags
-     (#geopolitica #guerra #noticias #historia #aprendanotiktok + 2 do tema).
+   - `youtubeData`: `{"title": "<título curto> #shorts" (≤ 100 caracteres), "type": "short", "privacy": "public",
+     "category": "NEWS_POLITICS", "madeForKids": false, "isAiGeneratedContent": true}`.
+   - `facebookData`: `{"type": "REEL", "title": "<título curto>"}`.
+   - `instagramData`: `{"type": "REEL", "showReelOnFeed": true, "isAiGenerated": true}`.
+   - Legenda (`text`, vale como descrição no YouTube): ≤ 150 caracteres + hashtags do tema
+     (#geopolitica #guerra #noticias + 2–4 do tema + #pecaporpeca).
+   - Depois, acrescente o vídeo à lista do Kwai (seção KWAI abaixo).
 4. Registre em `tiktok-geopolitica/historico.md`: data, tema, link do Metricool, horário.
 5. Faça commit e push dos arquivos da produção (frames, preview e final.mp4 ficam fora do git).
 
