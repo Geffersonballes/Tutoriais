@@ -5,10 +5,12 @@ para aquele produto; aviso de afiliado na legenda; CTA para o grupo pelo link da
 Estrutura persuasiva: **gancho (dor ou curiosidade) → solução (produto + 1 ou 2 vantagens reais) → preço com âncora → CTA**.
 Duração-alvo: 12 a 15 s.
 
+## Arquivo `…-v3-sem-amigas.mp4`: narração da v1 sem "amigas", feita pela sessão principal em 25/11. Não será postado.
+
 ## v1 (teste, 25/11, reprovado pelo dono: usa "amigas" e é pouco vendedor)
 "Amigas, olha esse achadinho! Kit 10 potes de vidro com tampa, de R$ 108,91 por R$ 59,90 … Os achadinhos do dia estão no meu grupo …"
 
-## v3 (proposta; 25/11 o dono decidiu: **este vídeo não será postado**. Nenhuma voz nova foi gerada. Os roteiros ficam como modelo para os reels com produto real)
+## Roteiros persuasivos A/B (proposta da sessão IG; 25/11 o dono decidiu: **este vídeo não será postado**. Nenhuma voz nova foi gerada. Os roteiros ficam como modelo para os reels com produto real)
 **Opção A, dor → solução:**
 "Pote de plástico manchado e com cheiro? Troca por esse kit com dez potes de vidro com tampa. De cento e oito reais, tá
 saindo por cinquenta e nove e noventa: quarenta e cinco por cento a menos. Eu posto achados assim todo dia no meu grupo
