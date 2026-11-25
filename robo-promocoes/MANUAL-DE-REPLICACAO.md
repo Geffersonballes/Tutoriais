@@ -58,7 +58,11 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 
 - **Não precisa de placa de vídeo.** Roda: Evolution API + Postgres + robô (Python).
 - Mínimo: 1 vCPU, 2 GB RAM, 20 GB. **Recomendado: 1–2 vCPU, 4 GB RAM, 40 GB+ NVMe.**
-- Hostinger: **KVM 1** basta para um cliente. KVM 2 se for hospedar vários clientes.
+- Hostinger: **KVM 1** basta para um cliente. **KVM 2** para o plano gerenciado (vários clientes na mesma VPS).
+- Preços vistos em 25/11/2026 (site em dólar, promoção de 24 meses): KVM 1 US$ 6,49/mês (1 vCPU, 4 GB,
+  50 GB), renova a US$ 11,99; KVM 2 US$ 8,79/mês (2 vCPU, 8 GB, 100 GB), renova a US$ 14,99;
+  KVM 4 US$ 12,99; KVM 8 US$ 25,99. Garantia de 30 dias. Dica: comprar pelo site em reais
+  (hostinger.com.br) para evitar IOF e variação do dólar no cartão.
 - Sistema: **Ubuntu 24.04** sem painel (ou o modelo "Ubuntu + Docker"). Região: Brasil, se tiver.
 - Hospedagem de site comum **não serve** (o robô precisa rodar 24h).
 
