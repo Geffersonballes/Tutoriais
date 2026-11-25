@@ -21,7 +21,9 @@ cada aprendizado no manual (§3.3 e no diário).
 2. Conectar o IG ao **Metricool** (o dono já usa no TikTok; conector `Metricool_Social_Media_Management`).
    Conferir as marcas existentes (`getBrandSettings`) e se o plano permite outra marca/rede.
 3. Plano de aquecimento (2 semanas): bio, destaques, 6 a 9 posts iniciais e o que fazer à mão cada dia.
-4. Linha editorial automática: carrossel "Top 5 achadinhos do dia" (imagem gerada a partir das ofertas que o robô postou),
+4. Linha editorial automática (já existe um protótipo de reel: `criativos/2026-11-25_teste-voz-laynner.mp4`, com voz clonada
+   "Laynner" no ElevenLabs, eleven_v4 com a tag [animada], ~228 créditos por versão, mais um vídeo 1080x1920 de 12 s montado no ffmpeg; o produto é de exemplo e
+   **o dono ainda não avaliou**). Itens: carrossel "Top 5 achadinhos do dia" (imagem gerada a partir das ofertas que o robô postou),
    reels de produto e stories. A API não permite figurinha de link no story, então o link (da landing) fica na bio.
 5. Integração com o robô: gerar as artes a partir da tabela `postados` e agendar pelo Metricool, sem urgência falsa e
    com transparência de afiliado.
