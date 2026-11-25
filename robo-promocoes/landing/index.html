@@ -15,10 +15,10 @@
   :root{
     --fundo:#FFF8EC; --texto:#2A1A12; --destaque:#F4B23E; --botao:#0F7A43; --botao-texto:#fff;
     --suave:color-mix(in srgb,var(--texto) 68%,var(--fundo));
-    --cartao:color-mix(in srgb,#fff 70%,var(--fundo));
+    --cartao:color-mix(in srgb,var(--texto) 7%,var(--fundo));
     --linha:color-mix(in srgb,var(--texto) 10%,transparent);
     --raio:20px; --raio-p:14px;
-    --sombra:0 1px 2px rgba(42,26,18,.06),0 8px 24px rgba(42,26,18,.08);
+    --sombra:0 1px 2px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.10);
     --fonte:ui-rounded,"SF Pro Rounded","Nunito","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -41,6 +41,9 @@
     background:var(--destaque);color:var(--texto);font-weight:900;font-size:36px;box-shadow:var(--sombra);
     border:4px solid #fff;overflow:hidden}
   .logo img{width:100%;height:100%;object-fit:cover}
+  .logo.com-img{width:min(220px,58vw);height:auto;aspect-ratio:1;background:none;border:0;border-radius:0;box-shadow:none;margin-bottom:6px}
+  .logo.com-img img{object-fit:contain;-webkit-mask-image:radial-gradient(closest-side,#000 80%,transparent 100%);mask-image:radial-gradient(closest-side,#000 80%,transparent 100%)}
+  .logo.com-img + .marca{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   .marca{font-weight:800;font-size:15px;letter-spacing:.02em;margin-bottom:18px}
   .selo{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:6px 14px;border-radius:99px;
     background:var(--cartao);border:1px solid var(--linha);margin-bottom:16px}
@@ -132,7 +135,7 @@
     <div class="wrap">
       <h2 class="rv">Como funciona</h2>
       <div class="passos">
-        <div class="passo rv"><div><b>Toque no botão verde</b><span>O WhatsApp abre direto no convite do grupo.</span></div></div>
+        <div class="passo rv"><div><b>Toque no botão</b><span>O WhatsApp abre direto no convite do grupo.</span></div></div>
         <div class="passo rv"><div><b>Entre no grupo</b><span>Sem cadastro e sem pagar nada.</span></div></div>
         <div class="passo rv"><div><b>Receba os achadinhos</b><span>Cada oferta chega com o preço e o link da Shopee. Confira no app antes de comprar.</span></div></div>
       </div>
@@ -211,7 +214,7 @@
 
   // Logo
   var logo = document.getElementById("logo");
-  if (M.logo) { var im = new Image(); im.src = M.logo; im.alt = ""; im.decoding = "async"; logo.appendChild(im); }
+  if (M.logo) { var im = new Image(); im.src = M.logo; im.alt = "Logo " + (M.nome || ""); im.width = 220; im.height = 220; im.fetchPriority = "high"; logo.classList.add("com-img"); logo.appendChild(im); }
   else logo.textContent = M.iniciais || (M.nome || "?").charAt(0);
   if (M.instagram) { var ig = document.getElementById("link-ig"); ig.classList.remove("oculto"); ig.querySelector("a").href = M.instagram; }
 

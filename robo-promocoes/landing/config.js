@@ -10,18 +10,19 @@ window.LANDING = {
   marca: {
     nome: "Achadinhos da Lay",
     // Caminho da logo (ex.: "logo.png"). Vazio = mostra as iniciais no lugar da logo.
-    logo: "",
+    logo: "logo.webp",
     iniciais: "AL",
     instagram: "", // ex.: "https://instagram.com/achadinhosdalay" (vazio = não aparece)
   },
 
   // Cores da marca (RASCUNHO: trocar pelas cores da logo quando o dono enviar)
   cores: {
-    fundo: "#FFF8EC",
-    texto: "#2A1A12",
-    destaque: "#F4B23E", // amarelo 💛 dos textos do grupo
-    botao: "#0F7A43",    // verde de WhatsApp, escurecido para o texto branco ficar legível
-    botaoTexto: "#FFFFFF",
+    // Tiradas da logo (preto + dourado). O botão é a cor de maior contraste da página.
+    fundo: "#0B0B0B",
+    texto: "#FFF6DD",
+    destaque: "#FFC21A",
+    botao: "#FFC21A",
+    botaoTexto: "#111111",
   },
 
   grupos: [
