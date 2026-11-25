@@ -40,4 +40,9 @@ Base: URL da landing + `?utm_source=instagram&utm_medium=<meio>&utm_campaign=<ca
 | Link da bio | `bio` | `perfil` |
 | Story (link manual, quando postar à mão) | `story` | `aaaa-mm-dd` ou tema |
 | Anúncio | `paid_social` | nome da campanha (ex.: `encher-grupo-nov26`) |
+Facebook e TikTok: o mesmo padrão, mas com `utm_source=facebook` ou `utm_source=tiktok`.
 Se a sessão da landing definir outro padrão, prevalece o dela; atualizar esta tabela.
+
+## Marca (rascunho da sessão principal, 25/11, ainda não aprovado pelo dono)
+`marca/bios.md` (bios de IG, FB e TikTok, todas levando à landing) e `marca/capa-facebook-1640x624.png`. As cores são provisórias.
+A bio do IG não tem espaço para avisar que os links são de afiliado. Por isso o aviso fica no destaque "Dúvidas" e na landing.
