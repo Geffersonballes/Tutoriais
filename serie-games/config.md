@@ -8,7 +8,7 @@
 - **Visual:** Blender estilo C (cartoon 3D com o mascote original Pixel, `motor/cartoon.py`) — desde 23/11.
   Objetos ORIGINAIS: nunca recriar personagem, mapa, logotipo, arte ou capa de jogo. Nomes de jogos e
   empresas só como texto/citação jornalística. Nada de gameplay ou trailer de terceiros.
-- **Voz:** edge-tts `pt-BR-AntonioNeural --rate=+12%` (grátis). ElevenLabs: não usar.
+- **Voz:** voz clonada do dono no ElevenLabs (eleven_v4, voice_id Dt3IFiwrxXdZMMFz4Ai0) — ver a seção VOZ da skill. Plano B: edge-tts Antonio.
 - **CTA:** "JÁ JOGOU? COMENTE “ZEREI” / AINDA NÃO? COMENTE “NA FILA”" (trocar quando cansar).
 - **Hashtags base:** #games #gamer #curiosidades #aprendanotiktok + do tema.
 - **Publicação:** Metricool, UM post TikTok + YouTube (short, categoria GAMING), autoPublish true,
