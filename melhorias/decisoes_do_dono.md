@@ -6,3 +6,4 @@
 - Visual: série 1 estilo B (maquete), série 2 estilo C (cartoon, mascote Pixel).
 - Cortes de vídeos de terceiros (ex.: GTA 6 do YouTube): não fazer agora.
 - Selo "Conteúdo gerado com IA" na tela: SIM, sempre (24/11), além da declaração de IA nas plataformas (isAigc / isAiGeneratedContent).
+- **Pedido de like no final de todo vídeo** (24/11): depois da narração, a voz Antonio diz "Gostou do conteúdo? Então deixa o seu like!" e a tela mostra GOSTOU DO CONTEÚDO? / DEIXA O LIKE. Automático no compor.py (`"curtir": false` no grafismos.json desliga).

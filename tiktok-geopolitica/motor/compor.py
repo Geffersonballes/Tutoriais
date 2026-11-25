@@ -127,6 +127,12 @@ def camada_capa():
 CAPA = camada_capa()
 CAPA_DUR = G.get("capa", {}).get("dur", 1.3)
 
+# Pedido de like no final (decisão do dono, 24/11): voz + tela, LIGADO por padrão. "curtir": false desliga.
+CURTIR = G.get("curtir", True)
+CURTIR_FALA = G.get("curtir_fala", "Gostou do conteúdo? Então deixa o seu like!") if CURTIR else None
+def _dur(a): return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", a], capture_output=True, text=True).stdout)
+DUR_NARR = _dur(os.path.join(PASTA, "narracao.mp3"))
+
 def overlay(t):
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
     if CAPA is not None and t < CAPA_DUR:
@@ -154,6 +160,15 @@ def overlay(t):
         a, b = resolver(fo["de"]), resolver(fo["ate"])
         if a <= t < b:
             texto_contorno(d, (W / 2, H * 0.80), fo["texto"], F_FONTE, (235, 235, 235), 3)
+    # pedido de like (depois da narração): só ele + marca, por cima de uma faixa escura
+    if CURTIR and t >= DUR_NARR + 0.1:
+        a = DUR_NARR + 0.1
+        faixa = Image.new("RGBA", (W, H), (0, 0, 0, 0)); fd = ImageDraw.Draw(faixa)
+        fd.rectangle((0, int(H * 0.36), W, int(H * 0.60)), fill=(0, 0, 0, 150)); ov.alpha_composite(faixa)
+        colar_centro(ov, camada_texto("GOSTOU DO CONTEÚDO?", F_CTA1, BRANCO, 6, escala_pop(t, a)), W / 2, H * 0.42)
+        colar_centro(ov, camada_texto("DEIXA O LIKE", F_CTA2, AMARELO, 10, escala_pop(t, a + 0.4)), W / 2, H * 0.51)
+        if SELO is not None: ov.alpha_composite(SELO, (36, 60))
+        return ov
     # CTA final
     cta = G.get("cta")
     if cta:
@@ -185,6 +200,15 @@ def overlay(t):
 # ---------- áudio: narração + whooshes nos cortes ----------
 def audio():
     narr = os.path.join(PASTA, "narracao.mp3"); out = os.path.join(PASTA, "audio_mix.wav")
+    if CURTIR:
+        cur = os.path.join(PASTA, "curtir.mp3")
+        if not os.path.exists(cur):
+            subprocess.run(["edge-tts", "--voice", "pt-BR-AntonioNeural", "--rate=+12%", "--text", CURTIR_FALA, "--write-media", cur], check=True)
+        junto = os.path.join(PASTA, "narracao_com_like.wav")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", narr, "-i", cur, "-filter_complex",
+                        "[0]aresample=44100,apad=pad_dur=0.25[n];[1]aresample=44100,apad=pad_dur=0.6[c];[n][c]concat=n=2:v=0:a=1[a]",
+                        "-map", "[a]", junto], check=True)
+        narr = junto
     cortes = sorted(set(round(min(x["s"] for x in LEG if x["seg"] == s) - 0.2, 2) for s in range(1, max(x["seg"] for x in LEG) + 1)))
     pops = [it["_a"] for it in G["rotulos"]]
     fl = []; inputs = ["-i", narr]

@@ -134,3 +134,6 @@ que caiba no vídeo e implemente; no QC, anote no backlog todo defeito que não 
 **Capa no YouTube (canal verificado em 23/11):** no `createScheduledPost`, envie `"videoCoverMilliseconds": 600` no info (quadro com o título grande da capa). O TikTok pessoal ignora esse campo e usa o 1º quadro, que já é a capa.
 
 **REDES (decisão do dono, 23/11):** a série de guerra/geopolítica vai SÓ para o TikTok — `providers: [{"network":"tiktok"}]`, sem youtubeData. O YouTube Shorts do canal (público gamer) fica só para a série de games.
+
+## Pedido de like (obrigatório, decisão do dono 24/11)
+O compor.py acrescenta sozinho, depois da narração, a fala "Gostou do conteúdo? Então deixa o seu like!" (Antonio) e a tela GOSTOU DO CONTEÚDO? / DEIXA O LIKE. Não desligue. No QC, confira que aparece no fim.

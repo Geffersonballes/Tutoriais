@@ -56,3 +56,6 @@ commit e push. Avise em português: tema, horário, link do Metricool e pendênc
 que caiba no vídeo e implemente; no QC, anote no backlog todo defeito que não deu para corrigir agora.
 
 **Capa no YouTube (canal verificado em 23/11):** no `createScheduledPost`, envie `"videoCoverMilliseconds": 600` no info (quadro com o título grande da capa). O TikTok pessoal ignora esse campo e usa o 1º quadro, que já é a capa.
+
+## Pedido de like (obrigatório, decisão do dono 24/11)
+O compor.py acrescenta sozinho, depois da narração, a fala "Gostou do conteúdo? Então deixa o seu like!" (Antonio) e a tela GOSTOU DO CONTEÚDO? / DEIXA O LIKE. Não desligue. No QC, confira que aparece no fim.
