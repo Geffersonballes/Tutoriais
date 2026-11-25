@@ -23,7 +23,7 @@ cada aprendizado no manual (§3.3 e no diário).
   Achadinhos**. No IG-2, criar uma **marca nova** "Achadinhos da Lay" e conectar o IG e a Página. Antes, conferir se o plano
   do Metricool permite mais uma marca.
 
-- ✅ **IG-1 concluído (confirmado pelo dono):** @achadinhosdalay, conta profissional, Página do Facebook vinculada.
+- ✅ **IG-1 concluído (confirmado pelo dono):** **@achadinhosdalay40** (o @ sem número já existia), conta profissional; vínculo com a Página **a conferir** (a versão web do IG não mostra).
   Agora: **IG-2** (marca nova no Metricool).
 
 ## Próximos passos (um por vez, esperando a confirmação do dono)
