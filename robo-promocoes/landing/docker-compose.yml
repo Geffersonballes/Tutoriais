@@ -1,0 +1,21 @@
+# Landing na mesma VPS do robô, separada dele (projeto próprio).
+# Subir: cd /opt/tutoriais/robo-promocoes/landing && echo "DOMINIO=achadinhosdalay.ballestech.com.br" > .env && docker compose up -d
+# Atualizar textos ou trocar o grupo: git pull (o Caddy lê os arquivos direto da pasta, sem reiniciar)
+services:
+  landing:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMINIO: ${DOMINIO:?defina DOMINIO no .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./:/site:ro
+      - caddy_dados:/data
+      - caddy_config:/config
+volumes:
+  caddy_dados:
+  caddy_config:

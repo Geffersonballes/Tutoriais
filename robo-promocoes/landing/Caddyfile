@@ -1,0 +1,15 @@
+# Servidor da landing (Caddy). Gera e renova o HTTPS sozinho (Let's Encrypt).
+# Para outro cliente: trocar o endereço abaixo (variável DOMINIO no .env desta pasta).
+{$DOMINIO} {
+	root * /site
+	encode zstd gzip
+	file_server
+	# config.js muda quando um grupo enche: não deixar o navegador guardar cópia velha
+	@config path /config.js
+	header @config Cache-Control "no-cache"
+	@estaticos path *.webp *.png *.jpg
+	header @estaticos Cache-Control "public, max-age=604800"
+	# arquivos que não são da página não ficam públicos
+	@privado path /Caddyfile /docker-compose.yml /README.md /PLANO-LANDING.md /.env
+	respond @privado 404
+}
