@@ -80,6 +80,8 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - Criar o `.env` e gerar senhas aleatórias **na própria VPS** (ninguém precisa digitar nem ver a senha):
   `cp .env.example .env && sed -i "s|^EVOLUTION_API_KEY=.*|EVOLUTION_API_KEY=$(openssl rand -hex 24)|; s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$(openssl rand -hex 24)|" .env`
   e depois `docker compose up -d postgres evolution` e `docker compose ps`.
+- Conectar o chip **sem túnel SSH**: `git pull && bash conectar-whatsapp.sh` mostra o QR Code no próprio
+  Terminal do navegador (se o QR sair deformado: `bash conectar-whatsapp.sh 55DDNUMERO` dá um código de 8 letras).
 - Evolution API: imagem `evoapicloud/evolution-api:v2.3.7` (conferida no Docker Hub em 25/11/2026).
 - ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
   e usar uma deploy key só de leitura na VPS de cada cliente.
@@ -171,5 +173,6 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 25/11/2026 | Docker 29.1.1 instalado na VPS. |
 | 25/11/2026 | Robô baixado na VPS em `/opt/tutoriais/robo-promocoes` (git clone sem erro). |
 | 25/11/2026 | **Marca:** grupo "Achadinhos da Lay"; logo já pronta. **Chip do robô pronto** com WhatsApp. |
+| 25/11/2026 | `postgres` e `evolution` subiram (Up) na primeira tentativa. Criado `conectar-whatsapp.sh`. |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
