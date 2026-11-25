@@ -257,6 +257,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | Capa do Facebook v2 com a logo oficial (`landing/logo.webp`, preto + dourado). Identidade visual única: as cores estão em `landing/config.js` e valem para todas as peças. |
 | 25/11/2026 | Dono informou: **Instagram e Facebook criados** (falta confirmar o @, a conta profissional e o vínculo com a Página). |
 | 25/11/2026 | Metricool conferido pelo conector (`getBrandSettings`): marca id 8357037 (label "laycmballes") com Instagram `achadinhosdalay40`, Página do Facebook, TikTok, YouTube e conta de anúncios. ⚠️ O @ difere do registrado (@achadinhosdalay): a confirmar. Há uma marca extra sem nome (id 8368938, só YouTube). Lição: conferir no conector logo depois de conectar. |
+| 25/11/2026 | Dono confirmou: a marca do Metricool é a **laycmballes** (id 8357037), com Instagram @achadinhosdalay40. O nome da marca fica como está. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
