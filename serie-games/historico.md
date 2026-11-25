@@ -12,3 +12,6 @@
 ## Facebook — reposts do catálogo (25/11, marca geffersonballes1 8356514)
 - 11:30 Servidor do CS2 (441655581) · 16:45 GTA 6 a 30 FPS (441656107) · 22:45 GTA 6 na Twitch (441656451)
 - GTA 6 se pagou em um dia: NÃO repostado (número de venda "oficial" contestado — rechecar antes)
+
+### Instagram @pecaporpeca95 — vídeos já produzidos (25/11, só Instagram, marca 8356514)
+25/11 15:30 pedestres GTA 6 (442119595) · 25/11 19:45 GTA 6 um dia (442121656) · 26/11 11:30 pontes (442121866) · 26/11 19:45 GTA 30 FPS (442122021) · 27/11 11:30 Ormuz (442122309) · 27/11 19:45 servidor CS2 (442122481) · 28/11 11:30 LIVE (442122854) · 28/11 19:45 defesa antiaérea (442123588) · 29/11 11:30 Twitch (442123750) · 29/11 19:45 rede elétrica (442123969) · 30/11 11:30 anti-cheat (442124102)
