@@ -56,6 +56,8 @@ def com_link_afiliado(o: dict, exemplo: bool, formato: str = "") -> dict:
 
 
 FORMATOS = ["padrao", "economia", "atepreco", "pergunta", "relampago"]
+NOMES = {"padrao": "Padrão", "economia": "Economize R$", "atepreco": "Achadinho até R$",
+         "pergunta": "Pergunta", "relampago": "Relâmpago", "top_do_dia": "Top 5 de hoje"}
 
 
 def exemplos() -> list[dict]:
@@ -107,7 +109,7 @@ def cmd_enviar_teste(args) -> None:
         textos = [t for t in textos if t[0] == args.formato]
     for grupo in config.GRUPOS:
         for nome, texto in textos:
-            texto = f"🤖 *TESTE DO ROBÔ* · formato _{nome}_ (exemplo, não é oferta real)\n\n" + texto
+            texto = f"🤖 *TESTE DO ROBÔ* · formato _{NOMES.get(nome, nome)}_ (exemplo, não é oferta real)\n\n" + texto
             if nome == "top_do_dia":
                 whatsapp.enviar_texto(grupo, texto)
             else:
