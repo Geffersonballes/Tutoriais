@@ -46,6 +46,10 @@ ou serviço pago sem aprovação; nada de cortes de vídeos de terceiros; YouTub
 5. Rodar 1 vídeo de teste com QC manual antes de ligar o automático.
 
 ## Aprendizados (mais recente primeiro)
+- **25/11** — Whisper com `initial_prompt` = roteiro inteiro pode "alucinar" o começo e perder as primeiras frases (vídeo dos NPCs: 32 palavras sem casar). Se `alinhar.py` mostrar muitas "não casadas", rode de novo com um prompt curto (só nomes próprios) e `condition_on_previous_text=False`.
+- **25/11** — Vários agentes ao mesmo tempo dividem a mesma pasta temporária: todo arquivo temporário leva o slug do vídeo no nome (ex.: `npcs_f1.jpg`), senão um agente sobrescreve a prévia do outro.
+- **25/11** — Pedestre articulado reutilizável (`pedestre()`, `andar()`, `ir()`, `passeio()` em `cena_gta_npcs.py`): tipos de corpo por escala (`h`, `w`) sem deformar a cabeça; serve para multidões e para qualquer vídeo com "gente andando".
+- **25/11** — Cena noturna que funciona: em vez de escurecer tudo, trocar o céu por um HDRI de pôr do sol, baixar o sol e acender janelas emissivas por bairro (`cena_rede.py`); a luz apagando vira o gancho. Cor animada no modo realista: gravar só o canal da curva (bug corrigido em `lowpoly.py`).
 - **25/11** — Marca única do canal no fim dos vídeos (`marca_canal`), igual ao nome do perfil: reforça o nome e facilita clonar para outra conta.
 - **24/11** — Áudio APROVADO pelo dono ("ficou bom, pode seguir assim"): trilha por clima + efeitos + voz tratada dão "vida" sem custo. A trilha precisa ficar
   ~13 dB abaixo da voz; efeitos a −24 LUFS (mais alto compete com a fala).
