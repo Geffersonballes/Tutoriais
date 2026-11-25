@@ -70,7 +70,14 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - Tela final da Hostinger: "Bom trabalho, você está pronto 🎉" com **Painel VPS** e o comando `ssh root@<IP>`.
 - O Claude confere a VPS pelo **conector Hostinger** (plano, sistema, estado, IP), sem pedir senha.
 - Para cliente leigo, usar o **Terminal do navegador** do painel da VPS na Hostinger (não precisa instalar SSH).
-- Instalar o Docker: `curl -fsSL https://get.docker.com | sh` e conferir com `docker --version`.
+- Instalar o Docker: `curl -fsSL https://get.docker.com | sh` e conferir com `docker --version`
+  (cliente #1: Docker 29.1.1, instalou sem erro pelo Terminal do navegador).
+- Baixar o robô na VPS (o repositório é público, não precisa de senha):
+  `cd /opt && git clone --depth 1 -b <branch> https://github.com/Geffersonballes/Tutoriais.git tutoriais`
+  e trabalhar em `/opt/tutoriais/robo-promocoes` (o `.env` e `dados/` não vão para o Git, então `git pull` atualiza sem apagar nada).
+- Evolution API: imagem `evoapicloud/evolution-api:v2.3.7` (conferida no Docker Hub em 25/11/2026).
+- ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
+  e usar uma deploy key só de leitura na VPS de cada cliente.
 
 ## 4. Conectores do Claude
 
@@ -156,5 +163,6 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 24/11/2026 | Definida a VPS: Hostinger KVM 1, Ubuntu 24.04, sem placa de vídeo. Confirmado que nenhum conector do Claude é necessário. |
 | 25/11/2026 | Informações de Pagamento completadas → botão "Aplicar" liberou → **pedido de acesso à Open API enviado**. Aguardando a Shopee. |
 | 25/11/2026 | **VPS contratada:** Hostinger KVM 2 (2 vCPU, 8 GB, 100 GB), Ubuntu 24.04 LTS, estado "running". Conferida pelo conector Hostinger (`vps_virtual-machines_list`), sem precisar de senha. Firewall da Hostinger ainda não configurado. |
+| 25/11/2026 | Docker 29.1.1 instalado na VPS. |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
