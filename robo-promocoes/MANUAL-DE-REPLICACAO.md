@@ -135,9 +135,9 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 4. Bio: o que é + "👇 Entre no grupo de ofertas" + link da **landing page** (não o convite direto do grupo).
    Medir com UTM por origem: bio `utm_source=instagram&utm_medium=bio`, story `utm_medium=story`, anúncio
    `utm_medium=paid_social` (tabela em `instagram/PLANO-IG.md`).
-5. **Aquecer** 1 a 2 semanas com posts manuais antes de automatizar muito (contas novas que já começam
+5. **Aquecer** 1 a 2 semanas com posts manuais (roteiro de 14 dias em `instagram/AQUECIMENTO.md`) antes de automatizar muito (contas novas que já começam
    automatizadas costumam sofrer restrição).
-6. Automação: via **Metricool** (o dono já usa no TikTok; conector disponível) ou pela Graph API da Meta.
+6. Automação: via **Metricool** (⚠️ conferir o limite de marcas do plano; cada marca aceita **um** Instagram) (o dono já usa no TikTok; conector disponível) ou pela Graph API da Meta.
    Ideias de post automático: carrossel "Top 5 achadinhos do dia" (imagem gerada), reels com produto e stories.
    ⚠️ Pela API não dá para colocar **figurinha de link** no story, então o link (da landing) fica na bio.
 
@@ -270,4 +270,5 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | **Landing:** o dono pediu **uma página só, curta, com frase de impacto que não seja "achadinhos"**. Refeita como tela única: "A gente garimpa. **Você só aproveita.**", 3 selos de destaque e o botão "Quero entrar no grupo". O aviso obrigatório vai em letra pequena na mesma tela. Conferido que cabe sem rolar em 360×640, 390×664 e 1440×860. O HTML tem 16 KB. Lição para o produto: o cliente prefere uma tela única, com a frase forte, a menos texto. |
 | 25/11/2026 | **Landing:** o dono escolheu a frase **"Pare de caçar promoção. Ela chega até você."** (opção 1 de 3). Com frase mais longa, título e logo reduzidos em telas baixas para continuar cabendo em 360×640. |
 | 25/11/2026 | ✅ **IG-1 concluído:** Instagram **@achadinhosdalay40** criado (o @ sem número já existia) e em conta profissional. Para ver o vínculo com a Página, use o app do celular ou o Facebook (Página → Configurações → Contas vinculadas): o Editar perfil do Instagram na web não mostra. Desligar "Perfil gerado por IA" se a conta não apresenta uma pessoa criada por IA. O Metricool já tinha 3 marcas de outros projetos, então o Achadinhos ganha uma **marca própria** (uma marca por cliente). |
+| 25/11/2026 | ✅ **IG-2 concluído:** achadinhosdalay40 e a Página no Metricool. A marca nova não foi criada (o plano parece limitar a 3 marcas), então o IG entrou na marca "laycmballes" no lugar do @os_discipulados, e o dono aceitou. **Para o produto:** conferir o limite de marcas do plano antes e usar 1 marca por cliente. Plano de aquecimento em `instagram/AQUECIMENTO.md`. |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
