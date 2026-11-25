@@ -46,7 +46,7 @@ ou serviço pago sem aprovação; nada de cortes de vídeos de terceiros; YouTub
 5. Rodar 1 vídeo de teste com QC manual antes de ligar o automático.
 
 ## Aprendizados (mais recente primeiro)
-- **24/11** — Áudio: trilha por clima + efeitos + voz tratada dão "vida" sem custo. A trilha precisa ficar
+- **24/11** — Áudio APROVADO pelo dono ("ficou bom, pode seguir assim"): trilha por clima + efeitos + voz tratada dão "vida" sem custo. A trilha precisa ficar
   ~13 dB abaixo da voz; efeitos a −24 LUFS (mais alto compete com a fala).
 - **24/11** — Pedido de like falado + na tela no último segundo (voz Antonio + DEIXA O LIKE).
 - **24/11** — Subagentes têm limite semanal de uso: o agendamento precisa de plano B (produzir na sessão principal).
