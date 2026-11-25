@@ -47,6 +47,11 @@ PRECO_MAXIMO = _num("PRECO_MAXIMO", 300)            # R$
 NOTA_MINIMA = _num("NOTA_MINIMA", 4.5)
 VENDAS_MINIMAS = _num("VENDAS_MINIMAS", 50)
 
+# Cupom (opcional): aparece como "🎟️ Cupom: *TEXTO*" em todas as ofertas até a validade (AAAA-MM-DD).
+# Só use cupom real e vigente. Ex.: CUPOM_TEXTO=resgate R$ 20 OFF na página da oferta
+CUPOM_TEXTO = os.getenv("CUPOM_TEXTO", "").strip()
+CUPOM_VALIDADE = os.getenv("CUPOM_VALIDADE", "").strip()
+
 # Ritmo
 INTERVALO_MINUTOS = _num("INTERVALO_MINUTOS", 15)   # entre um post e outro
 HORA_INICIO = int(_num("HORA_INICIO", 8))

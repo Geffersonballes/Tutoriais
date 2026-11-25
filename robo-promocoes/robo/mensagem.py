@@ -60,7 +60,7 @@ def escolher_formato(oferta: dict) -> str:
     opcoes = dict(PESOS)
     if faixa(oferta["preco"]) is None:
         opcoes.pop("atepreco")
-    if oferta["preco_antigo"] - oferta["preco"] < 5:
+    if oferta["preco_antigo"] - oferta["preco"] < 20 or oferta["desconto"] < 30:
         opcoes.pop("economia")
     return random.choices(list(opcoes), weights=list(opcoes.values()))[0]
 
@@ -84,31 +84,47 @@ def _prova(o: dict) -> list[str]:
     return [" · ".join(partes)] if partes else []
 
 
+def cupom_vigente(o: dict) -> str:
+    """Cupom do produto (fila manual, futuramente) ou cupom geral do .env, só dentro da validade."""
+    if o.get("cupom"):
+        return o["cupom"]
+    if config.CUPOM_TEXTO:
+        hoje = datetime.now(ZoneInfo(config.FUSO)).strftime("%Y-%m-%d")
+        if not config.CUPOM_VALIDADE or hoje <= config.CUPOM_VALIDADE:
+            return config.CUPOM_TEXTO
+    return ""
+
+
+def _cupom(o: dict) -> list[str]:
+    c = cupom_vigente(o)
+    return [f"🎟️ Cupom: *{c}*"] if c else []
+
+
 def montar(o: dict, formato: str = "padrao", frase: str | None = None) -> str:
     nome = f"🛍️ {nome_curto(o['nome'])}"
     link = o["link"]
     if formato == "economia":
         corpo = [f"💸 *ECONOMIZE {reais(o['preco_antigo'] - o['preco'])}*", "", nome,
-                 *_de_por(o, compacto=True), "", f"👉 {link}"]
+                 *_de_por(o, compacto=True), *_cupom(o), "", f"👉 {link}"]
     elif formato == "atepreco":
         corpo = [f"🔥 *ACHADINHO ATÉ {reais(faixa(o['preco']) or o['preco']).replace(',00', '')}* 🔥",
-                 "", nome, f"💥 só *{reais(o['preco'])}*", "", f"🛒 {link}"]
+                 "", nome, f"💥 só *{reais(o['preco'])}*", *_cupom(o), "", f"🛒 {link}"]
     elif formato == "pergunta":
         corpo = [frase or random.choice(frases.PERGUNTA), "", nome,
-                 f"💥 *{reais(o['preco'])}*", "", f"🛍️ {link}"]
+                 *_de_por(o, compacto=True), *_cupom(o), "", f"👉 {link}"]
     elif formato == "relampago":
         hora = datetime.fromtimestamp(o["fim"], ZoneInfo(config.FUSO)).strftime("%Hh%M").replace("h00", "h")
         corpo = [f"⚡ *OFERTA RELÂMPAGO*: acaba hoje às {hora} ⏰", "", nome,
-                 *_de_por(o), "", f"🛍️ Compre aqui: {link}"]
+                 *_de_por(o), *_cupom(o), "", f"👉 Compre aqui: {link}"]
     else:
         corpo = [frase or random.choice(frases.PADRAO), "", nome, "", *_de_por(o), *_prova(o),
-                 "", f"🛍️ Compre aqui: {link}"]
+                 *_cupom(o), "", f"👉 Compre aqui: {link}"]
     return "\n".join(corpo + ["", AVISO])
 
 
 def top_do_dia(itens: list[dict]) -> str:
     numeros = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
-    linhas = ["🏆 *TOP 5 ACHADINHOS DE HOJE* 🏆", "Perdeu algum? Corre que ainda dá tempo! 👇", ""]
+    linhas = ["🏆 *TOP 5 ACHADINHOS DE HOJE* 🏆", "Perdeu algum? Confere aqui 👇 (o preço pode ter mudado desde o post)", ""]
     for n, i in zip(numeros, itens[:5]):
         linhas += [f"{n} {nome_curto(i['nome'], 45)}: *{reais(i['preco'])}*", f"👉 {i['link']}", ""]
     return "\n".join(linhas + [AVISO])

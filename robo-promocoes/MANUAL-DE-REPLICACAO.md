@@ -93,6 +93,25 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
   e usar uma deploy key só de leitura na VPS de cada cliente.
 
+## 3.1 Formatos de mensagem (decididos pela equipe de agentes em 25/11/2026)
+
+| Formato | Quando | Peso |
+|---|---|---|
+| `padrao` | frase + produto + de/por (-%) + ⭐ nota · vendidos + link | ~60% |
+| `economia` | "ECONOMIZE R$ X": só se a economia for de R$ 20 ou mais **e** o desconto de 30% ou mais | ~15% |
+| `atepreco` | "ACHADINHO ATÉ R$ 10/20/30": só se couber na faixa | ~15% |
+| `pergunta` | pergunta que puxa reação + de/por | ~10% |
+| `relampago` | só se a API disser que a oferta termina hoje | automático |
+| `top_do_dia` | Top 5 do dia às `HORA_TOP` (20h), só texto | 1 por dia |
+
+- Cada post leva subIds `canal / formato / pAAMMDDHHMM` no link → o analista mede o que vende.
+- Ver todos: `python -m robo formatos`; enviar ao grupo de teste: `python -m robo enviar-teste --formato todos`.
+- **Cupom:** `CUPOM_TEXTO` + `CUPOM_VALIDADE` no `.env` mostram "🎟️ Cupom: *…*" até a data. Só cupom real.
+  A Open API (até onde se sabe) não traz cupons; conferir os campos na primeira chamada real. Depois: cupom por produto na fila manual.
+- Frases em `robo/frases.py`: escritas pelo `promo-redator` e revisadas pelo `promo-critico` (nota 6 → corrigidas).
+  Regras: genéricas, sem insinuar que a dona testou o produto, sem urgência falsa. O crítico chegou a sugerir
+  "não dura" e "some rápido", e essas frases foram **rejeitadas** por serem urgência falsa.
+
 ## 4. Conectores do Claude
 
 - **Nenhum conector é necessário** para o robô funcionar: ele roda sozinho na VPS e
@@ -199,6 +218,7 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 25/11/2026 | Lista de grupos OK. Grupo **Achadinhos da Lay** = `120363432803335927@g.us`. ⚠️ O número do robô **não é um chip novo**: está em vários outros grupos (família, escola, outros grupos de ofertas). Recomendado para os próximos clientes: chip exclusivo. |
 | 25/11/2026 | ✅ `enviar-teste` rodou sem erro ("Teste enviado para ...@g.us"). O horário do log sai no fuso de Cuiabá (`FUSO`). |
 | 25/11/2026 | ✅ Mensagem de teste chegou no grupo: imagem + ~tachado~ + *negrito* corretos. Observação: o remetente aparece como **"Laynner Balles"**, então o robô está no número pessoal (reforça: chip exclusivo). |
+| 25/11/2026 | Dono deu autonomia para os agentes escolherem os formatos. Redator escreveu 30 frases e 15 perguntas, o crítico revisou e os ajustes foram aplicados. Pedido do dono: mostrar o cupom quando houver. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
