@@ -11,3 +11,5 @@
 - **Áudio novo aprovado** (24/11): "o áudio ficou bom, pode seguir assim" — manter trilha -16 dB, efeitos x0,3, voz tratada.
 - **Nome do canal: Peça por Peça** (25/11): o perfil do TikTok passa a se chamar Peça por Peça. A marca no fim de TODOS os vídeos (as duas séries) é PEÇA POR PEÇA — fixo no compor.py (`marca_canal` no grafismos.json troca, para outras contas). "Fase por Fase" continua só como nome interno da série de games.
 - **Voz dos games = voz do dono** (25/11): o dono assinou o ElevenLabs Creator e aprovou a própria voz clonada (voice_id Dt3IFiwrxXdZMMFz4Ai0, modelo eleven_v4, etiquetas de emoção). Guerra continua com Antonio.
+
+- **25/11** — Metricool: publicar pela marca nova `geffersonballes1` (blogId 8356514), não mais pela `ballestech`. Facebook (Reels) recebe games E guerra. Guerra = TikTok + Facebook; games = TikTok + YouTube + Facebook.

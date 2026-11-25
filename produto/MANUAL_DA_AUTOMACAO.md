@@ -59,3 +59,5 @@ ou serviço pago sem aprovação; nada de cortes de vídeos de terceiros; YouTub
 - **24/11** — Reinício da máquina mata renders: sempre conferir quadros faltantes e retomar só os intervalos vazios.
 - **23/11** — YouTube do canal gamer: games 1,1 mil views vs geo 2–3 → geo só no TikTok.
 - **23/11** — Capa com título grande no início (1,3 s) e cover em 600 ms no YouTube.
+
+- **25/11** — Uma marca do Metricool = um conjunto de perfis de um cliente/projeto. Ao abrir marca nova para as mesmas contas, pare de agendar na antiga (mesmo TikTok/YouTube nas duas = post duplicado). Facebook entra como `facebookData.type = "REEL"`.

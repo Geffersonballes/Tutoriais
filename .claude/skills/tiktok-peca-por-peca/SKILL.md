@@ -140,3 +140,5 @@ O compor.py acrescenta sozinho, depois da narração, a fala "Gostou do conteúd
 
 ## Áudio (obrigatório desde 24/11)
 O compor.py gera voz tratada + trilha original + efeitos (motor/audio.py). Escolha o clima no grafismos.json ("trilha": {"clima": "curioso|tenso|epico|divertido"}) conforme a emoção do tema. Todo aprendizado novo vai para produto/MANUAL_DA_AUTOMACAO.md.
+
+**MARCA E REDES (decisão do dono, 25/11 — vale acima do que estiver escrito antes):** agende na marca nova do Metricool `geffersonballes1`, **blogId `8356514`** (fuso America/Cuiaba). Não use mais a `ballestech` (8049742) — ela tem o mesmo TikTok e YouTube, e agendar nas duas duplicaria o post. Todo vídeo vai também para o **Facebook como Reel** (página Peça por Peça): acrescente `{"network":"facebook"}` em `providers` e `"facebookData": {"type": "REEL", "title": "<título curto>"}`. Guerra = TikTok + Facebook; games = TikTok + YouTube + Facebook.
