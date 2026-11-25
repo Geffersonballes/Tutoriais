@@ -1,0 +1,7 @@
+Quase um milhão de contas banidas em um único dia. Como o anti-cheat descobre quem está trapaceando?
+Foi em março, no Counter-Strike 2. Segundo a Valve, novecentas e sessenta mil contas de robôs. Mas contra o trapaceiro de verdade, o jogo tem três truques.
+Se você abre um programa de trapaça, então ele deixa rastros na memória do computador. Essa é a assinatura: o anti-cheat compara com uma lista de trapaças já conhecidas.
+Mas a trapaça tenta se esconder no fundo do sistema. Então jogos como Valorant usam um vigia que liga junto com o Windows, lá no núcleo: o kernel.
+E se a trapaça for nova? Então o servidor olha como você joga: mira que vira rápido demais, acerto bom demais. No Counter-Strike, uma inteligência artificial aprende isso assistindo partidas.
+Mas pegou, baniu? Nem sempre na hora. O banimento pode demorar dias ou semanas, para o criador da trapaça não descobrir o que entregou ele. Aí vem a onda: todo mundo banido junto.
+Já perdeu para trapaceiro? Comenta roubado. Nunca viu? Comenta sorte.
