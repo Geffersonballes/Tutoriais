@@ -199,6 +199,9 @@ def overlay(t):
 
 # ---------- áudio: narração + whooshes nos cortes ----------
 def audio():
+    """Voz tratada + trilha original por clima (abaixa sozinha quando a voz fala) + efeitos -> audio_mix.wav.
+    grafismos.json: "trilha": {"clima": "curioso|tenso|epico|divertido", "volume": -16}  ou  "trilha": false"""
+    import audio as AU
     narr = os.path.join(PASTA, "narracao.mp3"); out = os.path.join(PASTA, "audio_mix.wav")
     if CURTIR:
         cur = os.path.join(PASTA, "curtir.mp3")
@@ -206,21 +209,32 @@ def audio():
             subprocess.run(["edge-tts", "--voice", "pt-BR-AntonioNeural", "--rate=+12%", "--text", CURTIR_FALA, "--write-media", cur], check=True)
         junto = os.path.join(PASTA, "narracao_com_like.wav")
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", narr, "-i", cur, "-filter_complex",
-                        "[0]aresample=44100,apad=pad_dur=0.25[n];[1]aresample=44100,apad=pad_dur=0.6[c];[n][c]concat=n=2:v=0:a=1[a]",
+                        "[0]aresample=44100,apad=pad_dur=0.25[n];[1]aresample=44100,apad=pad_dur=1.2[c];[n][c]concat=n=2:v=0:a=1[a]",
                         "-map", "[a]", junto], check=True)
         narr = junto
-    cortes = sorted(set(round(min(x["s"] for x in LEG if x["seg"] == s) - 0.2, 2) for s in range(1, max(x["seg"] for x in LEG) + 1)))
+    dur = _dur(narr)
+    segs = range(1, max(x["seg"] for x in LEG) + 1)
+    cortes = sorted(set(round(min(x["s"] for x in LEG if x["seg"] == s), 2) for s in segs))
     pops = [it["_a"] for it in G["rotulos"]]
-    fl = []; inputs = ["-i", narr]
-    for k, c in enumerate(cortes):
-        inputs += ["-f", "lavfi", "-t", "0.45", "-i", "anoisesrc=color=pink:amplitude=0.5:seed=%d" % k]
-        fl.append(f"[{k+1}]highpass=f=500,lowpass=f=5000,afade=t=in:d=0.25,afade=t=out:st=0.25:d=0.2,volume=0.22,adelay={int(c*1000)}|{int(c*1000)}[w{k}]")
-    n0 = len(cortes) + 1
-    for k, c in enumerate(pops):
-        inputs += ["-f", "lavfi", "-t", "0.18", "-i", "sine=frequency=880:sample_rate=44100"]
-        fl.append(f"[{n0+k}]afade=t=out:st=0.02:d=0.16,volume=0.18,adelay={int(c*1000)}|{int(c*1000)}[p{k}]")
-    mix = "[0]" + "".join(f"[w{k}]" for k in range(len(cortes))) + "".join(f"[p{k}]" for k in range(len(pops)))
-    fl.append(f"{mix}amix=inputs={1+len(cortes)+len(pops)}:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]")
+    cfg = G.get("trilha", {})
+    clima = (cfg or {}).get("clima") or ("curioso" if "serie-games" in os.path.abspath(PASTA) else "tenso")
+    cta_ini = cortes[-1] if cortes else DUR_NARR
+    fx = AU.efeitos(dur, cortes=cortes, pops=pops, impacto=CAPA_DUR if CAPA is not None else None,
+                    riser_ate=cta_ini, ding=(DUR_NARR + 0.1) if CURTIR else None)
+    fx_wav = os.path.join(PASTA, "efeitos.wav"); AU.salvar(fx_wav, fx * 0.3)
+    inputs = ["-i", narr, "-i", fx_wav]
+    fl = [f"[0]aresample=44100,{AU.VOZ_FILTRO},aformat=channel_layouts=stereo,asplit=2[v][sc]"]
+    mix = "[v][1]"; n = 2
+    if cfg is not False:
+        mus_wav = os.path.join(PASTA, "trilha.wav")
+        AU.salvar(mus_wav, AU.trilha(dur, clima, entra=CAPA_DUR if CAPA is not None else 0.0,
+                                     sai=(DUR_NARR + 0.1) if CURTIR else dur, respiros=[c - 0.6 for c in cortes[1:]]))
+        inputs += ["-i", mus_wav]
+        fl.append(f"[2]volume={(cfg or {}).get('volume', -16)}dB[m0];[m0][sc]sidechaincompress=threshold=0.03:ratio=6:attack=25:release=350[m]")
+        mix += "[m]"; n = 3
+    else:
+        fl.append("[sc]anullsink")
+    fl.append(f"{mix}amix=inputs={n}:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]")
     subprocess.run(["ffmpeg", "-v", "error", "-y"] + inputs + ["-filter_complex", ";".join(fl), "-map", "[a]", "-ar", "44100", out], check=True)
     return out
 

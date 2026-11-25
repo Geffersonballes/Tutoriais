@@ -7,3 +7,4 @@
 - Cortes de vídeos de terceiros (ex.: GTA 6 do YouTube): não fazer agora.
 - Selo "Conteúdo gerado com IA" na tela: SIM, sempre (24/11), além da declaração de IA nas plataformas (isAigc / isAiGeneratedContent).
 - **Pedido de like no final de todo vídeo** (24/11): depois da narração, a voz Antonio diz "Gostou do conteúdo? Então deixa o seu like!" e a tela mostra GOSTOU DO CONTEÚDO? / DEIXA O LIKE. Automático no compor.py (`"curtir": false` no grafismos.json desliga).
+- **Áudio com trilha e efeitos** (24/11): o dono pediu mais vida no áudio. Padrão agora: voz tratada + trilha original por clima + efeitos + ducking (motor/audio.py). Tudo documentado em produto/MANUAL_DA_AUTOMACAO.md, que é a base para vender a automação.

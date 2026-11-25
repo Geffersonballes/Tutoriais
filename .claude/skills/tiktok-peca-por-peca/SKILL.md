@@ -137,3 +137,6 @@ que caiba no vídeo e implemente; no QC, anote no backlog todo defeito que não 
 
 ## Pedido de like (obrigatório, decisão do dono 24/11)
 O compor.py acrescenta sozinho, depois da narração, a fala "Gostou do conteúdo? Então deixa o seu like!" (Antonio) e a tela GOSTOU DO CONTEÚDO? / DEIXA O LIKE. Não desligue. No QC, confira que aparece no fim.
+
+## Áudio (obrigatório desde 24/11)
+O compor.py gera voz tratada + trilha original + efeitos (motor/audio.py). Escolha o clima no grafismos.json ("trilha": {"clima": "curioso|tenso|epico|divertido"}) conforme a emoção do tema. Todo aprendizado novo vai para produto/MANUAL_DA_AUTOMACAO.md.
