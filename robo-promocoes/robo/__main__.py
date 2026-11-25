@@ -3,6 +3,7 @@
 Uso:
   python -m robo teste            # busca na Shopee e só IMPRIME as mensagens
   python -m robo teste --exemplo  # usa produtos de exemplo (não precisa de chave)
+  python -m robo enviar-teste    # manda 1 mensagem de TESTE (exemplo) só para os GRUPOS do .env
   python -m robo grupos           # lista os grupos do número do robô (para pegar os IDs)
   python -m robo rodar            # modo de produção: posta nos GRUPOS em loop
 """
@@ -66,6 +67,20 @@ def cmd_teste(args) -> None:
     print("\n(Modo teste: nada foi enviado ao WhatsApp.)")
 
 
+IMAGEM_TESTE = "https://placehold.co/600x600/png?text=Teste+do+rob%C3%B4"
+
+
+def cmd_enviar_teste(args) -> None:
+    if not config.GRUPOS:
+        sys.exit("Defina GRUPOS no .env (use 'python -m robo grupos' para ver os IDs).")
+    dados = json.loads((Path(__file__).parent / "exemplo.json").read_text(encoding="utf-8"))
+    o = shopee.normalizar(dados[0])
+    texto = "🤖 *TESTE DO ROBÔ* (produto de exemplo, não é oferta real)\n\n" + mensagem.montar(o)
+    for grupo in config.GRUPOS:
+        whatsapp.enviar_imagem(grupo, IMAGEM_TESTE, texto, mimetype="image/png")
+        log(f"Teste enviado para {grupo}")
+
+
 def cmd_grupos(args) -> None:
     for g in whatsapp.listar_grupos():
         print(f"{g.get('id')}  |  {g.get('subject')}  |  {g.get('size', '?')} pessoas")
@@ -112,6 +127,7 @@ def main() -> None:
     t.add_argument("--exemplo", action="store_true", help="usa produtos de exemplo")
     t.add_argument("--quantidade", type=int, default=5)
     t.set_defaults(func=cmd_teste)
+    sub.add_parser("enviar-teste", help="envia 1 mensagem de teste aos GRUPOS").set_defaults(func=cmd_enviar_teste)
     sub.add_parser("grupos", help="lista os grupos do WhatsApp").set_defaults(func=cmd_grupos)
     sub.add_parser("rodar", help="posta em loop").set_defaults(func=cmd_rodar)
     args = p.parse_args()

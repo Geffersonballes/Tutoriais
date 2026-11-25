@@ -85,6 +85,10 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - Visto no cliente #1 (v2.3.7): o **QR Code funciona** (aparece também em `docker compose logs -f --tail 0 evolution`),
   mas o código de 8 letras veio `null` quando a instância tinha sido criada sem número. O script agora recria a
   instância com o número nesse modo. **Preferir o QR Code.** Não mandar print de QR para ninguém.
+- Definir o grupo: `sed -i 's|^GRUPOS=.*|GRUPOS=<id>@g.us|' .env` e conferir com `grep ^GRUPOS= .env`.
+  O robô **só** posta nos IDs de `GRUPOS`; os outros grupos do número são ignorados.
+- Testar o envio antes da Shopee aprovar: `docker compose run --rm robo python -m robo enviar-teste`
+  (manda 1 mensagem marcada como TESTE, com produto de exemplo).
 - Evolution API: imagem `evoapicloud/evolution-api:v2.3.7` (conferida no Docker Hub em 25/11/2026).
 - ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
   e usar uma deploy key só de leitura na VPS de cada cliente.
@@ -178,5 +182,6 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 25/11/2026 | **Marca:** grupo "Achadinhos da Lay"; logo já pronta. **Chip do robô pronto** com WhatsApp. |
 | 25/11/2026 | `postgres` e `evolution` subiram (Up) na primeira tentativa. Criado `conectar-whatsapp.sh`. |
 | 25/11/2026 | ✅ **Chip do robô conectado** à Evolution API pelo QR Code (o código de 8 letras veio vazio; ver §3). |
+| 25/11/2026 | Lista de grupos OK. Grupo **Achadinhos da Lay** = `120363432803335927@g.us`. ⚠️ O número do robô **não é um chip novo**: está em vários outros grupos (família, escola, outros grupos de ofertas). Recomendado para os próximos clientes: chip exclusivo. |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
