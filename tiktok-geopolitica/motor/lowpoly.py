@@ -547,3 +547,57 @@ def usina(nome):
         pecas.append(cilindro(nome + f"_duto{k}", (-10 + k * 7, -8.2, 1.0), 0.5, 2.0, (0.75, 0.55, 0.20, 1), seg=8))
     filho(pai, *pecas)
     return pai, topos
+
+# ---------- modelos nucleares (vídeo inspetores nucleares, 25/11) ----------
+def centrifuga(nome, loc, h=6.0, r=0.5, cor=(0.90, 0.91, 0.93, 1), unico=None):
+    """Centrífuga a gás: tubo alto com base, tampa, faixa escura e listra vertical (a listra mostra o giro)."""
+    base = cilindro(nome, (loc[0], loc[1], 0.25), r * 1.5, 0.5, (0.35, 0.37, 0.40, 1), seg=10)
+    tubo = cilindro(_id("ctubo"), (0, 0, h / 2 + 0.25), r, h, cor, seg=14, unico=unico); filho(base, tubo)
+    tampa = cilindro(_id("ctampa"), (0, 0, h + 0.55), r * 1.08, 0.35, (0.55, 0.58, 0.62, 1), seg=14); filho(base, tampa)
+    faixa = cilindro(_id("cfaixa"), (0, 0, h * 0.72), r * 1.03, 0.3, (0.18, 0.40, 0.70, 1), seg=14); filho(tubo, faixa); faixa.location = (0, 0, h * 0.22)
+    listra = caixa(_id("clistra"), (0, 0, 0), (0.12, 0.08, h * 0.8), (0.20, 0.22, 0.25, 1)); filho(tubo, listra); listra.location = (r * 0.98, 0, 0)
+    return base, tubo
+
+def girar(ob, t0, rps=1.5):
+    """Giro contínuo em Z (2 chaves + extrapolação linear)."""
+    ob.rotation_euler = (0, 0, 0); ob.keyframe_insert("rotation_euler", frame=f(t0), index=2)
+    ob.rotation_euler = (0, 0, 2 * math.pi * rps); ob.keyframe_insert("rotation_euler", frame=f(t0 + 1.0), index=2)
+    for fc in ob.animation_data.action.fcurves:
+        if fc.data_path == "rotation_euler":
+            for kp in fc.keyframe_points: kp.interpolation = "LINEAR"
+            fc.extrapolation = "LINEAR"
+
+def cilindro_uf6(nome, loc, cor=(0.86, 0.80, 0.30, 1)):
+    """Cilindro de transporte de UF6 (deitado, com aros e pés)."""
+    corpo = cilindro(nome, loc, 0.75, 3.2, cor, seg=14); corpo.rotation_euler = (0, math.radians(90), 0)
+    for dz in (-1.2, 1.2):
+        a = cilindro(_id("aro"), (0, 0, dz), 0.8, 0.18, (0.45, 0.42, 0.25, 1), seg=14); filho(corpo, a); a.location = (0, 0, dz)
+    return corpo
+
+def reator(nome, cor=(0.90, 0.89, 0.86, 1)):
+    """Usina nuclear: prédio do reator (cilindro + cúpula), prédio das turbinas e 2 torres de resfriamento.
+    Devolve (pai, [topos das torres])."""
+    pai = vazio(nome); conc = (0.84, 0.83, 0.80, 1)
+    pecas = [cilindro(nome + "_cont", (0, 0, 7), 7, 14, cor, seg=24)]
+    cup = esfera(nome + "_cup", (0, 0, 14), 7, cor, sub=3); cup.scale = (1, 1, 0.75); pecas.append(cup)
+    for z in (4.0, 9.0): pecas.append(cilindro(nome + "_aro", (0, 0, z), 7.08, 0.35, (0.62, 0.64, 0.66, 1), seg=24))
+    pecas += [caixa(nome + "_turb", (16, 0, 4.5), (16, 10, 9), (0.80, 0.84, 0.88, 1)),
+              caixa(nome + "_tteto", (16, 0, 9.2), (16.6, 10.6, 0.4), (0.42, 0.46, 0.52, 1)),
+              caixa(nome + "_tvidro", (16, -5.06, 6.5), (13, 0.15, 1.4), (0.20, 0.42, 0.62, 1))]
+    topos = []
+    for k, (x, y) in enumerate(((-6, 28), (16, 30))):
+        pecas.append(cilindro(nome + f"_resfA{k}", (x, y, 8), 11, 16, conc, seg=24, r2=7.2))
+        pecas.append(cilindro(nome + f"_resfB{k}", (x, y, 19), 7.2, 6, conc, seg=24, r2=8.2))
+        topos.append((x, y, 22.5))
+    filho(pai, *pecas)
+    return pai, topos
+
+def satelite(nome, escala=1.0):
+    """Satélite de observação: corpo dourado, 2 painéis solares e lente apontada para baixo (-Z)."""
+    s = escala
+    corpo = caixa(nome, (0, 0, 0), (1.6 * s, 1.6 * s, 2.4 * s), (0.85, 0.68, 0.22, 1))
+    for d in (-1, 1):
+        braco = caixa(_id("sbraco"), (0, 0, 0), (1.2 * s, 0.15 * s, 0.15 * s), C["cinza"]); filho(corpo, braco); braco.location = (d * 1.4 * s, 0, 0)
+        pain = caixa(_id("spain"), (0, 0, 0), (4.0 * s, 1.8 * s, 0.08 * s), (0.10, 0.16, 0.38, 1)); filho(corpo, pain); pain.location = (d * 4.0 * s, 0, 0)
+    lente = cilindro(_id("slente"), (0, 0, 0), 0.55 * s, 0.6 * s, C["escuro"], seg=12); filho(corpo, lente); lente.location = (0, 0, -1.45 * s)
+    return corpo

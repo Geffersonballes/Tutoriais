@@ -7,3 +7,8 @@ serie-games/producao/*/render_*.log
 tiktok-geopolitica/producao/*/*.wav
 tiktok-geopolitica/producao/*/curtir.mp3
 serie-games/producao/*/compor.log
+tiktok-geopolitica/producao/*/frames/
+tiktok-geopolitica/producao/*/preview*/
+tiktok-geopolitica/producao/*/*.mp4
+tiktok-geopolitica/producao/*/render_*.log
+serie-games/producao/*/curtir.mp3
