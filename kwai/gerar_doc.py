@@ -22,12 +22,14 @@ fila = json.load(open(os.path.join(R, "kwai", "fila.json"), encoding="utf-8"))
 d = docx.Document(); d.add_heading("Kwai — Peça por Peça: vídeos para postar", 0)
 d.add_paragraph("Como usar: toque em \"Baixar vídeo\", salve no celular, abra o Kwai, escolha o vídeo, cole a legenda e poste (ou agende). Poste na ordem, 3 a 5 por dia, com pelo menos 1h30 entre eles. Se o Kwai mostrar a opção de marcar \"conteúdo gerado por IA\", ligue. Os vídeos novos entram no fim desta lista todo dia.")
 txt = []
-for i, (serie, titulo, pasta, url) in enumerate(fila, 1):
+for i, item in enumerate(fila, 1):
+    serie, titulo, pasta, url = item[:4]; prod = item[4] if len(item) > 4 else ""
     corpo, tags = legenda(pasta)
     d.add_heading(f"{i:02d}. {titulo}  ({serie})", 2)
     p = d.add_paragraph(); link(p, url, "▶ Baixar vídeo")
+    if prod: d.add_paragraph(f"🛒 Produto sugerido (Kwai Shop): {prod}")
     d.add_paragraph("Legenda (copie tudo):"); d.add_paragraph(f"{corpo}\n\n{tags}")
-    txt.append(f"{i:02d}. {titulo} ({serie})\nVídeo: {url}\nLegenda:\n{corpo}\n\n{tags}\n")
+    txt.append(f"{i:02d}. {titulo} ({serie})\nVídeo: {url}\n" + (f"🛒 Produto sugerido (Kwai Shop): {prod}\n" if prod else "") + f"Legenda:\n{corpo}\n\n{tags}\n")
 d.save(os.path.join(R, "kwai", "Kwai_postagens.docx"))
 CAB = open(os.path.join(R, "kwai", "cabecalho.txt"), encoding="utf-8").read()
 open(os.path.join(R, "kwai", "Kwai_postagens.txt"), "w", encoding="utf-8").write(CAB + "\n-------------------------------------\n\n".join(txt))

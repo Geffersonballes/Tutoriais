@@ -7,7 +7,7 @@ O Kwai não tem API de publicação nem integração no Metricool, então a post
 - O conector Microsoft 365 só aceita arquivos de até 1 MB, e o Google Drive daqui só aceita até 10 MB. Por isso os vídeos NÃO vão para a pasta: cada item tem o link público do Picsart (gcdn.picsart.com) para baixar.
 
 ## A cada vídeo novo agendado (games e guerra)
-1. Acrescente ao fim de `kwai/fila.json`: `[série, título curto, pasta, url_picsart]`. Use a mesma URL do Picsart usada no Metricool.
+1. Acrescente ao fim de `kwai/fila.json`: `[série, título curto, pasta, url_picsart, produto sugerido]` — produto de tecnologia/informática ligado ao tema, com o termo de busca do Kwai Shop (decisão do dono 25/11: link de venda em todo vídeo). Use a mesma URL do Picsart usada no Metricool.
 2. Rode `python3 kwai/gerar_doc.py`.
 3. Regrave o OneDrive com `sharepoint_update_file` (itemId acima) e o conteúdo de `kwai/Kwai_postagens.txt`.
 4. Faça commit.
