@@ -33,8 +33,9 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
   - Texto: "No momento você não possui acesso à Plataforma de Open API dos
     Afiliados Shopee. Por favor, entre em contato com a gente para pedir acesso".
   - Faixa vermelha no topo: "Por favor, complete suas **Informações de P**[agamento]".
-- Hipótese (a confirmar no cliente #1): completar as informações de pagamento libera o
-  botão "Aplicar". Se não liberar, pedir pelo link "entre em contato com a gente".
+- **Confirmado no cliente #1:** depois de completar as Informações de Pagamento, o botão
+  "Aplicar" fica clicável. Clicar, preencher e enviar o pedido. Depois é aguardar a aprovação.
+  (Se não liberar, pedir pelo link "entre em contato com a gente".)
 - Texto de justificativa sugerido:
   > Olá! Sou afiliado Shopee e gostaria de solicitar acesso à Open API de Afiliados.
   > Pretendo usar a API para buscar ofertas e gerar links de afiliado automaticamente,
@@ -129,4 +130,5 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 23/11/2026 | Decidido começar **só pela Shopee**. Rascunho do robô pronto, com modo teste usando produtos de exemplo. |
 | 24/11/2026 | Afiliado Shopee já aprovado (app mostra "Sua Performance"). Open API achada no site: sem acesso, botão "Aplicar" cinza, aviso para completar as Informações de Pagamento. |
 | 24/11/2026 | Definida a VPS: Hostinger KVM 1, Ubuntu 24.04, sem placa de vídeo. Confirmado que nenhum conector do Claude é necessário. |
-| — | **Próximo:** completar o pagamento → pedir a API → contratar a VPS → chip e grupo de teste. |
+| 25/11/2026 | Informações de Pagamento completadas → botão "Aplicar" liberou → **pedido de acesso à Open API enviado**. Aguardando a Shopee. |
+| — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
