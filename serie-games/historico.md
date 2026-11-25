@@ -15,3 +15,4 @@
 
 ### Instagram @pecaporpeca95 — vídeos já produzidos (todos em 25/11, intercalados, só Instagram, marca 8356514)
 14:45 pontes (442137307) · 15:30 pedestres GTA 6 (442119595) · 16:00 Ormuz (442137373) · 16:30 GTA 30 FPS (442137468) · 17:00 defesa antiaérea (442138316) · 17:30 servidor CS2 (442138396) · [18:00 inspetores — vídeo novo] · 18:30 LIVE (442138549) · 19:00 rede elétrica (442138637) · 19:45 GTA 6 um dia (442121656) · 20:30 Twitch (442138742) · [21:30 PS5 — vídeo novo] · 22:15 anti-cheat (442139233)
+| 2026-11-25 | Por que a IA deixou o PS5 mais caro? (visual nível 2) | serie-games/producao/2026-11-25_ps5-ia | [post 442329812](https://app.metricool.com/planner/calendar?blogId=8356514&openWithPostUuid=-2855157903845341257) | 25/11 21:30 TikTok + YouTube + Facebook + Instagram (marca 8356514) |
