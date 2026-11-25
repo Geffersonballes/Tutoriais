@@ -133,11 +133,13 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 2. Passar para **conta profissional** (Criador de conteúdo ou Empresa): exigida pela API e pelo Metricool.
 3. Criar a **Página do Facebook** "Achadinhos da Lay" e vincular ao Instagram (exigido pela API da Meta).
 4. Bio: o que é + "👇 Entre no grupo de ofertas" + link da **landing page** (não o convite direto do grupo).
+   Medir com UTM por origem: bio `utm_source=instagram&utm_medium=bio`, story `utm_medium=story`, anúncio
+   `utm_medium=paid_social` (tabela em `instagram/PLANO-IG.md`).
 5. **Aquecer** 1 a 2 semanas com posts manuais antes de automatizar muito (contas novas que já começam
    automatizadas costumam sofrer restrição).
 6. Automação: via **Metricool** (o dono já usa no TikTok; conector disponível) ou pela Graph API da Meta.
    Ideias de post automático: carrossel "Top 5 achadinhos do dia" (imagem gerada), reels com produto e stories.
-   ⚠️ Pela API não dá para colocar **figurinha de link** no story, então o link fica na bio.
+   ⚠️ Pela API não dá para colocar **figurinha de link** no story, então o link (da landing) fica na bio.
 
 ## 4. Conectores do Claude
 
