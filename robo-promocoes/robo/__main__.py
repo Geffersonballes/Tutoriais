@@ -3,6 +3,7 @@
 Uso:
   python -m robo teste            # busca na Shopee e só IMPRIME as mensagens
   python -m robo teste --exemplo  # usa produtos de exemplo (não precisa de chave)
+  python -m robo formatos        # mostra todos os formatos de mensagem com um produto de exemplo
   python -m robo enviar-teste    # manda 1 mensagem de TESTE (exemplo) só para os GRUPOS do .env
   python -m robo grupos           # lista os grupos do número do robô (para pegar os IDs)
   python -m robo rodar            # modo de produção: posta nos GRUPOS em loop
@@ -35,8 +36,7 @@ def passa_no_filtro(o: dict) -> bool:
 
 def candidatas(exemplo: bool = False) -> list[dict]:
     if exemplo:
-        dados = json.loads((Path(__file__).parent / "exemplo.json").read_text(encoding="utf-8"))
-        ofertas = [shopee.normalizar(n) for n in dados]
+        ofertas = exemplos()
     else:
         palavra = random.choice(config.SHOPEE_PALAVRAS)
         log(f"Buscando na Shopee: '{palavra}'")
@@ -47,10 +47,20 @@ def candidatas(exemplo: bool = False) -> list[dict]:
     return boas
 
 
-def com_link_afiliado(o: dict, exemplo: bool) -> dict:
+def com_link_afiliado(o: dict, exemplo: bool, formato: str = "") -> dict:
+    """Gera o link de afiliado com subIds: canal (do .env), formato e um id do post."""
     if not exemplo:
-        o["link"] = shopee.link_curto(o["link_produto"] or o["link"])
+        post = "p" + datetime.now(ZoneInfo(config.FUSO)).strftime("%y%m%d%H%M")
+        o["link"] = shopee.link_curto(o["link_produto"] or o["link"], formato, post)
     return o
+
+
+FORMATOS = ["padrao", "economia", "atepreco", "pergunta", "relampago"]
+
+
+def exemplos() -> list[dict]:
+    dados = json.loads((Path(__file__).parent / "exemplo.json").read_text(encoding="utf-8"))
+    return [shopee.normalizar(n) for n in dados]
 
 
 def cmd_teste(args) -> None:
@@ -58,27 +68,52 @@ def cmd_teste(args) -> None:
     if not ofertas:
         print("Nenhuma oferta passou no filtro. Afrouxe DESCONTO_MINIMO / VENDAS_MINIMAS.")
     for o in ofertas:
-        o = com_link_afiliado(o, args.exemplo)
+        formato = mensagem.escolher_formato(o)
+        o = com_link_afiliado(o, args.exemplo, formato)
         print("\n" + "=" * 50)
-        print(f"[imagem] {o['imagem']}")
+        print(f"[formato {formato}] [imagem] {o['imagem']}")
         print(f"[nota {o['nota']} | vendas {int(o['vendas'])} | comissão {o['comissao']}]")
         print("-" * 50)
-        print(mensagem.montar(o))
+        print(mensagem.montar(o, formato))
     print("\n(Modo teste: nada foi enviado ao WhatsApp.)")
 
 
 IMAGEM_TESTE = "https://placehold.co/600x600/png?text=Teste+do+rob%C3%B4"
 
 
+def textos_de_exemplo() -> list[tuple[str, str]]:
+    o = exemplos()[0]
+    relampago = dict(o, fim=int(datetime.now(ZoneInfo(config.FUSO)).replace(
+        hour=23, minute=0, second=0).timestamp()))
+    barato = dict(exemplos()[0], nome="Organizador de Gaveta Ajustável Kit 6 Peças",
+                  preco=17.9, preco_antigo=39.9, desconto=55)
+    textos = [(f, mensagem.montar(relampago if f == "relampago" else barato if f == "atepreco" else o, f))
+              for f in FORMATOS]
+    itens = [dict(x, link=x["link"]) for x in exemplos()[:2]] + [barato]
+    return textos + [("top_do_dia", mensagem.top_do_dia(itens))]
+
+
+def cmd_formatos(args) -> None:
+    for nome, texto in textos_de_exemplo():
+        print("\n" + "=" * 20 + f" {nome} " + "=" * 20)
+        print(texto)
+
+
 def cmd_enviar_teste(args) -> None:
     if not config.GRUPOS:
         sys.exit("Defina GRUPOS no .env (use 'python -m robo grupos' para ver os IDs).")
-    dados = json.loads((Path(__file__).parent / "exemplo.json").read_text(encoding="utf-8"))
-    o = shopee.normalizar(dados[0])
-    texto = "🤖 *TESTE DO ROBÔ* (produto de exemplo, não é oferta real)\n\n" + mensagem.montar(o)
+    textos = textos_de_exemplo()
+    if args.formato != "todos":
+        textos = [t for t in textos if t[0] == args.formato]
     for grupo in config.GRUPOS:
-        whatsapp.enviar_imagem(grupo, IMAGEM_TESTE, texto, mimetype="image/png")
-        log(f"Teste enviado para {grupo}")
+        for nome, texto in textos:
+            texto = f"🤖 *TESTE DO ROBÔ* · formato _{nome}_ (exemplo, não é oferta real)\n\n" + texto
+            if nome == "top_do_dia":
+                whatsapp.enviar_texto(grupo, texto)
+            else:
+                whatsapp.enviar_imagem(grupo, IMAGEM_TESTE, texto, mimetype="image/png")
+            log(f"Teste '{nome}' enviado para {grupo}")
+            time.sleep(config.PAUSA_ENTRE_GRUPOS)
 
 
 def cmd_grupos(args) -> None:
@@ -89,6 +124,28 @@ def cmd_grupos(args) -> None:
 def dentro_do_horario() -> bool:
     hora = datetime.now(ZoneInfo(config.FUSO)).hour
     return config.HORA_INICIO <= hora < config.HORA_FIM
+
+
+def postar_top_se_for_hora() -> None:
+    if not config.HORA_TOP:
+        return
+    tz = ZoneInfo(config.FUSO)
+    agora = datetime.now(tz)
+    if agora.hour < config.HORA_TOP:
+        return
+    inicio = agora.replace(hour=0, minute=0, second=0, microsecond=0).timestamp()
+    for grupo in config.GRUPOS:
+        hoje = historico.postados_desde(inicio, grupo)
+        if any(p["id"].startswith("top:") for p in hoje):
+            continue
+        itens = [p for p in hoje if not p["id"].startswith("top:")]
+        if len(itens) < 3:
+            continue
+        itens = list({p["id"]: p for p in itens}.values())[-5:]
+        whatsapp.enviar_texto(grupo, mensagem.top_do_dia(itens))
+        historico.registrar({"id": f"top:{agora:%Y-%m-%d}", "nome": "Top do dia", "preco": 0,
+                             "link": ""}, grupo, "top_do_dia")
+        log(f"Top do dia postado em {grupo}")
 
 
 def cmd_rodar(args) -> None:
@@ -102,14 +159,16 @@ def cmd_rodar(args) -> None:
             time.sleep(600)
             continue
         try:
+            postar_top_se_for_hora()
             ofertas = candidatas()
             if ofertas:
-                o = com_link_afiliado(ofertas[0], exemplo=False)
-                texto = mensagem.montar(o)
+                formato = mensagem.escolher_formato(ofertas[0])
+                o = com_link_afiliado(ofertas[0], exemplo=False, formato=formato)
+                texto = mensagem.montar(o, formato)
                 for grupo in config.GRUPOS:
                     whatsapp.enviar_imagem(grupo, o["imagem"], texto)
-                    historico.registrar(o, grupo)
-                    log(f"Postado em {grupo}: {o['nome'][:60]}")
+                    historico.registrar(o, grupo, formato)
+                    log(f"Postado em {grupo} [{formato}]: {o['nome'][:60]}")
                     time.sleep(config.PAUSA_ENTRE_GRUPOS + random.uniform(0, 10))
             else:
                 espera = 120  # tenta outra palavra logo
@@ -127,7 +186,10 @@ def main() -> None:
     t.add_argument("--exemplo", action="store_true", help="usa produtos de exemplo")
     t.add_argument("--quantidade", type=int, default=5)
     t.set_defaults(func=cmd_teste)
-    sub.add_parser("enviar-teste", help="envia 1 mensagem de teste aos GRUPOS").set_defaults(func=cmd_enviar_teste)
+    sub.add_parser("formatos", help="mostra todos os formatos").set_defaults(func=cmd_formatos)
+    e = sub.add_parser("enviar-teste", help="envia mensagem(ns) de teste aos GRUPOS")
+    e.add_argument("--formato", default="padrao", choices=FORMATOS + ["top_do_dia", "todos"])
+    e.set_defaults(func=cmd_enviar_teste)
     sub.add_parser("grupos", help="lista os grupos do WhatsApp").set_defaults(func=cmd_grupos)
     sub.add_parser("rodar", help="posta em loop").set_defaults(func=cmd_rodar)
     args = p.parse_args()

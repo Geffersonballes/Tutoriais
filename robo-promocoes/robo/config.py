@@ -52,6 +52,7 @@ INTERVALO_MINUTOS = _num("INTERVALO_MINUTOS", 15)   # entre um post e outro
 HORA_INICIO = int(_num("HORA_INICIO", 8))
 HORA_FIM = int(_num("HORA_FIM", 23))
 FUSO = os.getenv("FUSO", "America/Cuiaba")
+HORA_TOP = int(_num("HORA_TOP", 20))                 # "Top 5 de hoje" (0 = desligado)
 PAUSA_ENTRE_GRUPOS = _num("PAUSA_ENTRE_GRUPOS", 20)  # segundos
 NAO_REPETIR_DIAS = _num("NAO_REPETIR_DIAS", 7)
 

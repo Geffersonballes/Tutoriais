@@ -28,6 +28,8 @@ CAMPOS_OFERTA = """
       commissionRate
       shopName
 """
+# Campos que podem não existir na API do Brasil: se der erro, a busca é refeita sem eles.
+CAMPOS_OPCIONAIS = "      periodEndTime\n"
 
 # sortType: 1 relevância, 2 mais vendidos, 3 maior preço, 4 menor preço, 5 maior comissão
 ORDENAR_MAIS_VENDIDOS = 2
@@ -68,10 +70,19 @@ def _chamar(query: str, variaveis: dict | None = None) -> dict:
 
 
 def buscar_ofertas(palavra: str, pagina: int = 1, limite: int = 50) -> list[dict]:
+    try:
+        return _buscar(palavra, pagina, limite, CAMPOS_OFERTA + CAMPOS_OPCIONAIS)
+    except ErroShopee as e:
+        if "periodEndTime" not in str(e):
+            raise
+        return _buscar(palavra, pagina, limite, CAMPOS_OFERTA)
+
+
+def _buscar(palavra: str, pagina: int, limite: int, campos: str) -> list[dict]:
     query = f"""
     query($kw: String, $page: Int, $limit: Int, $sort: Int) {{
       productOfferV2(keyword: $kw, page: $page, limit: $limit, sortType: $sort) {{
-        nodes {{ {CAMPOS_OFERTA} }}
+        nodes {{ {campos} }}
         pageInfo {{ page limit hasNextPage }}
       }}
     }}"""
@@ -80,13 +91,18 @@ def buscar_ofertas(palavra: str, pagina: int = 1, limite: int = 50) -> list[dict
     return [normalizar(n) for n in dados["productOfferV2"]["nodes"]]
 
 
-def link_curto(url: str) -> str:
+def link_curto(url: str, *etiquetas: str) -> str:
+    """Gera o link curto. As etiquetas viram subIds (até 5) para medir canal, formato e post."""
     query = """
     mutation($url: String!, $subs: [String]) {
       generateShortLink(input: {originUrl: $url, subIds: $subs}) { shortLink }
     }"""
-    dados = _chamar(query, {"url": url, "subs": [config.SHOPEE_SUB_ID]})
+    dados = _chamar(query, {"url": url, "subs": [_limpo(x) for x in (config.SHOPEE_SUB_ID, *etiquetas)][:5]})
     return dados["generateShortLink"]["shortLink"]
+
+
+def _limpo(texto: str) -> str:
+    return "".join(c for c in str(texto) if c.isalnum())[:50]
 
 
 def _f(valor, padrao=0.0) -> float:
@@ -116,4 +132,5 @@ def normalizar(n: dict) -> dict:
         "nota": _f(n.get("ratingStar")),
         "vendas": _f(n.get("sales")),
         "comissao": _f(n.get("commissionRate")),
+        "fim": int(_f(n.get("periodEndTime"))),
     }
