@@ -18,7 +18,8 @@ Este robô vai virar um **produto vendido** (automação de grupos de achadinhos
 | 3 | **Acesso à Open API** (App ID + Senha/Secret) | cliente pede, Shopee aprova | Pode levar dias. Começar por aqui. |
 | 4 | **VPS** | cliente contrata (ou nós, no plano gerenciado) | Specs no §3. |
 | 5 | **Chip só para o robô**, com WhatsApp | cliente | Nunca o número pessoal ou da empresa (risco de banimento). |
-| 6 | **Grupo(s)** com o robô como admin e "só admins enviam" | cliente | Começar com um grupo de teste. |
+| 6 | **Nome do grupo e logo** (foto do grupo e do Instagram) | cliente | Cliente #1: "Achadinhos da Lay". |
+| 7 | **Grupo(s)** com o robô como admin e "só admins enviam" | cliente | Começar com um grupo de teste. |
 
 Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 
@@ -75,6 +76,10 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - Baixar o robô na VPS (o repositório é público, não precisa de senha):
   `cd /opt && git clone --depth 1 -b <branch> https://github.com/Geffersonballes/Tutoriais.git tutoriais`
   e trabalhar em `/opt/tutoriais/robo-promocoes` (o `.env` e `dados/` não vão para o Git, então `git pull` atualiza sem apagar nada).
+- `ls` não mostra o `.env.example` (arquivos que começam com ponto ficam ocultos). Isso é normal.
+- Criar o `.env` e gerar senhas aleatórias **na própria VPS** (ninguém precisa digitar nem ver a senha):
+  `cp .env.example .env && sed -i "s|^EVOLUTION_API_KEY=.*|EVOLUTION_API_KEY=$(openssl rand -hex 24)|; s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$(openssl rand -hex 24)|" .env`
+  e depois `docker compose up -d postgres evolution` e `docker compose ps`.
 - Evolution API: imagem `evoapicloud/evolution-api:v2.3.7` (conferida no Docker Hub em 25/11/2026).
 - ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
   e usar uma deploy key só de leitura na VPS de cada cliente.
@@ -164,5 +169,7 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 25/11/2026 | Informações de Pagamento completadas → botão "Aplicar" liberou → **pedido de acesso à Open API enviado**. Aguardando a Shopee. |
 | 25/11/2026 | **VPS contratada:** Hostinger KVM 2 (2 vCPU, 8 GB, 100 GB), Ubuntu 24.04 LTS, estado "running". Conferida pelo conector Hostinger (`vps_virtual-machines_list`), sem precisar de senha. Firewall da Hostinger ainda não configurado. |
 | 25/11/2026 | Docker 29.1.1 instalado na VPS. |
+| 25/11/2026 | Robô baixado na VPS em `/opt/tutoriais/robo-promocoes` (git clone sem erro). |
+| 25/11/2026 | **Marca:** grupo "Achadinhos da Lay"; logo já pronta. **Chip do robô pronto** com WhatsApp. |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
