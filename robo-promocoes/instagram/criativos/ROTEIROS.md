@@ -8,7 +8,7 @@ Duração-alvo: 12 a 15 s.
 ## v1 (teste, 25/11, reprovado pelo dono: usa "amigas" e é pouco vendedor)
 "Amigas, olha esse achadinho! Kit 10 potes de vidro com tampa, de R$ 108,91 por R$ 59,90 … Os achadinhos do dia estão no meu grupo …"
 
-## v3 (proposta, aguardando o dono escolher)
+## v3 (proposta; 25/11 o dono decidiu: **este vídeo não será postado**. Nenhuma voz nova foi gerada. Os roteiros ficam como modelo para os reels com produto real)
 **Opção A, dor → solução:**
 "Pote de plástico manchado e com cheiro? Troca por esse kit com dez potes de vidro com tampa. De cento e oito reais, tá
 saindo por cinquenta e nove e noventa: quarenta e cinco por cento a menos. Eu posto achados assim todo dia no meu grupo

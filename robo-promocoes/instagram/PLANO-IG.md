@@ -70,3 +70,4 @@ A bio do IG não tem espaço para avisar que os links são de afiliado. Por isso
 | Data | O quê |
 |---|---|
 | 25/11/2026 | ✅ Post 1 "Quem somos" (carrossel de 4 imagens) **aprovado** pelo dono, para postar à mão (`posts/01-quem-somos/`). |
+| 25/11/2026 | O dono decidiu: o **vídeo de teste com a voz da Laynner não será postado**. Os roteiros ficam em `criativos/ROTEIROS.md` como modelo. |
