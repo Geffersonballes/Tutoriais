@@ -192,14 +192,14 @@ def missil(nome, cor=None, escala=1.0, unico=None):
     for poly in p.data.polygons: poly.use_smooth = False
     filho(corpo, p); return corpo
 
-def drone(nome, escala=1.0):
+def drone(nome, escala=1.0, cor=None):
     bm = bmesh.new()
     vs = [bm.verts.new(v) for v in [(0, 2.0, 0), (-2.2, -1.2, 0), (0, -0.6, 0.35), (2.2, -1.2, 0), (0, -0.6, -0.1)]]
     for fa in [(0, 1, 2), (0, 2, 3), (0, 4, 1), (0, 3, 4), (1, 4, 2), (2, 4, 3)]:
         bm.faces.new([vs[i] for i in fa])
     bmesh.ops.scale(bm, vec=(escala,) * 3, verts=bm.verts)
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
-    return _new_obj(nome, bm, C["ameaca"])
+    return _new_obj(nome, bm, cor or C["ameaca"])
 
 def aviao(nome, cor=None, radome=True):
     cor = cor or C["cinza"]
@@ -417,3 +417,133 @@ def bomba_combustivel(nome):
     topo = caixa(_id("topoB"), (0, 0, 0), (1.6, 1.0, 0.3), C["branco"]); filho(corpo, topo); topo.location = (0, 0, 1.6)
     mang = cilindro(_id("mang"), (0, 0, 0), 0.08, 1.6, C["escuro"], seg=6); filho(corpo, mang); mang.location = (0.8, 0, 0.0)
     return corpo
+
+# ---------- modelos de energia (vídeo rede elétrica, 25/11) ----------
+from mathutils import Matrix as _Mx
+
+def _viga(bm, a, b, r, seg=4):
+    """Barra reta entre dois pontos dentro de um bmesh (para treliças num único objeto)."""
+    va, vb = Vector(a), Vector(b); dv = vb - va
+    vs = bmesh.ops.create_cone(bm, cap_ends=True, segments=seg, radius1=r, radius2=r, depth=dv.length)["verts"]
+    bmesh.ops.transform(bm, matrix=_Mx.Translation((va + vb) / 2) @ dv.to_track_quat("Z", "Y").to_matrix().to_4x4(), verts=vs)
+
+def cabo(nome, a, b, r=0.08, cor=None, unico=None):
+    """Cabo/viga reta entre dois pontos (objeto próprio, dá para animar a cor)."""
+    bm = bmesh.new(); _viga(bm, a, b, r, seg=5)
+    return _new_obj(nome, bm, cor or C["escuro"], unico)
+
+def torre_transmissao(nome, loc, h=16.0, cor=(0.74, 0.76, 0.78, 1)):
+    """Torre treliçada de alta tensão (linha ao longo de X, braços ao longo de Y). Devolve (torre, pontos de fixação dos cabos)."""
+    bm = bmesh.new(); base = h * 0.13; topo = h * 0.045
+    niveis = [0.0, 0.22, 0.44, 0.62, 0.76, 0.92]
+    def larg(u): return base + (topo - base) * min(1.0, u / 0.76)
+    aneis = [[(sx * larg(u), sy * larg(u), u * h) for sx, sy in ((1, 1), (1, -1), (-1, -1), (-1, 1))] for u in niveis]
+    for k in range(len(aneis) - 1):
+        for i in range(4):
+            _viga(bm, aneis[k][i], aneis[k + 1][i], 0.13)
+            _viga(bm, aneis[k + 1][i], aneis[k + 1][(i + 1) % 4], 0.08)
+            _viga(bm, aneis[k][i], aneis[k + 1][(i + 1) % 4], 0.06)
+            _viga(bm, aneis[k][(i + 1) % 4], aneis[k + 1][i], 0.06)
+    _viga(bm, (0, 0, 0.92 * h), (0, 0, h), 0.10)
+    bracos = ((0.70, h * 0.24), (0.88, h * 0.17))
+    for u, w in bracos:
+        for s in (-1, 1):
+            _viga(bm, (0, 0, u * h - 0.25), (0, s * w, u * h), 0.11); _viga(bm, (0, 0, u * h + h * 0.07), (0, s * w, u * h), 0.07)
+    for sx, sy in ((1, 1), (1, -1), (-1, -1), (-1, 1)):   # sapatas de concreto
+        v = bmesh.ops.create_cube(bm, size=1)["verts"]; bmesh.ops.scale(bm, vec=(0.8, 0.8, 0.5), verts=v); bmesh.ops.translate(bm, vec=(sx * base, sy * base, 0.1), verts=v)
+    t = _new_obj(nome, bm, cor); t.location = loc
+    bm2 = bmesh.new(); pts = []
+    for u, w in bracos:
+        for s in (-1, 1):
+            for k in range(4):   # cadeia de isoladores (discos)
+                vs = bmesh.ops.create_cone(bm2, cap_ends=True, segments=8, radius1=0.24, radius2=0.12, depth=0.2)["verts"]
+                bmesh.ops.translate(bm2, vec=(0, s * w, u * h - 0.15 - 0.24 * k), verts=vs)
+            pts.append((loc[0], loc[1] + s * w, loc[2] + u * h - 1.1))
+    iso = _new_obj(nome + "_iso", bm2, (0.45, 0.70, 0.66, 1)); filho(t, iso)
+    return t, pts
+
+def transformador(nome, escala=1.0, cor=(0.47, 0.56, 0.55, 1)):
+    """Transformador de potência: tanque, radiadores, conservador de óleo e buchas de porcelana.
+    Devolve (pai, tanque, topos das 3 buchas de alta em coordenadas locais). Lado comprido ao longo de X."""
+    e = escala; pai = vazio(nome)
+    base = caixa(nome + "_base", (0, 0, 0.2 * e), (5.0 * e, 3.4 * e, 0.4 * e), (0.70, 0.70, 0.68, 1))
+    tanque = caixa(nome + "_tanque", (0, 0, 1.9 * e), (4.2 * e, 2.4 * e, 3.0 * e), cor, unico=nome)
+    tampa = caixa(nome + "_tampa", (0, 0, 3.47 * e), (4.4 * e, 2.6 * e, 0.14 * e), tuple(c * 0.8 for c in cor[:3]) + (1,))
+    bm = bmesh.new()
+    for s in (-1, 1):
+        for k in range(9):
+            v = bmesh.ops.create_cube(bm, size=1)["verts"]; bmesh.ops.scale(bm, vec=(0.10 * e, 0.75 * e, 2.3 * e), verts=v)
+            bmesh.ops.translate(bm, vec=((-1.8 + k * 0.45) * e, s * 1.62 * e, 1.85 * e), verts=v)
+        v = bmesh.ops.create_cube(bm, size=1)["verts"]; bmesh.ops.scale(bm, vec=(3.9 * e, 0.12 * e, 0.12 * e), verts=v); bmesh.ops.translate(bm, vec=(0, s * 1.3 * e, 3.05 * e), verts=v)
+    rad = _new_obj(nome + "_rad", bm, (0.66, 0.70, 0.70, 1))
+    cons = cilindro(nome + "_cons", (0, 0, 0), 0.42 * e, 3.0 * e, (0.60, 0.66, 0.65, 1), seg=12)
+    cons.rotation_euler = (0, math.radians(90), 0); cons.location = (0.3 * e, 0.75 * e, 4.35 * e)
+    sup = caixa(nome + "_sup", (0.3 * e, 0.75 * e, 3.75 * e), (2.2 * e, 0.15 * e, 0.6 * e), (0.35, 0.38, 0.38, 1))
+    bm = bmesh.new(); topos = []
+    for x in (-1.35, 0.0, 1.35):       # buchas de alta tensão (com saias)
+        vs = bmesh.ops.create_cone(bm, cap_ends=True, segments=8, radius1=0.24 * e, radius2=0.10 * e, depth=1.9 * e)["verts"]
+        bmesh.ops.translate(bm, vec=(x * e, -0.55 * e, 4.45 * e), verts=vs)
+        for k in range(5):
+            vs = bmesh.ops.create_cone(bm, cap_ends=True, segments=10, radius1=(0.42 - 0.04 * k) * e, radius2=(0.24 - 0.02 * k) * e, depth=0.14 * e)["verts"]
+            bmesh.ops.translate(bm, vec=(x * e, -0.55 * e, (3.75 + 0.3 * k) * e), verts=vs)
+        topos.append((x * e, -0.55 * e, 5.45 * e))
+    for x in (-1.0, 0.0, 1.0):          # buchas de baixa
+        vs = bmesh.ops.create_cone(bm, cap_ends=True, segments=8, radius1=0.18 * e, radius2=0.09 * e, depth=0.8 * e)["verts"]
+        bmesh.ops.translate(bm, vec=(x * e - 0.9 * e, 0.0, 3.9 * e), verts=vs)
+    buchas = _new_obj(nome + "_buchas", bm, (0.50, 0.24, 0.15, 1))
+    bm = bmesh.new()
+    for x, y, z in topos:
+        vs = bmesh.ops.create_cone(bm, cap_ends=True, segments=6, radius1=0.07 * e, radius2=0.07 * e, depth=0.3 * e)["verts"]; bmesh.ops.translate(bm, vec=(x, y, z + 0.1 * e), verts=vs)
+    pontas = _new_obj(nome + "_pontas", bm, (0.80, 0.80, 0.82, 1))
+    painel = caixa(nome + "_painel", (-2.16 * e, 0, 1.5 * e), (0.15 * e, 0.9 * e, 1.2 * e), (0.80, 0.80, 0.78, 1))
+    filho(pai, base, tanque, tampa, rad, cons, sup, buchas, pontas, painel)
+    return pai, tanque, topos
+
+def sacos_areia(nome, comprimento=6.0, fiadas=3, cor=(0.76, 0.66, 0.46, 1)):
+    """Parede de sacos de areia empilhados em amarração (ao longo de X, base em z = 0)."""
+    bm = bmesh.new(); n = max(2, int(comprimento / 0.95))
+    for r in range(fiadas):
+        for k in range(n - (r % 2)):
+            vs = bmesh.ops.create_icosphere(bm, subdivisions=2, radius=0.5)["verts"]
+            bmesh.ops.scale(bm, vec=(1.0, 0.62, 0.36), verts=vs)
+            bmesh.ops.translate(bm, vec=(-comprimento / 2 + 0.5 + k * 0.95 + (0.47 if r % 2 else 0), random.uniform(-0.04, 0.04), 0.18 + r * 0.30), verts=vs)
+    o = _new_obj(nome, bm, cor)
+    for p in o.data.polygons: p.use_smooth = True
+    return o
+
+def gerador(nome, cor=(0.95, 0.70, 0.10, 1)):
+    """Gerador a diesel de emergência (carenagem amarela, grade, escapamento e painel)."""
+    pai = vazio(nome)
+    filho(pai, caixa(nome + "_skid", (0, 0, 0.15), (3.3, 1.6, 0.3), C["escuro"]),
+          caixa(nome + "_corpo", (0, 0, 1.1), (3.0, 1.4, 1.6), cor),
+          caixa(nome + "_grade", (1.52, 0, 1.1), (0.06, 1.1, 1.1), C["escuro"]),
+          caixa(nome + "_painel", (-0.8, -0.72, 1.3), (0.7, 0.06, 0.6), C["escuro"]),
+          caixa(nome + "_faixa", (0.4, -0.72, 0.6), (1.4, 0.05, 0.18), C["escuro"]),
+          cilindro(nome + "_escape", (-1.0, 0.3, 2.3), 0.10, 0.9, C["cinza"], seg=8),
+          caixa(nome + "_tanque", (0, 0, 0.42), (2.6, 1.2, 0.25), (0.30, 0.32, 0.34, 1)))
+    return pai
+
+def usina(nome):
+    """Usina termelétrica: galpão das turbinas, casa de caldeiras, 2 chaminés listradas e torre de resfriamento.
+    Devolve (pai, [topos locais de onde sai vapor/fumaça])."""
+    pai = vazio(nome); par = (0.82, 0.82, 0.80, 1); conc = (0.86, 0.85, 0.82, 1)
+    pecas = [caixa(nome + "_hall", (0, 0, 5), (26, 14, 10), par),
+             caixa(nome + "_teto", (0, 0, 10.3), (27, 15, 0.6), (0.42, 0.46, 0.52, 1)),
+             caixa(nome + "_vidro", (0, -7.06, 7.2), (22, 0.2, 1.6), (0.20, 0.42, 0.62, 1)),
+             caixa(nome + "_vidro2", (0, -7.06, 3.4), (22, 0.2, 1.2), (0.20, 0.42, 0.62, 1)),
+             caixa(nome + "_turb", (19, 0, 3.2), (12, 10, 6.4), (0.76, 0.80, 0.84, 1)),
+             caixa(nome + "_turbteto", (19, 0, 6.55), (12.6, 10.6, 0.4), (0.42, 0.46, 0.52, 1)),
+             caixa(nome + "_porta", (19, -5.04, 1.6), (4, 0.15, 3.2), (0.30, 0.34, 0.40, 1))]
+    topos = []
+    for k, x in enumerate((-7.0, 3.0)):
+        pecas.append(cilindro(nome + f"_cham{k}", (x, 10.5, 14), 1.6, 28, conc, seg=14, r2=1.05))
+        for z, r in ((26.3, 1.12), (22.5, 1.26), (18.7, 1.40)):
+            pecas.append(cilindro(nome + f"_lista{k}", (x, 10.5, z), r + 0.05, 1.5, C["ameaca"], seg=14, r2=r))
+        topos.append((x, 10.5, 28.5))
+    pecas.append(cilindro(nome + "_resf1", (-24, 2, 6.5), 8.0, 13, conc, seg=20, r2=5.2))
+    pecas.append(cilindro(nome + "_resf2", (-24, 2, 15.5), 5.2, 5, conc, seg=20, r2=6.2))
+    topos.append((-24, 2, 18.5))
+    for k in range(3):
+        pecas.append(cilindro(nome + f"_duto{k}", (-10 + k * 7, -8.2, 1.0), 0.5, 2.0, (0.75, 0.55, 0.20, 1), seg=8))
+    filho(pai, *pecas)
+    return pai, topos
