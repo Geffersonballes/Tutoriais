@@ -31,10 +31,10 @@ def lateral(n, rot, sub, name):
     d.text((W-40,1040),"Conteúdo gerado com IA",font=fo(24,b"SemiBold"),fill=(220,220,220),anchor='rm')
     im.save(name)
 def wrap(s):
-    w=s.split(); 
+    w=s.split()
     if len(s)<14: return s
-    h=len(w)//2 or 1
-    return " ".join(w[:h])+"\n"+" ".join(w[h:])
+    best=min(range(1,len(w)),key=lambda h:abs(len(" ".join(w[:h]))-len(" ".join(w[h:]))))
+    return " ".join(w[:best])+"\n"+" ".join(w[best:])
 for i,(r,s) in enumerate(caps): lateral(i,r,wrap(s),f'lat{i}.png')
 # full-screen chapter cards + title + end
 def card(name, top, big, small=None):
