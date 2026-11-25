@@ -5,6 +5,10 @@ este arquivo primeiro e seguir os passos com o usuário, um de cada vez.
 
 ## O que o usuário quer
 
+> **Isto vai virar um produto vendido.** Tudo o que for aprendido na montagem do cliente #1
+> fica registrado em [MANUAL-DE-REPLICACAO.md](MANUAL-DE-REPLICACAO.md), incluindo o diário
+> e o status atual. Leia esse arquivo também e atualize-o a cada passo.
+
 Replicar o modelo dos grupos de "achadinhos" (ex.: "PROMOS DA BECO #37"):
 
 1. Anúncio ou story no Instagram com o link de entrada no grupo de WhatsApp.

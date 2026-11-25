@@ -16,3 +16,10 @@ Acesse pelo conector **Microsoft 365** (`read_resource` para listar/ler,
 
 Excluir arquivos (`sharepoint_delete_item`) **não** está pré-autorizado:
 confirme com o usuário antes.
+
+## Robô de promoções (`robo-promocoes/`)
+
+Vai virar um produto para vender a outras contas. A cada passo ou descoberta
+(tela diferente, erro, ajuste), registre o aprendizado e o status em
+`robo-promocoes/MANUAL-DE-REPLICACAO.md` e faça commit, para que montar o
+próximo cliente seja só seguir a receita.
