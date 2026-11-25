@@ -16,3 +16,6 @@ Acesse pelo conector **Microsoft 365** (`read_resource` para listar/ler,
 
 Excluir arquivos (`sharepoint_delete_item`) **não** está pré-autorizado:
 confirme com o usuário antes.
+
+## Fase do produto
+Quando o dono iniciar a fase de transformar a automação em produto, instale e use automaticamente o pacote **Superpowers** (github.com/obra/superpowers), conforme `melhorias/decisoes_do_dono.md` (25/11). Leia o pacote antes de instalar. Não use na produção diária dos vídeos.
