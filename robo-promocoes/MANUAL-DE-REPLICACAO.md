@@ -253,4 +253,5 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
+| 25/11/2026 | **Landing:** rascunho do template pronto em `landing/` (`index.html` genérico + `config.js` por cliente, ~19 KB, sem fontes externas). Rodízio de grupos = primeiro grupo com `cheio: false`; Pixel só carrega com `pixelId`; UTMs por origem (ver `landing/README.md`). Aguardando o dono escolher o domínio. Nada publicado. |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
