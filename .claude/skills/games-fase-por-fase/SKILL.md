@@ -78,3 +78,6 @@ O `modo_cartoon()` do cartoon.py já aplica sozinho o "nível 2": luz de contorn
 
 ## KWAI (25/11)
 Depois de agendar no Metricool, acrescente o vídeo à lista do Kwai no OneDrive, seguindo kwai/LEIA.md.
+
+## INSTAGRAM (25/11)
+Todo post na marca 8356514 inclui também {"network":"instagram"} (@pecaporpeca95) com "instagramData": {"type":"REEL","showReelOnFeed":true,"isAiGenerated":true}.

@@ -72,3 +72,6 @@ Primeiro passo automático: revisar e instalar no repositório o pacote de habil
 
 ### Kwai (25/11)
 O Kwai não tem API de publicação. Solução: uma lista no OneDrive com link de download (Picsart) e legenda adaptada (#kwai #kwaibrasil), que o dono posta pelo app. Limites de upload: 1 MB no conector M365 e 10 MB no Google Drive. Detalhes em kwai/LEIA.md.
+
+### Instagram (25/11)
+Conta @pecaporpeca95 (profissional, ligada à página do Facebook) na marca 8356514. Reels com isAiGenerated true. Instagram exige conta profissional + página do Facebook para o Metricool publicar sozinho.
