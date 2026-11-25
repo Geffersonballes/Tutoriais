@@ -13,3 +13,4 @@
 - **Voz dos games = voz do dono** (25/11): o dono assinou o ElevenLabs Creator e aprovou a própria voz clonada (voice_id Dt3IFiwrxXdZMMFz4Ai0, modelo eleven_v4, etiquetas de emoção). Guerra continua com Antonio.
 
 - **25/11** — Metricool: publicar pela marca nova `geffersonballes1` (blogId 8356514), não mais pela `ballestech`. Facebook (Reels) recebe games E guerra. Guerra = TikTok + Facebook; games = TikTok + YouTube + Facebook.
+- 25/11: visual 3D dos games no **nível 2** (contorno de desenho, luz de contorno, cor viva, fundo desfocado) — padrão no cartoon.py.

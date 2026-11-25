@@ -1,7 +1,7 @@
 """Estilo C (cartoon 3D) da série 2 'Fase por Fase' + mascote ORIGINAL 'Pixel'.
 Inspiração de ESTRUTURA (cores vivas, personagem em primeiro plano, cenas fechadas), nunca cópia de
 personagem/marca de outro canal: o Pixel é um gamer de moletom laranja, fone verde-limão e cabelo espetado."""
-import bpy, math
+import bpy, math, os
 from mathutils import Vector
 from lowpoly import *
 from lowpoly import _id, _lin, _mats
@@ -257,4 +257,42 @@ def modo_cartoon(samples=6, res=(540, 960), ceu=((0.36, 0.64, 0.98), (0.80, 0.92
     fo = bpy.data.objects.new("fill", fill); bpy.context.collection.objects.link(fo); fo.rotation_euler = (math.radians(70), 0, math.radians(150))
     cam = s.camera
     if cam is not None: cam.data.dof.use_dof = False
+    if os.environ.get("VISUAL", "2") != "0": visual_nivel2(s, sol)
     return bg, sol
+
+
+def visual_nivel2(s, sol):
+    """Visual "nível 2" (aprovado pelo dono em 25/11): luz de contorno por trás, brilho suave e cor mais viva
+    no compositor, contorno escuro de desenho (casca invertida, emissão pura — custa ~1,5x o render) e fundo
+    levemente desfocado mirando o alvo da câmera. Desligar com VISUAL=0. Teste: motor/testes_visual/."""
+    sol.energy = 3.2; sol.angle = math.radians(8)
+    rim = bpy.data.lights.new("contorno", "SUN"); rim.energy = 1.5; rim.color = (1.0, 0.93, 0.80); rim.angle = math.radians(6)
+    ro = bpy.data.objects.new("contorno", rim); s.collection.objects.link(ro); ro.rotation_euler = (math.radians(-58), 0, math.radians(25))
+    s.use_nodes = True; nt = s.node_tree
+    for n in list(nt.nodes): nt.nodes.remove(n)
+    rl = nt.nodes.new("CompositorNodeRLayers"); comp = nt.nodes.new("CompositorNodeComposite")
+    gl = nt.nodes.new("CompositorNodeGlare"); gl.glare_type = "FOG_GLOW"; gl.threshold = 0.85; gl.size = 7; gl.mix = -0.75; gl.quality = "MEDIUM"
+    hs = nt.nodes.new("CompositorNodeHueSat"); hs.inputs["Saturation"].default_value = 1.15; hs.inputs["Value"].default_value = 0.98
+    nt.links.new(rl.outputs["Image"], gl.inputs["Image"]); nt.links.new(gl.outputs["Image"], hs.inputs["Image"]); nt.links.new(hs.outputs["Image"], comp.inputs["Image"])
+    lin = bpy.data.materials.new("linha_contorno"); lin.use_nodes = True; ln = lin.node_tree
+    for n in list(ln.nodes):
+        if n.bl_idname != "ShaderNodeOutputMaterial": ln.nodes.remove(n)
+    em = ln.nodes.new("ShaderNodeEmission"); em.inputs["Color"].default_value = (0.02, 0.02, 0.05, 1)
+    ln.links.new(em.outputs[0], ln.nodes[0].inputs["Surface"]); lin.use_backface_culling = True
+    for k in ("use_backface_culling_shadow", "use_transparent_shadow"):   # sem isso a casca sombreia o objeto (granulado)
+        try: setattr(lin, k, True)
+        except Exception: pass
+    feitos = set()
+    for o in list(bpy.data.objects):
+        if o.type != "MESH" or max(o.dimensions) > 25 or max(o.dimensions) < 0.05: continue
+        if o.data.name not in feitos:
+            o.data.materials.append(lin); feitos.add(o.data.name)
+        idx = list(o.data.materials).index(lin)
+        sc = max(abs(v) for v in o.matrix_world.to_scale()) or 1
+        md = o.modifiers.new("linha", "SOLIDIFY"); md.thickness = 0.028 / sc; md.offset = 1; md.use_flip_normals = True
+        md.use_rim = False; md.material_offset = idx
+    cam = s.camera
+    if cam is not None:
+        alvo = next((c.target for c in cam.constraints if c.type == "TRACK_TO"), None)
+        if alvo is not None:
+            cam.data.dof.use_dof = True; cam.data.dof.focus_object = alvo; cam.data.dof.aperture_fstop = 1.2

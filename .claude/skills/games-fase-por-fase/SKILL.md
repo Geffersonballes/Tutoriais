@@ -72,3 +72,6 @@ A narração dos vídeos de GAMES é a **voz clonada do dono** no ElevenLabs (pl
 5. Orçamento: ~1.200 créditos por vídeo de games; o plano tem ~124 mil/mês (cabem os 3 vídeos/dia). Se a conta acusar falta de crédito, use Antonio (edge-tts) e avise o dono.
 
 **MARCA E REDES (decisão do dono, 25/11 — vale acima do que estiver escrito antes):** agende na marca nova do Metricool `geffersonballes1`, **blogId `8356514`** (fuso America/Cuiaba). Não use mais a `ballestech` (8049742) — ela tem o mesmo TikTok e YouTube, e agendar nas duas duplicaria o post. Todo vídeo vai também para o **Facebook como Reel** (página Peça por Peça): acrescente `{"network":"facebook"}` em `providers` e `"facebookData": {"type": "REEL", "title": "<título curto>"}`. Guerra = TikTok + Facebook; games = TikTok + YouTube + Facebook.
+
+## VISUAL NÍVEL 2 (decisão do dono, 25/11)
+O `modo_cartoon()` do cartoon.py já aplica sozinho o "nível 2": luz de contorno por trás, brilho suave + cor mais viva no compositor, contorno escuro de desenho em tudo (casca invertida com emissão pura e sem sombra) e fundo levemente desfocado no alvo da câmera. Custo: ~1,5× o tempo de render (≈30 s por quadro em vez de ≈20 s; um vídeo de 60 s leva ~3 h). Não desligue. `VISUAL=0` volta ao visual antigo só para depuração. Objetos criados DEPOIS de `modo_cartoon()` ficam sem contorno — chame-o no fim da cena, como hoje.
