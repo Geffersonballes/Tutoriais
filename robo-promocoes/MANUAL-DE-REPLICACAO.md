@@ -106,7 +106,21 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 ☐ Avisar para instalarmos, lermos o QR Code e fazermos o teste
 ```
 
-## 7. Ideias para o produto (decidir depois)
+## 7. Agentes de apoio (`.claude/agents/promo-*.md`)
+
+| Agente | Para quê |
+|---|---|
+| `promo-coordenador` | Diz em que passo estamos e chama os outros |
+| `promo-desenvolvedor` | Código do robô |
+| `promo-instalador-vps` | VPS, Docker, Evolution API, QR Code, logs |
+| `promo-curador-de-ofertas` | Filtros, nichos, palavras-chave, ritmo |
+| `promo-redator` | Frases de efeito, boas-vindas, regras do grupo |
+| `promo-divulgacao-instagram` | Stories, reels, anúncios para encher os grupos |
+| `promo-conformidade` | Riscos (afiliados, WhatsApp, CDC, LGPD, Meta); tem veto |
+| `promo-onboarding-cliente` | Coloca cada cliente novo no ar (`clientes/<apelido>/status.md`) |
+| `promo-documentador` | Mantém este manual e o diário atualizados |
+
+## 8. Ideias para o produto (decidir depois)
 
 - **Modelo de entrega:**
   (a) VPS do cliente, nós instalamos (cobrança de setup + mensalidade de suporte); ou
@@ -131,4 +145,5 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 24/11/2026 | Afiliado Shopee já aprovado (app mostra "Sua Performance"). Open API achada no site: sem acesso, botão "Aplicar" cinza, aviso para completar as Informações de Pagamento. |
 | 24/11/2026 | Definida a VPS: Hostinger KVM 1, Ubuntu 24.04, sem placa de vídeo. Confirmado que nenhum conector do Claude é necessário. |
 | 25/11/2026 | Informações de Pagamento completadas → botão "Aplicar" liberou → **pedido de acesso à Open API enviado**. Aguardando a Shopee. |
+| 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
