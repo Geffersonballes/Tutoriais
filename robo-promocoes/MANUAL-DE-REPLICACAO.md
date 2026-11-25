@@ -253,6 +253,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | Referência analisada: "Promos da Beco" (§3.2). Decidido: **Instagram novo** do Achadinhos da Lay, com postagem automática (§3.3). |
 | 25/11/2026 | Funil definido: Instagram → **landing page** → grupo. Criadas as sessões aninhadas do **Instagram** e da **Landing**. |
 | 25/11/2026 | **Criativo de teste em vídeo** (`instagram/criativos/2026-11-25_teste-voz-laynner.mp4`): voz clonada "Laynner" no ElevenLabs (modelo eleven_v4, tag `[animada]`, cerca de 228 créditos ≈ US$ 0,04 por versão, 2 versões) + vídeo 1080x1920 de 12 s montado com ffmpeg (texto sincronizado com as pausas da fala via `silencedetect`). Receita automatizável: oferta → roteiro curto → voz → vídeo → Metricool. |
+| 25/11/2026 | Capa do Facebook (1640x624, HTML → PNG com Playwright) e bios de Instagram, Facebook e TikTok em `instagram/marca/` (rascunho; cores provisórias até a identidade visual). |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
