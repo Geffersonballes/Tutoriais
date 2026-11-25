@@ -119,12 +119,12 @@ cor_key(etA.data.materials[0], tse + 0.4, AMARELO); cor_key(etA.data.materials[0
 pilha(-1.2, -0.6, 7, tse + 0.1)
 espanto(px, tse - 0.1, 1.3); apontar(px, tcul - 0.2, 1.5, "E", 40); pensar(px, tcom - 0.1, 1.5)
 # 'robozinho' de IA (cubo roxo com olhos) aparece na estante: o suspeito
-ia = caixa("robo", (1.7, 2.6, 2.0), (0.8, 0.7, 0.7), ROXO); liso(ia)
+ia = caixa("robo", (0.7, 2.0, 2.9), (0.8, 0.7, 0.7), ROXO); liso(ia)
 for dx in (-0.18, 0.18):
     o = esfera(_id("olhoIA"), (0, 0, 0), 0.09, CIANO, sub=2); filho(ia, o); o.location = (dx, -0.36, 0.08); brilha(o)
 ant = cilindro(_id("antIA"), (0, 0, 0), 0.03, 0.35, CINZA, seg=6); filho(ia, ant); ant.location = (0, 0, 0.5)
 visivel(ia, tint - 0.1, t1 + 0.1); pop(ia, tint - 0.1, 1.0)
-plano(0, (-1.2, 0.6), "medio", altura=2.0); plano(tcul - 0.3, (0.2, 1.0), "medio", altura=2.2)
+plano(0, (-1.2, 0.6), "medio", altura=2.0); plano(tcul - 0.9, (-1.2, 0.6), "medio", altura=2.0); plano(tcul - 0.3, (0.2, 1.0), "medio", altura=2.2)
 plano(tcom - 0.4, (-0.4, 0.8), "close", altura=2.0)
 
 # =====================================================================
@@ -147,13 +147,13 @@ for k in range(5):
     a = k * 1.3; m.location = (0.7 * math.cos(a), -0.4, 0.6 * math.sin(a * 1.7))
 visivel(globo, tec - 0.2, tan + 0.2); pop(globo, tec - 0.2, 1.0)
 key(globo, "rotation_euler", tec - 0.2, (0, 0, 0)); key(globo, "rotation_euler", tan + 0.2, (0, 0, math.radians(180)))
-vil = chip_pe("vilao", (43.0, 0.6, 4.2), 1.6)
+vil = chip_pe("vilao", (42.6, 0.6, 4.0), 1.6)
 for dx in (-0.3, 0.3):   # sobrancelhas bravas
     sb = caixa(_id("sobr"), (0, 0, 0), (0.42, 0.06, 0.08), VERMELHO); filho(vil, sb); sb.location = (dx, 0.18, 0.13)
     sb.rotation_euler = (0, 0, math.radians(-20 if dx < 0 else 20))
 visivel(vil, tvi - 0.1, t1 + 0.1); pop(vil, tvi - 0.1, 1.0)
-key(vil, "location", tme, (43.0, 0.6, 4.2)); key(vil, "location", tme + 0.25, (43.0, 0.6, 4.5)); key(vil, "location", tme + 0.5, (43.0, 0.6, 4.2))
-gB = pixel("guiaB", (38.2, -1.2, 0), escala=0.85); girarZ(gB["raiz"], 12); respirar(gB, t0, t1 + 0.5)
+key(vil, "location", tme, (42.6, 0.6, 4.0)); key(vil, "location", tme + 0.25, (42.6, 0.6, 4.3)); key(vil, "location", tme + 0.5, (42.6, 0.6, 4.0))
+gB = pixel("guiaB", (39.9, -1.1, 0), escala=0.85); girarZ(gB["raiz"], 8); respirar(gB, t0, t1 + 0.5)
 apontar(gB, tab - 0.1, 1.4, "D", 60); espanto(gB, tci - 0.1, 1.2); pensar(gB, tso - 0.1, 1.4); apontar(gB, tvi - 0.2, 1.6, "D", 50)
 plano(t0, (40.0, 0.6), "geral", altura=2.8); plano(tso - 0.2, (39.0, 0.8), "geral", altura=3.0)
 plano(tvi - 0.3, (41.6, 0.6), "medio", altura=3.2); plano(t1 - 0.05, (41.6, 0.6), "medio", altura=3.2)
@@ -178,7 +178,7 @@ for i, (fx, cor) in enumerate(((84.0, (0.85, 0.40, 0.30, 1)), (87.4, (0.35, 0.55
     g = fabrica(_id("fab"), (fx, 2.4), cor, 0.8); tp = tfa - 0.1 + 0.2 * i; visivel(g, tp); pop(g, tp)
 gC = pixel("guiaC", (80.8, -0.8, 0), escala=0.85); girarZ(gC["raiz"], -8); respirar(gC, t0, t1 + 0.5)
 apontar(gC, tch - 0.2, 1.5, "E", 40); comemorar(gC, tde - 0.1, 1.2); apontar(gC, tfa - 0.1, 1.8, "D", 40)
-plano(t0, (78.6, 0.6), "medio", altura=2.6); plano(tfa - 0.3, (84.6, 1.0), "geral", altura=2.6)
+plano(t0, (78.6, 0.6), "medio", altura=2.6); plano(tfa - 0.8, (78.6, 0.6), "medio", altura=2.6); plano(tfa - 0.3, (84.6, 1.0), "geral", altura=2.6)
 plano(t1 - 0.05, (86.0, 1.0), "geral", altura=2.6)
 
 # =====================================================================
@@ -236,22 +236,22 @@ destacar(caixaIA.data.materials[0], tcl, ROXO, 1.0)
 # 3 wafers -> 1 pilha alta (memória de IA) x 1 wafer -> 1 chip comum
 W = []
 for k in range(3):
-    w = wafer(_id("waf"), (157.6 + k * 1.6, -0.6, 3.6), 0.65); w.rotation_euler = (math.radians(90), 0, 0)
+    w = wafer(_id("waf"), (156.8 + k * 1.5, -0.6, 2.9), 0.6); w.rotation_euler = (math.radians(90), 0, 0)
     visivel(w, ttres - 0.2 + 0.15 * k, tsob - 0.1); pop(w, ttres - 0.2 + 0.15 * k); W.append(w)
-pilhaIA = caixa("pilhaIA", (163.4, -0.6, 3.6), (0.7, 0.5, 1.4), ROXO)
+pilhaIA = caixa("pilhaIA", (162.0, -0.6, 2.9), (0.7, 0.5, 1.4), ROXO)
 for j in range(5):
     s = caixa(_id("cam"), (0, 0, 0), (0.74, 0.54, 0.05), PRATA); filho(pilhaIA, s); s.location = (0, 0, -0.56 + j * 0.28)
 visivel(pilhaIA, ttres + 0.4, tsob - 0.1); pop(pilhaIA, ttres + 0.4, 1.0)
 # 'sobra menos': no lado do console, uma caixinha quase vazia; console, PC e celular piscam
-pc = caixa("pcE", (153.2, 2.0, 1.3), (0.8, 1.2, 1.9), (0.15, 0.15, 0.2, 1))
-cel = caixa("celE", (155.8, 2.2, 1.0), (0.6, 0.12, 1.2), ESCURO)
-csE = console("consE", (154.4, 2.4, 1.2), 0.7)
+pc = caixa("pcE", (153.4, -1.2, 0.95), (0.8, 1.2, 1.9), (0.15, 0.15, 0.2, 1))
+cel = caixa("celE", (155.9, -1.2, 0.8), (0.6, 0.12, 1.2), ESCURO)
+csE = console("consE", (154.6, -1.2, 0.85), 0.75)
 for ob, tt in ((csE, tcn), (pc, tpc), (cel, tcel)):
     visivel(ob, tsob - 0.2); pop(ob, tt - 0.1, 1.0, 0.3)
-gE = pixel("guiaE", (160.0, -2.2, 0), escala=0.8); respirar(gE, t0, t1 + 0.5)
+gE = pixel("guiaE", (157.6, -1.9, 0), escala=0.8); respirar(gE, t0, t1 + 0.5)
 apontar(gE, ttr - 0.2, 1.6, "D", 30); comemorar(gE, tpu - 0.1, 1.2); pensar(gE, ttres + 0.4, 1.4); apontar(gE, tsob - 0.1, 1.8, "E", 40)
-plano(t0, (160.0, 0.8), "geral", altura=2.6); plano(tpu - 0.3, (160.4, -0.6), "geral", altura=3.4)
-plano(tsob - 0.3, (156.0, 0.6), "medio", altura=2.2); plano(t1 - 0.05, (156.0, 0.6), "medio", altura=2.2)
+plano(t0, (160.0, 0.8), "geral", altura=2.6); plano(tpu - 0.8, (160.0, 0.8), "geral", altura=2.6); plano(tpu - 0.3, (159.4, -0.6), "medio", altura=2.4)
+plano(tsob - 0.8, (159.4, -0.6), "medio", altura=2.4); plano(tsob - 0.3, (155.4, -1.2), "medio", altura=1.5); plano(t1 - 0.05, (155.4, -1.2), "medio", altura=1.5)
 
 # =====================================================================
 # ZONA F (x = 200) — gráfico de barras: a memória quase dobra; a etiqueta do console sobe junto  (bloco 5)
@@ -275,8 +275,8 @@ key(etF, "location", ten - 0.2, (203.4, 1.0, 3.1)); key(etF, "location", ten + 0
 cor_key(etF.data.materials[0], ten - 0.2, AMARELO); cor_key(etF.data.materials[0], ten + 0.3, VERMELHO)
 gF = pixel("guiaF", (200.4, -1.6, 0), escala=0.8); respirar(gF, t0, t1 + 0.5)
 pensar(gF, t0 + 0.05, 1.2); espanto(gF, tdo - 0.1, 1.4); apontar(gF, ten - 0.2, 1.6, "D", 40)
-plano(t0, (200.0, 0.6), "geral", altura=2.6); plano(tdo - 0.3, (199.6, 0.6), "geral", altura=3.0)
-plano(ten - 0.4, (202.0, 0.6), "geral", altura=2.6); plano(t1 - 0.05, (202.2, 0.6), "geral", altura=2.6)
+plano(t0, (200.0, 0.6), "geral", altura=2.6); plano(tdo - 0.8, (200.0, 0.6), "geral", altura=2.6); plano(tdo - 0.3, (199.6, 0.6), "geral", altura=3.0)
+plano(ten - 0.9, (199.6, 0.6), "geral", altura=3.0); plano(ten - 0.4, (202.0, 0.6), "geral", altura=2.6); plano(t1 - 0.05, (202.2, 0.6), "geral", altura=2.6)
 
 # =====================================================================
 # ZONA G (x = 240) — Black Friday: placa de desconto pisca, mas o chip continua com a etiqueta vermelha  (bloco 6)
@@ -297,7 +297,7 @@ chG = chip_pe("chipG", (241.8, 1.4, 2.4), 0.9)
 etC = etiqueta("etC", (241.8, 0.8, 3.7), 1.3, 0.6, VERMELHO); visivel(etC, tca - 0.3); pop(etC, tca - 0.3)
 gG = pixel("guiaG", (240.2, -1.2, 0), escala=0.8); respirar(gG, t0, t1 + 0.5)
 acenar(gG, tbl - 0.1, 1.2); apontar(gG, tds - 0.1, 1.4, "E", 40); pensar(gG, tca - 0.2, 1.5)
-plano(t0, (240.0, 0.8), "geral", altura=3.0); plano(tds - 0.3, (240.0, 0.6), "medio", altura=2.8)
+plano(t0, (240.0, 0.8), "geral", altura=3.0); plano(tds - 0.8, (240.0, 0.8), "geral", altura=3.0); plano(tds - 0.3, (240.0, 0.6), "medio", altura=2.8)
 plano(t1 - 0.05, (240.4, 0.6), "medio", altura=2.8)
 
 # =====================================================================
@@ -307,6 +307,22 @@ t0 = S[7][0]
 acenar(px, t0 + 0.15, 1.6); apontar(px, T(7, "Ainda") - 0.2, 1.6, "E", 35); comemorar(px, T(7, "fila") - 0.1, 1.4)
 cam_key(t0, (-0.8, -6.6, 2.9), (-0.8, 1.0, 2.6)); cam_key(FIM, (-0.7, -6.1, 2.9), (-0.7, 1.0, 2.6))
 
+# ---------- corte seco entre zonas: sem isso o Bezier da câmera 'atropela' a zona seguinte ----------
+for ob in (cam, alvo):
+    fcs = [fc for fc in ob.animation_data.action.fcurves if fc.data_path == "location"]
+    fx = [fc for fc in fcs if fc.array_index == 0][0]
+    cortes = set()
+    kps = list(fx.keyframe_points)
+    for a, b in zip(kps, kps[1:]):
+        if abs(b.co.y - a.co.y) > 12: cortes.add(round(a.co.x))
+    for fc in fcs:
+        for kp in fc.keyframe_points:
+            if round(kp.co.x) in cortes: kp.interpolation = "CONSTANT"
+        ks = list(fc.keyframe_points)
+        for a, b in zip(ks, ks[1:]):   # a chave logo depois do corte não 'puxa' a curva de trás
+            if round(a.co.x) in cortes: b.handle_left_type = "VECTOR"; b.handle_right_type = "VECTOR"
+        fc.update()
+
 # ---------- render ----------
 modo_cartoon(samples=int(os.environ.get("AMOSTRAS", "8")))
 for m in set(BRILHO):
@@ -314,6 +330,7 @@ for m in set(BRILHO):
     if b:
         b.inputs["Emission Color"].default_value = b.inputs["Base Color"].default_value
         b.inputs["Emission Strength"].default_value = 0.8
+if os.environ.get("DBG"): exec(open(os.environ["DBG"]).read())
 saida = os.path.join(PASTA, "frames"); os.makedirs(saida, exist_ok=True)
 if len(args) > 1 and args[1] == "preview":
     scn.render.resolution_percentage = int(os.environ.get("PCT", "50"))
