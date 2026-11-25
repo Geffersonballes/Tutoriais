@@ -22,7 +22,7 @@ cada aprendizado no manual (§3.3 e no diário).
    Conferir as marcas existentes (`getBrandSettings`) e se o plano permite outra marca/rede.
 3. Plano de aquecimento (2 semanas): bio, destaques, 6 a 9 posts iniciais e o que fazer à mão cada dia.
 4. Linha editorial automática: carrossel "Top 5 achadinhos do dia" (imagem gerada a partir das ofertas que o robô postou),
-   reels de produto e stories. A API não permite figurinha de link no story, então o link fica na bio.
+   reels de produto e stories. A API não permite figurinha de link no story, então o link (da landing) fica na bio.
 5. Integração com o robô: gerar as artes a partir da tabela `postados` e agendar pelo Metricool, sem urgência falsa e
    com transparência de afiliado.
 6. Anúncios para encher o grupo (com o agente `promo-divulgacao-instagram` e o veto do `promo-conformidade`).
@@ -30,3 +30,12 @@ cada aprendizado no manual (§3.3 e no diário).
 ## Agentes úteis
 `promo-divulgacao-instagram`, `promo-copywriter`, `promo-critico`, `promo-conformidade`, `promo-cacador-de-tendencias`,
 `promo-documentador`.
+
+## UTMs combinados com a landing (usar sempre estes)
+Base: URL da landing + `?utm_source=instagram&utm_medium=<meio>&utm_campaign=<campanha>`
+| Origem | utm_medium | utm_campaign |
+|---|---|---|
+| Link da bio | `bio` | `perfil` |
+| Story (link manual, quando postar à mão) | `story` | `aaaa-mm-dd` ou tema |
+| Anúncio | `paid_social` | nome da campanha (ex.: `encher-grupo-nov26`) |
+Se a sessão da landing definir outro padrão, prevalece o dela; atualizar esta tabela.
