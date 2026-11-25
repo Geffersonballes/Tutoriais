@@ -82,6 +82,9 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
   e depois `docker compose up -d postgres evolution` e `docker compose ps`.
 - Conectar o chip **sem túnel SSH**: `git pull && bash conectar-whatsapp.sh` mostra o QR Code no próprio
   Terminal do navegador (se o QR sair deformado: `bash conectar-whatsapp.sh 55DDNUMERO` dá um código de 8 letras).
+- Visto no cliente #1 (v2.3.7): o **QR Code funciona** (aparece também em `docker compose logs -f --tail 0 evolution`),
+  mas o código de 8 letras veio `null` quando a instância tinha sido criada sem número. O script agora recria a
+  instância com o número nesse modo. **Preferir o QR Code.** Não mandar print de QR para ninguém.
 - Evolution API: imagem `evoapicloud/evolution-api:v2.3.7` (conferida no Docker Hub em 25/11/2026).
 - ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
   e usar uma deploy key só de leitura na VPS de cada cliente.

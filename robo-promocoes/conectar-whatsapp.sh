@@ -23,8 +23,14 @@ fi
 echo "Esperando a Evolution API responder..."
 for _ in $(seq 1 60); do curl -sf "$URL" >/dev/null && break; sleep 2; done
 
-curl -s -X POST "$URL/instance/create" "${H[@]}" \
-  -d "{\"instanceName\":\"$INST\",\"integration\":\"WHATSAPP-BAILEYS\",\"qrcode\":true}" >/dev/null
+if [ -n "$NUMERO" ]; then
+  # Código de 8 letras só sai se a instância for criada já com o número (visto na v2.3.7).
+  curl -s -X DELETE "$URL/instance/delete/$INST" "${H[@]}" >/dev/null; sleep 3
+  CORPO="{\"instanceName\":\"$INST\",\"integration\":\"WHATSAPP-BAILEYS\",\"qrcode\":true,\"number\":\"$NUMERO\"}"
+else
+  CORPO="{\"instanceName\":\"$INST\",\"integration\":\"WHATSAPP-BAILEYS\",\"qrcode\":true}"
+fi
+curl -s -X POST "$URL/instance/create" "${H[@]}" -d "$CORPO" >/dev/null
 
 for tentativa in $(seq 1 12); do
   estado=$(curl -s "$URL/instance/connectionState/$INST" "${H[@]}" | json 'd.get("instance",{}).get("state","")')
