@@ -1,6 +1,12 @@
 # Bios das redes do "Achadinhos da Lay" (v1, 25/11/2026, rascunho para aprovação do dono)
 
-Link de todas as bios = **landing page** (sessão Landing), nunca o convite direto do grupo.
+Link de todas as bios = **landing page** (sessão Landing), nunca o convite direto do grupo, sempre com UTM:
+- Instagram: `<landing>?utm_source=instagram&utm_medium=bio&utm_campaign=perfil`
+- Facebook: `<landing>?utm_source=facebook&utm_medium=bio&utm_campaign=perfil`
+- TikTok: `<landing>?utm_source=tiktok&utm_medium=bio&utm_campaign=perfil`
+
+Aviso de afiliado: não cabe nos 150 caracteres da bio do Instagram → fica no destaque **"Dúvidas"**, na landing e no
+"Sobre" do Facebook.
 
 ## Instagram
 **Nome (campo pesquisável, até 30 caracteres):** `Achadinhos da Lay | Shopee`
