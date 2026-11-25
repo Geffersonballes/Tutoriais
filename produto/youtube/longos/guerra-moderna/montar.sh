@@ -1,5 +1,5 @@
 set -e
-ENC="-c:v libx264 -preset veryfast -crf 21 -pix_fmt yuv420p -r 30 -c:a aac -b:a 192k -ar 48000 -ac 2"
+ENC="-c:v libx264 -preset veryfast -crf 24 -pix_fmt yuv420p -r 30 -c:a aac -b:a 192k -ar 48000 -ac 2"
 FR="[0:v]fps=30,split[a][b];[a]scale=1920:-2,crop=1920:1080,boxblur=25:2,eq=brightness=-0.28:saturation=0.7[bg];[b]scale=608:1080[fg];[bg][fg]overlay=656:0[m];[m][1:v]overlay=0:0"
 seg(){ # src start dur lat out
   ffmpeg -y -v error -ss $2 -t $3 -i $1 -i $4 -filter_complex "$FR[v];[0:a]loudnorm=I=-14:TP=-1.5,aresample=48000[a]" -map "[v]" -map "[a]" $ENC $5; }
@@ -11,7 +11,7 @@ i=0; for s in "pontes 30" "rede 40" "defesa 60" "ormuz 50" "nuclear 60"; do set 
 printf "file i%d.mp4\n" 0 1 2 3 4 > li.txt; ffmpeg -y -v error -f concat -i li.txt -c copy introv.mp4
 ffmpeg -y -v error -i introv.mp4 -i intro.mp3 -filter_complex "[1:a]loudnorm=I=-14:TP=-1.5,aresample=48000,apad[a]" -map 0:v -map "[a]" -c:v copy -c:a aac -b:a 192k -ar 48000 -ac 2 -shortest s00.mp4
 card titulo.png 2.5 s01.mp4
-n=0; for s in "pontes 0 76.2" "rede 0 123.4" "defesa 0 151.1" "ormuz 0 125" "nuclear 0 152.3"; do set -- $s
+n=0; for s in "pontes 0 76.2" "rede 0 123.8" "defesa 0 151.1" "ormuz 0 125" "nuclear 0 146.9"; do set -- $s
  card card$n.png 2.2 c$n.mp4; seg $1.mp4 $2 $3 lat$n.png p$n.mp4; n=$((n+1)); done
 ffmpeg -y -v error -loop 1 -t 12.5 -i fim.png -i outro.mp3 -filter_complex "[0:v]scale=1920:1080,fps=30,fade=in:0:8[v];[1:a]loudnorm=I=-14:TP=-1.5,aresample=48000,apad[a]" -map "[v]" -map "[a]" $ENC -t 12.5 s99.mp4
 printf "file %s\n" s00.mp4 s01.mp4 c0.mp4 p0.mp4 c1.mp4 p1.mp4 c2.mp4 p2.mp4 c3.mp4 p3.mp4 c4.mp4 p4.mp4 s99.mp4 > lista.txt

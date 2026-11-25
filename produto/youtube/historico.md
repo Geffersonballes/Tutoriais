@@ -14,5 +14,5 @@ Horários desta sessão no YouTube: **08:00 e 20:00** (fora dos horários de gam
 ## Vídeos longos
 | Tema | Status | Pasta |
 |---|---|---|
-| Como funciona a guerra moderna (11:08) | prévia enviada 25/11, aguardando o dono aprovar o formato | produto/youtube/longos/guerra-moderna |
-| GTA 6 explicado peça por peça | próximo, depois da aprovação | — |
+| Como funciona a guerra moderna (11:03) | formato aprovado 25/11; agendado 25/11 19:00 (Metricool 442338295) | produto/youtube/longos/guerra-moderna |
+| GTA 6 e os games por dentro, peça por peça | em montagem; previsto 28/11 19:00 (espera o vídeo do PS5) | produto/youtube/longos/gta6-games |
