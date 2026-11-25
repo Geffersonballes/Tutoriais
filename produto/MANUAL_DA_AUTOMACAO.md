@@ -9,7 +9,7 @@ Tudo usa ferramentas gratuitas e conteúdo 100% próprio (sem música, arte ou p
 2. **Pauta** — maior nota, sem repetir o `historico.md`.
 3. **Checagem** — 2 fontes por afirmação (`verificador-de-fatos`).
 4. **Roteiro** — 60–80 s (games) ou 2–2,5 min (geo), gancho nos 3 primeiros segundos.
-5. **Voz** — edge-tts `pt-BR-AntonioNeural --rate=+12%` (grátis). Tempos por palavra com faster-whisper.
+5. **Voz** — games: voz clonada do dono no ElevenLabs (eleven_v4, com emoção); geo: edge-tts `pt-BR-AntonioNeural --rate=+12%` (grátis). Tempos por palavra com faster-whisper.
 6. **Cena 3D** — Blender headless (estilo B miniatura realista ou C cartoon com mascote próprio). PASSO=2, 2 processos.
 7. **Composição** — `motor/compor.py`: capa, legenda palavra a palavra, rótulos, pílulas, fontes, CTA, selo de IA,
    **pedido de like** e **áudio completo** (ver seção 2).
@@ -46,6 +46,7 @@ ou serviço pago sem aprovação; nada de cortes de vídeos de terceiros; YouTub
 5. Rodar 1 vídeo de teste com QC manual antes de ligar o automático.
 
 ## Aprendizados (mais recente primeiro)
+- **25/11** — Voz clonada do dono no ElevenLabs (eleven_v4 + etiquetas como [surprised], [curious], [dramatically]) dá emoção que a voz grátis não tem. Custo ~1.200 créditos por vídeo de 65 s; voz clonada custa ~2x a de biblioteca. Plano Creator cobre 3 vídeos/dia. Para clientes: cada conta pode clonar a voz do dono do perfil.
 - **25/11** — Whisper com `initial_prompt` = roteiro inteiro pode "alucinar" o começo e perder as primeiras frases (vídeo dos NPCs: 32 palavras sem casar). Se `alinhar.py` mostrar muitas "não casadas", rode de novo com um prompt curto (só nomes próprios) e `condition_on_previous_text=False`.
 - **25/11** — Vários agentes ao mesmo tempo dividem a mesma pasta temporária: todo arquivo temporário leva o slug do vídeo no nome (ex.: `npcs_f1.jpg`), senão um agente sobrescreve a prévia do outro.
 - **25/11** — Pedestre articulado reutilizável (`pedestre()`, `andar()`, `ir()`, `passeio()` em `cena_gta_npcs.py`): tipos de corpo por escala (`h`, `w`) sem deformar a cabeça; serve para multidões e para qualquer vídeo com "gente andando".

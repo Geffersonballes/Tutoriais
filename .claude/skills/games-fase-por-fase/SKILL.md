@@ -62,3 +62,11 @@ O compor.py acrescenta sozinho, depois da narração, a fala "Gostou do conteúd
 
 ## Áudio (obrigatório desde 24/11)
 O compor.py gera voz tratada + trilha original + efeitos (motor/audio.py). Escolha o clima no grafismos.json ("trilha": {"clima": "curioso|tenso|epico|divertido"}) conforme a emoção do tema. Todo aprendizado novo vai para produto/MANUAL_DA_AUTOMACAO.md.
+
+## VOZ (decisão do dono, 25/11) — substitui qualquer regra antiga de "nunca ElevenLabs" nesta série
+A narração dos vídeos de GAMES é a **voz clonada do dono** no ElevenLabs (plano Creator, pago pelo dono).
+1. `mcp__ElevenLabs__creative_generate_speech` (carregar via ToolSearch): `model_id` "eleven_v4", `voice_id` "Dt3IFiwrxXdZMMFz4Ai0", `generations_count` 1. Nunca repita a chamada para "tentar de novo" (cada uma cobra).
+2. Prompt = narracao_tts.txt com etiquetas de emoção em inglês entre colchetes, com moderação: [surprised] no gancho, [curious] nas perguntas, [excited] nas revelações, [dramatically] no ponto alto, [mischievously] em viradas. Números por extenso como no roteiro.
+3. `creative_get_flow_run_status` até all_completed → `curl` do content_url → narracao.mp3 → palavras.py + alinhar.py.
+4. O "Gostou do conteúdo? Deixa o seu like!" já está gravado na voz do dono em produto/vozes/curtir_gefferson.mp3 e o compor.py usa sozinho. Não gere com edge-tts.
+5. Orçamento: ~1.200 créditos por vídeo de games; o plano tem ~124 mil/mês (cabem os 3 vídeos/dia). Se a conta acusar falta de crédito, use Antonio (edge-tts) e avise o dono.

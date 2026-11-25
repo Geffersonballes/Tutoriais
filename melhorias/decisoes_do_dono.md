@@ -1,5 +1,5 @@
 # Decisões do dono (o melhoria-continua NÃO muda sem pedir)
-- Voz: edge-tts Antonio (grátis). ElevenLabs: não usar.
+- Voz: GUERRA = edge-tts Antonio (grátis). GAMES = voz clonada do dono no ElevenLabs (decisão de 25/11, plano Creator).
 - Redes: YouTube Shorts SÓ para games (série 2); TikTok recebe as duas séries por enquanto, para coletar métricas (decisão 23/11). Instagram: não, por enquanto.
 - Publicação automática (autoPublish true) autorizada.
 - Proporção: 3 vídeos de games + 2 de geopolítica por dia.
@@ -10,3 +10,4 @@
 - **Áudio com trilha e efeitos** (24/11): o dono pediu mais vida no áudio. Padrão agora: voz tratada + trilha original por clima + efeitos + ducking (motor/audio.py). Tudo documentado em produto/MANUAL_DA_AUTOMACAO.md, que é a base para vender a automação.
 - **Áudio novo aprovado** (24/11): "o áudio ficou bom, pode seguir assim" — manter trilha -16 dB, efeitos x0,3, voz tratada.
 - **Nome do canal: Peça por Peça** (25/11): o perfil do TikTok passa a se chamar Peça por Peça. A marca no fim de TODOS os vídeos (as duas séries) é PEÇA POR PEÇA — fixo no compor.py (`marca_canal` no grafismos.json troca, para outras contas). "Fase por Fase" continua só como nome interno da série de games.
+- **Voz dos games = voz do dono** (25/11): o dono assinou o ElevenLabs Creator e aprovou a própria voz clonada (voice_id Dt3IFiwrxXdZMMFz4Ai0, modelo eleven_v4, etiquetas de emoção). Guerra continua com Antonio.

@@ -205,6 +205,11 @@ def audio():
     narr = os.path.join(PASTA, "narracao.mp3"); out = os.path.join(PASTA, "audio_mix.wav")
     if CURTIR:
         cur = os.path.join(PASTA, "curtir.mp3")
+        # games: like na voz do dono (ElevenLabs, gravado uma vez em produto/vozes/); geo: Antonio (edge-tts)
+        voz_like = G.get("curtir_audio") or (os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "produto", "vozes", "curtir_gefferson.mp3")
+                                             if "serie-games" in os.path.abspath(PASTA) else None)
+        if not os.path.exists(cur) and voz_like and os.path.exists(voz_like):
+            import shutil; shutil.copy(voz_like, cur)
         if not os.path.exists(cur):
             subprocess.run(["edge-tts", "--voice", "pt-BR-AntonioNeural", "--rate=+12%", "--text", CURTIR_FALA, "--write-media", cur], check=True)
         junto = os.path.join(PASTA, "narracao_com_like.wav")
