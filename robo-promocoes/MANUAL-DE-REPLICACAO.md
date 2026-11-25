@@ -66,6 +66,12 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - Sistema: **Ubuntu 24.04** sem painel (ou o modelo "Ubuntu + Docker"). Região: Brasil, se tiver.
 - Hospedagem de site comum **não serve** (o robô precisa rodar 24h).
 
+### Depois de contratar
+- Tela final da Hostinger: "Bom trabalho, você está pronto 🎉" com **Painel VPS** e o comando `ssh root@<IP>`.
+- O Claude confere a VPS pelo **conector Hostinger** (plano, sistema, estado, IP), sem pedir senha.
+- Para cliente leigo, usar o **Terminal do navegador** do painel da VPS na Hostinger (não precisa instalar SSH).
+- Instalar o Docker: `curl -fsSL https://get.docker.com | sh` e conferir com `docker --version`.
+
 ## 4. Conectores do Claude
 
 - **Nenhum conector é necessário** para o robô funcionar: ele roda sozinho na VPS e
@@ -149,5 +155,6 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 | 24/11/2026 | Afiliado Shopee já aprovado (app mostra "Sua Performance"). Open API achada no site: sem acesso, botão "Aplicar" cinza, aviso para completar as Informações de Pagamento. |
 | 24/11/2026 | Definida a VPS: Hostinger KVM 1, Ubuntu 24.04, sem placa de vídeo. Confirmado que nenhum conector do Claude é necessário. |
 | 25/11/2026 | Informações de Pagamento completadas → botão "Aplicar" liberou → **pedido de acesso à Open API enviado**. Aguardando a Shopee. |
+| 25/11/2026 | **VPS contratada:** Hostinger KVM 2 (2 vCPU, 8 GB, 100 GB), Ubuntu 24.04 LTS, estado "running". Conferida pelo conector Hostinger (`vps_virtual-machines_list`), sem precisar de senha. Firewall da Hostinger ainda não configurado. |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | — | **Próximo:** enquanto a Shopee analisa: contratar a VPS → chip e grupo de teste. Anotar quantos dias a aprovação levou. |
