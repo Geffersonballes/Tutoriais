@@ -16,6 +16,13 @@ cada aprendizado no manual (§3.3 e no diário).
 - O grupo de WhatsApp e o robô já funcionam (formatos aprovados). Aguardando a liberação da Shopee Open API.
 - A descrição do grupo está em rascunho (o dono vai alterar). O número oficial de atendimento ainda não foi definido.
 
+## Atualização 25/11/2026 (tarde)
+- Pela sessão principal: o dono já **criou o Instagram e a Página do Facebook**. Ainda faltam o @, a conta profissional e o vínculo.
+- A capa v2 do Facebook já usa a logo oficial (preto e dourado), que está em `marca/logo.webp`.
+- Metricool (consulta só de leitura): há 3 marcas na conta (ballestech, geffersonballes1, laycmballes) e **nenhuma é do
+  Achadinhos**. No IG-2, criar uma **marca nova** "Achadinhos da Lay" e conectar o IG e a Página. Antes, conferir se o plano
+  do Metricool permite mais uma marca.
+
 ## Próximos passos (um por vez, esperando a confirmação do dono)
 1. Confirmar o IG-1: @ escolhido, conta profissional e Página do Facebook vinculada.
 2. Conectar o IG ao **Metricool** (o dono já usa no TikTok; conector `Metricool_Social_Media_Management`).
