@@ -29,7 +29,8 @@ cada aprendizado no manual (§3.3 e no diário).
 - IG-2 (Metricool), conferido pela API: **achadinhosdalay40 entrou na marca existente "laycmballes"** (id 8357037) e
   substituiu o @os_discipulados. Nenhuma marca nova apareceu. A mesma marca tem o TikTok laycmballes, o YouTube da Lay e uma
   Página do FB (id 1369610699580001; conferir se é a Achadinhos). ✅ **Decisão do dono: manter assim (opção A).** Página conectada = Achadinhos da Lay. Ao agendar, selecionar **só** o IG
-  (e o FB, se quiser), **nunca** o TikTok nem o YouTube da marca. **IG-2 concluído.** Agora: **IG-3** (`AQUECIMENTO.md`).
+  (e o FB, se quiser), **nunca** o TikTok nem o YouTube da marca. Existe uma 4ª marca, sem nome e só com YouTube (id 8368938, criada às 23:13 de Madri). Perguntar ao dono: mover o Achadinhos para ela ou
+  excluí-la (pela interface; o Claude não exclui nada). **IG-2 concluído.** Agora: **IG-3** (`AQUECIMENTO.md`).
 
 ## Próximos passos (um por vez, esperando a confirmação do dono)
 1. Confirmar o IG-1: @ escolhido, conta profissional e Página do Facebook vinculada.
