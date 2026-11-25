@@ -145,8 +145,8 @@ def rua(x, larg=30, predios=True):
 
 def balao(P, cor, t):
     """'Humor' do pedestre: bolinha colorida flutuando sobre a cabeça."""
-    r = P["raiz"]; b = esfera(_id("balao"), (0, 0, 0), 0.26, cor, sub=3, unico=_id("bl")); liso(b); brilha(b)
-    b.location = (r.location.x, r.location.y, 2.75 * P["h"] + 0.25); visivel(b, t - 0.05); pop(b, t - 0.05)
+    r = P["raiz"]; b = esfera(_id("balao"), (0, 0, 0), 0.36, cor, sub=3, unico=_id("bl")); liso(b); brilha(b)
+    b.location = (r.location.x, r.location.y, 2.75 * P["h"] + 0.35); visivel(b, t - 0.05); pop(b, t - 0.05)
     return b
 
 def prancheta(nome, loc, s=1.0):
@@ -284,8 +284,8 @@ for (nm, x, h, w, cor), (p, pd, _) in zip(CORPOS, peds2):
     cor_key(m, tn - 0.08, (0.92, 0.92, 0.96, 1)); cor_key(m, tn + 0.05, AMARELO); cor_key(m, tn + 0.75, AMARELO); cor_key(m, tn + 1.0, (0.92, 0.92, 0.96, 1))
 gC = pixel("guiaC", (77.4, -1.3, 0), escala=0.9); girar(gC["raiz"], 16); respirar(gC, t0, t1 + 0.5)
 pensar(gC, t0 + 0.1, 1.5); espanto(gC, T(2, "impossível") - 0.2, 1.3); apontar(gC, tcard, 1.6, "D", 95); comemorar(gC, taj + 0.5, 1.1); apontar(gC, T(2, "baixo") - 0.1, 1.4, "D", 45)
-cam_key(t0, (79.6, -7.2, 2.5), (80.0, 1.5, 2.2)); cam_key(tcard - 0.4, (79.8, -7.2, 2.5), (80.2, 1.5, 2.3))
-cam_key(tcard + 0.3, (80.0, -8.6, 3.5), (80.3, 1.5, 3.2)); cam_key(taj + 0.8, (80.2, -8.0, 3.0), (80.4, 1.5, 2.6)); cam_key(t1 - 0.05, (80.3, -7.6, 2.9), (80.5, 1.5, 2.5))
+cam_key(t0, (79.2, -7.2, 2.5), (79.6, 1.5, 2.2)); cam_key(tcard - 0.4, (79.3, -7.2, 2.5), (79.7, 1.5, 2.3))
+cam_key(tcard + 0.3, (79.6, -8.6, 3.5), (79.9, 1.5, 3.2)); cam_key(taj + 0.8, (79.7, -8.0, 3.0), (79.9, 1.5, 2.6)); cam_key(t1 - 0.05, (79.8, -7.6, 2.9), (80.0, 1.5, 2.5))
 
 # =====================================================================
 # ZONA D (x = 120) — temperamento: calmo, medroso, esquentado; um foge, o outro parte para cima  (bloco 3)
@@ -313,7 +313,7 @@ ir(bravo, tpc, tpc + 0.9, (121.0, 1.7), (119.6, 0.0), per=0.36)
 bB.keyframe_insert("location", frame=f(tpc)); bB.location = (119.6, 0.0, bB.location.z); bB.keyframe_insert("location", frame=f(tpc + 0.9))
 bracos(bravo, tpc + 0.85, t1 - tpc, -150, 20)
 lock(rD, tpc + 0.4, (118.5, -0.4, 0)); lock(rD, tpc + 1.0, (117.4, -1.2, 0)); espanto(gD, tpc + 0.35, t1 - tpc)
-cam_key(t0, (120.6, -6.6, 2.5), (120.9, 1.5, 2.3)); cam_key(ttemp, (120.7, -6.9, 2.7), (121.0, 1.5, 2.5))
+cam_key(t0, (120.0, -6.6, 2.5), (120.3, 1.5, 2.3)); cam_key(ttemp, (120.1, -6.9, 2.7), (120.4, 1.5, 2.5))
 cam_key(tmx - 0.1, (120.4, -7.2, 2.7), (120.6, 1.2, 2.4)); cam_key(tfg + 0.6, (120.6, -7.4, 2.7), (120.9, 1.2, 2.4))
 cam_key(tpc + 0.5, (119.4, -6.2, 2.6), (119.4, 0.4, 2.3)); cam_key(t1 - 0.05, (119.3, -6.0, 2.6), (119.3, 0.4, 2.3))
 
@@ -328,7 +328,7 @@ alarme = esfera("alarme", (159.0, 3.5, 3.3), 0.3, (0.5, 0.12, 0.12, 1), sub=3, u
 tcr = T(4, "crime") - 0.2
 k = 0; t = tcr
 while t < tpol: cor_key(alarme.data.materials[0], t, VERMELHO if k % 2 == 0 else (0.45, 0.10, 0.10, 1)); t += 0.3; k += 1
-carroE = carrinho("carroFuga", AMARELO, 1.0); carroE.location = (157.2, 1.2, 0)
+carroE = carrinho("carroFuga", AMARELO, 1.0); carroE.location = (156.9, 2.3, 0)
 jog = pedestre("jogador", (159.0, 2.9, 0), VERMELHO, h=1.12, w=1.05, cabelo=CABELOS[0], unico="camJog")
 par = pedestre("parceira", (158.0, 1.9, 0), ROXO, h=1.05, w=0.95, cabelo=CABELOS[3]); girar(par["raiz"], 90)
 saco = esfera("saco", (0, 0, 0), 0.3, (0.35, 0.75, 0.40, 1), sub=3); liso(saco); filho(jog["bracoD"], saco); saco.location = (0, -0.05, -0.85)
@@ -342,10 +342,10 @@ excl = cilindro("excl", (162.3, 1.0, 3.45), 0.13, 0.55, AMARELO, seg=10, r2=0.07
 pt = esfera("exclP", (162.3, 1.0, 2.98), 0.1, AMARELO, sub=2, unico="excl"); brilha(excl)
 for o in (excl, pt): visivel(o, T(4, "testemunha") - 0.1, tpol); pop(o, T(4, "testemunha") - 0.1)
 bracos(tes, T(4, "testemunha"), 0.9, -140, 15)
-gE = pixel("guiaE", (160.3, -1.6, 0), escala=0.85); girar(gE["raiz"], 180 - 20); respirar(gE, t0, tpol + 0.5)   # de costas, olhando a cena
+gE = pixel("guiaE", (157.6, -1.7, 0), escala=0.85); girar(gE["raiz"], 22); respirar(gE, t0, tpol + 0.5)
 apontar(gE, tcr, 1.3, "D", 60); espanto(gE, tq, 1.6)
-cam_key(t0, (159.6, -6.8, 2.9), (159.4, 2.0, 2.4)); cam_key(tq - 0.2, (159.9, -7.0, 2.9), (159.8, 1.6, 2.4))
-cam_key(T(4, "testemunha"), (160.6, -6.6, 2.9), (160.6, 1.2, 2.4)); cam_key(tpol - 0.05, (160.7, -6.4, 2.9), (160.7, 1.2, 2.4))
+cam_key(t0, (159.2, -6.8, 2.9), (159.2, 2.0, 2.4)); cam_key(tq - 0.2, (159.8, -7.0, 2.9), (159.8, 1.6, 2.4))
+cam_key(T(4, "testemunha"), (160.2, -6.8, 2.9), (160.2, 1.2, 2.4)); cam_key(tpol - 0.05, (160.3, -6.6, 2.9), (160.3, 1.2, 2.4))
 
 # =====================================================================
 # ZONA F (x = 200) — a polícia recebe a descrição: roupa, carro, dupla  (bloco 4, 2ª parte)

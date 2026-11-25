@@ -1,0 +1,21 @@
+# Checagem — Como os pedestres (NPCs) do GTA 6 funcionam? — APROVADO
+
+| Afirmação no roteiro | Fontes | Status |
+|---|---|---|
+| "Seiscentas mil animações, só para os pedestres do GTA 6" | TechRadar (28/08/2026, cita entrevista de Aaron Garbut ao New York Times) https://techradar.com/gaming/rockstar-reveals-it-built-a-gta-6-team-that-focused-solely-on-creating-more-realistic-npcs-with-over-600-000-animations-twice-as-many-as-red-dead-redemption-2-had · GamesRadar https://www.gamesradar.com/games/grand-theft-auto/gta-6s-hand-crafted-npcs-have-over-600-000-animations-compared-to-only-55-000-animations-in-gta-5/ · 80 Level (18/11/2026) https://80.lv/articles/behind-the-incredible-new-tech-and-systems-rockstar-built-to-make-gta-6-feel-alive/ · TweakTown (29/10/2026) | ✅ (número da própria Rockstar → "segundo a Rockstar" na narração e fonte na tela) |
+| "No GTA 5 eram cinquenta e cinco mil. Agora são mais de dez vezes isso" (600/55 = 10,9) | TechRadar · GamesRadar · 80 Level (acima) | ✅ |
+| "Um time inteiro, em Los Angeles, cuida só dos pedestres" | TechRadar (equipe nova em Los Angeles de roteiristas, diretores e produtores só para NPCs — Garbut) · 80 Level · Canaltech (27/08/2026, via revista Dazed: "o escritório de Los Angeles se dedica totalmente aos pedestres") https://canaltech.com.br/games/rockstar-revela-segredos-absurdos-para-dar-vida-a-gta-6 | ✅ |
+| "A mesma animação se ajusta sozinha ao alto, ao baixo e ao forte" (retargeting em tempo real) | 80 Level (Rob Nelson à IGN, "GTA 6: The Big Interview": animações são reaproveitadas dinamicamente para proporções de corpo diferentes; patente da Take-Two US20250095261A1 de retargeting em tempo de execução) · timesaver.gg (lista "on-the-fly animation retargeting → varied NPC body types", citando a mesma entrevista) https://timesaver.gg/blog/gta-6-open-world-ign-interview-confirmed-2026 | ✅ com ressalva: a 2ª fonte é fraca e as duas remetem à mesma entrevista da IGN → na tela, fonte "Rockstar (entrevista à IGN)" |
+| "Cada um ganha um temperamento… Um foge. O outro parte para cima." | TweakTown (via revista Edge: pedestres recebem traços de personalidade — temperamento, agressividade — que decidem se fogem ou revidam) https://www.tweaktown.com/news/114388/gta-6-npcs-get-personality-traits-that-decide-whether-they-flee-or-fight-back/index.html · Insider Gaming (27/08/2026, Rob Nelson à IGN: NPCs podem escalar a briga em vez de fugir) https://insider-gaming.com/gta-6-reactive-npcs-criminal-profiles-police/ · 80 Level | ✅ ("calmo, medroso, esquentado" são exemplos didáticos nossos dos traços, não nomes oficiais) |
+| "Quem viu vira testemunha, e a polícia recebe uma descrição: a sua roupa, o seu carro, e se você estava em dupla" | Insider Gaming (Nelson/IGN: a polícia pode receber descrição com roupa, veículo e se você anda em dupla ou sozinho) · TweakTown/Edge (testemunhas afetam como a polícia identifica suspeitos) · 80 Level (testemunhas, roupa, veículo, se Jason e Lucia foram vistos juntos) | ✅ |
+| "Trocou de roupa? Se separou do parceiro? A descrição não bate mais, e fica mais difícil te achar" | TweakTown/Edge (se dois são vistos e depois se separam, esse detalhe some da identificação) · Insider Gaming (trocar de roupa ou separar a dupla para despistar) | ✅ (formulado como "mais difícil", não como garantia) |
+
+**Descartado (fonte única):** polícia demora a chegar / precisa ver o suspeito / procura no último lugar visto (só 80 Level);
+câmeras de segurança (CCTV) na identificação (só 80 Level); clima localizado; 300 mil animações de Red Dead 2 (confirmado
+em 2 fontes, mas saiu por tempo). Nenhum número de vendas foi usado (o radar de hoje aponta conflito nesses números).
+
+**Conformidade (regras de games):** nenhum personagem, mapa, logotipo, arte ou gameplay do jogo; "GTA 6", "Rockstar" e
+"Los Angeles" só como texto/narração. Pedestres, policial (quepe genérico, sem insígnia real), carro e cidade são
+bonecos e blocos ORIGINAIS de `cena_gta_npcs.py`. O "crime" é mostrado de forma lúdica (saco verde, lâmpada de alarme),
+sem arma, sem violência e sem ensinar nada do mundo real — é a regra do jogo explicada. Sem spoiler de história.
+Selo "Conteúdo gerado com IA" na tela (padrão do compor). Sem apostas, pirataria ou builds vazadas.

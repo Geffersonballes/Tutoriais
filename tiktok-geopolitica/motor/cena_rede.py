@@ -328,7 +328,7 @@ mu1 = mini_usina("mu1", -3.6); visivel(mu1, tpr, t1); pop(mu1, tpr)
 piv.rotation_mode = "XYZ"
 for t, g in ((t0, 0), (T(4, "eletricidade"), 3), (T(4, "guarda"), -3), (tga - 0.1, 0), (tga + 0.6, 9), (tpr, 9), (tpr + 0.7, -1.5), (tpr + 1.2, 0.8), (tpr + 1.7, 0), (t1, 0)):
     piv.rotation_euler = (0, math.radians(g), 0); piv.keyframe_insert("rotation_euler", frame=f(t))
-shot(t0, t1, (PX - 3, -24, 7.5), (PX, 0, 6.2), (PX + 3, -22, 7), (PX, 0, 6.2))
+shot(t0, t1, (PX - 3, -30, 8), (PX, 0, 6.4), (PX + 3, -28, 7.5), (PX, 0, 6.4))
 
 # =====================================================================
 # 5 — PONTO FRACO (crepúsculo): não é a usina; é o transformador. Reposição leva mais de um ano
@@ -377,8 +377,8 @@ luz("luz1", tbai + 0.15, 0); luz("luzH", tbai + 0.45, 0); luz("luz2", T(6, "tudo
 luz("luzAgua", T(6, "bombas") + 0.3, 0); luz("luzCel", T(6, "sinal") + 0.2, 0)
 gota = cilindro("gota", (CX_AGUA[0], CX_AGUA[1] - 3.2, 4.0), 0.14, 8.0, CIANO, seg=6, unico="luzAgua")   # jato de água que para
 visivel_janelas(gota, [(0, 2.6), (S[3][1] - 3, T(6, "bombas") + 0.3), (S[7][0], FIM + 5)])
-shot(t0, tbai - 0.1, (-14, -58, 34), (8, 0, 4), (8, -52, 29), (12, 0, 4))
-shot(tbai - 0.1, T(6, "Sem") - 0.1, (46, -84, 46), (102, -6, 5), (62, -84, 42), (106, -6, 5))
+shot(t0, tbai - 0.1, (-10, -40, 22), (6, 0, 6), (6, -36, 19), (8, 0, 6))
+shot(tbai - 0.1, T(6, "Sem") - 0.1, (50, -70, 34), (102, -8, 11), (62, -70, 31), (104, -8, 11))
 shot(T(6, "Sem") - 0.1, t1, (74, -78, 11), (88, -46, 8.5), (98, -76, 13), (97, -46, 9.5))
 
 # =====================================================================
@@ -392,8 +392,8 @@ for k, (x, y) in enumerate(((-15, -19), (15, -19))):
     cn = canhao(_id("aa"), (x, y, 0.5)); visivel(cn, tdef + 0.2 * k); pop(cn, tdef + 0.2 * k)
 rd = radar("radarSub", (-24, 8, 0.75)); rdb, rdg = rd; visivel(rdb, tdef + 0.4); pop(rdb, tdef + 0.4)
 rdg.rotation_euler = (0, 0, 0); rdg.keyframe_insert("rotation_euler", frame=f(t0)); rdg.rotation_euler = (0, 0, math.radians(360 * 6)); rdg.keyframe_insert("rotation_euler", frame=f(FIM))
-tint = tdef + 1.5; pint = (-22, -48, 20)
-di = drone(_id("dint"), 0.9); visivel(di, tint - 1.4, tint); caminho(di, tint - 1.4, tint, lambda u: lerp((-70, -150, 60), pint, u))
+tint = tdef + 1.5; pint = (-4, 36, 20)
+di = drone(_id("dint"), 0.9); visivel(di, tint - 1.4, tint); caminho(di, tint - 1.4, tint, lambda u: lerp((30, 170, 70), pint, u))
 rastro(lambda u: lerp((-15, -19, 3), pint, u), tint - 0.45, tint, C["defesa"], r=0.3, cada=0.04, vida=0.35)
 explosao(pint, tint, r=5, n=14)
 for k, x in enumerate((-12.2, -4, 4, 12.2)):
@@ -408,9 +408,9 @@ est = [(1, 0, 1), (0, 1, 0)]; k = 0; t = trod
 while t < t1:
     for b in range(3): luz("luz%d" % b, t, est[k % 2][b])
     k += 1; t += 0.95
-shot(t0, tger, (-24, -40, 15), (0, -3, 4.5), (-8, -35, 12), (1, -3, 4.5))
+shot(t0, tger, (-18, -31, 11), (0, -3, 6), (-6, -27, 9.5), (1, -3, 6))
 shot(tger, trod, (52, -60, 8), (hx + 1, hy - 4, 4.5), (57, -57, 9), (hx + 1, hy - 4, 4.5))
-shot(trod, t1, (58, -92, 62), (104, -2, 4), (78, -88, 57), (106, -2, 4))
+shot(trod, t1, (58, -76, 46), (104, -8, 10), (72, -74, 42), (106, -8, 10))
 
 # =====================================================================
 # 8 — OS DOIS LADOS (dia): drones contra uma refinaria (palco à parte)
@@ -445,7 +445,7 @@ fogo((RX - 1, -2.5, 6.8), th1, t1, r=1.3); fumaca((RX - 1, -2, 7), th1 + 0.2, t1
 fogo((RX - 12, 9.5, 6.8), th1 + 0.55, t1, r=1.1); fumaca((RX - 12, 10, 7), th1 + 0.75, t1, r=1.5, cada=0.4, sobe=14)
 for k, d in ((1, 0), (2, 0.55)):
     m = bpy.data.objects[f"tqRef{k}"].data.materials[0]; cor_key(m, th1 + d - 0.05, (0.93, 0.93, 0.91, 1)); cor_key(m, th1 + d + 0.4, (0.22, 0.20, 0.19, 1))
-shot(t0, t1, (RX + 16, -40, 11), (RX - 2, 2, 6.5), (RX + 6, -50, 17), (RX - 3, 2, 6.5))
+shot(t0, t1, (RX + 12, -30, 8), (RX - 3, 2, 8), (RX + 4, -37, 12), (RX - 3, 2, 8))
 
 # =====================================================================
 # 9/10 — FINAL (dia): a rede inteira funcionando, da usina à cidade
@@ -453,8 +453,8 @@ shot(t0, t1, (RX + 16, -40, 11), (RX - 2, 2, 6.5), (RX + 6, -50, 17), (RX - 3, 2
 t0 = S[9][0]
 for p in us_topos[:2]: fumaca(p, t0 - 2.5, FIM, r=1.5, cada=0.7, sobe=12, vida=3.0, cor=(0.93, 0.93, 0.95, 1))
 fumaca(us_topos[2], t0 - 2.5, FIM, r=3.0, cada=0.7, sobe=12, vida=3.0, cor=(0.96, 0.96, 0.98, 1))
-shot(t0, S[10][0], (-92, -78, 40), (-30, 0, 7), (-70, -92, 48), (-14, 0, 7))
-shot(S[10][0], FIM + 0.1, (-40, -96, 46), (4, 0, 6), (6, -112, 60), (30, 0, 6))
+shot(t0, S[10][0], (-36, -28, 13), (18, 0, 8), (-26, -34, 17), (22, 0, 8))
+shot(S[10][0], FIM + 0.1, (-26, -34, 17), (22, 0, 8), (-8, -46, 25), (36, 0, 8))
 
 # energia correndo pelos cabos
 pulsos([(US[0] + 19, US[1], 7), (-150, 0, 5.0), (-146, 0, 7.8)], [(tel + 0.3, S[2][0] + 5.4), (S[5][0], tbasta), (S[9][0] - 2, FIM)], AMBAR, "pulsoA", cada=0.5, vel=22, r=0.65)

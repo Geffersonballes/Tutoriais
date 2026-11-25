@@ -1,0 +1,50 @@
+{
+  "capa": {"linhas": ["850 MIL", "NO ESCURO", "EM UMA NOITE"], "destaque": [0], "dur": 1.3},
+  "subst": {},
+  "trilha": {"clima": "tenso"},
+  "rotulos": [
+    {"texto": "GERAÇÃO", "de": [1, "Essa"], "ate": [1, "@fim", 0, 0.3]},
+    {"texto": "TRANSMISSÃO", "de": [2, "Essa"], "ate": [2, "@fim", 0, 0.3]},
+    {"texto": "SUBESTAÇÃO", "de": [3, "Essa", 1], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "EQUILÍBRIO DA REDE", "de": [4, "Esse"], "ate": [4, "@fim", 0, 0.3]},
+    {"texto": "PONTO FRACO", "de": [5, "Esse"], "ate": [5, "@fim", 0, 0.3]},
+    {"texto": "EFEITO CASCATA", "de": [6, "Esse"], "ate": [6, "@fim", 0, 0.3]},
+    {"texto": "RODÍZIO DE ENERGIA", "de": [7, "Esse"], "ate": [7, "@fim", 0, 0.3]},
+    {"texto": "ENERGIA VIROU ALVO", "de": [8, "energia"], "ate": [8, "@fim", 0, 0.3]}
+  ],
+  "pilulas": [
+    {"texto": "UCRÂNIA · 8/11 · ~850 MIL SEM LUZ", "ponto": "vermelho", "tam": 44, "de": [0, "Foi"], "ate": [0, "Como"], "y": 0.15},
+    {"texto": "COMO SE APAGA UMA CIDADE?", "ponto": "azul", "tam": 44, "de": [0, "Como"], "ate": [0, "@fim", 0, 0.3], "y": 0.15},
+    {"texto": "TURBINAS → ELETRICIDADE", "ponto": "azul", "de": [1, "turbinas"], "ate": [1, "Essa"], "y": 0.3},
+    {"texto": "ELEVA A TENSÃO", "ponto": "azul", "de": [2, "eleva"], "ate": [2, "torres"], "y": 0.3},
+    {"texto": "CENTENAS DE QUILÔMETROS", "ponto": "azul", "de": [2, "centenas"], "ate": [2, "Essa"], "y": 0.3},
+    {"texto": "ALTA TENSÃO DIRETO NA CASA", "ponto": "vermelho", "de": [3, "queimaria"], "ate": [3, "Então"], "y": 0.3},
+    {"texto": "ABAIXA A TENSÃO", "ponto": "azul", "de": [3, "abaixam"], "ate": [3, "Essa", 1], "y": 0.3},
+    {"texto": "CONSUMO", "ponto": "vermelho", "de": [4, "gasta"], "ate": [4, "Esse"], "y": 0.3, "x": 0.72},
+    {"texto": "GERAÇÃO", "ponto": "azul", "de": [4, "produzido"], "ate": [4, "Esse"], "y": 0.3, "x": 0.28},
+    {"texto": "NÃO PRECISA DESTRUIR A USINA", "ponto": "azul", "de": [5, "não"], "ate": [5, "Basta"], "y": 0.3},
+    {"texto": "ALVO: A SUBESTAÇÃO", "ponto": "vermelho", "de": [5, "Basta"], "ate": [5, "Um"], "y": 0.3},
+    {"texto": "CENTENAS DE TONELADAS", "ponto": "vermelho", "de": [5, "centenas"], "ate": [5, "Esse"], "y": 0.3},
+    {"texto": "+ DE 1 ANO PARA FABRICAR", "ponto": "vermelho", "de": [5, "mais"], "ate": [5, "Esse"], "y": 0.36},
+    {"texto": "SOBRECARGA", "ponto": "vermelho", "de": [6, "sobrecarrega"], "ate": [6, "Bairro"], "y": 0.3},
+    {"texto": "DESLIGAMENTO AUTOMÁTICO", "ponto": "azul", "de": [6, "desligam"], "ate": [6, "Bairro"], "y": 0.36},
+    {"texto": "SEM ÁGUA", "ponto": "vermelho", "de": [6, "bombas"], "ate": [6, "Esse"], "y": 0.3},
+    {"texto": "SEM AQUECIMENTO", "ponto": "vermelho", "de": [6, "aquecimento"], "ate": [6, "Esse"], "y": 0.36},
+    {"texto": "SEM SINAL", "ponto": "vermelho", "de": [6, "sinal"], "ate": [6, "Esse"], "y": 0.42},
+    {"texto": "DEFESA ANTIAÉREA", "ponto": "azul", "de": [7, "antiaérea"], "ate": [7, "geradores"], "y": 0.3},
+    {"texto": "BARREIRAS + SACOS DE AREIA", "ponto": "azul", "de": [7, "barreiras"], "ate": [7, "geradores"], "y": 0.36},
+    {"texto": "GERADOR NO HOSPITAL", "ponto": "azul", "de": [7, "geradores"], "ate": [7, "cortes"], "y": 0.3},
+    {"texto": "CORTES PROGRAMADOS", "ponto": "azul", "de": [7, "cortes"], "ate": [7, "Esse"], "y": 0.3},
+    {"texto": "DRONES → REFINARIAS", "ponto": "vermelho", "de": [8, "drones"], "ate": [8, "guerra"], "y": 0.3}
+  ],
+  "fontes": [
+    {"texto": "Fontes: Euronews e Al Jazeera (8/11/2026)", "de": [0, "Foi"], "ate": [0, "@fim", 0, 0.3]},
+    {"texto": "Fontes: Depto. de Energia dos EUA; Wood Mackenzie", "de": [5, "Um"], "ate": [5, "Esse"]},
+    {"texto": "Fontes: Latin Times (1/11) e Daily Sabah (16/11/2026)", "de": [8, "Ucrânia"], "ate": [8, "@fim", 0, 0.3]}
+  ],
+  "cta": {
+    "linha1": [10, "Se"], "t1a": "JÁ SABIA? COMENTE", "t1b": "“GENERAL”",
+    "linha2": [10, "Se", 1], "t2a": "NÃO SABIA? COMENTE", "t2b": "“RECRUTA”",
+    "marca_de": [10, "recruta", 0, 0.4], "marca": "PEÇA POR PEÇA · siga pra próxima"
+  }
+}
