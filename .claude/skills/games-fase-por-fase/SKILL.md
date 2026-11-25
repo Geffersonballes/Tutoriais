@@ -75,3 +75,6 @@ A narração dos vídeos de GAMES é a **voz clonada do dono** no ElevenLabs (pl
 
 ## VISUAL NÍVEL 2 (decisão do dono, 25/11)
 O `modo_cartoon()` do cartoon.py já aplica sozinho o "nível 2": luz de contorno por trás, brilho suave + cor mais viva no compositor, contorno escuro de desenho em tudo (casca invertida com emissão pura e sem sombra) e fundo levemente desfocado no alvo da câmera. Custo: ~1,5× o tempo de render (≈30 s por quadro em vez de ≈20 s; um vídeo de 60 s leva ~3 h). Não desligue. `VISUAL=0` volta ao visual antigo só para depuração. Objetos criados DEPOIS de `modo_cartoon()` ficam sem contorno — chame-o no fim da cena, como hoje.
+
+## KWAI (25/11)
+Depois de agendar no Metricool, acrescente o vídeo à lista do Kwai no OneDrive, seguindo kwai/LEIA.md.

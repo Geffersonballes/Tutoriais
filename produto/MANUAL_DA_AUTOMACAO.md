@@ -69,3 +69,6 @@ ou serviço pago sem aprovação; nada de cortes de vídeos de terceiros; YouTub
 
 ### Ao iniciar a fase do produto (decisão do dono, 25/11)
 Primeiro passo automático: revisar e instalar no repositório o pacote de habilidades **Superpowers** (github.com/obra/superpowers) e desenvolver o produto pelo fluxo dele: brainstorming → plano → subagentes (em paralelo quando possível) → testes. Detalhes em `melhorias/decisoes_do_dono.md`. Não usar esse fluxo na produção diária dos vídeos.
+
+### Kwai (25/11)
+O Kwai não tem API de publicação. Solução: uma lista no OneDrive com link de download (Picsart) e legenda adaptada (#kwai #kwaibrasil), que o dono posta pelo app. Limites de upload: 1 MB no conector M365 e 10 MB no Google Drive. Detalhes em kwai/LEIA.md.
