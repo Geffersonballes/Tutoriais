@@ -33,10 +33,10 @@ window.LANDING = {
   pixelId: "",
 
   textos: {
-    tituloPagina: "Achadinhos da Lay | A gente garimpa, você só aproveita",
+    tituloPagina: "Achadinhos da Lay | Pare de caçar promoção, ela chega até você",
     descricao: "Grupo gratuito no WhatsApp com ofertas com desconto selecionadas todo dia. Grupo independente, com links de afiliado.",
     selo: "Grupo gratuito no WhatsApp",
-    titulo: "A gente garimpa. [Você só aproveita.]", // o trecho entre [ ] fica dourado
+    titulo: "Pare de caçar promoção. [Ela chega até você.]", // o trecho entre [ ] fica dourado
     subtitulo: "Ofertas com desconto escolhidas a dedo todo dia, direto no seu WhatsApp.",
     // 3 frases curtas de impacto (aparecem como selos embaixo do título)
     destaques: ["🔥 Ofertas novas todo dia", "🏷️ Desconto + link direto", "🔒 Ninguém chama no privado"],
