@@ -9,3 +9,4 @@
 - **Pedido de like no final de todo vídeo** (24/11): depois da narração, a voz Antonio diz "Gostou do conteúdo? Então deixa o seu like!" e a tela mostra GOSTOU DO CONTEÚDO? / DEIXA O LIKE. Automático no compor.py (`"curtir": false` no grafismos.json desliga).
 - **Áudio com trilha e efeitos** (24/11): o dono pediu mais vida no áudio. Padrão agora: voz tratada + trilha original por clima + efeitos + ducking (motor/audio.py). Tudo documentado em produto/MANUAL_DA_AUTOMACAO.md, que é a base para vender a automação.
 - **Áudio novo aprovado** (24/11): "o áudio ficou bom, pode seguir assim" — manter trilha -16 dB, efeitos x0,3, voz tratada.
+- **Nome do canal: Peça por Peça** (25/11): o perfil do TikTok passa a se chamar Peça por Peça. A marca no fim de TODOS os vídeos (as duas séries) é PEÇA POR PEÇA — fixo no compor.py (`marca_canal` no grafismos.json troca, para outras contas). "Fase por Fase" continua só como nome interno da série de games.

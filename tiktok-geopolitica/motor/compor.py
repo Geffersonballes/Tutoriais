@@ -180,7 +180,7 @@ def overlay(t):
             colar_centro(ov, camada_texto(cta["t2a"], F_CTA1, BRANCO, 6, escala_pop(t, a2)), W / 2, H * 0.28)
             colar_centro(ov, camada_texto(cta["t2b"], F_CTA2, (80, 170, 255), 10, escala_pop(t, a2 + 0.5)), W / 2, H * 0.345)
         if t >= resolver(cta["marca_de"]):
-            im = pilula(cta["marca"], "vermelho", escala_pop(t, resolver(cta["marca_de"])), fonte(40, "ExtraBold"))
+            im = pilula(G.get("marca_canal", "PEÇA POR PEÇA"), "vermelho", escala_pop(t, resolver(cta["marca_de"])), fonte(40, "ExtraBold"))
             colar_centro(ov, im, W / 2, H * 0.74)
     # legenda palavra-a-palavra
     atual = None
