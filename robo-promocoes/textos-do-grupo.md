@@ -14,7 +14,7 @@ Preencher os [COLCHETES] com o dono. Os grupos por nicho só entram quando exist
 
 Aqui eu compartilho ofertas e cupons da Shopee para casa, beleza, criançada e utilidades. Só entra o que vale a pena! 🛍️✨
 
-👭 *Quer chamar uma amiga?* Envie o link:
+👥 *Quer chamar alguém?* Envie o link:
 👉 [LINK DO GRUPO]
 
 📸 *Siga a Lay no Instagram:*
@@ -74,7 +74,7 @@ Este grupo chegou ao limite de participantes. Obrigada por tanto carinho! 🥰
 Quem quiser receber os achadinhos pode entrar no novo grupo, com as mesmas ofertas e as mesmas regrinhas:
 👉 [LINK]
 
-_Pode compartilhar o link com amigas e familiares_ ✨
+_Pode compartilhar o link com quem quiser_ ✨
 ```
 
 ---

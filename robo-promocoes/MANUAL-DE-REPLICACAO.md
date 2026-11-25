@@ -109,7 +109,7 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - **Cupom:** `CUPOM_TEXTO` + `CUPOM_VALIDADE` no `.env` mostram "🎟️ Cupom: *…*" até a data. Só cupom real.
   A Open API (até onde se sabe) não traz cupons; conferir os campos na primeira chamada real. Depois: cupom por produto na fila manual.
 - Frases em `robo/frases.py`: escritas pelo `promo-redator` e revisadas pelo `promo-critico` (nota 6 → corrigidas).
-  Regras: genéricas, sem insinuar que a dona testou o produto, sem urgência falsa. O crítico chegou a sugerir
+  Regras: genéricas, **sem "amigas"** (decisão do dono em 25/11: público aberto a todos), sem insinuar que a dona testou o produto, sem urgência falsa. O crítico chegou a sugerir
   "não dura" e "some rápido", e essas frases foram **rejeitadas** por serem urgência falsa.
 
 ## 3.2 Referência de mercado: "Promos da Beco" (grupo com mais de 500 mil seguidores), visto em 25/11/2026
@@ -259,6 +259,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | Metricool conferido pelo conector (`getBrandSettings`): marca id 8357037 (label "laycmballes") com Instagram `achadinhosdalay40`, Página do Facebook, TikTok, YouTube e conta de anúncios. ⚠️ O @ difere do registrado (@achadinhosdalay): a confirmar. Há uma marca extra sem nome (id 8368938, só YouTube). Lição: conferir no conector logo depois de conectar. |
 | 25/11/2026 | Dono confirmou: a marca do Metricool é a **laycmballes** (id 8357037), com Instagram @achadinhosdalay40. O nome da marca fica como está. |
 | 25/11/2026 | Criativo em vídeo v2 com as cores da marca (`instagram/criativos/…-v2-marca.mp4`): fundo preto com brilho dourado (PIL), logo pulsando no topo, cartão escuro com borda dourada, fonte Poppins (baixada do google/fonts), mesma narração da v1 (sem custo novo de voz). |
+| 25/11/2026 | Regra da marca: **não usar "amigas"** (público aberto a todos). Removido de `robo/frases.py` (8 frases), de `textos-do-grupo.md` (2 trechos) e da narração. Criativo v3 com narração nova (cerca de 219 créditos por versão). |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
