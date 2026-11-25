@@ -26,6 +26,10 @@ cada aprendizado no manual (§3.3 e no diário).
 - ✅ **IG-1 concluído (confirmado pelo dono):** **@achadinhosdalay40** (o @ sem número já existia), conta profissional; Página do Facebook **vinculada** (confirmado pelo dono).
   Agora: **IG-2** (marca nova no Metricool).
 
+- IG-2 (Metricool), conferido pela API: **achadinhosdalay40 entrou na marca existente "laycmballes"** (id 8357037) e
+  substituiu o @os_discipulados. Nenhuma marca nova apareceu. A mesma marca tem o TikTok laycmballes, o YouTube da Lay e uma
+  Página do FB (id 1369610699580001; conferir se é a Achadinhos). Aguardando o dono decidir: manter assim ou separar.
+
 ## Próximos passos (um por vez, esperando a confirmação do dono)
 1. Confirmar o IG-1: @ escolhido, conta profissional e Página do Facebook vinculada.
 2. Conectar o IG ao **Metricool** (o dono já usa no TikTok; conector `Metricool_Social_Media_Management`).
