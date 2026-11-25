@@ -18,13 +18,14 @@ mude `cheio` para `true` e acrescente o próximo grupo. Se todos estiverem cheio
   no clique do botão (com o grupo, o botão clicado e as UTMs). Sem `pixelId`, nada de rastreio é carregado.
 - **UTMs** (o convite do WhatsApp não guarda UTM, então a origem é medida na landing):
 
+Padrão combinado com a sessão do Instagram (`../instagram/PLANO-IG.md`):
+
 | Origem | Link |
 |---|---|
-| Bio do Instagram | `https://DOMINIO/?utm_source=instagram&utm_medium=bio` |
-| Story | `https://DOMINIO/?utm_source=instagram&utm_medium=story` |
-| Post/reels | `https://DOMINIO/?utm_source=instagram&utm_medium=post` |
-| Anúncio | `https://DOMINIO/?utm_source=instagram&utm_medium=anuncio&utm_campaign=NOME` |
-| Grupo cheio (aviso) | `https://DOMINIO/?utm_source=whatsapp&utm_medium=grupo_cheio` |
+| Bio do Instagram | `https://DOMINIO/?utm_source=instagram&utm_medium=bio&utm_campaign=perfil` |
+| Story (link manual) | `https://DOMINIO/?utm_source=instagram&utm_medium=story&utm_campaign=aaaa-mm-dd` (ou o tema) |
+| Anúncio | `https://DOMINIO/?utm_source=instagram&utm_medium=paid_social&utm_campaign=encher-grupo-nov26` |
+| Aviso de grupo cheio | `https://DOMINIO/?utm_source=whatsapp&utm_medium=grupo_cheio&utm_campaign=rodizio` |
 
 ## Regras de conteúdo
 Sem urgência falsa, sem números inventados, transparência de afiliado e aviso antigolpe. A seção de prints
