@@ -309,7 +309,7 @@ def modo_realista(hdri=None, samples=4, res=(540, 960), foco=None, abertura=0.35
                     for kp in fc.keyframe_points:
                         v = list(b.inputs["Base Color"].default_value); v[fc.array_index] = _lin((kp.co[1],) * 3)[0]
                         b.inputs["Base Color"].default_value = v
-                        b.inputs["Base Color"].keyframe_insert("default_value", frame=kp.co[0])
+                        b.inputs["Base Color"].keyframe_insert("default_value", frame=kp.co[0], index=fc.array_index)   # só o canal desta curva (antes gravava os 3 e misturava as cores)
     # fachadas com janelas (prédios)
     for m in bpy.data.materials:
         if not m.name or not any(k[1] and str(k[1]).startswith("predio") for k, v in _mats.items() if v == m): continue
