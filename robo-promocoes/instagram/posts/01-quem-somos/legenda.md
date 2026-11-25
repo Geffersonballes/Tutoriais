@@ -1,4 +1,4 @@
-# Post 1: "Quem somos" (carrossel de 4 imagens, 1080x1350). Rascunho: aguarda aprovação do dono
+# Post 1: "Quem somos" (carrossel de 4 imagens, 1080x1350). ✅ APROVADO pelo dono em 25/11/2026
 
 Imagens: `slide-1.png` … `slide-4.png` (fonte editável: `slides.html`). Postar à mão pelo app, nesta ordem.
 

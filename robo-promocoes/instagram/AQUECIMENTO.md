@@ -13,6 +13,9 @@ Modelo reaproveitável: para outro cliente, troque o @ e o nome.
   **Sem urgência falsa** ("só hoje", "últimas unidades") se não for verdade.
 - Ninguém da equipe pede dados ou Pix no direct. Repetir esse aviso no destaque "Dúvidas".
 
+## Linguagem
+Nunca usar "amigas" (decisão do dono). Usar "gente", "pessoal" ou "você".
+
 ## Antes do dia 1 (uma vez)
 - [ ] Desligar "Perfil gerado por IA" em Editar perfil.
 - [ ] Foto de perfil = logo (já feito).

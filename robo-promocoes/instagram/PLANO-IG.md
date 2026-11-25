@@ -62,3 +62,11 @@ Se a sessão da landing definir outro padrão, prevalece o dela; atualizar esta 
 ## Marca (rascunho da sessão principal, 25/11, ainda não aprovado pelo dono)
 `marca/bios.md` (bios de IG, FB e TikTok, todas levando à landing) e `marca/capa-facebook-1640x624.png`. As cores são provisórias.
 A bio do IG não tem espaço para avisar que os links são de afiliado. Por isso o aviso fica no destaque "Dúvidas" e na landing.
+
+## Regras de linguagem (decididas pelo dono)
+- **Nunca usar "amigas"** (25/11/2026). Falar com todo mundo: "gente", "pessoal", "você".
+
+## Diário do aquecimento
+| Data | O quê |
+|---|---|
+| 25/11/2026 | ✅ Post 1 "Quem somos" (carrossel de 4 imagens) **aprovado** pelo dono, para postar à mão (`posts/01-quem-somos/`). |
