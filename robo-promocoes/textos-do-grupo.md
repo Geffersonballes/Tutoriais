@@ -5,7 +5,36 @@ Regras seguidas: transparência sobre afiliado, sem urgência falsa, sem promess
 
 ---
 
-## 1. Descrição do grupo (campo "Descrição", ~430 caracteres)
+## 1B. Descrição do grupo, versão 2 (inspirada na referência "Promos da Beco", 25/11/2026)
+
+Preencher os [COLCHETES] com o dono. Os grupos por nicho só entram quando existirem.
+
+```
+✅ *SEJA BEM-VINDA AO ACHADINHOS DA LAY!* 💛
+
+Aqui eu compartilho ofertas e cupons da Shopee para casa, beleza, criançada e utilidades. Só entra o que vale a pena! 🛍️✨
+
+👭 *Quer chamar uma amiga?* Envie o link:
+👉 [LINK DO GRUPO]
+
+📸 *Siga a Lay no Instagram:*
+[LINK DO INSTAGRAM]
+
+📲 *Precisa falar comigo ou pedir um achadinho?*
+Salve e chame no número oficial: [NÚMERO OFICIAL]
+
+⚠️ Este é o ÚNICO número de atendimento. Ninguém da equipe chama no privado nem adiciona pessoas em grupos. Se acontecer, é golpe: saia e denuncie.
+
+📢 Somente administradores enviam mensagens neste grupo.
+
+🛒 O Achadinhos da Lay não vende produtos: divulgamos ofertas da Shopee com links de afiliado (posso receber comissão, *sem custo extra* para você). Preços, estoque e condições podem mudar a qualquer momento.
+
+🔕 Silencie o grupo se preferir e passe por aqui quando quiser!
+```
+
+---
+
+## 1. Descrição do grupo, versão 1 (~430 caracteres)
 
 ```
 🛍️ *Achadinhos da Lay*

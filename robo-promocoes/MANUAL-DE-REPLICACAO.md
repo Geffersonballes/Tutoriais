@@ -112,6 +112,19 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
   Regras: genéricas, sem insinuar que a dona testou o produto, sem urgência falsa. O crítico chegou a sugerir
   "não dura" e "some rápido", e essas frases foram **rejeitadas** por serem urgência falsa.
 
+## 3.2 Referência de mercado: "Promos da Beco" (grupo com mais de 500 mil seguidores), visto em 25/11/2026
+- **Descrição:** boas-vindas, "se for promoção de verdade, a gente posta", links para **grupos por nicho**
+  (Shopee, mamãe e bebê, automotivo, tech e games, fitness, moda e beleza), link do Instagram, **número oficial de
+  atendimento**, **alerta antigolpe** ("nenhum admin chama no privado"), "só admins enviam", "não vendemos, divulgamos
+  lojas parceiras" e prova social ("500 mil seguidores").
+- **Ofertas:** a frase de efeito é **específica do produto** ("Protetor e cor num passo só, pra quem vive atrasada de
+  manhã ☀️"), não genérica. Formato igual ao nosso padrão, mas com "⚠️ Promoção sujeita a alteração a qualquer momento".
+- **Posts humanos** entre as ofertas (de outro admin): "Boa noite, gente 🌙 faltam 2 dias pra Black Friday, salva no
+  carrinho e deixa o Pix pronto…" → conversa e calendário de datas.
+- **Lições para o produto:** (1) frase por produto, gerada por IA a partir do nome; (2) posts de conversa
+  programados (bom dia, boa noite, contagem para datas); (3) grupos por nicho quando crescer; (4) número oficial e
+  alerta antigolpe na descrição; (5) manter a transparência sobre afiliado (a referência só diz "lojas parceiras").
+
 ## 4. Conectores do Claude
 
 - **Nenhum conector é necessário** para o robô funcionar: ele roda sozinho na VPS e
