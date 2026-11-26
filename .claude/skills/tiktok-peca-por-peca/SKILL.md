@@ -19,6 +19,7 @@ bash tiktok-geopolitica/motor/instalar.sh
 Blender 4.2 (EEVEE em CPU), Mesa EGL, faster-whisper, edge-tts, Pillow, ffmpeg.
 
 ## 1. Pauta (agentes `cacador-de-noticias` → `editor-de-pauta`)
+**Antes de tudo, leia `tiktok-geopolitica/pautas_do_dono.md`: pauta `pendente` ali tem prioridade sobre o radar** (sem substituir post já agendado).
 - Rode o `cacador-de-noticias` (ele dispara os 3 subagentes de notícias em paralelo) e grave
   `tiktok-geopolitica/noticias/AAAA-MM-DD_radar.md`. Se o radar de hoje já existir, reaproveite.
 - Leia `tiktok-geopolitica/historico.md` e **não repita** tema dos últimos 14 dias.
