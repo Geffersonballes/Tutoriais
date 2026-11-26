@@ -167,3 +167,7 @@ Poste SOMENTE na marca geffersonballes1 (8356514). NÃO use 8049742, 8357037 nem
 
 ## DURAÇÃO (decisão do dono, 26/11 — vale acima de "2 a 2,5 min")
 Vídeos de guerra passam a ter **75 a 90 s** (roteiro de ~190 a 230 palavras, 6 a 8 cenas). Motivo: no relatório de 26/11 os vídeos de 125–157 s tiveram a pior retenção (tempo médio 5–20 s, conclusão 0,3–1%). Corte o que for contexto secundário; mantenha gancho forte nos 3 primeiros segundos e o "Esse é o…" de cada peça.
+
+## VOZ (decisão do dono, 26/11 — substitui "voz Antonio / nunca ElevenLabs")
+TODOS os vídeos de guerra passam a ser narrados com a **voz clonada do dono** no ElevenLabs, igual aos games: `creative_generate_speech`, model_id "eleven_v4", voice_id "Dt3IFiwrxXdZMMFz4Ai0", generations_count 1 (nunca repetir a chamada; consultar creative_get_flow_run_status). Prompt = narracao_tts.txt com etiquetas em inglês com moderação ([serious], [curious], [dramatically]). Depois: palavras.py + alinhar.py; o like: `cp produto/vozes/curtir_gefferson.mp3 <pasta>/curtir.mp3` antes do compor. Antonio (edge-tts) só se o ElevenLabs estiver indisponível ou sem crédito — e aí AVISE o dono antes de publicar.
+Orçamento: ~1.300–1.500 créditos por vídeo de 75–90 s. Se o saldo do mês ficar abaixo de 15.000, avise o dono.
