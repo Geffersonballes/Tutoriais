@@ -1,0 +1,14 @@
+# Status — 2026-11-26_jogo-comprado-morre (games C, post 27/11 13:00 Cuiabá = 17:00 UTC)
+- [x] Pauta: radar novo 2026-11-26 (varredura rápida), pauta 1 (nota 7,9, maior livre, fora do GTA 6): "Por que o jogo que você comprou pode morrer?" (The Crew + PL 3612/2026 "Games Vivos")
+- [x] Checagem (checagem.md): The Crew 31/03/2024 (GameSpot, Neowin, VGC); disco inútil (Tecnoblog, VGC, PC Gamer); licença retirada (PC Gamer, Engadget, Destructoid); PL: 180 dias, 2 anos, 3 opções, multa, exceções, urgência (Agência Câmara, Tecnoblog, Ei Nerd, GameOverdrive, Sou Brasília)
+- [x] Conformidade: sem arte/logo/carro de The Crew/Ubisoft; objetos genéricos; tom político neutro ("ainda não é lei", sem citar partido)
+- [x] Roteiro 8 blocos, 207 palavras; gancho com data no 1º segundo; CTA SALVA / DESLIGA + like automático
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.393 créditos, flow T4s3c4jVIWYUoFr1oZYj) → narracao.mp3 (72,6 s)
+- [x] palavras.py + alinhar.py — 8 blocos (17 palavras interpoladas, todas conferidas nos tempos)
+- [x] Melhoria (backlog, matchmaking "objeto nasce depois do corte"): objeto principal de cada zona já está em cena no corte; detalhes entram na palavra
+- [x] Cena tiktok-geopolitica/motor/cena_jogo_comprado.py (estilo C, Pixel, visual nível 2) + prévias conferidas (câmeras e posições corrigidas)
+- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — fila/início 22:03 UTC
+- [ ] compor.py → final.mp4 + capa.jpg (ANTI_BORDA ativo)
+- [ ] QC
+- [x] legenda_post.txt
+- NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md
