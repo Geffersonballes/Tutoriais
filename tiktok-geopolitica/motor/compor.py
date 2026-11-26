@@ -246,6 +246,26 @@ def audio():
     subprocess.run(["ffmpeg", "-v", "error", "-y"] + inputs + ["-filter_complex", ";".join(fl), "-map", "[a]", "-ar", "44100", out], check=True)
     return out
 
+# ANTI-BORDA (26/11): o Facebook acusou "seu vídeo tem uma borda" — o céu liso no topo (62 linhas da mesma cor)
+# e o chão liso embaixo parecem tarjas de vídeo reaproveitado. Vinheta suave + grão fixo quebram as faixas
+# uniformes de ponta a ponta. Desligar com ANTI_BORDA=0.
+_VIN = None
+def anti_borda(img):
+    global _VIN
+    if os.environ.get("ANTI_BORDA", "1") == "0":
+        return img
+    import numpy as np
+    if _VIN is None:
+        yy, xx = np.mgrid[0:H, 0:W].astype("float32")
+        r = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2) / math.sqrt(2)
+        vin = 1.0 - 0.28 * np.clip(r, 0, 1) ** 1.8
+        grao = np.random.default_rng(7).normal(0, 3.0, (H, W)).astype("float32")
+        _VIN = (vin[..., None], grao[..., None])
+    vin, grao = _VIN
+    a = np.asarray(img.convert("RGB"), dtype="float32") * vin + grao
+    out = Image.fromarray(np.clip(a, 0, 255).astype("uint8"), "RGB").convert("RGBA")
+    return out
+
 if __name__ == "__main__":
     frames = sorted(x for x in os.listdir(os.path.join(PASTA, "frames")) if x.endswith(".jpg"))
     so_preview = len(sys.argv) > 3
@@ -253,6 +273,7 @@ if __name__ == "__main__":
         for t in [float(v) for v in sys.argv[3].split(",")]:
             fr = os.path.join(PASTA, "frames", "f_%04d.jpg" % (int(round(t * FPS)) + 1))
             base = Image.open(fr).convert("RGBA").resize((W, H), Image.LANCZOS) if os.path.exists(fr) else Image.new("RGBA", (W, H), (90, 150, 230, 255))
+            base = anti_borda(base)
             base.alpha_composite(overlay(t)); base.convert("RGB").save(os.path.join(PASTA, "preview", f"c_{t:06.2f}.jpg"), quality=88)
         sys.exit()
     aud = audio()
@@ -267,7 +288,7 @@ if __name__ == "__main__":
     for k in range(int(dur_audio * FPS)):
         t = k / FPS
         nome = "f_%04d.jpg" % nums[max(0, bisect.bisect_right(nums, k + 1) - 1)]
-        base = Image.open(os.path.join(PASTA, "frames", nome)).convert("RGBA").resize((W, H), Image.BICUBIC)
+        base = anti_borda(Image.open(os.path.join(PASTA, "frames", nome)).convert("RGBA").resize((W, H), Image.BICUBIC))
         base.alpha_composite(overlay(t))
         ff.stdin.write(base.convert("RGB").tobytes())
         if k == (0 if CAPA is not None else int(5.6 * FPS)): base.convert("RGB").save(os.path.join(PASTA, "capa.jpg"), quality=92)
