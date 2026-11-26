@@ -1,0 +1,310 @@
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+Blender 4.2.3 LTS (hash 0e22e4fcea03 built 2024-10-14 23:31:34)
+Fra:61 Mem:319.49M (Peak 342.11M) | Time:00:13.63 | Rendering 1 / 4 samples
+Fra:61 Mem:319.49M (Peak 342.11M) | Time:00:17.24 | Rendering 4 / 4 samples
+Fra:61 Mem:264.48M (Peak 342.11M) | Time:00:17.24 | Compositing
+Fra:61 Mem:264.48M (Peak 342.11M) | Time:00:17.25 | Compositing | Initializing execution
+Fra:61 Mem:264.49M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 2-27
+Fra:61 Mem:264.49M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 3-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 4-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 5-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 6-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 7-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 8-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 9-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 10-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.25 | Compositing | Operation 11-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.27 | Compositing | Operation 12-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.27 | Compositing | Operation 13-27
+Fra:61 Mem:267.02M (Peak 342.11M) | Time:00:17.27 | Compositing | Operation 14-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 15-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 16-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 17-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 18-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 19-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 20-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 21-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.28 | Compositing | Operation 22-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.29 | Compositing | Operation 23-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.29 | Compositing | Operation 24-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.29 | Compositing | Operation 25-27
+Fra:61 Mem:268.51M (Peak 342.11M) | Time:00:17.29 | Compositing | Operation 26-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.29 | Compositing | Operation 27-27
+Fra:61 Mem:266.53M (Peak 342.11M) | Time:00:17.29 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_002.00.jpg'
+Time: 00:17.36 (Saving: 00:00.07)
+
+Fra:349 Mem:320.44M (Peak 343.47M) | Time:00:14.04 | Rendering 1 / 4 samples
+Fra:349 Mem:320.44M (Peak 343.47M) | Time:00:17.65 | Rendering 4 / 4 samples
+Fra:349 Mem:265.32M (Peak 343.47M) | Time:00:17.69 | Compositing
+Fra:349 Mem:265.32M (Peak 343.47M) | Time:00:17.70 | Compositing | Initializing execution
+Fra:349 Mem:265.32M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 2-27
+Fra:349 Mem:265.32M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 3-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 4-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 5-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 6-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 7-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 8-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 9-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 10-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.70 | Compositing | Operation 11-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.72 | Compositing | Operation 12-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.72 | Compositing | Operation 13-27
+Fra:349 Mem:267.86M (Peak 343.47M) | Time:00:17.72 | Compositing | Operation 14-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.72 | Compositing | Operation 15-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.73 | Compositing | Operation 16-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.73 | Compositing | Operation 17-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.73 | Compositing | Operation 18-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.73 | Compositing | Operation 19-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.73 | Compositing | Operation 20-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.73 | Compositing | Operation 21-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.73 | Compositing | Operation 22-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.74 | Compositing | Operation 23-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.74 | Compositing | Operation 24-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.74 | Compositing | Operation 25-27
+Fra:349 Mem:269.34M (Peak 343.47M) | Time:00:17.74 | Compositing | Operation 26-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.74 | Compositing | Operation 27-27
+Fra:349 Mem:267.36M (Peak 343.47M) | Time:00:17.74 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_011.60.jpg'
+Time: 00:17.77 (Saving: 00:00.03)
+
+Fra:631 Mem:323.81M (Peak 347.78M) | Time:00:12.46 | Rendering 1 / 4 samples
+Fra:631 Mem:323.81M (Peak 347.78M) | Time:00:16.27 | Rendering 4 / 4 samples
+Fra:631 Mem:267.92M (Peak 347.78M) | Time:00:16.28 | Compositing
+Fra:631 Mem:267.92M (Peak 347.78M) | Time:00:16.28 | Compositing | Initializing execution
+Fra:631 Mem:267.93M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 2-27
+Fra:631 Mem:267.93M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 3-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 4-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 5-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 6-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 7-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 8-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 9-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 10-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.28 | Compositing | Operation 11-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.29 | Compositing | Operation 12-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.29 | Compositing | Operation 13-27
+Fra:631 Mem:270.46M (Peak 347.78M) | Time:00:16.29 | Compositing | Operation 14-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.29 | Compositing | Operation 15-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 16-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 17-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 18-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 19-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 20-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 21-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 22-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 23-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 24-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 25-27
+Fra:631 Mem:271.95M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 26-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 27-27
+Fra:631 Mem:269.97M (Peak 347.78M) | Time:00:16.30 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_021.00.jpg'
+Time: 00:16.32 (Saving: 00:00.01)
+
+Fra:829 Mem:321.22M (Peak 344.41M) | Time:00:10.71 | Rendering 1 / 4 samples
+Fra:829 Mem:321.22M (Peak 344.41M) | Time:00:14.25 | Rendering 4 / 4 samples
+Fra:829 Mem:265.94M (Peak 344.41M) | Time:00:14.26 | Compositing
+Fra:829 Mem:265.94M (Peak 344.41M) | Time:00:14.26 | Compositing | Initializing execution
+Fra:829 Mem:265.94M (Peak 344.41M) | Time:00:14.26 | Compositing | Operation 2-27
+Fra:829 Mem:265.94M (Peak 344.41M) | Time:00:14.26 | Compositing | Operation 3-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.26 | Compositing | Operation 4-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.26 | Compositing | Operation 5-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.26 | Compositing | Operation 6-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.27 | Compositing | Operation 7-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.27 | Compositing | Operation 8-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.27 | Compositing | Operation 9-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.27 | Compositing | Operation 10-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.27 | Compositing | Operation 11-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.28 | Compositing | Operation 12-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.28 | Compositing | Operation 13-27
+Fra:829 Mem:268.48M (Peak 344.41M) | Time:00:14.28 | Compositing | Operation 14-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.28 | Compositing | Operation 15-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 16-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 17-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 18-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 19-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 20-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 21-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 22-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 23-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 24-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 25-27
+Fra:829 Mem:269.96M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 26-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 27-27
+Fra:829 Mem:267.98M (Peak 344.41M) | Time:00:14.29 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_027.60.jpg'
+Time: 00:14.32 (Saving: 00:00.02)
+
+Fra:1216 Mem:322.63M (Peak 346.20M) | Time:00:12.16 | Rendering 1 / 4 samples
+Fra:1216 Mem:322.63M (Peak 346.20M) | Time:00:16.45 | Rendering 4 / 4 samples
+Fra:1216 Mem:267.07M (Peak 346.20M) | Time:00:16.54 | Compositing
+Fra:1216 Mem:267.07M (Peak 346.20M) | Time:00:16.55 | Compositing | Initializing execution
+Fra:1216 Mem:267.08M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 2-27
+Fra:1216 Mem:267.08M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 3-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 4-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 5-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 6-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 7-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 8-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 9-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 10-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.55 | Compositing | Operation 11-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.56 | Compositing | Operation 12-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.56 | Compositing | Operation 13-27
+Fra:1216 Mem:269.62M (Peak 346.20M) | Time:00:16.56 | Compositing | Operation 14-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 15-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 16-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 17-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 18-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 19-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 20-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 21-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 22-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 23-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 24-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 25-27
+Fra:1216 Mem:271.10M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 26-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 27-27
+Fra:1216 Mem:269.12M (Peak 346.20M) | Time:00:16.57 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_040.50.jpg'
+Time: 00:16.60 (Saving: 00:00.02)
+
+Fra:1441 Mem:323.09M (Peak 346.78M) | Time:00:10.97 | Rendering 1 / 4 samples
+Fra:1441 Mem:323.09M (Peak 346.78M) | Time:00:14.60 | Rendering 4 / 4 samples
+Fra:1441 Mem:267.44M (Peak 346.78M) | Time:00:14.60 | Compositing
+Fra:1441 Mem:267.44M (Peak 346.78M) | Time:00:14.60 | Compositing | Initializing execution
+Fra:1441 Mem:267.45M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 2-27
+Fra:1441 Mem:267.45M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 3-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 4-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 5-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 6-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 7-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 8-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 9-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 10-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.60 | Compositing | Operation 11-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.61 | Compositing | Operation 12-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.61 | Compositing | Operation 13-27
+Fra:1441 Mem:269.99M (Peak 346.78M) | Time:00:14.61 | Compositing | Operation 14-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 15-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 16-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 17-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 18-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 19-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 20-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 21-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 22-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 23-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 24-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 25-27
+Fra:1441 Mem:271.47M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 26-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 27-27
+Fra:1441 Mem:269.49M (Peak 346.78M) | Time:00:14.62 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_048.00.jpg'
+Time: 00:14.64 (Saving: 00:00.01)
+
+Fra:1525 Mem:335.21M (Peak 362.19M) | Time:00:10.93 | Rendering 1 / 4 samples
+Fra:1525 Mem:335.21M (Peak 362.19M) | Time:00:14.82 | Rendering 4 / 4 samples
+Fra:1525 Mem:276.98M (Peak 362.19M) | Time:00:14.95 | Compositing
+Fra:1525 Mem:276.98M (Peak 362.19M) | Time:00:14.98 | Compositing | Initializing execution
+Fra:1525 Mem:276.99M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 2-27
+Fra:1525 Mem:276.99M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 3-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 4-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 5-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 6-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 7-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 8-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 9-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 10-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.98 | Compositing | Operation 11-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 12-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 13-27
+Fra:1525 Mem:279.53M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 14-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 15-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 16-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 17-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 18-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 19-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 20-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:14.99 | Compositing | Operation 21-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:15.00 | Compositing | Operation 22-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:15.00 | Compositing | Operation 23-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:15.00 | Compositing | Operation 24-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:15.00 | Compositing | Operation 25-27
+Fra:1525 Mem:281.01M (Peak 362.19M) | Time:00:15.00 | Compositing | Operation 26-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:15.00 | Compositing | Operation 27-27
+Fra:1525 Mem:279.03M (Peak 362.19M) | Time:00:15.00 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_050.80.jpg'
+Time: 00:15.03 (Saving: 00:00.02)
+
+Fra:1735 Mem:338.60M (Peak 366.27M) | Time:00:14.37 | Rendering 1 / 4 samples
+Fra:1735 Mem:338.60M (Peak 366.27M) | Time:00:19.62 | Rendering 4 / 4 samples
+Fra:1735 Mem:279.87M (Peak 366.27M) | Time:00:19.71 | Compositing
+Fra:1735 Mem:279.87M (Peak 366.27M) | Time:00:19.71 | Compositing | Initializing execution
+Fra:1735 Mem:279.87M (Peak 366.27M) | Time:00:19.71 | Compositing | Operation 2-27
+Fra:1735 Mem:279.87M (Peak 366.27M) | Time:00:19.71 | Compositing | Operation 3-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 4-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 5-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 6-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 7-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 8-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 9-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 10-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.72 | Compositing | Operation 11-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.74 | Compositing | Operation 12-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.74 | Compositing | Operation 13-27
+Fra:1735 Mem:282.41M (Peak 366.27M) | Time:00:19.74 | Compositing | Operation 14-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.74 | Compositing | Operation 15-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.74 | Compositing | Operation 16-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.74 | Compositing | Operation 17-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 18-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 19-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 20-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 21-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 22-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 23-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 24-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 25-27
+Fra:1735 Mem:283.89M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 26-27
+Fra:1735 Mem:281.91M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 27-27
+Fra:1735 Mem:281.92M (Peak 366.27M) | Time:00:19.75 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_057.80.jpg'
+Time: 00:19.78 (Saving: 00:00.02)
+
+Fra:2026 Mem:339.90M (Peak 367.93M) | Time:00:13.52 | Rendering 1 / 4 samples
+Fra:2026 Mem:339.90M (Peak 367.93M) | Time:00:18.62 | Rendering 4 / 4 samples
+Fra:2026 Mem:280.89M (Peak 367.93M) | Time:00:18.72 | Compositing
+Fra:2026 Mem:280.89M (Peak 367.93M) | Time:00:18.73 | Compositing | Initializing execution
+Fra:2026 Mem:280.90M (Peak 367.93M) | Time:00:18.73 | Compositing | Operation 2-27
+Fra:2026 Mem:280.90M (Peak 367.93M) | Time:00:18.73 | Compositing | Operation 3-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 4-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 5-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 6-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 7-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 8-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 9-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 10-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.74 | Compositing | Operation 11-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 12-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 13-27
+Fra:2026 Mem:283.44M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 14-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 15-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 16-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 17-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 18-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 19-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 20-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 21-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 22-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 23-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 24-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 25-27
+Fra:2026 Mem:284.92M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 26-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 27-27
+Fra:2026 Mem:282.94M (Peak 367.93M) | Time:00:18.76 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-26_var-impedimento/preview/p_067.50.jpg'
+Time: 00:18.78 (Saving: 00:00.02)
+
+
+Blender quit
