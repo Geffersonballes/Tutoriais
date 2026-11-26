@@ -111,7 +111,7 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
    | manhã (06:20; render leva ~2h20) | **10:00** do mesmo dia |
    | tarde (14:20) | **18:00** do mesmo dia |
    | noite (17:50) | agora é da série 2 (games), post 13:00 do dia seguinte — ver skill games-fase-por-fase |
-   Se o horário já passou ou está ocupado, use o próximo livre entre 10:00, 13:00, 16:00 e 18:00 (mínimo 3 h entre posts).
+   Se o horário já passou quando o vídeo ficar pronto, agende para **assim que ficar pronto** (agora + ~15 min); não espere o próximo horário fixo (decisão do dono, 26/11).
    - `providers: [{"network":"tiktok"},{"network":"youtube"},{"network":"facebook"},{"network":"instagram"}]`,
      **`autoPublish: true`** (com `false` o TikTok fica parado na caixa de entrada do app), `draft: false`,
      `videoCoverMilliseconds: 600`. Por isso os portões (fatos, conformidade, qualidade) são obrigatórios:

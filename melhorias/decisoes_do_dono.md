@@ -29,3 +29,4 @@
 - 26/11: marca 4 do Metricool (8368938, YouTube UC7e5cXOPRUUrfQFebKZqauw) = canal de FUTEBOL. Só vídeos de futebol vão para lá; futebol não vai para o YouTube do Peça por Peça. Nada repetido entre canais.
 - 26/11: CANCELADO o canal de futebol na marca 4. Postar SOMENTE na marca geffersonballes1 (8356514); não usar 8049742, 8357037 nem 8368938. Futebol vai para o YouTube do Peça por Peça (category SPORTS).
 - 26/11: vídeos de GUERRA com 75–90 s (antes 2–2,5 min), por causa da retenção.
+- 26/11: se o vídeo de guerra ficar pronto depois do horário fixo (10:00/18:00), agendar para assim que ficar pronto (agora + ~15 min), sem esperar o próximo horário.
