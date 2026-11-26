@@ -9,4 +9,4 @@ Post da página Fatos Desconhecidos (25/11): jogadores deixam a Lucia presa e pa
 Cuidados: tom de curiosidade, não de notícia; números atribuídos ("jogadores dizem que..."). Pode citar Jason e Lucia, sem arte/personagens/logo da Rockstar — 3D nosso com o Pixel (Pixel pescando de barco). Avisar a sessão principal ao agendar.
 
 ## Extra (fora das rotinas): teste de FUTEBOL "Como o VAR decide um impedimento?"
-No 1º intervalo livre de render. Ver pedido de 25/11: SPORTS no YouTube, 26 ou 27/11, ≥1h30 de outro post, evitar 08:00 e 20:00, historico "futebol — teste".
+No 1º intervalo livre de render. Publicação em 2 posts no mesmo horário: 8356514 (TikTok + FB REEL + IG REEL, sem YouTube) + 8368938 (só YouTube Short, SPORTS). Ver pedido de 25/11: 26 ou 27/11, ≥1h30 de outro post, evitar 08:00 e 20:00, historico "futebol — teste".
