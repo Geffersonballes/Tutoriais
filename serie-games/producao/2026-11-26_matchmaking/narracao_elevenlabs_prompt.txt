@@ -1,0 +1,15 @@
+[surprised] Perdeu três partidas seguidas e jura que o jogo te jogou no pior time do mundo? Calma. [curious] Como o matchmaking escolhe o seu time?
+
+Tudo começa num número escondido: o MMR, a sua nota de habilidade. No League of Legends, por exemplo, essa nota fica oculta, segundo a própria Riot.
+
+[excited] E a ideia veio do xadrez. Nos anos sessenta, o professor de física Arpad Elo criou uma nota que sobe quando você vence e cai quando você perde.
+
+Se você ganha de alguém mais forte, então você sobe muito. Se perde para alguém mais fraco, [dramatically] então você cai muito. Quem mexe na nota é a surpresa.
+
+[excited] Esse é o pulo do gato: o sistema da Microsoft, usado no Halo, guarda dois números. A sua habilidade e a dúvida sobre ela. Nas primeiras partidas a dúvida é grande, por isso a nota pula tanto.
+
+Com as notas na mão, o jogo monta dois times com média parecida. A meta, segundo a Riot, é cada lado ter cinquenta por cento de chance de vencer.
+
+[mischievously] Mas tem um preço: quanto mais você espera na fila, mais o sistema se afasta da sua nota para achar uma partida. [dramatically] Fila longa pode virar jogo desequilibrado.
+
+[curious] E aí, a culpa foi do time ou da fila? Comenta time. Ou comenta fila.
