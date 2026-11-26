@@ -4,7 +4,7 @@ A rotina de guerra lê este arquivo ANTES do caçador de notícias. Se houver pa
 
 ---
 
-## 1. Por que Israel não está no tratado nuclear? — status: pendente
+## 1. Por que Israel não está no tratado nuclear? — status: feito (post 443770439, 26/11 22:00 — https://app.metricool.com/planner/calendar?blogId=8356514&openWithPostUuid=736217170870160116)
 - Origem: comentários do vídeo "Como se vigia uma bomba atômica?" (25/11): "Israel não faz parte do TNP, por quê?", "Coreia e Irã também não precisam?", "vão atacar Israel quando?".
 - Quando: próxima rotina de guerra livre, de preferência 27/11 às 10:00.
 - Formato: RESPOSTA AO COMENTÁRIO — o comentário na tela como gancho, SEM nome nem foto de quem comentou. Ângulo peça por peça.
