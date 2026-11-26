@@ -80,6 +80,27 @@ def campo(nome, x, larg=24, prof=16, fundo=(0.20, 0.24, 0.42, 1)):
             caixa(_id(nome + "torc"), (x - larg / 2 + 1.2 + j * (larg - 2.4) / 9 + random.uniform(-0.3, 0.3), prof * 0.32 + 0.75 + k * 0.9,
                   1.35 + k * 1.8), (0.9, 0.4, 0.5), cores[(j + k) % 5], unico=f"torc{(j + k) % 5}")
     caixa(_id(nome + "linha"), (x, prof * 0.32 - 0.3, 0.01), (larg, 0.1, 0.02), BRANCO)
+    topo_estadio(nome, x, prof * 0.32 + 4.6, larg, fundo)
+
+def topo_estadio(nome, x, y, larg, fundo):
+    """Anti-'borda' (Facebook, 26/11): fecha o topo do quadro — anel superior da arquibancada, cobertura com treliça e
+    refletores, para não sobrar uma faixa de céu de cor única no alto da tela."""
+    sup = tuple(min(1, c * 1.25) for c in fundo[:3]) + (1,)
+    caixa(_id(nome + "anelSup"), (x, y + 0.6, 8.6), (larg + 6, 1.2, 5.4), sup)
+    cores = [(0.95, 0.35, 0.30, 1), (1.0, 0.80, 0.25, 1), (0.35, 0.65, 1.0, 1), (0.95, 0.95, 0.95, 1), (0.55, 0.85, 0.45, 1)]
+    for k in range(3):
+        for j in range(12):
+            caixa(_id(nome + "torcS"), (x - larg / 2 - 2 + j * (larg + 4) / 11 + random.uniform(-0.3, 0.3), y - 0.05, 6.9 + k * 1.5),
+                  (0.9, 0.3, 0.45), cores[(j + 2 * k) % 5], unico=f"torc{(j + 2 * k) % 5}")
+    caixa(_id(nome + "cobert"), (x, y - 2.5, 12.2), (larg + 8, 8.0, 0.6), (0.82, 0.84, 0.88, 1))
+    for k in range(9):
+        caixa(_id(nome + "trelica"), (x - larg / 2 - 3 + k * (larg + 6) / 8, y - 2.5, 11.6), (0.25, 8.0, 0.5), (0.45, 0.47, 0.52, 1))
+    for k in range(6):
+        rx = x - larg / 2 + 1.5 + k * (larg - 3) / 5
+        caixa(_id(nome + "refl"), (rx, y - 5.6, 11.2), (1.6, 0.4, 0.8), (0.25, 0.27, 0.32, 1))
+        for j in range(3):
+            l = esfera(_id(nome + "lamp"), (rx - 0.5 + j * 0.5, y - 5.85, 11.2), 0.17, (1.0, 0.97, 0.85, 1), sub=2, unico="lampada")
+    BRILHO.append(mat((1.0, 0.97, 0.85, 1), "lampada"))
 
 def gol(nome, loc):
     x, y = loc
@@ -125,6 +146,14 @@ def cronometro(nome, loc, r=0.9):
     pv = vazio(_id("ponteiroCr"), (0, 0, 0)); filho(c, pv); pv.location = (0, 0, 0.1)   # local +Z = para a câmera
     pp = caixa(_id("pontB"), (0, 0, 0), (0.07, r * 0.8, 0.05), ESCURO); filho(pv, pp); pp.location = (0, r * 0.35, 0)
     return c, pv
+
+def parede_alta(nome, x, prof, cor, larg=22):
+    """Anti-'borda': prolonga a parede do fundo até o alto do quadro e põe painéis de luz e faixa clara (sem céu liso)."""
+    caixa(nome + "ParedeAlta", (x, prof + 0.05, 10.5), (larg, 0.4, 7.0), tuple(c * 0.85 for c in cor[:3]) + (1,))
+    caixa(nome + "Friso", (x, prof - 0.2, 7.05), (larg, 0.15, 0.25), (0.95, 0.75, 0.25, 1))
+    for k in range(7):
+        pl = caixa(_id(nome + "painel"), (x - 9 + k * 3, prof - 0.2, 9.6 + (k % 2) * 1.6), (1.8, 0.08, 0.9), (0.70, 0.88, 1.0, 1), unico="painelLuz")
+    BRILHO.append(mat((0.70, 0.88, 1.0, 1), "painelLuz"))
 
 cam, alvo, cam_key, plano = camera_cartoon(24)
 
@@ -249,6 +278,7 @@ plano(tbr - 0.1, (80.9, 0.8), "medio", altura=2.2); plano(t1 - 0.05, (80.9, 0.8)
 # =====================================================================
 t0, t1 = S[3]
 sala_fechada("D", 120, (0.30, 0.62, 0.35, 1), (0.16, 0.22, 0.40, 1), prof=4.6)
+parede_alta("D", 120, 4.6, (0.16, 0.22, 0.40, 1))
 tchip = T(3, "chip"); tden = T(3, "Dentro"); tsen = T(3, "sensor"); tqui = T(3, "quinhentas"); tins = T(3, "instante"); tpas = T(3, "passe")
 BX, BY, BZ, BR = 120.8, 1.2, 2.2, 1.25
 base = cilindro("pedestalD", (BX, BY, 0.45), 0.7, 0.9, (0.85, 0.86, 0.90, 1), seg=20)
@@ -333,6 +363,7 @@ cam_key(tps + 0.05, (162.2, -3.2, 2.4), (160.6, 2.6, 1.4)); cam_key(t1 - 0.05, (
 # =====================================================================
 t0, t1 = S[5]
 sala_fechada("F", 200, (0.42, 0.44, 0.56, 1), (0.22, 0.24, 0.36, 1), prof=4.8)
+parede_alta("F", 200, 4.8, (0.22, 0.24, 0.36, 1))
 trb = T(5, "robô"); tap = T(5, "apita"); tarb = T(5, "árbitro"); tcf = T(5, "confere"); tav = T(5, "avisa"); tjz = T(5, "juiz")
 ttor = T(5, "torcida"); tani = T(5, "animação"); ttl = T(5, "telão")
 caixa("mesaF", (198.6, 1.6, 1.0), (3.6, 1.2, 0.12), (0.30, 0.22, 0.18, 1))
