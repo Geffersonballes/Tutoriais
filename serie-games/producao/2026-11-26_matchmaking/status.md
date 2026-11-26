@@ -9,5 +9,5 @@
 - [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock) — 1124 quadros, 22:01 → 00:20 UTC
 - [x] compor.py → final.mp4 (74,97 s, 22,7 MB; fora do git) + capa.jpg
 - [x] QC ✅: folha de contato sem tela preta (blackdetect vazio), -14,3 LUFS, legenda sincronizada com a voz, capa legível em 270 px, selo "Conteúdo gerado com IA" em todos os quadros, CTA TIME/FILA completo + pedido de like no fim na voz do dono, marca PEÇA POR PEÇA
-- [ ] Upload Picsart / agendamento Metricool (13:00 de 26/11, marca 8356514: TikTok + YouTube + Facebook + Instagram) / historico.md / Kwai — com a sessão principal
+- [x] Upload Picsart / agendamento Metricool (13:00 de 26/11, marca 8356514: TikTok + YouTube + Facebook + Instagram) / historico.md / Kwai — com a sessão principal
 - Título YouTube: "Como o matchmaking escolhe o seu time? #shorts" (46 caracteres)
