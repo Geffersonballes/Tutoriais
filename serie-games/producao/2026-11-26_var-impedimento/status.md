@@ -6,7 +6,7 @@
 - [x] palavras.py + alinhar.py — 212/217 palavras, 8 blocos
 - [x] Melhoria do backlog: corte seco de câmera levado para `cartoon.corte_seco()`
 - [x] Cena tiktok-geopolitica/motor/cena_var_impedimento.py (estilo C, Pixel, visual nível 2) + prévias conferidas
-- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock)
+- [~] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock) — reiniciado 00:45 UTC com topo fechado (anti-borda); ~700/1122 quadros às 02:45, fim previsto ~04:00 UTC
 - [ ] compor.py → final.mp4 + capa.jpg
 - [ ] QC
 - NÃO fazer: Picsart, Metricool, OneDrive, historico.md (pedido da sessão principal)
