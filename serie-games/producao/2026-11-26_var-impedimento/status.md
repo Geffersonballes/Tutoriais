@@ -1,0 +1,12 @@
+# Status — 2026-11-26_var-impedimento (TESTE de futebol na série 2; sem agendamento)
+- [x] Pauta: pedido direto do dono (decisões 25/11 — teste de vídeo 3D explicativo de futebol: VAR/impedimento)
+- [x] Checagem (checagem.md) — 2+ fontes por afirmação (Fifa, IFAB, CBF + imprensa); números de fonte única cortados
+- [x] Conformidade ✅ (checagem.md): campo/jogadores/bola originais, uniformes lisos ciano × magenta, sem escudo/logo/rosto real, sem transmissão
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.324 créditos, flow pYThkLe06FLiU7ykPOvx) → narracao.mp3 (70,5 s)
+- [x] palavras.py + alinhar.py — 212/217 palavras, 8 blocos
+- [x] Melhoria do backlog: corte seco de câmera levado para `cartoon.corte_seco()`
+- [x] Cena tiktok-geopolitica/motor/cena_var_impedimento.py (estilo C, Pixel, visual nível 2) + prévias conferidas
+- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock)
+- [ ] compor.py → final.mp4 + capa.jpg
+- [ ] QC
+- NÃO fazer: Picsart, Metricool, OneDrive, historico.md (pedido da sessão principal)

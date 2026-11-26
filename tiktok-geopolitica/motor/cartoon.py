@@ -159,6 +159,26 @@ def camera_cartoon(lens=24):
     return cam, alvo, cam_key, plano
 
 
+def corte_seco(cam, alvo, limiar=12):
+    """Corte seco entre zonas (backlog: Bezier da câmera 'atropelava' a zona seguinte). Onde o X da câmera salta
+    mais que `limiar` metros entre duas chaves, a chave anterior vira CONSTANT e a seguinte ganha alças VECTOR.
+    Chame depois de todos os plano()/cam_key() e antes de modo_cartoon()."""
+    for ob in (cam, alvo):
+        if not (ob.animation_data and ob.animation_data.action): continue
+        fcs = [fc for fc in ob.animation_data.action.fcurves if fc.data_path == "location"]
+        fx = [fc for fc in fcs if fc.array_index == 0]
+        if not fx: continue
+        kps = list(fx[0].keyframe_points)
+        cortes = {round(a.co.x) for a, b in zip(kps, kps[1:]) if abs(b.co.y - a.co.y) > limiar}
+        for fc in fcs:
+            for kp in fc.keyframe_points:
+                if round(kp.co.x) in cortes: kp.interpolation = "CONSTANT"
+            ks = list(fc.keyframe_points)
+            for a, b in zip(ks, ks[1:]):
+                if round(a.co.x) in cortes: b.handle_left_type = "VECTOR"; b.handle_right_type = "VECTOR"
+            fc.update()
+
+
 # ---------- cenários fechados reutilizáveis (backlog #2) ----------
 def sala_fechada(nome, x, piso, parede, prof=4.5, larg=22):
     """Piso + parede de fundo + rodapé: enquadramento sem vazio (copiado de cena_gta30 e generalizado)."""

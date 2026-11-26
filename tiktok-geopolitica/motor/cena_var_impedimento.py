@@ -114,7 +114,9 @@ def meia_esfera(nome, loc, r, cor, cima=True):
     bmesh.ops.delete(bm, geom=[v for v in bm.verts if (v.co.z < -1e-4 if cima else v.co.z > 1e-4)], context="VERTS")
     me = bpy.data.meshes.new(nome); bm.to_mesh(me); bm.free()
     ob = bpy.data.objects.new(nome, me); bpy.context.collection.objects.link(ob); ob.location = loc
-    ob.data.materials.append(mat(cor)); return liso(ob)
+    ob.data.materials.append(mat(cor)); liso(ob)
+    tampa = cilindro(_id("tampa"), (0, 0, 0), r * 0.99, 0.04, (0.92, 0.92, 0.94, 1), seg=24); filho(ob, tampa)
+    tampa.location = (0, 0, 0.02 if cima else -0.02); return ob
 
 def cronometro(nome, loc, r=0.9):
     c = cilindro(nome, loc, r, 0.15, BRANCO, seg=28); c.rotation_euler = (math.radians(90), 0, 0)
@@ -274,8 +276,8 @@ BRILHO.append(mat(VERDE, "pulso"))
 crD, pvD = cronometro("cronD", (123.6, 2.6, 3.9), 0.6)
 visivel(crD, tins - 0.2); pop(crD, tins - 0.2, 1.0)
 key(pvD, "rotation_euler", tins, (0, 0, 0)); key(pvD, "rotation_euler", tpas + 0.1, (0, 0, math.radians(-300)))
-fl = caixa("flash", (123.6, 2.4, 3.9), (1.8, 0.05, 1.8), (1, 1, 1, 1)); visivel(fl, tpas, tpas + 0.15); brilha(fl)
-gD = pixel("guiaD", (118.0, -0.6, 0), escala=0.85); girarZ(gD["raiz"], 20); respirar(gD, t0, t1 + 0.5)
+key(crD, "scale", tpas - 0.05, (1, 1, 1)); key(crD, "scale", tpas + 0.15, (1.35, 1.35, 1.35)); key(crD, "scale", tpas + 0.45, (1, 1, 1))
+gD = pixel("guiaD", (118.7, -0.9, 0), escala=0.85); girarZ(gD["raiz"], 20); respirar(gD, t0, t1 + 0.5)
 pensar(gD, tchip - 0.2, 1.0); espanto(gD, tden + 0.1, 1.2); apontar(gD, tqui - 0.1, 1.6, "D", 40); apontar(gD, tins - 0.1, 1.6, "D", 90)
 plano(t0, (120.0, 0.8), "geral", altura=2.2); plano(tden - 0.3, (120.0, 0.8), "geral", altura=2.2)
 plano(tden + 0.05, (120.6, 1.0), "medio", altura=2.4); plano(tins - 0.4, (120.6, 1.0), "medio", altura=2.4)
@@ -323,7 +325,7 @@ while t < t1 + 0.2:
 gE = pixel("guiaE", (156.6, -2.6, 0), escala=0.8); girarZ(gE["raiz"], 25); respirar(gE, t0, t1 + 0.5)
 comemorar(gE, tpu - 0.1, 1.0); apontar(gE, tli - 0.1, 1.5, "D", 30); apontar(gE, tatk - 0.2, 1.4, "D", 45); espanto(gE, tal - 0.1, 1.4)
 cam_key(t0, (159.0, -8.4, 3.2), (159.6, 1.2, 1.4)); cam_key(tcg - 0.2, (159.2, -8.2, 3.4), (159.6, 1.2, 1.4))
-cam_key(tcg + 0.2, (159.4, -7.2, 5.2), (160.0, 2.2, 0.8)); cam_key(tps - 0.3, (159.6, -6.8, 5.0), (160.2, 2.4, 0.9))
+cam_key(tcg + 0.2, (159.8, -4.6, 4.3), (160.2, 2.4, 0.9)); cam_key(tps - 0.3, (160.0, -4.3, 4.1), (160.3, 2.5, 0.9))
 cam_key(tps + 0.05, (162.2, -3.2, 2.4), (160.6, 2.6, 1.4)); cam_key(t1 - 0.05, (162.4, -3.4, 2.6), (160.6, 2.6, 1.6))
 
 # =====================================================================
@@ -415,7 +417,7 @@ BRILHO.append(mat(AMARELO, "toqueG"))
 crG, pvG = cronometro("cronG", (242.6, 1.4, 3.0), 1.0)
 visivel(crG, test - 0.1); pop(crG, test - 0.1, 1.0)
 key(pvG, "rotation_euler", test + 0.2, (0, 0, 0)); key(pvG, "rotation_euler", tsg, (0, 0, math.radians(-282)))
-gG = pixel("guiaG", (236.6, -0.6, 0), escala=0.85); girarZ(gG["raiz"], 18); respirar(gG, t0, t1 + 0.5)
+gG = pixel("guiaG", (237.3, -0.8, 0), escala=0.85); girarZ(gG["raiz"], 18); respirar(gG, t0, t1 + 0.5)
 acenar(gG, tbra - 0.2, 1.2); apontar(gG, tvin - 0.1, 1.6, "D", 100); espanto(gG, tch - 0.1, 1.2); apontar(gG, tim2 - 0.2, 1.2, "D", 60); comemorar(gG, tqua - 0.1, 1.4)
 cam_key(t0, (239.2, -7.6, 2.6), (239.6, 1.6, 2.4)); cam_key(tvin - 0.5, (239.4, -7.6, 2.6), (239.6, 1.6, 2.4))
 cam_key(tvin - 0.1, (240.0, -9.6, 3.6), (240.0, 1.8, 3.2)); cam_key(tch - 0.4, (240.0, -9.4, 3.6), (240.0, 1.8, 3.2))
@@ -429,7 +431,7 @@ t0 = S[7][0]
 tlin = T(7, "linha"); tban = T(7, "bandeirinha"); tc1 = T(7, "Comenta"); tc2 = T(7, "comenta", 1)
 lA = caixa("linhaCTA", (0.5, 2.2, 0.03), (12, 0.08, 0.04), AMARELO, unico="linhaCTA"); brilha(lA)
 visivel(lA, tlin - 0.1); lA.scale = (0.001, 1, 1); lA.keyframe_insert("scale", frame=f(tlin - 0.1)); lA.scale = (1, 1, 1); lA.keyframe_insert("scale", frame=f(tlin + 0.4))
-band = jogador("bandeirinha", (3.6, 0.6, 0), (0.15, 0.15, 0.18, 1), 0.9); girarZ(band, -35)
+band = jogador("bandeirinha", (2.9, 0.4, 0), (0.15, 0.15, 0.18, 1), 0.9); girarZ(band, -35)
 mastro = cilindro(_id("mastro"), (0, 0, 0), 0.03, 1.4, BRANCO, seg=6); filho(band, mastro); mastro.location = (0.45, -0.1, 1.7)
 pano = caixa(_id("pano"), (0, 0, 0), (0.5, 0.03, 0.36), (1.0, 0.85, 0.10, 1)); filho(band, pano); pano.location = (0.72, -0.1, 2.2)
 visivel(band, tban - 0.2); pop(band, tban - 0.2, 0.9)
