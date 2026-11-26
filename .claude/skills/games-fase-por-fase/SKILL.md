@@ -81,3 +81,6 @@ Depois de agendar no Metricool, acrescente o vídeo à lista do Kwai no OneDrive
 
 ## INSTAGRAM (25/11)
 Todo post na marca 8356514 inclui também {"network":"instagram"} (@pecaporpeca95) com "instagramData": {"type":"REEL","showReelOnFeed":true,"isAiGenerated":true}.
+
+## VÍDEO DE NOTÍCIA DIÁRIO (decisão do dono, 25/11)
+Todo dia, a rotina **games A (post 15:30)** é um vídeo de **NOTÍCIA de games** (prioridade GTA 6): antes da pauta, rode o agente `noticias-games` (Agent, subagent_type "noticias-games") e use a pauta de maior nota com 2 fontes (ou atribuída "segundo X" se fonte única). As rotinas B e C continuam com o `cacador-de-tendencias`. Pedidos diretos do dono têm prioridade sobre o radar.
