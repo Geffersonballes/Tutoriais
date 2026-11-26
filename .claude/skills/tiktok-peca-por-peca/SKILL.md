@@ -155,3 +155,6 @@ Depois de agendar no Metricool, acrescente o vídeo à lista do Kwai no OneDrive
 
 ## INSTAGRAM (25/11)
 Todo post na marca 8356514 inclui também {"network":"instagram"} (@pecaporpeca95) com "instagramData": {"type":"REEL","showReelOnFeed":true,"isAiGenerated":true}.
+
+## SEGUNDO TIKTOK — marca laycmballes (decisão do dono, 26/11)
+Depois do post principal (marca 8356514), crie um SEGUNDO post no Metricool na marca **laycmballes, blogId 8357037** (TikTok @laycmballes), só com `{"network":"tiktok"}`, mesmo vídeo (mesma URL do Picsart), mesmo texto e `tiktokData` {title, isAigc true, privacyOption PUBLIC_TO_EVERYONE}, **1 hora depois** do horário do post principal (ex.: 15:30 → 16:30), autoPublish true, videoCoverMilliseconds 600. Não use o YouTube dessa marca. Registre o id no historico.

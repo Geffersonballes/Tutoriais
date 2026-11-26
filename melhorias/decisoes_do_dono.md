@@ -24,3 +24,4 @@
 - 25/11: **Futebol** — proibido cortar jogos (direitos de transmissão). Teste de vídeos 3D explicativos de futebol dentro da série de games (1º: VAR/impedimento, pedido à sessão de games). Sem escudos, logos ou rostos reais. Se der bom resultado, avaliar série própria.
 - 25/11: **Vídeo de notícia de games todo dia** (prioridade GTA 6) na rotina games A (15:30), com o novo agente noticias-games (.claude/agents/noticias-games.md).
 - 26/11 (madrugada): rotina games A trocada pela trig_01HoqBXzWXKuSLPGyJsvMZZS (notícia do dia, pautas_do_dono.md primeiro, depois noticias-games). A antiga trig_01UcShNKTer5sB159i8PG3q3 está desligada.
+- 26/11: todo vídeo novo (games e guerra) também no TikTok @laycmballes (marca 8357037), só TikTok, 1 h depois do post principal.
