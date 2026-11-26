@@ -84,6 +84,9 @@ def colar_centro(base, im, cx, cy):
 
 def pilula(txt, ponto, escala=1.0, fnt=None):
     fnt = fnt or F_PIL
+    # pílula longa (> ~38 caracteres) passava da borda (backlog 25/11): reduz a fonte até caber em 76 % da largura
+    while fnt.size > 24 and fnt.getbbox(txt)[2] - fnt.getbbox(txt)[0] + 90 > W * 0.76:
+        fnt = fonte(fnt.size - 2, "ExtraBold")
     bb = fnt.getbbox(txt); tw, th = bb[2] - bb[0], bb[3] - bb[1]
     pad, dot = 26, 22; w = tw + pad * 2 + dot + 16; h = th + 34
     im = Image.new("RGBA", (w + 8, h + 8), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
