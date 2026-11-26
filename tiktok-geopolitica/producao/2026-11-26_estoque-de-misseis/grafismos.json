@@ -1,0 +1,45 @@
+{
+  "capa": {"linhas": ["850 MÍSSEIS", "EM UM MÊS.", "POR QUE ACABAM?"], "destaque": [0], "dur": 1.3},
+  "trilha": {"clima": "tenso"},
+  "rotulos": [
+    {"texto": "ESTOQUE", "de": [1, "Esse"], "ate": [1, "@fim", 0, 0.3]},
+    {"texto": "LINHA DE PRODUÇÃO", "de": [2, "Essa"], "ate": [2, "@fim", 0, 0.3]},
+    {"texto": "O BURACO", "de": [3, "Esse"], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "PRAZO DE VALIDADE", "de": [4, "Esse"], "ate": [4, "@fim", 0, 0.3]},
+    {"texto": "A FILA", "de": [5, "Essa"], "ate": [5, "@fim", 0, 0.3]},
+    {"texto": "GUERRA DAS FÁBRICAS", "de": [6, "Essa"], "ate": [6, "@fim", 0, 0.3]}
+  ],
+  "pilulas": [
+    {"texto": "850 TOMAHAWKS EM 1 MÊS", "ponto": "vermelho", "tam": 44, "de": [0, "Tomahawk"], "ate": [0, "nesta"], "y": 0.15},
+    {"texto": "EUA × IRÃ · 2026", "ponto": "vermelho", "tam": 44, "de": [0, "Irã"], "ate": [0, "nesta"], "y": 0.21},
+    {"texto": "PATRIOTS JÁ PAGOS", "ponto": "azul", "tam": 44, "de": [0, "Patriot"], "ate": [0, "Por"], "y": 0.15},
+    {"texto": "PARADOS EM WASHINGTON", "ponto": "vermelho", "tam": 44, "de": [0, "Washington"], "ate": [0, "Por"], "y": 0.21},
+    {"texto": "POR QUE OS MÍSSEIS ACABAM?", "ponto": "azul", "tam": 42, "de": [0, "Por"], "ate": [0, "@fim", 0, 0.3], "y": 0.15},
+    {"texto": "PRONTOS ANTES DO 1º TIRO", "ponto": "azul", "de": [1, "prontos"], "ate": [1, "Esse"], "y": 0.3},
+    {"texto": "MOTOR", "ponto": "azul", "de": [2, "Motor"], "ate": [2, "Essa"], "y": 0.3},
+    {"texto": "EXPLOSIVO", "ponto": "vermelho", "de": [2, "explosivo"], "ate": [2, "Essa"], "y": 0.36},
+    {"texto": "ELETRÔNICA", "ponto": "azul", "de": [2, "eletrônica"], "ate": [2, "Essa"], "y": 0.42},
+    {"texto": "CADA PEÇA: MESES", "ponto": "vermelho", "de": [2, "meses"], "ate": [2, "Essa"], "y": 0.48},
+    {"texto": "GASTA EM SEMANAS", "ponto": "vermelho", "de": [3, "gasta"], "ate": [3, "Esse"], "y": 0.3},
+    {"texto": "REPÕE EM ANOS", "ponto": "azul", "de": [3, "repor"], "ate": [3, "Esse"], "y": 0.36},
+    {"texto": "MARINHA DOS EUA AO SENADO", "ponto": "azul", "tam": 40, "de": [4, "chefe"], "ate": [4, "Esse"], "y": 0.3},
+    {"texto": "MÍSSEIS \"VENCIDOS\" REAVALIADOS", "ponto": "vermelho", "tam": 38, "de": [4, "vencidos"], "ate": [4, "Esse"], "y": 0.36},
+    {"texto": "PENTÁGONO: NÃO CONFIRMA ATRASO", "ponto": "azul", "tam": 38, "de": [5, "Pentágono"], "ate": [5, "Kiev"], "y": 0.3},
+    {"texto": "PRIORIDADE: TROPAS DOS EUA", "ponto": "azul", "tam": 40, "de": [5, "tropas"], "ate": [5, "Kiev"], "y": 0.36},
+    {"texto": "KIEV: OS ATAQUES NÃO ESPERAM", "ponto": "vermelho", "tam": 38, "de": [5, "Kiev"], "ate": [5, "Essa"], "y": 0.3},
+    {"texto": "PROCURA PELO PAC-3: 3×", "ponto": "vermelho", "de": [6, "triplicou"], "ate": [6, "Essa"], "y": 0.3}
+  ],
+  "fontes": [
+    {"texto": "Fontes: Washington Post via Military Times; Boston Globe/AP", "de": [0, "Tomahawk"], "ate": [0, "nesta"]},
+    {"texto": "Fontes: Kyiv Post/VOA (25–26/11/2026); Financial Times (24/11)", "de": [0, "nesta"], "ate": [0, "Por"]},
+    {"texto": "Fontes: CSIS e AEI via Navy Times e Defense News", "de": [3, "gasta"], "ate": [3, "@fim", 0, 0.3]},
+    {"texto": "Fontes: CNBC e Navy Times (18/11/2026)", "de": [4, "chefe"], "ate": [4, "@fim", 0, 0.3]},
+    {"texto": "Fontes: Kyiv Post/VOA (26/11/2026); Financial Times", "de": [5, "Pentágono"], "ate": [5, "@fim", 0, 0.3]},
+    {"texto": "Fonte: Lockheed Martin via Kyiv Post (26/11/2026)", "de": [6, "triplicou"], "ate": [6, "@fim", 0, 0.3]}
+  ],
+  "cta": {
+    "linha1": [8, "Se"], "t1a": "JÁ SABIA? COMENTE", "t1b": "“GENERAL”",
+    "linha2": [8, "Se", 1], "t2a": "NÃO SABIA? COMENTE", "t2b": "“RECRUTA”",
+    "marca_de": [8, "recruta", 0, 0.4], "marca": "PEÇA POR PEÇA · siga pra próxima"
+  }
+}

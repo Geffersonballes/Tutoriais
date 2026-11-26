@@ -601,3 +601,53 @@ def satelite(nome, escala=1.0):
         pain = caixa(_id("spain"), (0, 0, 0), (4.0 * s, 1.8 * s, 0.08 * s), (0.10, 0.16, 0.38, 1)); filho(corpo, pain); pain.location = (d * 4.0 * s, 0, 0)
     lente = cilindro(_id("slente"), (0, 0, 0), 0.55 * s, 0.6 * s, C["escuro"], seg=12); filho(corpo, lente); lente.location = (0, 0, -1.45 * s)
     return corpo
+
+# ---------- modelos de arsenal (vídeo estoque de mísseis, 26/11) ----------
+def tomahawk(nome, escala=1.0, cor=(0.86, 0.87, 0.88, 1), unico=None):
+    """Míssil de cruzeiro: corpo longo e liso, nariz arredondado, asas finas no meio, 4 aletas em X,
+    faixa escura e bocal do motor. Frente = +Y (deitado)."""
+    e = escala; Mx = __import__("mathutils").Matrix
+    corpo = cilindro(nome, (0, 0, 0), 0.26 * e, 5.6 * e, cor, seg=14, unico=unico)
+    corpo.data.transform(Mx.Rotation(math.radians(-90), 4, "X"))
+    for pl in corpo.data.polygons: pl.use_smooth = True
+    nariz = esfera(_id("tnariz"), (0, 0, 0), 0.26 * e, cor, sub=2, unico=unico); nariz.scale = (1, 1.9, 1); filho(corpo, nariz); nariz.location = (0, 2.8 * e, 0)
+    for pl in nariz.data.polygons: pl.use_smooth = True
+    faixa = cilindro(_id("tfaixa"), (0, 0, 0), 0.27 * e, 0.22 * e, (0.18, 0.20, 0.24, 1), seg=14); faixa.data.transform(Mx.Rotation(math.radians(-90), 4, "X"))
+    filho(corpo, faixa); faixa.location = (0, 1.7 * e, 0)
+    asa = caixa(_id("tasa"), (0, 0, 0), (2.9 * e, 0.45 * e, 0.05 * e), (0.70, 0.72, 0.74, 1)); filho(corpo, asa); asa.location = (0, 0.2 * e, -0.12 * e)
+    for a in (45, 135, 225, 315):
+        al = caixa(_id("taleta"), (0, 0, 0), (0.05 * e, 0.45 * e, 0.62 * e), (0.70, 0.72, 0.74, 1)); filho(corpo, al)
+        r = math.radians(a); al.location = (math.cos(r) * 0.38 * e, -2.55 * e, math.sin(r) * 0.38 * e); al.rotation_euler = (0, -r + math.pi / 2, 0)
+    boc = cilindro(_id("tbocal"), (0, 0, 0), 0.16 * e, 0.3 * e, (0.15, 0.15, 0.16, 1), seg=10); boc.data.transform(Mx.Rotation(math.radians(-90), 4, "X"))
+    filho(corpo, boc); boc.location = (0, -2.9 * e, 0)
+    return corpo
+
+def caixote_missil(nome, cor=(0.36, 0.42, 0.26, 1), escala=1.0, unico=None):
+    """Contêiner de transporte de míssil: caixa longa verde-oliva com aros, tampa e plaqueta amarela."""
+    e = escala
+    cx = caixa(nome, (0, 0, 0), (1.0 * e, 6.2 * e, 1.0 * e), cor, unico=unico)
+    for y in (-2.4, 0.0, 2.4):
+        filho(cx, caixa(_id("caro"), (0, y * e, 0), (1.08 * e, 0.18 * e, 1.08 * e), tuple(c * 0.7 for c in cor[:3]) + (1,)))
+    filho(cx, caixa(_id("cplaca"), (0.55 * e, 1.2 * e, 0.15 * e), (0.04 * e, 0.9 * e, 0.4 * e), (0.95, 0.80, 0.15, 1)))
+    return cx
+
+def lancador_patriot(nome, loc, cor=(0.42, 0.46, 0.30, 1)):
+    """Lançador tipo Patriot: semirreboque com 4 tubos quadrados inclinados (2x2), estabilizadores e cabine.
+    Devolve (chassi, pivô dos tubos, [bocas dos tubos em coordenadas locais do pivô])."""
+    chassi = caixa(nome, loc, (2.6, 10.0, 0.7), C["escuro"])
+    cab = caixa(_id("pcab"), (0, 6.0, 0.9), (2.5, 2.2, 2.0), cor); filho(chassi, cab)
+    vid = caixa(_id("pvid"), (0, 7.12, 1.3), (2.1, 0.06, 0.7), (0.15, 0.25, 0.35, 1)); filho(chassi, vid)
+    for x in (-1.3, 1.3):
+        for y in (-3.6, -2.4, 5.6):
+            r = cilindro(_id("proda"), (x, y, -0.4), 0.55, 0.45, C["escuro"], seg=10); r.rotation_euler = (0, math.radians(90), 0); filho(chassi, r)
+        for y in (-4.6, 3.8):
+            pe = caixa(_id("ppe"), (x * 1.25, y, -0.5), (0.3, 0.3, 1.0), (0.30, 0.30, 0.30, 1)); filho(chassi, pe)
+    piv = vazio(nome + "_piv", (0, -4.2, 0.6)); filho(chassi, piv)
+    bocas = []
+    for i, x in enumerate((-0.62, 0.62)):
+        for j, z in enumerate((0.62, 1.86)):
+            tb = caixa(_id("ptubo"), (x, 3.4, z), (1.18, 6.8, 1.18), cor); filho(piv, tb)
+            tp = caixa(_id("ptampa"), (x, 6.82, z), (1.0, 0.06, 1.0), (0.85, 0.85, 0.80, 1)); filho(piv, tp)
+            bocas.append((x, 6.9, z))
+    piv.rotation_euler = (math.radians(38), 0, 0)
+    return chassi, piv, bocas
