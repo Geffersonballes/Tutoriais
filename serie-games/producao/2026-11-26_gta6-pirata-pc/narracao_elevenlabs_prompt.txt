@@ -1,0 +1,15 @@
+[surprised] O GTA seis saiu só para PS cinco e Xbox. Aí um garoto que diz ter quinze anos tentou rodar o jogo no PC. [curious] Por que o projeto foi derrubado?
+
+[curious] O projeto Leonida juntou quase cento e oitenta mil pessoas no Discord. A ideia: pegar o arquivo de Xbox que vazou e traduzir para o Windows.
+
+[curious] Mas por que não dá para só copiar? O processador do Xbox até parece o do PC. O problema é o resto: o jogo conversa com o sistema do console e com um DirectX próprio.
+
+[excited] E tem os shaders, que desenham luz e sombra. No console, vêm prontos para uma única placa de vídeo. No PC são milhares de placas. Isso é um port: meses de trabalho de um estúdio.
+
+[dramatically] Aí veio a queda. No dia vinte e quatro, o Discord e o GitHub do projeto sumiram. O garoto diz que foi a Rockstar e que levou dois anos de banimento. A Rockstar não comentou.
+
+[mischievously] Como uma empresa derruba isso? Geralmente, com uma notificação de direitos autorais, a DMCA, enviada para a plataforma, que tira tudo do ar.
+
+[curious] E o GTA seis oficial no PC? Segundo o GamesBeat, sai no começo de dois mil e vinte e sete. A Rockstar ainda não anunciou.
+
+[excited] E você, já jogou o GTA seis? Comenta zerei. Ainda não? Comenta na fila.
