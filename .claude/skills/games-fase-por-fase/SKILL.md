@@ -90,3 +90,9 @@ Não agende nada na marca laycmballes (blogId 8357037). A ordem anterior de post
 
 ## MARCAS (decisão final do dono, 26/11)
 Poste SOMENTE na marca **geffersonballes1 (8356514)**. NÃO use a ballestech (8049742), a laycmballes (8357037) nem a marca 4 (8368938). Futebol vai igual aos games: TikTok + YouTube Shorts (category SPORTS) + Facebook + Instagram na 8356514.
+
+## ANTI-BORDA (26/11, alerta do Facebook "seu vídeo tem uma borda")
+Céu liso no topo e chão liso embaixo pareciam tarjas de vídeo reaproveitado e limitaram a distribuição no Facebook.
+O `compor.py` aplica sozinho a `anti_borda` (vinheta suave + grão fixo) em todo vídeo novo (games e guerra).
+Vídeo já pronto/repost: `tiktok-geopolitica/motor/anti_borda_video.sh entrada.mp4 saida.mp4`.
+Na cena, evite uma faixa de cor única de ponta a ponta no topo ou na base (céu com degradê/nuvens, chão com textura).
