@@ -27,3 +27,4 @@
 - 26/11: todo vídeo novo (games e guerra) também no TikTok @laycmballes (marca 8357037), só TikTok, 1 h depois do post principal.
 - 26/11: CANCELADO — NÃO postar na marca laycmballes (8357037). Revoga a decisão anterior do mesmo dia.
 - 26/11: marca 4 do Metricool (8368938, YouTube UC7e5cXOPRUUrfQFebKZqauw) = canal de FUTEBOL. Só vídeos de futebol vão para lá; futebol não vai para o YouTube do Peça por Peça. Nada repetido entre canais.
+- 26/11: CANCELADO o canal de futebol na marca 4. Postar SOMENTE na marca geffersonballes1 (8356514); não usar 8049742, 8357037 nem 8368938. Futebol vai para o YouTube do Peça por Peça (category SPORTS).

@@ -158,3 +158,6 @@ Todo post na marca 8356514 inclui também {"network":"instagram"} (@pecaporpeca9
 
 ## MARCA laycmballes (8357037) — NÃO USAR (decisão do dono, 26/11)
 Não agende nada na marca laycmballes (blogId 8357037). A ordem anterior de postar lá foi cancelada pelo dono.
+
+## MARCAS (decisão final do dono, 26/11)
+Poste SOMENTE na marca geffersonballes1 (8356514). NÃO use 8049742, 8357037 nem 8368938.
