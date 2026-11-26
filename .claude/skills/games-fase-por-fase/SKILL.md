@@ -87,3 +87,6 @@ Todo dia, a rotina **games A (post 15:30)** é um vídeo de **NOTÍCIA de games*
 
 ## MARCA laycmballes (8357037) — NÃO USAR (decisão do dono, 26/11)
 Não agende nada na marca laycmballes (blogId 8357037). A ordem anterior de postar lá foi cancelada pelo dono.
+
+## FUTEBOL → CANAL PRÓPRIO NO YOUTUBE (decisão do dono, 26/11)
+Vídeos de futebol: TikTok + Facebook + Instagram na marca 8356514 (sem YouTube) **e** YouTube Shorts na **marca 4, blogId 8368938** (canal UC7e5cXOPRUUrfQFebKZqauw, category SPORTS). Futebol nunca no YouTube do Peça por Peça; games/guerra nunca no canal de futebol (evitar conteúdo repetido entre canais).
