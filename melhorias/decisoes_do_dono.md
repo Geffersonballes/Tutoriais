@@ -31,3 +31,4 @@
 - 26/11: vídeos de GUERRA com 75–90 s (antes 2–2,5 min), por causa da retenção.
 - 26/11: se o vídeo de guerra ficar pronto depois do horário fixo (10:00/18:00), agendar para assim que ficar pronto (agora + ~15 min), sem esperar o próximo horário.
 - 26/11: TODOS os vídeos (games E guerra) com a voz do dono no ElevenLabs. Antonio só como plano B, avisando o dono.
+- 26/11: CANCELADO o pedido de voz do dono na guerra — guerra continua com o Antonio (edge-tts); voz do dono só nos games.
