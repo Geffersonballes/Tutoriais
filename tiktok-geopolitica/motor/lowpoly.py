@@ -651,3 +651,77 @@ def lancador_patriot(nome, loc, cor=(0.42, 0.46, 0.30, 1)):
             bocas.append((x, 6.9, z))
     piv.rotation_euler = (math.radians(38), 0, 0)
     return chassi, piv, bocas
+
+# ---------- modelos navais (vídeo drones na Líbia, 26/11) ----------
+def drone_naval(nome, escala=1.0, cor=(0.20, 0.22, 0.24, 1)):
+    """Drone naval (barco sem tripulação): casco baixo em cunha, proa afilada, convés plano com tampa de
+    carga, mastro de antena e câmera na frente, jato d'água na popa. Frente = +Y."""
+    e = escala
+    bm = bmesh.new()
+    pts = [(-0.45, -1.6, 0.0), (0.45, -1.6, 0.0), (0.5, 0.6, 0.0), (0.0, 1.9, 0.05),
+           (-0.5, 0.6, 0.0)]
+    base = [bm.verts.new((x * e, y * e, z * e - 0.12 * e)) for x, y, z in pts]
+    topo = [bm.verts.new((x * e * 0.92, y * e * 0.97, 0.30 * e)) for x, y, z in pts]
+    bm.faces.new(list(reversed(base))); bm.faces.new(topo)
+    for i in range(len(pts)):
+        j = (i + 1) % len(pts); bm.faces.new([base[i], base[j], topo[j], topo[i]])
+    me = bpy.data.meshes.new(nome); bm.to_mesh(me); bm.free()
+    casco = bpy.data.objects.new(nome, me); bpy.context.collection.objects.link(casco); casco.data.materials.append(mat(cor))
+    faixa = caixa(_id("faixaDN"), (0, 0, 0), (0.95 * e, 0.12 * e, 0.06 * e), (0.95, 0.80, 0.15, 1)); filho(casco, faixa); faixa.location = (0, 0.9 * e, 0.31 * e)
+    tampa = caixa(_id("tampaDN"), (0, 0, 0), (0.6 * e, 1.1 * e, 0.08 * e), (0.30, 0.32, 0.34, 1)); filho(casco, tampa); tampa.location = (0, -0.3 * e, 0.34 * e)
+    mastro = cilindro(_id("mastroDN"), (0, 0, 0), 0.04 * e, 0.8 * e, C["escuro"], seg=5); filho(casco, mastro); mastro.location = (0, -1.0 * e, 0.7 * e)
+    for k, dz in enumerate((0.95, 1.1)):
+        ant = cilindro(_id("antDN"), (0, 0, 0), 0.09 * e, 0.05 * e, (0.85, 0.85, 0.85, 1), seg=8); filho(casco, ant); ant.location = (0, -1.0 * e, dz * e)
+    cam = esfera(_id("camDN"), (0, 0, 0), 0.12 * e, (0.05, 0.05, 0.06, 1), sub=1); filho(casco, cam); cam.location = (0, 1.2 * e, 0.38 * e)
+    jato = cilindro(_id("jatoDN"), (0, 0, 0), 0.14 * e, 0.25 * e, C["escuro"], seg=8); filho(casco, jato); jato.location = (0, -1.68 * e, 0.0); jato.rotation_euler = (math.radians(90), 0, 0)
+    return casco
+
+def corveta(nome, escala=1.0, cinza=(0.52, 0.55, 0.58, 1)):
+    """Corveta mais detalhada que navio_guerra: casco com proa em cunha e borda escura, canhão na proa,
+    células de mísseis, superestrutura em 3 níveis com janelas da ponte, mastro com radar, chaminé,
+    hangar e convoo com helicóptero na popa. Frente = +Y."""
+    e = escala
+    bm = bmesh.new()
+    pts = [(-0.75, -4.2), (0.75, -4.2), (0.8, 2.2), (0.0, 4.6), (-0.8, 2.2)]
+    base = [bm.verts.new((x * e * 0.8, y * e, -0.45 * e)) for x, y in pts]
+    topo = [bm.verts.new((x * e, y * e * 1.02, 0.45 * e)) for x, y in pts]
+    bm.faces.new(list(reversed(base))); bm.faces.new(topo)
+    for i in range(len(pts)):
+        j = (i + 1) % len(pts); bm.faces.new([base[i], base[j], topo[j], topo[i]])
+    me = bpy.data.meshes.new(nome); bm.to_mesh(me); bm.free()
+    casco = bpy.data.objects.new(nome, me); bpy.context.collection.objects.link(casco); casco.data.materials.append(mat(cinza))
+    borda = caixa(_id("bordaC"), (0, 0, 0), (1.62 * e, 8.2 * e, 0.10 * e), (0.12, 0.12, 0.14, 1)); filho(casco, borda); borda.location = (0, -0.1 * e, -0.38 * e)
+    claro = (0.66, 0.69, 0.72, 1)
+    for nivel, (w, l, h, y, z) in enumerate([(1.2, 3.0, 0.7, -0.6, 0.8), (1.0, 1.9, 0.55, -0.2, 1.42), (0.8, 0.9, 0.4, 0.2, 1.88)]):
+        s = caixa(_id("supC"), (0, 0, 0), (w * e, l * e, h * e), claro); filho(casco, s); s.location = (0, y * e, z * e)
+    jan = caixa(_id("janC"), (0, 0, 0), (0.82 * e, 0.06 * e, 0.14 * e), (0.05, 0.08, 0.12, 1)); filho(casco, jan); jan.location = (0, 0.66 * e, 1.92 * e)
+    mastro = cilindro(_id("mastroC"), (0, 0, 0), 0.07 * e, 1.8 * e, (0.30, 0.31, 0.33, 1), seg=6); filho(casco, mastro); mastro.location = (0, 0.0, 2.9 * e)
+    rad = caixa(_id("radC"), (0, 0, 0), (1.0 * e, 0.14 * e, 0.32 * e), C["branco"]); filho(casco, rad); rad.location = (0, 0.0, 3.5 * e)
+    esf = esfera(_id("domoC"), (0, 0, 0), 0.22 * e, C["branco"], sub=1); filho(casco, esf); esf.location = (0, 0.0, 3.95 * e)
+    cham = caixa(_id("chamC"), (0, 0, 0), (0.5 * e, 0.6 * e, 0.7 * e), (0.40, 0.42, 0.45, 1)); filho(casco, cham); cham.location = (0, -1.7 * e, 1.3 * e)
+    torre = cilindro(_id("torreC"), (0, 0, 0), 0.38 * e, 0.4 * e, cinza, seg=10); filho(casco, torre); torre.location = (0, 2.9 * e, 0.65 * e)
+    cano = cilindro(_id("canoC"), (0, 0, 0), 0.06 * e, 1.3 * e, C["escuro"], seg=6); filho(casco, cano); cano.location = (0, 3.5 * e, 0.8 * e); cano.rotation_euler = (math.radians(-82), 0, 0)
+    for k in range(4):
+        cel = caixa(_id("celC"), (0, 0, 0), (0.28 * e, 0.28 * e, 0.06 * e), (0.25, 0.26, 0.28, 1)); filho(casco, cel)
+        cel.location = ((-0.2 + 0.4 * (k % 2)) * e, (1.7 + 0.35 * (k // 2)) * e, 0.48 * e)
+    hang = caixa(_id("hangC"), (0, 0, 0), (1.1 * e, 1.0 * e, 0.7 * e), claro); filho(casco, hang); hang.location = (0, -2.5 * e, 0.8 * e)
+    conv = caixa(_id("convC"), (0, 0, 0), (1.3 * e, 1.3 * e, 0.04 * e), (0.30, 0.32, 0.34, 1)); filho(casco, conv); conv.location = (0, -3.6 * e, 0.47 * e)
+    marca = anel(_id("hC"), (0, 0, 0), 0.4 * e, 0.04 * e, C["branco"], seg=20); filho(casco, marca); marca.location = (0, -3.6 * e, 0.5 * e)
+    return casco
+
+def mar_ondulado(nome, loc, tam, cor, res=120, altura=0.35, escala_onda=6.0, t_fim=90.0, vel=(1.2, 0.6)):
+    """Backlog 4/32: mar com ondas de verdade. Grade subdividida + modificador Displace com textura de nuvens
+    cujas coordenadas seguem um vazio que desliza no tempo (ondas andando)."""
+    bpy.ops.mesh.primitive_grid_add(x_subdivisions=res, y_subdivisions=res, size=1, location=loc)
+    m = bpy.context.active_object; m.name = nome; m.scale = (tam[0], tam[1], 1)
+    m.data.materials.append(mat(cor))
+    for p in m.data.polygons: p.use_smooth = True
+    tx = bpy.data.textures.new(nome + "_tx", "CLOUDS"); tx.noise_scale = escala_onda; tx.noise_depth = 1
+    ref = vazio(nome + "_ref", (0, 0, 0))
+    ref.location = (0, 0, 0); ref.keyframe_insert("location", frame=1)
+    ref.location = (vel[0] * t_fim, vel[1] * t_fim, 0); ref.keyframe_insert("location", frame=f(t_fim))
+    for fc in ref.animation_data.action.fcurves:
+        for kp in fc.keyframe_points: kp.interpolation = "LINEAR"
+    d = m.modifiers.new("ondas", "DISPLACE"); d.texture = tx; d.strength = altura; d.mid_level = 0.5
+    d.texture_coords = "OBJECT"; d.texture_coords_object = ref
+    return m
