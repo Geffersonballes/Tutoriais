@@ -9,7 +9,12 @@
       "mcp__Microsoft_365__sharepoint_create_folder",
       "mcp__Microsoft_365__sharepoint_copy_item",
       "mcp__Microsoft_365__sharepoint_move_item",
-      "mcp__Microsoft_365__sharepoint_rename_item"
+      "mcp__Microsoft_365__sharepoint_rename_item",
+      "mcp__Windsor_ai_for_Social_Media__get_connectors",
+      "mcp__Windsor_ai_for_Social_Media__get_fields",
+      "mcp__Windsor_ai_for_Social_Media__get_options",
+      "mcp__Windsor_ai_for_Social_Media__get_data",
+      "mcp__Metricool_Social_Media_Management__getScheduledPosts"
     ]
   }
 }

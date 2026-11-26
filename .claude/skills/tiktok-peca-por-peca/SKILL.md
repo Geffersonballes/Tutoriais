@@ -128,7 +128,9 @@ Folha de contato 1 fps do `final.mp4`, conferir: legenda sincronizada e sem erro
 5. Faça commit e push dos arquivos da produção (frames, preview e final.mp4 ficam fora do git).
 
 ## 8. Desempenho (`analista-de-desempenho`, 1× por dia)
-Windsor `tiktok_organic` (conta "Gefferson Balles"): views, retenção, comentários, seguidores dos vídeos de
+Windsor (só leitura, ferramentas `mcp__Windsor_ai_for_Social_Media__get_connectors/get_fields/get_data`):
+`tiktok_organic` (conta "Gefferson Balles"), `youtube`, `facebook_organic` e `instagram` (os dois últimos só
+quando estiverem ligados no Windsor; senão anote "sem dados"). Views, retenção, comentários, seguidores dos vídeos de
 48 h e 7 dias atrás → `tiktok-geopolitica/aprendizados.md`. Leia esse arquivo antes de escolher a próxima pauta.
 
 **Hashtags:** siga `tiktok-geopolitica/hashtags.md` (6 de alcance #fyp #foryou #paravoce #viral #tiktokbrasil #shorts + nicho + tema + #aprendanotiktok).

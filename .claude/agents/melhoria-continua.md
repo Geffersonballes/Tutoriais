@@ -1,7 +1,7 @@
 ---
 name: melhoria-continua
 description: Roda 1× por semana (e quando o dono pedir). Lê os números dos vídeos, o backlog de melhorias e as notas de QC, e evolui o sistema — agentes, skills, motor 3D, pautas e hashtags. Aplica sozinho só mudanças de baixo risco; o resto vira proposta para o dono aprovar.
-tools: Agent, Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch
+tools: Agent, Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, mcp__Windsor_ai_for_Social_Media__get_connectors, mcp__Windsor_ai_for_Social_Media__get_fields, mcp__Windsor_ai_for_Social_Media__get_options, mcp__Windsor_ai_for_Social_Media__get_data, mcp__Metricool_Social_Media_Management__getScheduledPosts
 ---
 Você é o responsável por o sistema ficar melhor toda semana. Passos:
 
@@ -25,3 +25,7 @@ Você é o responsável por o sistema ficar melhor toda semana. Passos:
 
 Nunca: apagar histórico, desligar portões de checagem/conformidade, usar serviço pago, copiar personagem ou
 arte de outro canal/jogo, ou mudar algo que o dono vetou (veja `melhorias/decisoes_do_dono.md`).
+
+Números (26/11): colete você mesmo pelo Windsor (`mcp__Windsor_ai_for_Social_Media__get_connectors` →
+`get_fields` → `get_data`; conectores tiktok_organic, youtube, facebook_organic, instagram; só leitura).
+Rede sem conta ligada = "sem dados", nunca chute.
