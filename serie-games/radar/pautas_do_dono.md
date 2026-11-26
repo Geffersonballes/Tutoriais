@@ -1,6 +1,6 @@
 # Pautas pedidas pelo dono (fila)
 
-## 26/11 — games A (post 15:30): "Por que o GTA 6 pirata de PC foi derrubado?"
+## ✅ FEITO (post 443370587) — 26/11 — games A (post 15:30): "Por que o GTA 6 pirata de PC foi derrubado?"
 Project Leonida (post do Ei Nerd, 25/11). Ângulo: por que jogo de console não roda no PC só copiando arquivos (arquitetura, APIs gráficas, o que um port exige); como uma empresa derruba (DMCA, plataformas); quando sai a versão oficial de PC (início de 2027, sem anúncio oficial).
 Cuidados: 2 fontes independentes, senão "segundo o Ei Nerd"/"teria sido". Pode dizer "um garoto de 15 anos" que diz ter levado banimento de 2 anos no Discord e abandonado o projeto — SEM nome, apelido, usuário, servidor, rosto ou print. Não ensinar nem linkar pirataria, sem arquivos vazados, sem arte/personagens/logo da Rockstar (só 3D nosso com o Pixel). Se a checagem reprovar: pauta normal do radar e avisar a sessão principal.
 
