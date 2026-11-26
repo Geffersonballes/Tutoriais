@@ -7,8 +7,9 @@
 - [x] palavras.py + alinhar.py — 8 blocos, 199 palavras
 - [x] Melhoria (backlog, NPCs "zonas fora do bloco carregadas"): zona_janela/aplicar_zonas — objetos de cada zona só renderizam no próprio bloco
 - [x] Cena tiktok-geopolitica/motor/cena_gta6_212gb.py (estilo C, Pixel, visual nível 2) + prévias conferidas
-- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — na fila desde 15:53 UTC
-- [ ] compor.py → final.mp4 + capa.jpg
-- [ ] QC
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — fila 15:53, início 16:25, fim 18:41 UTC (1.114 quadros, ~7,3 s/quadro com 2 processos; a visibilidade por zona deixou o render ~25 % mais rápido que o do GTA 6 pirata)
+- [x] compor.py → final.mp4 (74,3 s, 1080×1920, 30 fps, 39,4 MB) + capa.jpg; ANTI_BORDA ativo (padrão 1, não desligado)
+- [x] QC aprovado: capa legível (POR QUE O GTA 6 / PESA 212 GB?), gancho com número no 1º s, legendas sincronizadas, rótulos/pílulas sem tapar o objeto, fontes na tela, selo IA, CTA CABE/APAGUEI completo, pedido de like no fim, −14,2 LUFS / −1,3 dBTP; borda: desvio mínimo por linha nas 60 linhas de cima/baixo entre 3,5 e 73 (nenhuma faixa chapada)
+- Defeitos menores para o backlog (não corrigidos): no gancho o "?" 3D encosta no "212 GB" (~6 s); ~0,5 s de parede vazia no início do bloco do HD (caixas nascem na palavra "cópias"); sombra borrada sob a barra de progresso do bloco da internet
 - [x] legenda_post.txt
 - NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, historico.md
