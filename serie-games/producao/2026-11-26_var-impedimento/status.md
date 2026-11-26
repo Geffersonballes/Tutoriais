@@ -11,3 +11,4 @@
 - [x] QC (26/11): folha de contato ok — legenda sincronizada e legível, nada cortado, sem tela preta (blackdetect), selo "Conteúdo gerado com IA" o vídeo todo, pílulas/rótulos/fontes ok, CTA LINHA/BANDEIRA completo, marca + "DEIXA O LIKE" no fim, capa legível em 270 px; −14,1 LUFS; sem escudo/logo/rosto real. Bordas: base ≥4,7 em todo quadro; topo ≥4 exceto ~11–12 s (std 3,6: céu azul liso no alto quando a câmera sobe para as câmeras do teto — defeito de cena, leve; anotar no backlog: degradê/nuvem nesse plano)
 - Obs.: marca final está "PEÇA POR PEÇA" (igual ao matchmaking); trocar para "FASE POR FASE" no grafismos.json se o dono preferir
 - NÃO fazer: Picsart, Metricool, OneDrive, historico.md (pedido da sessão principal)
+- [x] Picsart + Metricool 442664122 (26/11 11:30, TikTok+YT SPORTS+FB+IG) + Kwai + historico
