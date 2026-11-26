@@ -1,0 +1,11 @@
+# Status — 2026-11-26_matchmaking (post 26/11/2026 13:00, America/Cuiaba)
+- [x] Pauta: radar 25/11 (18:15 UTC, < 12 h), pauta 3 "Como o matchmaking escolhe seu time?" (nota 7,3, maior livre sem repetir; sem GTA 6)
+- [x] Checagem (checagem.md) — 2 fontes por afirmação; "50 %" atribuído à Riot
+- [x] Conformidade de games ✅ (checagem.md): jogadores-brinquedo genéricos, sem arte/logotipo de jogo
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.309 créditos, flow SuP6uQzcDVJo61KTT9oB) → narracao.mp3 (70,5 s)
+- [x] palavras.py + alinhar.py — 213/215 palavras, 8 blocos
+- [x] Melhoria do backlog: pílula longa reduz a fonte sozinha (compor.py)
+- [x] Cena tiktok-geopolitica/motor/cena_matchmaking.py (estilo C, Pixel, visual nível 2) + prévias conferidas
+- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock) — 2248 quadros, início 22:00 UTC (~18 s/quadro por processo)
+- [ ] compor.py → final.mp4 + capa.jpg
+- [ ] QC
