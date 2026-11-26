@@ -1,0 +1,14 @@
+# Status — 2026-11-26_gta6-212gb (games B, post 21:30 Cuiabá de 26/11)
+- [x] Pauta: radar 2026-11-25, pauta 4 (nota 7,0, maior livre) com ângulo novo: "Por que o GTA 6 pesa 212 GB?"
+- [x] Checagem (checagem.md): 212 GB (TweakTown, GamesRadar, PlayNews); pré-carga 10/11 (TweakTown, PlayNews, Tech Insider); Titanfall 48/35 GB (PC Gamer, Tom's Hardware, Engadget); Helldivers 2 154→23 GB (Tom's Hardware, PC Gamer, TweakTown, VGC)
+- [x] Conformidade: sem arte/logo/personagem de jogo; objetos genéricos; sem pirataria
+- [x] Roteiro 8 blocos, 198 palavras; gancho com número no 1º segundo; CTA CABE / APAGUEI + like automático
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.273 créditos, flow jp6Asp7BcvYfpKn81Xkk) → narracao.mp3 (69,8 s)
+- [x] palavras.py + alinhar.py — 8 blocos, 199 palavras
+- [x] Melhoria (backlog, NPCs "zonas fora do bloco carregadas"): zona_janela/aplicar_zonas — objetos de cada zona só renderizam no próprio bloco
+- [x] Cena tiktok-geopolitica/motor/cena_gta6_212gb.py (estilo C, Pixel, visual nível 2) + prévias conferidas
+- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — na fila desde 15:53 UTC
+- [ ] compor.py → final.mp4 + capa.jpg
+- [ ] QC
+- [x] legenda_post.txt
+- NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, historico.md

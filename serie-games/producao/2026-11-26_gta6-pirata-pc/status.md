@@ -1,0 +1,15 @@
+# Status — 2026-11-26_gta6-pirata-pc (games A, post 15:30 Cuiabá — pauta do dono)
+- [x] Pauta: pautas_do_dono.md (26/11 games A) — "Por que o GTA 6 pirata de PC foi derrubado?" (Project Leonida, post do Ei Nerd 25/11)
+- [x] Checagem (checagem.md): queda do Discord/GitHub com 4 fontes (Tom's Hardware, TweakTown, Antihype, Gamevicio); autoria da Rockstar = só palavra do garoto ("o garoto diz que foi a Rockstar"; "a Rockstar não comentou"); PC 2027 = "segundo o GamesBeat", sem anúncio
+- [x] Conformidade: sem nome/apelido/servidor do garoto, sem arte/logo/personagem da Rockstar, sem arquivo vazado, sem link/instrução de pirataria
+- [x] Roteiro 8 blocos, 220 palavras; gancho nos 3 s; CTA ZEREI / NA FILA + like automático
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.321 créditos, flow PBVlv3UaBKFr02DfEM1G) → narracao.mp3 (71,0 s)
+- [x] palavras.py + alinhar.py — 213/222 palavras, 8 blocos
+- [x] Melhoria (backlog, linha do matchmaking "objetos nascem no corte"): na zona B tudo nasce no corte da câmera; piso xadrez + parede alta em todas as salas (anti-borda na base e no topo)
+- [x] Cena tiktok-geopolitica/motor/cena_gta6_pirata_pc.py (estilo C, Pixel, visual nível 2) + prévias conferidas
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock) — 13:45 → 16:26 UTC, 1132 quadros
+- [x] compor.py → final.mp4 (1080×1920, 30 fps, 75,5 s) + capa.jpg (anti-borda aplicada)
+- [x] QC (26/11 16:30 UTC): folha de contato ok — capa legível, legenda sincronizada, nada cortado, sem tela preta (blackdetect 0), selo de IA o vídeo todo, pílulas/rótulos/fontes ok, CTA ZEREI/NA FILA + marca + DEIXA O LIKE no fim; −14,0 LUFS; topo sem faixa lisa (std ≥22); base std mínimo 3,3 (piso claro na sala da DMCA — leve, anotado no backlog). Defeitos leves: ~0,5 s de telão vazio no início do bloco 1; placas do PC cortadas à direita no bloco 3; linha de fonte passa sobre as pernas do Pixel (item já no backlog)
+- [ ] Pendente (outra sessão): Picsart, Metricool (15:30 Cuiabá, marca 8356514: TikTok + YouTube GAMING + FB REEL + IG REEL), Kwai, historico.md
+- [x] legenda_post.txt
+- NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, historico.md
