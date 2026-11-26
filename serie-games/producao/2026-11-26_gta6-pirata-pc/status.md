@@ -7,8 +7,9 @@
 - [x] palavras.py + alinhar.py — 213/222 palavras, 8 blocos
 - [x] Melhoria (backlog, linha do matchmaking "objetos nascem no corte"): na zona B tudo nasce no corte da câmera; piso xadrez + parede alta em todas as salas (anti-borda na base e no topo)
 - [x] Cena tiktok-geopolitica/motor/cena_gta6_pirata_pc.py (estilo C, Pixel, visual nível 2) + prévias conferidas
-- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — início 13:45 UTC
-- [ ] compor.py → final.mp4 + capa.jpg
-- [ ] QC
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock) — 13:45 → 16:26 UTC, 1132 quadros
+- [x] compor.py → final.mp4 (1080×1920, 30 fps, 75,5 s) + capa.jpg (anti-borda aplicada)
+- [x] QC (26/11 16:30 UTC): folha de contato ok — capa legível, legenda sincronizada, nada cortado, sem tela preta (blackdetect 0), selo de IA o vídeo todo, pílulas/rótulos/fontes ok, CTA ZEREI/NA FILA + marca + DEIXA O LIKE no fim; −14,0 LUFS; topo sem faixa lisa (std ≥22); base std mínimo 3,3 (piso claro na sala da DMCA — leve, anotado no backlog). Defeitos leves: ~0,5 s de telão vazio no início do bloco 1; placas do PC cortadas à direita no bloco 3; linha de fonte passa sobre as pernas do Pixel (item já no backlog)
+- [ ] Pendente (outra sessão): Picsart, Metricool (15:30 Cuiabá, marca 8356514: TikTok + YouTube GAMING + FB REEL + IG REEL), Kwai, historico.md
 - [x] legenda_post.txt
 - NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, historico.md
