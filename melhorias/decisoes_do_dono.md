@@ -25,3 +25,4 @@
 - 25/11: **Vídeo de notícia de games todo dia** (prioridade GTA 6) na rotina games A (15:30), com o novo agente noticias-games (.claude/agents/noticias-games.md).
 - 26/11 (madrugada): rotina games A trocada pela trig_01HoqBXzWXKuSLPGyJsvMZZS (notícia do dia, pautas_do_dono.md primeiro, depois noticias-games). A antiga trig_01UcShNKTer5sB159i8PG3q3 está desligada.
 - 26/11: todo vídeo novo (games e guerra) também no TikTok @laycmballes (marca 8357037), só TikTok, 1 h depois do post principal.
+- 26/11: CANCELADO — NÃO postar na marca laycmballes (8357037). Revoga a decisão anterior do mesmo dia.
