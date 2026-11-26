@@ -15,6 +15,6 @@ Horários desta sessão no YouTube: **08:00 e 20:00** (fora dos horários de gam
 | Tema | Status | Pasta |
 |---|---|---|
 | Como funciona a guerra moderna (11:03) | formato aprovado 25/11; PUBLICADO 25/11 19:00 — https://www.youtube.com/watch?v=lNZdZbDMOb0 (Metricool 442338295) | produto/youtube/longos/guerra-moderna |
-| GTA 6 e os games por dentro, peça por peça | em montagem; previsto 28/11 19:00 (espera o vídeo do PS5) | produto/youtube/longos/gta6-games |
+| GTA 6 e os games por dentro, peça por peça (8:19) | agendado 28/11 19:00 (Metricool 443138034) | produto/youtube/longos/gta6-games |
 - 26/11: regra do dono — postar SÓ na marca 8356514 (nunca 8049742, 8357037 nem 8368938).
 - 26/11: o dono confirmou nesta sessão que os longos são agendados normalmente, sem rascunho (formato aprovado em 25/11).
