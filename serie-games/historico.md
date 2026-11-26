@@ -18,4 +18,4 @@
 | 2026-11-25 | Por que a IA deixou o PS5 mais caro? (visual nível 2) | serie-games/producao/2026-11-25_ps5-ia | [post 442329812](https://app.metricool.com/planner/calendar?blogId=8356514&openWithPostUuid=-2855157903845341257) | 25/11 21:30 TikTok + YouTube + Facebook + Instagram (marca 8356514) |
 | 2026-11-26 | Como o matchmaking escolhe o seu time? (voz do dono) | serie-games/producao/2026-11-26_matchmaking | [post 442500792](https://app.metricool.com/planner/calendar?blogId=8356514&openWithPostUuid=-4593528982632839943) | 26/11 13:00 TikTok + YouTube Shorts + Facebook + Instagram (marca 8356514) |
 
-> 26/11 — decisão do dono: vídeos de FUTEBOL vão em 2 posts no mesmo horário: (1) marca 8356514 com TikTok + Facebook REEL + Instagram REEL, SEM YouTube; (2) marca 8368938 (canal de futebol, UC7e5cXOPRUUrfQFebKZqauw) só YouTube Short, category SPORTS. Futebol nunca no YouTube do Peça por Peça; games/guerra nunca no canal de futebol.
+> 26/11 — decisão final do dono: SÓ a marca geffersonballes1 (8356514). Futebol vai como games: UM post com TikTok + YouTube Shorts (SPORTS) + Facebook REEL + Instagram REEL. Não usar 8368938 nem 8357037.
