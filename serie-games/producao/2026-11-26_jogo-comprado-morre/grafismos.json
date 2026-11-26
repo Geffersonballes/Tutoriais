@@ -1,0 +1,37 @@
+{
+ "capa": {"linhas": ["SEU JOGO COMPRADO", "PODE MORRER?"], "destaque": [1], "dur": 1.3},
+ "rotulos": [
+  {"texto": "O SEGREDO: O SERVIDOR", "de": [1, "segredo"], "ate": [1, "@fim", 0, 0.3]},
+  {"texto": "SUMIU DA BIBLIOTECA", "de": [2, "sumiu"], "ate": [2, "Aí"]},
+  {"texto": "PL 3612/2026", "de": [3, "projeto"], "ate": [3, "@fim", 0, 0.3]},
+  {"texto": "3 SAÍDAS", "de": [4, "escolher"], "ate": [4, "@fim", 0, 0.3]},
+  {"texto": "AINDA NÃO É LEI", "de": [6, "ainda"], "ate": [6, "@fim", 0, 0.3]}
+ ],
+ "pilulas": [
+  {"texto": "SERVIDORES DESLIGADOS", "ponto": "vermelho", "de": [0, "parou"], "ate": [0, "Como"], "tam": 44, "y": 0.30},
+  {"texto": "NEM O DISCO SALVOU", "ponto": "vermelho", "de": [0, "disco"], "ate": [0, "@fim", 0, 0.3], "tam": 44, "y": 0.30},
+  {"texto": "CONTA · PROGRESSO · PARTIDAS", "ponto": "azul", "de": [1, "confere"], "ate": [1, "Desligou"], "tam": 38, "y": 0.30},
+  {"texto": "SERVIDOR OFF = JOGO OFF", "ponto": "vermelho", "de": [1, "Desligou"], "ate": [1, "@fim", 0, 0.3], "tam": 42, "y": 0.30},
+  {"texto": "\"PAREM DE MATAR JOGOS\"", "ponto": "azul", "de": [2, "Stop"], "ate": [2, "@fim", 0, 0.3], "tam": 42, "y": 0.30},
+  {"texto": "AVISO: 180 DIAS ANTES", "ponto": "azul", "de": [3, "aviso"], "ate": [3, "pelo"], "tam": 42, "y": 0.30},
+  {"texto": "SUPORTE MÍNIMO: 2 ANOS", "ponto": "azul", "de": [3, "pelo"], "ate": [3, "@fim", 0, 0.3], "tam": 42, "y": 0.30},
+  {"texto": "1. VERSÃO SEM INTERNET", "ponto": "azul", "de": [4, "versão"], "ate": [4, "ferramentas"], "tam": 42, "y": 0.30},
+  {"texto": "2. SERVIDORES DA COMUNIDADE", "ponto": "azul", "de": [4, "ferramentas"], "ate": [4, "devolver"], "tam": 38, "y": 0.30},
+  {"texto": "3. PARTE DO DINHEIRO DE VOLTA", "ponto": "azul", "de": [4, "devolver"], "ate": [4, "@fim", 0, 0.3], "tam": 38, "y": 0.30},
+  {"texto": "MULTA: R$ 500 MIL OU 1%", "ponto": "vermelho", "de": [5, "multa"], "ate": [5, "Jogo"], "tam": 42, "y": 0.30},
+  {"texto": "GRÁTIS E ASSINATURA: FORA", "ponto": "azul", "de": [5, "gratuito"], "ate": [5, "@fim", 0, 0.3], "tam": 40, "y": 0.30},
+  {"texto": "URGÊNCIA NA CÂMARA", "ponto": "azul", "de": [6, "tramita"], "ate": [6, "passar"], "tam": 44, "y": 0.30},
+  {"texto": "DEPOIS: SENADO", "ponto": "vermelho", "de": [6, "passar"], "ate": [6, "@fim", 0, 0.3], "tam": 46, "y": 0.30}
+ ],
+ "fontes": [
+  {"texto": "Fontes: GameSpot e VGC (The Crew, 2024)", "de": [0, "Crew"], "ate": [0, "@fim", 0, 0.3]},
+  {"texto": "Fontes: PC Gamer e Engadget", "de": [2, "semanas"], "ate": [2, "@fim", 0, 0.3]},
+  {"texto": "Fontes: Agência Câmara e Tecnoblog", "de": [3, "projeto"], "ate": [5, "@fim", 0, 0.3]},
+  {"texto": "Fonte: Agência Câmara", "de": [6, "tramita"], "ate": [6, "@fim", 0, 0.3]}
+ ],
+ "cta": {"linha1": [7, "Comenta"], "t1a": "TEM QUE FUNCIONAR SEMPRE? COMENTE", "t1b": "“SALVA”",
+         "linha2": [7, "Comenta", 1], "t2a": "A EMPRESA PODE DESLIGAR? COMENTE", "t2b": "“DESLIGA”",
+         "marca_de": [7, "desliga", 0, 0.3], "marca": "PEÇA POR PEÇA"},
+ "trilha": {"clima": "curioso"},
+ "subst": {}
+}
