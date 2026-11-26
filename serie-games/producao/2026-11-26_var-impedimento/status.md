@@ -6,7 +6,8 @@
 - [x] palavras.py + alinhar.py — 212/217 palavras, 8 blocos
 - [x] Melhoria do backlog: corte seco de câmera levado para `cartoon.corte_seco()`
 - [x] Cena tiktok-geopolitica/motor/cena_var_impedimento.py (estilo C, Pixel, visual nível 2) + prévias conferidas
-- [~] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock) — reiniciado 00:45 UTC com topo fechado (anti-borda); ~700/1122 quadros às 02:45, fim previsto ~04:00 UTC
-- [ ] compor.py → final.mp4 + capa.jpg
-- [ ] QC
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock /tmp/render.lock) — reiniciado 00:45 UTC com topo fechado (anti-borda); ~700/1122 quadros às 02:45, terminou 04:31 UTC (1122 quadros)
+- [x] compor.py → final.mp4 (1080×1920, 30 fps, 75,0 s) + capa.jpg (anti-borda aplicada)
+- [x] QC (26/11): folha de contato ok — legenda sincronizada e legível, nada cortado, sem tela preta (blackdetect), selo "Conteúdo gerado com IA" o vídeo todo, pílulas/rótulos/fontes ok, CTA LINHA/BANDEIRA completo, marca + "DEIXA O LIKE" no fim, capa legível em 270 px; −14,1 LUFS; sem escudo/logo/rosto real. Bordas: base ≥4,7 em todo quadro; topo ≥4 exceto ~11–12 s (std 3,6: céu azul liso no alto quando a câmera sobe para as câmeras do teto — defeito de cena, leve; anotar no backlog: degradê/nuvem nesse plano)
+- Obs.: marca final está "PEÇA POR PEÇA" (igual ao matchmaking); trocar para "FASE POR FASE" no grafismos.json se o dono preferir
 - NÃO fazer: Picsart, Metricool, OneDrive, historico.md (pedido da sessão principal)
