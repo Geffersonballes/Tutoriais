@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Conecta o chip do robô à Evolution API mostrando o QR Code no próprio terminal.
 # Uso:  bash conectar-whatsapp.sh                 (QR Code)
+#       bash conectar-whatsapp.sh --trocar        (desconecta o número atual e mostra o QR para o número novo)
 #       bash conectar-whatsapp.sh 5565999998888   (código de 8 letras, sem QR)
 set -uo pipefail
 cd "$(dirname "$0")"
@@ -8,6 +9,8 @@ cd "$(dirname "$0")"
 KEY=$(grep '^EVOLUTION_API_KEY=' .env | cut -d= -f2-)
 INST=$(grep '^EVOLUTION_INSTANCIA=' .env | cut -d= -f2-); INST=${INST:-robo}
 URL=http://localhost:8080
+TROCAR=""
+if [ "${1:-}" = "--trocar" ]; then TROCAR=1; shift; fi
 NUMERO=${1:-}
 H=(-H "apikey: $KEY" -H "Content-Type: application/json")
 json() { python3 -c "import sys,json
@@ -22,6 +25,11 @@ fi
 
 echo "Esperando a Evolution API responder..."
 for _ in $(seq 1 60); do curl -sf "$URL" >/dev/null && break; sleep 2; done
+
+if [ -n "$TROCAR" ]; then
+  echo "Desconectando o número atual do robô..."
+  curl -s -X DELETE "$URL/instance/logout/$INST" "${H[@]}" >/dev/null; sleep 5
+fi
 
 if [ -n "$NUMERO" ]; then
   # Código de 8 letras só sai se a instância for criada já com o número (visto na v2.3.7).

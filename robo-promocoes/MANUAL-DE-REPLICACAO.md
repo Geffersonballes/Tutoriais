@@ -89,6 +89,9 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
   O robô **só** posta nos IDs de `GRUPOS`; os outros grupos do número são ignorados.
 - Testar o envio antes da Shopee aprovar: `docker compose run --rm robo python -m robo enviar-teste`
   (manda 1 mensagem marcada como TESTE, com produto de exemplo).
+- **Trocar o número do robô** (ex.: sair do número pessoal para o chip exclusivo): primeiro coloque o número novo
+  no grupo como admin, depois `git pull && bash conectar-whatsapp.sh --trocar` e leia o QR com o celular do **número novo**.
+  O ID do grupo não muda, então `GRUPOS` continua igual.
 - Evolution API: imagem `evoapicloud/evolution-api:v2.3.7` (conferida no Docker Hub em 25/11/2026).
 - ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
   e usar uma deploy key só de leitura na VPS de cada cliente.
@@ -260,6 +263,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | Dono confirmou: a marca do Metricool é a **laycmballes** (id 8357037), com Instagram @achadinhosdalay40. O nome da marca fica como está. |
 | 25/11/2026 | Criativo em vídeo v2 com as cores da marca (`instagram/criativos/…-v2-marca.mp4`): fundo preto com brilho dourado (PIL), logo pulsando no topo, cartão escuro com borda dourada, fonte Poppins (baixada do google/fonts), mesma narração da v1 (sem custo novo de voz). |
 | 25/11/2026 | Regra da marca: **não usar "amigas"** (público aberto a todos). Removido de `robo/frases.py` (8 frases), de `textos-do-grupo.md` (2 trechos) e da narração. Criativo v3 com narração nova (cerca de 219 créditos por versão). |
+| 26/11/2026 | ✅ **Chip exclusivo do robô** conseguido. Criado `STATUS.md` (sequência revisada) e a opção `--trocar` no `conectar-whatsapp.sh`. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
