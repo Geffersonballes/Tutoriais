@@ -1,0 +1,40 @@
+{
+ "capa": {"linhas": ["POR QUE O GTA 6", "PESA 212 GB?"], "destaque": [1], "dur": 1.3},
+ "rotulos": [
+  {"texto": "3 VILÕES DO ESPAÇO", "de": [1, "Três"], "ate": [1, "Primeiro"]},
+  {"texto": "1. TEXTURAS", "de": [1, "Primeiro"], "ate": [1, "@fim", 0, 0.3]},
+  {"texto": "2. SOM", "de": [2, "Depois"], "ate": [2, "@fim", 0, 0.3]},
+  {"texto": "3. CÓPIAS", "de": [3, "truque"], "ate": [4, "@fim", 0, 0.3]},
+  {"texto": "COMO BAIXAR?", "de": [5, "como"], "ate": [6, "@fim", 0, 0.3]}
+ ],
+ "pilulas": [
+  {"texto": "212 GB NO CONSOLE", "ponto": "vermelho", "de": [0, "espaço"], "ate": [0, "Por"], "tam": 46, "y": 0.30},
+  {"texto": "TEXTURA = A \"PELE\" DOS OBJETOS", "ponto": "azul", "de": [1, "peles"], "ate": [1, "Quanto"], "tam": 38, "y": 0.30},
+  {"texto": "MAIS NÍTIDA = MAIS PESADA", "ponto": "vermelho", "de": [1, "Quanto"], "ate": [1, "@fim", 0, 0.3], "tam": 42, "y": 0.30},
+  {"texto": "TITANFALL (2014): 48 GB NO PC", "ponto": "azul", "de": [2, "Titanfall"], "ate": [2, "trinta"], "tam": 38, "y": 0.30},
+  {"texto": "35 GB SÓ DE ÁUDIO", "ponto": "vermelho", "de": [2, "trinta"], "ate": [2, "motivo"], "tam": 46, "y": 0.30},
+  {"texto": "SEM DESCOMPACTAR = CPU LIVRE", "ponto": "azul", "de": [2, "motivo"], "ate": [2, "@fim", 0, 0.3], "tam": 38, "y": 0.30},
+  {"texto": "O MESMO ARQUIVO VÁRIAS VEZES", "ponto": "vermelho", "de": [3, "cópias"], "ate": [3, "HD"], "tam": 40, "y": 0.30},
+  {"texto": "HD MECÂNICO: LEITOR ANDA MENOS", "ponto": "azul", "de": [3, "HD"], "ate": [3, "@fim", 0, 0.3], "tam": 38, "y": 0.30},
+  {"texto": "HELLDIVERS 2 NO PC", "ponto": "azul", "de": [4, "Helldivers"], "ate": [4, "cento"], "tam": 46, "y": 0.30},
+  {"texto": "154 GB → 23 GB", "ponto": "vermelho", "de": [4, "cento"], "ate": [4, "Oitenta"], "tam": 50, "y": 0.30},
+  {"texto": "85% A MENOS", "ponto": "azul", "de": [4, "Oitenta"], "ate": [4, "@fim", 0, 0.3], "tam": 50, "y": 0.30},
+  {"texto": "PRÉ-CARGA: 10/11", "ponto": "azul", "de": [5, "pré-carga"], "ate": [5, "nove"], "tam": 48, "y": 0.30},
+  {"texto": "9 DIAS ANTES DA ESTREIA", "ponto": "azul", "de": [5, "nove"], "ate": [5, "trancado"], "tam": 42, "y": 0.30},
+  {"texto": "TRANCADO ATÉ O LANÇAMENTO", "ponto": "vermelho", "de": [5, "trancado"], "ate": [5, "@fim", 0, 0.3], "tam": 40, "y": 0.30},
+  {"texto": "INTERNET DE 100 MEGAS", "ponto": "azul", "de": [6, "internet"], "ate": [6, "quase"], "tam": 44, "y": 0.30},
+  {"texto": "≈ 5 HORAS (SEM QUEDA)", "ponto": "vermelho", "de": [6, "quase"], "ate": [6, "@fim", 0, 0.3], "tam": 44, "y": 0.30}
+ ],
+ "fontes": [
+  {"texto": "Fontes: Rockstar via TweakTown e GamesRadar", "de": [0, "Rockstar"], "ate": [0, "@fim", 0, 0.3]},
+  {"texto": "Fontes: Respawn via PC Gamer e Tom's Hardware", "de": [2, "Titanfall"], "ate": [2, "@fim", 0, 0.3]},
+  {"texto": "Fontes: Arrowhead via Tom's Hardware e PC Gamer", "de": [4, "Helldivers"], "ate": [4, "@fim", 0, 0.3]},
+  {"texto": "Fontes: TweakTown e PlayNews", "de": [5, "pré-carga"], "ate": [5, "@fim", 0, 0.3]},
+  {"texto": "Conta: 212 GB a 100 Mb/s ≈ 4 h 43 min", "de": [6, "cem"], "ate": [6, "@fim", 0, 0.3]}
+ ],
+ "cta": {"linha1": [7, "Comenta"], "t1a": "TEM ESPAÇO? COMENTE", "t1b": "“CABE”",
+         "linha2": [7, "Comenta", 1], "t2a": "APAGOU OUTRO JOGO? COMENTE", "t2b": "“APAGUEI”",
+         "marca_de": [7, "apaguei", 0, 0.3], "marca": "PEÇA POR PEÇA"},
+ "trilha": {"clima": "curioso"},
+ "subst": {}
+}
