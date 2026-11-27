@@ -32,3 +32,4 @@
 - 26/11: se o vídeo de guerra ficar pronto depois do horário fixo (10:00/18:00), agendar para assim que ficar pronto (agora + ~15 min), sem esperar o próximo horário.
 - 26/11: TODOS os vídeos (games E guerra) com a voz do dono no ElevenLabs. Antonio só como plano B, avisando o dono.
 - 26/11: CANCELADO o pedido de voz do dono na guerra — guerra continua com o Antonio (edge-tts); voz do dono só nos games.
+- 27/11: série nova de EMPREENDEDORISMO para o perfil pessoal do Facebook (monetizando): pequeno empreendedor, cara profissional, pode usar a BallesTech, só voz do dono (ElevenLabs), 1/dia após piloto aprovado. Sessão session_01DxZEAHGZukfM3LxbjiVFRC. Postagem manual (API não publica em perfil pessoal).
