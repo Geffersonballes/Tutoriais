@@ -53,18 +53,15 @@ for k in range(3):
     E.key(m, "location", INI[2] + 0.8 + k * 0.4, 4.0, 2); E.key(m, "location", INI[2] + 1.3 + k * 0.4, 0.05 + k * 0.1, 2, "BOUNCE")
     E.visivel(m, [(INI[2] + 0.8 + k * 0.4, INI[3])])
 
-# 12 parcelas: moedas surgindo uma por mês numa linha do tempo à frente
-X0, X1, YL = -5.0, 5.0, -3.4
+# 12 parcelas: grade 3x4, uma moeda por mês, num canto separado do estúdio
+GX, GY = 0.0, -9.0
 t_lin = tw(6, "sem")
 for k in range(12):
-    x = X0 + (X1 - X0) * k / 11; t = t_lin + k * 0.35
-    m = E.moeda(f"m12_{k}", (x, YL, 0.05), 0.34)
-    E.key(m, "location", t, 2.5, 2); E.key(m, "location", t + 0.35, 0.05, 2, "BOUNCE")
+    i, j = k % 3, k // 3
+    x, y = GX + (i - 1) * 1.15, GY + (1.5 - j) * 1.15; t = t_lin + k * 0.32
+    m = E.moeda(f"m12_{k}", (x, y, 0.05), 0.42)
+    E.key(m, "location", t, 3.0, 2); E.key(m, "location", t + 0.35, 0.05, 2, "BOUNCE")
     E.visivel(m, [(t, INI[7])])
-# barra da linha do tempo
-linha = E.caixa("linha", (0, YL - 0.6, 0.02), (10.6, 0.06, 0.04), E.mat("linha", (90, 100, 115), 0.5), 0.0)
-E.visivel(linha, [(t_lin - 0.3, INI[7])])
-
 # câmera: um plano por cena, com movimento lento dentro do plano
 cam, alvo = E.camera(40)
 def plano(t0, t1, p0, m0, p1, m1):
@@ -76,7 +73,7 @@ plano(INI[2], INI[3] - 0.5, (MX + 1.6, -3.9, 4.4), (MX + 0.3, 0.2, 0.4), (MX + 0
 plano(INI[3], INI[5] - 0.5, (MX - 0.6, -4.2, 5.0), (MX, 0.6, 0.6), (MX + 0.6, -4.6, 5.4), (MX, 0.6, 0.6))
 plano(INI[5], INI[6] - 0.5, (0.7, -0.4, 2.4), (0, 5.0, 1.0), (-0.3, 0.4, 2.0), (0, 5.0, 1.0))
 plano(INI[6], t_lin - 0.3, (MX + 0.4, -4.0, 4.8), (MX, 0.6, 0.6), (MX + 0.1, -3.6, 4.4), (MX, 0.6, 0.6))
-plano(t_lin, INI[7] - 0.5, (X0 + 0.5, YL - 6.5, 3.0), (X0 + 2.0, YL, 0.2), (X1 - 1.5, YL - 6.5, 3.0), (X1 - 0.5, YL, 0.2))
+plano(t_lin, INI[7] - 0.5, (GX + 0.4, GY - 3.2, 8.6), (GX, GY + 0.3, 0.0), (GX - 0.3, GY - 2.6, 7.6), (GX, GY + 0.3, 0.0))
 plano(INI[7], INI[8] - 0.5, (1.5, -10.5, 11.5), (0, 0.6, 0.6), (-1.0, -9.5, 10.5), (0, 0.6, 0.6))
 plano(INI[8], DUR, (MX + 2.2, -4.6, 4.2), (MX, 0.3, 0.5), (MX - 0.8, -4.0, 4.6), (MX, 0.3, 0.5))
 # cortes secos entre planos: deixa a interpolação da câmera constante nas trocas
