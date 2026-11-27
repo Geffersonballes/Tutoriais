@@ -37,3 +37,10 @@ por dia e horário, .txt com legendas e links do Picsart). Passo a passo em COMO
 - Só a versão FINAL, já aprovada pelo dono e que vai ser postada, é regravada na voz do dono (ElevenLabs eleven_v4,
   voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração) e re-renderizada.
 - Vídeo 01 (açaí) liberado para postar ("pode mandar bala").
+
+## QUALIDADE ACIMA DO TEMPO DE RENDER (decisão do dono, 27/11)
+1 vídeo por dia: o render pode levar o tempo que precisar; o padrão é PROFISSIONAL.
+- 3D no Blender EEVEE em 1080x1920 cheio (nada de render pequeno ampliado), 24+ amostras, luz de estúdio, profundidade de campo.
+- 3D na maior parte das cenas, com movimento de câmera; gráfico 2D só por cima (etiquetas, números, legenda).
+- Medido no teste: ~1 min por quadro a 24 amostras (4 núcleos). Render roda em segundo plano, por partes, salvando os quadros já
+  prontos para retomar se a máquina reiniciar (mesmo esquema do render.sh/render_estado.txt dos games).
