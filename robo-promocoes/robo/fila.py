@@ -22,7 +22,9 @@ from . import config
 
 
 def _preco(texto: str) -> float:
-    t = (texto or "").replace("R$", "").strip().replace(".", "").replace(",", ".")
+    t = (texto or "").replace("R$", "").replace(" ", "").strip()
+    if "," in t:  # formato brasileiro: 1.299,90
+        t = t.replace(".", "").replace(",", ".")
     try:
         return float(t)
     except ValueError:

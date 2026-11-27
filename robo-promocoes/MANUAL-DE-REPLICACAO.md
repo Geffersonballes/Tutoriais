@@ -156,6 +156,10 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
   *Editar sites e apps* todos os canais onde os links serão postados (Instagram, grupo de WhatsApp, landing).
 - Plano: (1) conta de Associados (usar o Instagram e a landing como "site"); (2) até liberar a API, **fila manual**:
   o dono cola links da SiteStripe (com a tag `-20`) numa planilha e o robô posta; (3) com a API, busca automática igual à Shopee.
+- **Planilha da fila** (criada pelo Claude no Google Drive do dono pelo conector, em 27/11): abas "Fila" (colunas acima,
+  com validação: loja em lista, data válida, ativo sim/não, preços `#,##0.00`, locale pt_BR, fuso de Cuiabá, linha 2 de
+  exemplo com ativo=não) e "Como usar". Para o robô ler: Arquivo → Compartilhar → Publicar na Web → aba Fila → CSV →
+  copiar o link para `FILA_CSV_URL` no `.env` da VPS. Não colocar o link da planilha no repositório (ele é público).
 - ⚠️ Conformidade: as regras da Amazon restringem mostrar preço que não venha da API (preço desatualizado). A fila
   manual deve postar o preço no mesmo dia em que foi conferido, com "sujeito a alteração". Passar pelo `promo-conformidade`.
 
