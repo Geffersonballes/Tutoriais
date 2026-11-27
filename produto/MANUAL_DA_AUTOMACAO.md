@@ -75,3 +75,6 @@ O Kwai não tem API de publicação. Solução: uma lista no OneDrive com link d
 
 ### Instagram (25/11)
 Conta @pecaporpeca95 (profissional, ligada à página do Facebook) na marca 8356514. Reels com isAiGenerated true. Instagram exige conta profissional + página do Facebook para o Metricool publicar sozinho.
+
+### Legenda com números de várias palavras (27/11)
+O `"subst"` do `grafismos.json` aceita chaves com espaços: `"vinte e um": "21"`, `"oitenta por cento": "80%"`, `"vinte e cinco quilômetros": "25 km"`. As palavras viram um só bloco na legenda (começa na 1ª, termina na última). Novos modelos em `lowpoly.py`: `cabana` (casa de aldeia), `tenda_medica` (centro de tratamento) e `agente_epi` (profissional com roupa de proteção). Em temas de saúde, não usar o emblema da Cruz Vermelha (é protegido): tenda branca com faixa azul.

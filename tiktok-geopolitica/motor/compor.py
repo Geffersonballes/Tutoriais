@@ -29,6 +29,16 @@ pular = 0
 for i, x in enumerate(LEG):
     if pular: pular -= 1; continue
     w = x["w"]; lw = re.sub(r"[^\wÀ-ÿ-]", "", w)
+    # substituição de sequências ("vinte e um" -> "21"): chave com espaços no "subst"; pontuação final é mantida
+    multi = None
+    for chave, val in SUBST.items():
+        partes = chave.lower().split()
+        if len(partes) < 2 or i + len(partes) > len(LEG): continue
+        seq = LEG[i:i + len(partes)]
+        if all(re.sub(r"[^\wÀ-ÿ-]", "", y["w"]).lower() == pt and y["seg"] == x["seg"] for y, pt in zip(seq, partes)):
+            multi = (val + re.sub(r"[\wÀ-ÿ-]", "", seq[-1]["w"]), seq[-1]["e"], len(partes) - 1); break
+    if multi:
+        palavras.append({"w": multi[0], "s": x["s"], "e": multi[1], "seg": x["seg"], "i": i + multi[2]}); pular = multi[2]; continue
     LEGADO = "subst" not in G   # ajustes fixos do vídeo 01 só valem sem "subst" no grafismos.json
     if LEGADO and lw.lower() == "trinta": lw = "35"; pular = 2
     elif LEGADO and lw.lower() == "cinco" and x["seg"] == 5: lw = "5x"

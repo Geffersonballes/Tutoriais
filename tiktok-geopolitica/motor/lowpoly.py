@@ -752,3 +752,43 @@ def documento(nome, loc, w=5.0, d=6.6):
     ass = caixa(_id("assin"), (-w * 0.18, -d / 2 + 0.9, 1.6), (w * 0.38, 0.1, 0.03), (0.10, 0.20, 0.55, 1)); filho(pulp, ass)
     selo = cilindro(_id("selo"), (loc[0] + w * 0.25, loc[1] - d / 2 + 1.0, 2.86), 0.6, 0.1, (0.90, 0.72, 0.20, 1), seg=16, unico="selo_ouro")
     return pulp, selo
+
+def cabana(nome, loc, r=2.2, h=2.0, cor_parede=(0.62, 0.42, 0.28, 1), cor_teto=(0.78, 0.66, 0.40, 1), unico=None):
+    """Casa de aldeia: parede de barro redonda, porta escura e teto de palha cônico com beiral."""
+    pai = cilindro(nome, (loc[0], loc[1], h / 2), r, h, cor_parede, seg=14, unico=(unico or "cabParede"))
+    filho(pai, cilindro(_id("cabTeto"), (0, 0, h / 2 + 1.0), r * 1.35, 2.0, cor_teto, seg=14, r2=0.15, unico="cabTeto"))
+    filho(pai, cilindro(_id("cabBeiral"), (0, 0, h / 2 + 0.02), r * 1.36, 0.12, tuple(c * 0.8 for c in cor_teto[:3]) + (1,), seg=14, unico="cabBeiral"))
+    porta = caixa(_id("cabPorta"), (0, -r + 0.02, -h / 2 + 0.75), (0.8, 0.12, 1.5), (0.18, 0.12, 0.08, 1), unico="cabPorta")
+    filho(pai, porta)
+    return pai
+
+def tenda_medica(nome, loc, w=6.0, d=10.0, h=3.2, cor=(0.95, 0.95, 0.93, 1), faixa=(0.15, 0.45, 0.80, 1)):
+    """Tenda de centro de tratamento: corpo branco, teto em duas águas, faixa azul e janelas de tela."""
+    pai = caixa(nome, (loc[0], loc[1], h * 0.35), (w, d, h * 0.7), cor, unico="tendaCorpo")
+    ang = math.atan2(h * 0.45, w / 2); lado = math.hypot(h * 0.45, w / 2) + 0.25
+    for sx in (-1, 1):
+        aba = caixa(_id("tendaTeto"), (sx * w / 4, 0, h * 0.35 + h * 0.225), (lado, d + 0.5, 0.12), cor, unico="tendaCorpo")
+        aba.rotation_euler = (0, sx * ang, 0); filho(pai, aba)
+    for sy in (-1, 1):  # empenas triangulares
+        bm = bmesh.new()
+        vs = [bm.verts.new(v) for v in ((-w / 2, sy * d / 2, h * 0.35), (w / 2, sy * d / 2, h * 0.35), (0, sy * d / 2, h * 0.8))]
+        bm.faces.new(vs); emp = _new_obj(_id("tendaEmp"), bm, cor, "tendaCorpo"); filho(pai, emp)
+    filho(pai, caixa(_id("tendaFaixa"), (0, 0, -h * 0.05), (w + 0.04, d + 0.04, 0.35), faixa, unico="tendaFaixa"))
+    for k in range(int(d // 2.5)):
+        y = -d / 2 + 1.25 + k * 2.5
+        for sx in (-1, 1):
+            filho(pai, caixa(_id("tendaJan"), (sx * (w / 2 + 0.01), y, h * 0.12), (0.04, 1.0, 0.7), (0.55, 0.62, 0.66, 1), unico="tendaJan"))
+    return pai
+
+def agente_epi(nome, loc, cor=(0.97, 0.97, 0.97, 1), avental=(0.95, 0.80, 0.15, 1)):
+    """Profissional de saúde com roupa de proteção: macacão branco, capuz, viseira escura, avental e botas."""
+    pai, bd, be = boneco(nome, loc, camisa=cor, capacete=False)
+    for o in pai.children:
+        if o.name.startswith("perna"):
+            o.data.materials.clear(); o.data.materials.append(mat(cor, "epiBranco"))
+    filho(pai, esfera(_id("capuz"), (0, 0.02, 2.06), 0.42, cor, sub=2))
+    filho(pai, caixa(_id("viseira"), (0, 0.40, 2.02), (0.5, 0.08, 0.26), (0.10, 0.14, 0.18, 1), unico="viseira"))
+    filho(pai, caixa(_id("avental"), (0, 0.24, 1.0), (0.66, 0.04, 0.95), avental, unico="avental"))
+    for x in (-0.22, 0.22):
+        filho(pai, caixa(_id("bota"), (x, 0.03, 0.12), (0.34, 0.42, 0.24), (0.15, 0.45, 0.25, 1), unico="bota"))
+    return pai, bd, be

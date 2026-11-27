@@ -1,0 +1,456 @@
+{
+ "capa": {
+  "linhas": [
+   "12 MIL CASOS",
+   "DE EBOLA",
+   "NO MEIO DA GUERRA"
+  ],
+  "destaque": [
+   0
+  ],
+  "dur": 1.3
+ },
+ "trilha": {
+  "clima": "tenso"
+ },
+ "subst": {
+  "doze": "12",
+  "vinte e um": "21",
+  "vinte e cinco quilômetros": "25 km",
+  "cem": "100",
+  "oitenta por cento": "80%",
+  "o-m-s": "OMS"
+ },
+ "rotulos": [
+  {
+   "texto": "CASO CONFIRMADO",
+   "de": [
+    1,
+    "Esse"
+   ],
+   "ate": [
+    1,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "RASTREAMENTO",
+   "de": [
+    2,
+    "Esse"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O CERCO",
+   "de": [
+    3,
+    "Esse"
+   ],
+   "ate": [
+    3,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "A PEÇA QUE FALTA",
+   "de": [
+    4,
+    "Essa"
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O FRONT",
+   "de": [
+    5,
+    "Esse"
+   ],
+   "ate": [
+    5,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "ELO QUEBRADO",
+   "de": [
+    6,
+    "Esse"
+   ],
+   "ate": [
+    6,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "CERCO FURADO",
+   "de": [
+    7,
+    "Esse"
+   ],
+   "ate": [
+    7,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "pilulas": [
+  {
+   "texto": "12.021 CASOS CONFIRMADOS",
+   "ponto": "vermelho",
+   "tam": 42,
+   "de": [
+    0,
+    "casos"
+   ],
+   "ate": [
+    0,
+    "história"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "QUASE METADE MORREU",
+   "ponto": "vermelho",
+   "tam": 42,
+   "de": [
+    0,
+    "quase"
+   ],
+   "ate": [
+    0,
+    "história"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "O SURTO QUE MAIS CRESCE",
+   "ponto": "azul",
+   "tam": 42,
+   "de": [
+    0,
+    "surto"
+   ],
+   "ate": [
+    0,
+    "guerra"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "LESTE DO CONGO",
+   "ponto": "azul",
+   "de": [
+    0,
+    "guerra"
+   ],
+   "ate": [
+    0,
+    "@fim",
+    0,
+    0.3
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "ACHAR CADA DOENTE",
+   "ponto": "azul",
+   "de": [
+    1,
+    "achar"
+   ],
+   "ate": [
+    1,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "SEGUIR CADA CONTATO",
+   "ponto": "azul",
+   "de": [
+    2,
+    "segue"
+   ],
+   "ate": [
+    2,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "21 DIAS DE VIGILÂNCIA",
+   "ponto": "azul",
+   "tam": 42,
+   "de": [
+    2,
+    "vinte"
+   ],
+   "ate": [
+    2,
+    "Esse"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "ISOLAMENTO",
+   "ponto": "azul",
+   "de": [
+    3,
+    "isola"
+   ],
+   "ate": [
+    3,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "ENTERRO SEGURO",
+   "ponto": "azul",
+   "de": [
+    3,
+    "enterra"
+   ],
+   "ate": [
+    3,
+    "Esse"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "VÍRUS BUNDIBUGYO",
+   "ponto": "vermelho",
+   "de": [
+    4,
+    "Bundibugyo"
+   ],
+   "ate": [
+    4,
+    "Essa"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "SEM VACINA APROVADA",
+   "ponto": "vermelho",
+   "tam": 42,
+   "de": [
+    4,
+    "sem"
+   ],
+   "ate": [
+    4,
+    "Essa"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "+100 GRUPOS ARMADOS",
+   "ponto": "vermelho",
+   "tam": 42,
+   "de": [
+    5,
+    "mais"
+   ],
+   "ate": [
+    5,
+    "combates"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "COMBATES A 25 KM DE BUNIA",
+   "ponto": "vermelho",
+   "tam": 40,
+   "de": [
+    5,
+    "voltaram"
+   ],
+   "ate": [
+    5,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "BUNIA: BASE DA RESPOSTA",
+   "ponto": "azul",
+   "tam": 40,
+   "de": [
+    5,
+    "base"
+   ],
+   "ate": [
+    5,
+    "Esse"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "EQUIPES SEM ACESSO",
+   "ponto": "vermelho",
+   "tam": 42,
+   "de": [
+    6,
+    "impediram"
+   ],
+   "ate": [
+    6,
+    "Dois"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "2 DA OMS: 3 DIAS PRESOS",
+   "ponto": "vermelho",
+   "tam": 40,
+   "de": [
+    6,
+    "Dois"
+   ],
+   "ate": [
+    6,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "HOSPITAL SOB FOGO CRUZADO",
+   "ponto": "vermelho",
+   "tam": 38,
+   "de": [
+    6,
+    "hospital"
+   ],
+   "ate": [
+    6,
+    "Esse"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "+80% FORA DAS LISTAS",
+   "ponto": "vermelho",
+   "tam": 44,
+   "de": [
+    7,
+    "oitenta"
+   ],
+   "ate": [
+    7,
+    "Esse"
+   ],
+   "y": 0.18
+  }
+ ],
+ "fontes": [
+  {
+   "texto": "Fontes: Min. da Saúde do Congo via AP e Reuters (26/11)",
+   "de": [
+    0,
+    "casos"
+   ],
+   "ate": [
+    0,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: OMS; CDC",
+   "de": [
+    1,
+    "parar"
+   ],
+   "ate": [
+    3,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: OMS; CDC (Bundibugyo sem vacina aprovada)",
+   "de": [
+    4,
+    "Bundibugyo"
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: AP (26/11); Kivu Security Tracker",
+   "de": [
+    5,
+    "leste"
+   ],
+   "ate": [
+    5,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: OMS via AP e Reuters (25-26/11)",
+   "de": [
+    6,
+    "Segundo"
+   ],
+   "ate": [
+    7,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "cta": {
+  "linha1": [
+   9,
+   "Se"
+  ],
+  "t1a": "JÁ SABIA? COMENTE",
+  "t1b": "“GENERAL”",
+  "linha2": [
+   9,
+   "Se",
+   1
+  ],
+  "t2a": "NÃO SABIA? COMENTE",
+  "t2b": "“RECRUTA”",
+  "marca_de": [
+   9,
+   "recruta",
+   0,
+   0.4
+  ],
+  "marca": "PEÇA POR PEÇA · siga pra próxima"
+ }
+}
