@@ -1,7 +1,7 @@
 # Passagem de bastão — série "Negócio Peça por Peça" (27/11/2026)
 
-Sessão anterior: session_01DxZEAHGZukfM3LxbjiVFRC (filha da principal session_01DxZEAGsFhNPqFvLAMQCk6V; mande resumos para a principal
-com send_message). Leia antes: empreendedorismo/LEIA.md (decisões do dono), BANCOS_DE_MIDIA.md, COMO_AGENDAR.md.
+Sessão anterior: session_01DxZEAHGZukfM3LxbjiVFRC. Decisão do dono (27/11): a série é DESVINCULADA da sessão principal;
+não mande resumos nem mensagens a outras sessões, trate tudo direto com o dono. Leia antes: empreendedorismo/LEIA.md (decisões do dono), BANCOS_DE_MIDIA.md, COMO_AGENDAR.md.
 
 ## Estado
 - Vídeo 01 (açaí no iFood): APROVADO e entregue no OneDrive (Semana 2026-11-30, seg 30/11 19h). Nada a fazer.
@@ -16,6 +16,11 @@ com send_message). Leia antes: empreendedorismo/LEIA.md (decisões do dono), BAN
 - PIXABAY_API_KEY e UNSPLASH_ACCESS_KEY criadas pelo dono (variáveis de ambiente). Pexels: emissão de chaves pausada.
 - Confira: `[ -n "$PIXABAY_API_KEY" ] && echo ok`. Teste 1 busca em cada banco antes de usar.
 
+## Status 27/11 (sessão session_01DxZEAKeETNnq7XVWzgHgFm)
+- PIXABAY_API_KEY e UNSPLASH_ACCESS_KEY NÃO estavam no ambiente (nem no "Tutoriais" nem no "tutoriais-motor-video").
+  O dono precisa cadastrá-las como variáveis de ambiente do ambiente "Tutoriais" (menu do ambiente > Edit); valem na sessão seguinte.
+- Prévia: `RES=540x960 PREVIA=1 AMOSTRAS=8 blender -b -P cena.py -- render 1 2200 2` (frames_previa/) + `python3 compor.py previa`.
+
 ## Próximos passos
 1. Fotos: rode o agente pesquisador-de-imagens para o vídeo do Pix (abertura: balcão com maquininha; cena 8: mãos contando dinheiro),
    agora com Pixabay e Unsplash. Crédito do Unsplash na legenda.
@@ -29,7 +34,7 @@ com send_message). Leia antes: empreendedorismo/LEIA.md (decisões do dono), BAN
    o render retoma sozinho porque pula quadros prontos).
 4. Entrega: Picsart (picsart_upload_local_files + curl) → .txt da semana no OneDrive (pasta "Semana AAAA-MM-DD"; ids em LEIA.md).
 5. Depois: propor ao dono a ROTINA DIÁRIA (horário e tema por dia da semana, incluindo 1 pauta de normas fiscais/leis por semana)
-   e criar o agendamento com create_trigger ligado à sessão; mandar resumo à sessão principal.
+   e criar o agendamento com create_trigger ligado à sessão.
 
 ## Regras que não podem ser esquecidas
 - Testes com voz grátis; ElevenLabs só na versão final aprovada (cerca de 1.250 créditos por vídeo; avisar se o saldo < 15 mil).
