@@ -3,7 +3,7 @@
  "rotulos": [
   {"texto": "O CICLO CURTO", "de": [2, "ciclo"], "ate": [2, "@fim", 0, 0.3]},
   {"texto": "RECOMPENSA VARIÁVEL", "de": [3, "recompensa"], "ate": [3, "@fim", 0, 0.3]},
-  {"texto": "MISSÃO LONGA X VITÓRIA RÁPIDA", "de": [4, "Agora"], "ate": [4, "@fim", 0, 0.3]},
+  {"texto": "LONGA X RÁPIDA", "de": [4, "Agora"], "ate": [4, "@fim", 0, 0.3]},
   {"texto": "A HISTÓRIA ESPERA", "de": [5, "liberdade"], "ate": [5, "@fim", 0, 0.3]}
  ],
  "pilulas": [
