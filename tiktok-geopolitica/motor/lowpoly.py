@@ -792,3 +792,101 @@ def agente_epi(nome, loc, cor=(0.97, 0.97, 0.97, 1), avental=(0.95, 0.80, 0.15, 
     for x in (-0.22, 0.22):
         filho(pai, caixa(_id("bota"), (x, 0.03, 0.12), (0.34, 0.42, 0.24), (0.15, 0.45, 0.25, 1), unico="bota"))
     return pai, bd, be
+
+# ---------- modelos de petróleo (vídeo refinaria, 27/11) ----------
+def torre_destilacao(nome, loc, h=18.0, r=1.4, cor=(0.80, 0.81, 0.82, 1), faixas=None):
+    """Coluna de destilação: cilindro alto com plataformas circulares (anéis + guarda-corpo), escada lateral,
+    tubos de saída em alturas diferentes (um por derivado) e topo abaulado. Devolve (torre, [saídas locais])."""
+    torre = cilindro(nome, (loc[0], loc[1], h / 2), r, h, cor, seg=16, unico="torreDest")
+    for pl in torre.data.polygons: pl.use_smooth = True
+    topo = esfera(_id("tdTopo"), (0, 0, h / 2), r, cor, sub=2, unico="torreDest"); topo.scale = (1, 1, 0.45); filho(torre, topo)
+    saias = []
+    n = max(3, int(h // 4.5))
+    for k in range(n):
+        z = -h / 2 + 3.0 + k * (h - 4.0) / n
+        filho(torre, cilindro(_id("tdPlat"), (0, 0, z), r + 0.75, 0.14, (0.30, 0.32, 0.34, 1), seg=16, unico="tdPlat"))
+        filho(torre, anel(_id("tdGuarda"), (0, 0, z + 0.55), r + 0.72, 0.035, (0.95, 0.80, 0.12, 1), seg=24, unico="tdGuarda"))
+    esc = caixa(_id("tdEscada"), (r + 0.25, 0, 0), (0.12, 0.7, h - 1.0), (0.30, 0.32, 0.34, 1), unico="tdPlat"); filho(torre, esc)
+    faixas = faixas or [(0.95, 0.80, 0.15, 1), (0.95, 0.50, 0.12, 1), (0.25, 0.55, 0.90, 1)]
+    for k, cf in enumerate(faixas):
+        z = h / 2 - 3.0 - k * (h - 6.0) / max(1, len(faixas) - 1) if len(faixas) > 1 else 0
+        tb = cilindro(_id("tdSaida"), (0, 0, 0), 0.32, 4.0, cf, seg=10)
+        tb.data.transform(__import__("mathutils").Matrix.Rotation(math.radians(90), 4, "Y"))
+        filho(torre, tb); tb.location = (-(r + 2.0), 0, z)
+        saias.append((-(r + 4.0), 0, z))
+    return torre, saias
+
+def tanque_armazenamento(nome, loc, r=4.0, h=5.0, cor=(0.90, 0.90, 0.88, 1), faixa=(0.80, 0.20, 0.15, 1)):
+    """Tanque de teto flutuante: costado claro com faixa colorida, anel de reforço, escada em espiral e teto escuro."""
+    t = cilindro(nome, (loc[0], loc[1], h / 2), r, h, cor, seg=24, unico="tanqueArm")
+    for pl in t.data.polygons: pl.use_smooth = True
+    filho(t, cilindro(_id("taTeto"), (0, 0, h / 2 - 0.25), r * 0.97, 0.12, (0.35, 0.36, 0.38, 1), seg=24, unico="taTeto"))
+    filho(t, anel(_id("taAro"), (0, 0, h / 2), r + 0.05, 0.10, (0.70, 0.70, 0.70, 1), seg=32, unico="taAro"))
+    filho(t, cilindro(_id("taFaixa"), (0, 0, -h / 2 + 0.9), r + 0.02, 0.6, faixa, seg=24, unico="taFaixa%d" % int(faixa[0] * 100)))
+    for k in range(6):  # escada em espiral (degraus em degradê de altura)
+        a = math.radians(-60 + k * 14); z = -h / 2 + 0.5 + k * (h - 0.8) / 6
+        d = caixa(_id("taDeg"), (math.cos(a) * (r + 0.35), math.sin(a) * (r + 0.35), z), (0.6, 0.9, 0.1), (0.30, 0.32, 0.34, 1), unico="tdPlat")
+        d.rotation_euler = (0, 0, a); filho(t, d)
+    return t
+
+def cavalo_de_pau(nome, loc, cor=(0.85, 0.25, 0.15, 1)):
+    """Bomba de poço de petróleo ('cavalo de pau'): base, tripé, balancim com cabeça de cavalo e contrapeso.
+    Devolve (base, pivô do balancim) — gire o pivô no eixo X para animar."""
+    base = caixa(nome, (loc[0], loc[1], 0.25), (2.0, 8.0, 0.5), (0.30, 0.31, 0.33, 1), unico="cdpBase")
+    for sx in (-1, 1):
+        p = caixa(_id("cdpPerna"), (sx * 0.6, 0.6, 2.4), (0.25, 0.25, 4.6), (0.30, 0.31, 0.33, 1), unico="cdpBase")
+        p.rotation_euler = (0, sx * math.radians(-8), 0); filho(base, p)
+    piv = vazio(nome + "_piv", (0, 0.6, 4.7)); filho(base, piv)
+    filho(piv, caixa(_id("cdpViga"), (0, 0, 0), (0.45, 7.0, 0.5), cor, unico="cdpViga"))
+    cab = caixa(_id("cdpCabeca"), (0, 3.6, -0.6), (0.6, 0.8, 1.8), cor, unico="cdpViga"); filho(piv, cab)
+    filho(piv, caixa(_id("cdpContra"), (0, -3.2, -0.9), (1.6, 1.0, 1.4), (0.25, 0.26, 0.28, 1), unico="cdpContra"))
+    filho(base, cilindro(_id("cdpPoco"), (0, 4.2, 0.6), 0.35, 1.2, (0.25, 0.26, 0.28, 1), seg=10, unico="cdpContra"))
+    filho(base, cilindro(_id("cdpMotor"), (0, -2.6, 0.9), 0.6, 1.0, (0.25, 0.45, 0.30, 1), seg=10))
+    return base, piv
+
+def caminhao_tanque(nome, loc, cor_cab=(0.95, 0.95, 0.93, 1), cor_tanque=(0.88, 0.88, 0.86, 1), faixa=(0.95, 0.55, 0.12, 1)):
+    """Caminhão-tanque de combustível: cavalo mecânico com para-brisa, tanque cilíndrico deitado com faixa,
+    tampas no topo, 3 eixos e para-choque. Frente = +Y."""
+    Mx = __import__("mathutils").Matrix
+    chassi = caixa(nome, loc, (2.4, 10.0, 0.6), C["escuro"])
+    cab = caixa(_id("ctCab"), (0, 3.9, 1.3), (2.4, 2.0, 2.2), cor_cab, unico="ctCab"); filho(chassi, cab)
+    filho(chassi, caixa(_id("ctVidro"), (0, 4.92, 1.7), (2.1, 0.06, 0.8), (0.15, 0.25, 0.35, 1), unico="ctVidro"))
+    filho(chassi, caixa(_id("ctPara"), (0, 5.0, 0.2), (2.5, 0.25, 0.4), (0.70, 0.70, 0.70, 1)))
+    tq = cilindro(_id("ctTanque"), (0, 0, 0), 1.2, 7.0, cor_tanque, seg=16, unico="ctTanque"); tq.data.transform(Mx.Rotation(math.radians(-90), 4, "X"))
+    for pl in tq.data.polygons: pl.use_smooth = True
+    filho(chassi, tq); tq.location = (0, -1.4, 1.55)
+    fx = cilindro(_id("ctFaixa"), (0, 0, 0), 1.22, 1.0, faixa, seg=16, unico="ctFaixa"); fx.data.transform(Mx.Rotation(math.radians(-90), 4, "X"))
+    filho(chassi, fx); fx.location = (0, -1.4, 1.55)
+    for y in (-3.6, -1.4, 0.8):
+        filho(chassi, cilindro(_id("ctTampa"), (0, y, 2.8), 0.3, 0.2, (0.6, 0.6, 0.6, 1), seg=8))
+    for x in (-1.25, 1.25):
+        for y in (-3.8, -2.6, 3.6):
+            r = cilindro(_id("ctRoda"), (x, y, -0.3), 0.55, 0.4, C["escuro"], seg=10); r.rotation_euler = (0, math.radians(90), 0); filho(chassi, r)
+    return chassi
+
+def coluna_fumaca(nome, loc, altura=22.0, raio=3.0, t0=0.0, t_fim=90.0, escura=True, n=26, deriva=(0.25, 0.10)):
+    """Coluna de fumaça mais orgânica que esferas empilhadas (backlog Ebola 27/11): bolhas de tamanhos variados,
+    sobrepostas e deslocadas ao acaso, que sobem, crescem e se dissipam em ciclo. Devolve a lista de bolhas."""
+    random.seed(hash(nome) & 0xFFFF)
+    bolhas = []
+    for i in range(n):
+        u = i / n
+        tom = (0.16, 0.15, 0.15, 1) if escura and u < 0.45 else ((0.32, 0.31, 0.31, 1) if escura and u < 0.75 else (0.55, 0.54, 0.53, 1))
+        b = esfera(_id(nome), loc, raio * random.uniform(0.55, 1.0), tom, sub=2, unico="fumacaCol")
+        b.scale = (random.uniform(0.9, 1.3), random.uniform(0.9, 1.3), random.uniform(0.7, 1.0))
+        periodo = random.uniform(5.0, 7.0); fase = random.uniform(0, periodo)
+        t = t0 - fase
+        while t < t_fim:
+            for uu, s in ((0.0, 0.3), (0.6, 1.5), (0.98, 0.05)):
+                tt = t + uu * periodo
+                if tt < t0 or tt > t_fim: continue
+                zz = 0.5 + uu * altura; dx = deriva[0] * zz + random.uniform(-0.6, 0.6); dy = deriva[1] * zz
+                b.location = (loc[0] + dx, loc[1] + dy, loc[2] + zz); b.keyframe_insert("location", frame=f(tt))
+                b.scale = (s * random.uniform(0.9, 1.15),) * 3; b.keyframe_insert("scale", frame=f(tt))
+            t += periodo
+        if not b.animation_data:
+            b.keyframe_insert("location", frame=f(t0))
+        for fc in b.animation_data.action.fcurves:
+            for kp in fc.keyframe_points: kp.interpolation = "LINEAR"
+        bolhas.append(b)
+    return bolhas
