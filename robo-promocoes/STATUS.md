@@ -10,8 +10,8 @@ Sequência revisada. ✅ feito · ⏳ aguardando terceiros · 👉 próximo · �
 - ✅ Grupo "Achadinhos da Lay" criado
 - ✅ **Chip exclusivo do robô** conseguido (26/11)
 - ✅ Robô trocado para o chip novo (27/11)
-- 👉 Teste de envio pelo número novo (`enviar-teste`)
-- ⬜ Aquecer o chip novo (foto = logo, nome "Achadinhos da Lay", uso normal por alguns dias)
+- ✅ Teste de envio pelo número novo no grupo novo `120363414222856167@g.us` (27/11)
+- 👉 Aquecer o chip novo enquanto a Shopee não libera
 - ⬜ Descrição final do grupo (dono vai alterar), foto, "só admins", mensagem de abertura
 - ⬜ Definir o número oficial de atendimento (pode ser o próprio chip do robô, atendido no celular)
 - ⬜ Com a API: colocar as chaves no `.env` → `python -m robo teste` (ofertas reais) → aprovar → `docker compose up -d robo`

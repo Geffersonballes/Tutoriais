@@ -268,6 +268,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 26/11/2026 | ✅ **Chip exclusivo do robô** conseguido. Criado `STATUS.md` (sequência revisada) e a opção `--trocar` no `conectar-whatsapp.sh`. |
 | 27/11/2026 | ✅ Robô trocado para o **chip exclusivo** (`conectar-whatsapp.sh --trocar`): número novo admin do grupo, com foto da logo e nome "Achadinhos da Lay". Número pessoal desconectado. |
 | 27/11/2026 | ⚠️ Armadilha: havia **dois grupos "Achadinhos da Lay"**. O número novo estava só no novo (`120363414222856167@g.us`), e o `.env` apontava para o antigo: o teste "saiu", mas não chegou. Dono escolheu o **grupo novo**. O robô agora confere se participa dos `GRUPOS` antes de enviar (`conferir_grupos`). |
+| 27/11/2026 | ✅ Teste chegou no **grupo novo** enviado pelo **chip exclusivo**. Robô 100% pronto, faltando só a Open API da Shopee. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
