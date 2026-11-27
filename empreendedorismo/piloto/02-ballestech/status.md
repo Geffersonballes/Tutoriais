@@ -1,0 +1,5 @@
+- [x] Dados do dono (27/11) + confirmação: fechamento 4%, pode mostrar agência
+- [x] Voz grátis de TESTE (edge-tts Antonio +20%) → narracao.mp3 (74,7 s) — se aprovado, decidir se regrava na voz do dono
+- [x] palavras.py + alinhar.py → legendas.json
+- [x] render.py → final.mp4 (74,8 s, -14 LUFS, anti-borda)
+- [ ] Dono aprova → Picsart + .txt no OneDrive
