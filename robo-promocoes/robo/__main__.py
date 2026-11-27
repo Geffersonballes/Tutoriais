@@ -95,6 +95,15 @@ def textos_de_exemplo() -> list[tuple[str, str]]:
     return textos + [("top_do_dia", mensagem.top_do_dia(itens))]
 
 
+def conferir_grupos() -> None:
+    """Para se o número do robô não participa de algum grupo do .env (o envio 'daria certo' mas não chegaria)."""
+    ids = {g.get("id") for g in whatsapp.listar_grupos()}
+    fora = [g for g in config.GRUPOS if g not in ids]
+    if fora:
+        sys.exit("O número do robô NÃO participa destes grupos do .env: " + ", ".join(fora)
+                 + "\nAdicione o robô ao grupo (como admin) ou corrija GRUPOS. Veja: python -m robo grupos")
+
+
 def cmd_formatos(args) -> None:
     for nome, texto in textos_de_exemplo():
         print("\n" + "=" * 20 + f" {nome} " + "=" * 20)
@@ -104,6 +113,7 @@ def cmd_formatos(args) -> None:
 def cmd_enviar_teste(args) -> None:
     if not config.GRUPOS:
         sys.exit("Defina GRUPOS no .env (use 'python -m robo grupos' para ver os IDs).")
+    conferir_grupos()
     textos = textos_de_exemplo()
     if args.formato != "todos":
         textos = [t for t in textos if t[0] == args.formato]
@@ -153,6 +163,7 @@ def postar_top_se_for_hora() -> None:
 def cmd_rodar(args) -> None:
     if not config.GRUPOS:
         sys.exit("Defina GRUPOS no .env (use 'python -m robo grupos' para ver os IDs).")
+    conferir_grupos()
     log(f"Robô ligado. Grupos: {len(config.GRUPOS)}. Intervalo: {config.INTERVALO_MINUTOS} min.")
     while True:
         espera = config.INTERVALO_MINUTOS * 60
