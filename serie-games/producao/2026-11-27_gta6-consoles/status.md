@@ -6,8 +6,9 @@
 - [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.283 créditos, flow NbJyD4ec6uiU4nSf9Yvy) → narracao.mp3 (72,4 s)
 - [x] palavras.py + alinhar.py — 8 blocos, 201 palavras
 - [x] Cena tiktok-geopolitica/motor/cena_gta6_consoles.py (estilo C, Pixel, visual nível 2, zonas por bloco) + prévias conferidas
-- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — ver render_estado.txt
-- [ ] compor.py → final.mp4 + capa.jpg
-- [ ] QC
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — fila/início 13:46, fim 16:34 UTC (1.151 quadros, ~8,7 s/quadro)
+- [x] compor.py → final.mp4 (76,9 s, 1080×1920, 30 fps, 41,4 MB) + capa.jpg; ANTI_BORDA ativo (padrão)
+- [x] QC aprovado: capa legível em 270 px (O GTA 6 ESTÁ / MATANDO CONSOLES?), gancho com pergunta + "?" vermelho no 1º s, legendas sincronizadas, pílulas acima do objeto, fontes na tela (Notebookcheck/Digital Trends; PlayStation Blog/Hackaday), selo IA, CTA AGUENTOU/FRITOU completo, pedido de like no fim, −14,3 LUFS / −1,4 dBFS; borda: desvio mínimo por linha nas 60 linhas de cima/baixo entre 3,6 e 67,9 (sem faixa chapada)
+- Defeitos menores (para o backlog, não corrigidos): no bloco 2 (19–30 s) o Pixel ficou grande demais em close e tapa ~1/3 da tela; o dissipador só aparece ~0,5 s no fim do bloco; o rótulo "O QUE DIZEM OS TÉCNICOS" encosta nas bordas laterais. A cena já foi corrigida (Pixel mais longe, câmera média, dissipador desce em "leva") e o re-render do bloco (quadros 561–929) foi tentado, mas a trava /tmp/render.lock estava ocupada pelo render da Lucia (outra sessão, até ~19:05 UTC) e o prazo era 19:00 — re-render cancelado; os quadros 561–929 da pasta frames/ foram apagados (para refazer: rodar render_refazer.sh e compor de novo)
 - NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md
 - Melhoria (backlog, matchmaking 26/11 'objetos nascem depois do corte'): objetos principais de cada zona já visíveis no corte; anotar 'feito' no backlog na sessão principal (fora do escopo de commit desta sessão)

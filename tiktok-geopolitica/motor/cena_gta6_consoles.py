@@ -409,13 +409,13 @@ for k in range(4):
     g = esfera(_id("gotaC"), (80.4 + random.uniform(-0.35, 0.35), 2.0 + random.uniform(-0.35, 0.35), 1.22), 0.09, (0.90, 0.92, 0.96, 1), sub=2, unico="metalC")
     visivel(g, tmet - 0.1 + 0.08 * k); pop(g, tmet - 0.1 + 0.08 * k, 1.0, 0.2)
 dsp = dissipador("dissC", (80.4, 2.0, 2.9), 1.2)
-key(dsp, "location", t0, (80.4, 2.0, 2.9)); key(dsp, "location", tdis - 0.3, (80.4, 2.0, 2.9)); key(dsp, "location", tdis + 0.4, (80.4, 2.0, 1.3))
-visivel(dsp, tdis - 0.3); pop(dsp, tdis - 0.3, 1.0)
+key(dsp, "location", t0, (80.4, 2.0, 2.9)); tlev = T(2, "leva"); key(dsp, "location", tlev - 0.1, (80.4, 2.0, 2.9)); key(dsp, "location", tdis + 0.2, (80.4, 2.0, 1.3))
+visivel(dsp, tlev - 0.2); pop(dsp, tlev - 0.2, 1.0)
 particulas("calorC", 16, tcal, t1 + 0.2, (80.4, 1.5, 1.1), (80.0, 1.4, 2.2), (80.6, 1.5, 3.4), (1.0, 0.45, 0.10, 1), "calorC", r=0.11, dur=1.3)
-gC = pixel("guiaC", (78.75, 0.0, 0), escala=0.72); girarZ(gC["raiz"], 20); respirar(gC, t0, t1 + 0.5)
+gC = pixel("guiaC", (78.0, 0.2, 0), escala=0.8); girarZ(gC["raiz"], 20); respirar(gC, t0, t1 + 0.5)
 apontar(gC, tsiga - 0.1, 1.3, "D", 40); apontar(gC, tchip - 0.1, 1.3, "D", 20); espanto(gC, tesq - 0.1, 1.2); apontar(gC, tmet - 0.1, 1.4, "D", 30); comemorar(gC, tdis - 0.1, 1.3)
-plano(t0, (79.5, 2.0), "close", altura=1.7); plano(tmet - 0.4, (79.6, 2.0), "close", altura=1.6)
-plano(tmet - 0.1, (79.7, 2.0), "close", altura=1.5); plano(t1 - 0.05, (79.8, 2.0), "close", altura=1.8)
+plano(t0, (79.4, 2.0), "medio", altura=1.6); plano(tmet - 0.4, (79.5, 2.0), "medio", altura=1.5)
+plano(tmet - 0.1, (79.6, 2.0), "medio", altura=1.5); plano(t1 - 0.05, (79.7, 2.0), "medio", altura=1.8)
 zona_fim([(t0 - 0.3, t1 + 0.3)])
 
 # =====================================================================
