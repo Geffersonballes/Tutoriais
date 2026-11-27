@@ -17,6 +17,9 @@ def norm(w): return re.sub(r"[^\wÀ-ÿ]", "", w.lower())
 def tw(seg, p, n=0):
     h = [x["s"] for x in LEG if x["seg"] == seg and norm(x["w"]) == p]
     return h[min(n, len(h) - 1)] if h else INI[seg]
+# prévia rápida: RES=540x960 (padrão 1080x1920); PREVIA=1 grava em frames_previa/ com passo 2
+RES = tuple(int(v) for v in os.environ.get("RES", "1080x1920").split("x"))
+PREVIA = os.environ.get("PREVIA") == "1"
 T = lambda n: f"{A}/tex/{n}.png"
 
 s = E.limpar(); s.frame_start = 1; s.frame_end = E.fr(DUR)
@@ -84,11 +87,12 @@ for ob in (cam, alvo):
             if i % 2 == 1: kp.interpolation = "CONSTANT"
 
 if ARGS[0] == "teste":
-    E.config_render(amostras=int(os.environ.get("AMOSTRAS", "16")))
+    E.config_render(amostras=int(os.environ.get("AMOSTRAS", "16")), res=RES)
     for t in ARGS[1:]:
         s.frame_set(E.fr(float(t))); s.render.filepath = f"{A}/teste3d_{t}.png"; bpy.ops.render.render(write_still=True)
 else:
-    E.config_render(amostras=int(os.environ.get("AMOSTRAS", "24")))
+    E.config_render(amostras=int(os.environ.get("AMOSTRAS", "24")), res=RES)
+    if PREVIA: E.renderizar(f"{A}/frames_previa", int(ARGS[1]) if len(ARGS) > 1 else 1, int(ARGS[2]) if len(ARGS) > 2 else s.frame_end, int(ARGS[3]) if len(ARGS) > 3 else 2); sys.exit(0)
     ini = int(ARGS[1]) if len(ARGS) > 1 else 1; fim = int(ARGS[2]) if len(ARGS) > 2 else s.frame_end
     passo = int(ARGS[3]) if len(ARGS) > 3 else 1
     E.renderizar(f"{A}/frames", ini, fim, passo)
