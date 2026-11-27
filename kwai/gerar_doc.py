@@ -6,7 +6,7 @@ R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TIRA = {"#fyp", "#foryou", "#tiktokbrasil", "#shorts", "#aprendanotiktok", "#gamesnotiktok", "#tiktoklive", "#viral", "#paravoce"}
 def legenda(pasta):
     t = open(os.path.join(R, pasta, "legenda_post.txt"), encoding="utf-8").read()
-    t = re.sub(r"(?m)^Título.*$", "", t).strip()
+    t = re.sub(r"(?m)^(Título|Produto Kwai Shop).*$", "", t).strip()
     corpo, tags = [], []
     for linha in t.splitlines():
         if linha.strip().startswith("#"): tags += [h for h in linha.split() if h.lower() not in TIRA]
