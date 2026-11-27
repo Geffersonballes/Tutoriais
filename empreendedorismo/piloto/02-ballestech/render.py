@@ -6,11 +6,11 @@ from video import *
 
 V = Video(AQUI, cauda=1.2, subst=[
     ("duzentos e oitenta reais", "R$ 280"), ("mil e setecentos", "R$ 1.700"), ("dois mil e novecentos reais", "R$ 2.900"),
-    ("vinte e trinta reais", "R$ 20 e R$ 30"), ("quarenta a sessenta", "40 a 60"), ("quatro a seis em cada cem", "4 a 6 em cada 100"), ("dois a três", "2 a 3"),
-    ("mil a mil e quinhentos reais", "R$ 1.000 a R$ 1.500"), ("vinte e uma vezes", "21x"), ("vinte e cinco a quarenta e cinco dias", "25 a 45 dias")])
+    ("vinte e trinta reais", "R$ 20 e R$ 30"), ("quarenta a sessenta", "40 a 60"), ("quatro a seis em cada cem", "4 a 6 em cada 100"), ("seis clientes", "6 clientes"), ("dois mil e novecentos dividido por seis", "R$ 2.900 ÷ 6"), ("quinhentos reais", "R$ 500"),
+    ("vinte e uma vezes", "21x"), ("vinte e cinco a quarenta e cinco dias", "25 a 45 dias")])
 tw, I = V.tw, V.ini
 FONTE = "Dados reais da Balles Tech Energia · nov/2026"
-FONTES = {0: "", 1: FONTE, 2: FONTE, 3: FONTE, 4: FONTE, 5: "R$ 2.900 por mês ÷ 2 a 3 clientes", 6: FONTE, 7: "", 8: ""}
+FONTES = {0: "", 1: FONTE, 2: FONTE, 3: FONTE, 4: FONTE, 5: "Média: R$ 2.900 por mês ÷ ~6 clientes (todos os canais)", 6: FONTE, 7: "", 8: ""}
 
 def g0(im, t):
     d = ImageDraw.Draw(im); p = entra(t, 0, 0.5)
@@ -64,17 +64,20 @@ def g4(im, t):
     d = ImageDraw.Draw(im)
     texto_centro(d, 300, "O NÚMERO QUE DÓI", fonte(60, "Black"), VERM)
     grade_pontos(im, (t - I[4]) / 1.6, 6, y=410, passo=74, faixa=2)
+    if t >= tw(4, "somando"):
+        texto_centro(d, 1300, "+ outros caminhos ≈ 6 clientes/mês", fonte(46, "ExtraBold"), AMBAR)
     if t >= tw(4, "quatro"):
         texto_centro(d, 1130, "4 a 6 em cada 100 fecham", fonte(70, "Black"), VERDE)
-    if t >= tw(4, "uns"):
-        texto_centro(d, 1225, "≈ 2 a 3 clientes por mês deste canal", fonte(42, "Medium"), CINZA)
+    if t >= tw(4, "quatro"):
+        texto_centro(d, 1225, "contatos que vêm do anúncio", fonte(42, "Medium"), CINZA)
 
 def g5(im, t):
     d = ImageDraw.Draw(im)
-    texto_centro(d, 380, "R$ 2.900 ÷ 2 A 3 CLIENTES", fonte(56, "ExtraBold"), CINZA)
-    p = entra(t, tw(5, "mil"), 0.6)
-    texto_centro(d, 500 - int(40 * (1 - p)), "R$ 1.000", fonte(170, "Black"), AMBAR)
-    texto_centro(d, 690 - int(40 * (1 - p)), "a R$ 1.500", fonte(110, "Black"), AMBAR)
+    texto_centro(d, 380, "R$ 2.900 ÷ 6 CLIENTES", fonte(56, "ExtraBold"), CINZA)
+    p = entra(t, tw(5, "perto"), 0.6)
+    if t >= tw(5, "perto"):
+        texto_centro(d, 520 - int(40 * (1 - p)), "≈ R$ 500", fonte(200, "Black"), AMBAR)
+        texto_centro(d, 760, "em média", fonte(50, "SemiBold"), CINZA)
     if t >= tw(5, "para"):
         texto_centro(d, 860, "de marketing para", fonte(50, "SemiBold"), BRANCO)
         texto_centro(d, 930, "cada cliente fechado", fonte(50, "SemiBold"), BRANCO)
@@ -124,4 +127,4 @@ def quadro(t):
     s = V.seg(t); CENAS[s](im, t); chip_fonte(im, FONTES.get(s, "")); legenda(im, V.pal, t)
     return V.transicao(im, t, range(1, V.nseg))
 
-V.rodar(quadro, cortes=[I[k] for k in range(1, V.nseg)], pops=[tw(4, "quatro"), tw(5, "mil")], riser_ate=I[4])
+V.rodar(quadro, cortes=[I[k] for k in range(1, V.nseg)], pops=[tw(4, "quatro"), tw(5, "perto")], riser_ate=I[4])
