@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(AQUI, "..", "..", "motor"))
 from video import *  # Video, chip_fonte, entra, baloes + visual (W, H, cores, fonte, ...)
 
 V = Video(AQUI, subst=[
-    ("cem reais", "R$ 100"), ("zero a noventa centavos", "R$ 0 a R$ 0,90"), ("um real a dois e quarenta", "R$ 1 a R$ 2,40"),
+    ("cem reais", "R$ 100"), ("dezoito reais", "R$ 18"), ("zero a noventa centavos", "R$ 0 a R$ 0,90"), ("um real a dois e quarenta", "R$ 1 a R$ 2,40"),
     ("três e quinze a cinco e cinquenta", "R$ 3,15 a R$ 5,50"), ("trinta dias", "30 dias"), ("dois reais", "R$ 2"),
     ("cada cem", "cada R$ 100"), ("doze vezes", "12x"), ("doze e quarenta a dezoito e trinta", "R$ 12,40 a R$ 18,30"),
     ("doze parcelas", "12 parcelas"), ("custo zero", "custo R$ 0")], cauda=1.5)
@@ -89,16 +89,24 @@ def selo(im, t, t0, cx, cy, grande, peq, cor):
 
 # ---------- cenas ----------
 def cena0(im, t):
+    """Gancho: a mesma venda de R$ 100 no parcelado e quanto fica na maquininha (teto da faixa)."""
     d = ImageDraw.Draw(im)
-    texto_centro(d, 200, "UMA VENDA DE", fonte(46, "SemiBold"), CINZA)
-    numero_grande(im, 260, 100, (t - 0.2) / 1.0, BRANCO, 190)
-    tq = tw(0, "veja")
+    texto_centro(d, 200, "VENDEU NO CARTÃO PARCELADO", fonte(46, "SemiBold"), CINZA)
+    numero_grande(im, 260, 100, 1, BRANCO, 190)  # cheio desde o 1º quadro
+    tq = tw(0, "quanto")
     if t >= tq:
-        q = entra(t, tq); texto_centro(d, 500 + int(30 * (1 - q)), "Quanto fica com você?", fonte(68, "ExtraBold"), AMBAR)
-    if t >= tw(0, "cartão"):
-        q = entra(t, tw(0, "cartão"))
-        d.rounded_rectangle([250, 620, 830, 720], radius=50, fill=(255, 255, 255))
-        d.text((540, 670 + int(10 * (1 - q))), "“Pode ser no cartão?”", font=fonte(44, "ExtraBold"), fill=TINTA, anchor="mm")
+        q = entra(t, tq); texto_centro(d, 500 + int(30 * (1 - q)), "Quanto fica na maquininha?", fonte(68, "ExtraBold"), AMBAR)
+    ta = tw(0, "até")
+    if t >= ta:
+        q = entra(t, ta, 0.25); esc = 1 + 0.18 * (1 - q)
+        f = fonte(int(150 * esc), "Black"); txt = "até R$ 18"
+        larg = d.textlength(txt, font=f); y = 640
+        d.rounded_rectangle([540 - larg / 2 - 50, y - 20, 540 + larg / 2 + 50, y + 190 * esc], radius=40, fill=VERM)
+        texto_centro(d, y, txt, f, BRANCO)
+        if t >= ta + 0.5:
+            f32 = fonte(32, "SemiBold"); nota = "* teto: R$ 18,29 no 12x, recebendo tudo de uma vez"; ln = d.textlength(nota, font=f32)
+            d.rounded_rectangle([540 - ln / 2 - 24, 868, 540 + ln / 2 + 24, 926], radius=29, fill=BG2)
+            texto_centro(d, 878, nota, f32, BRANCO)
 
 def cena1(im, t):
     d = ImageDraw.Draw(im); q = entra(t, INI[1], 0.4); y = 190 + int(40 * (1 - q))
@@ -163,7 +171,7 @@ def cena8(im, t):
     if t >= tw(8, "comenta"):
         p = entra(t, tw(8, "comenta")); texto_centro(d, 860 + int(20 * (1 - p)), "Comenta aqui", fonte(80, "Black"), AMBAR)
 
-FONTES = {0: "Fontes: tabelas oficiais das maquininhas (nov/2026) e Banco Central",
+FONTES = {0: "Fonte do 12x: tabelas oficiais InfinitePay e SumUp (nov/2026)",
           1: "Fonte: Res. BCB 19/2020 e Agência Sebrae · conta PJ em banco que cobra: até ~1,45%",
           2: "Fonte: tabelas oficiais InfinitePay, SumUp, Ton e Mercado Pago (nov/2026)",
           3: "Fonte: tabelas oficiais SumUp, InfinitePay e PagBank (nov/2026)",
@@ -206,7 +214,7 @@ if __name__ == "__main__":
         for s in sys.argv[2:]: quadro(float(s)).save(f"{AQUI}/teste2d_{s}.png")
         sys.exit()
     saida = f"{AQUI}/previa.mp4" if MODO == "previa" else f"{AQUI}/final.mp4"
-    pops = [tw(2, "zero"), tw(3, "um"), tw(4, "três"), tw(5, "dois"), tw(6, "doze", 1)] + [tw(6, "sem") + k * 0.32 for k in range(12)]
+    pops = [tw(0, "até"), tw(2, "zero"), tw(3, "um"), tw(4, "três"), tw(5, "dois"), tw(6, "doze", 1)] + [tw(6, "sem") + k * 0.32 for k in range(12)]
     a = V.audio(cortes=[INI[k] for k in range(1, 9)], pops=pops, riser_ate=INI[7])
     ff = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
                            "-i", "-", "-i", a, "-vf", "vignette=a=PI/5,noise=alls=3:allf=t+u", "-c:v", "libx264", "-preset", "medium",

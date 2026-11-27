@@ -1,4 +1,4 @@
-Uma venda de cem reais. O cliente pergunta: pode ser no cartão? Veja quanto cada forma de pagamento leva. A fonte de cada número está na tela.
+Vendeu cem reais no cartão parcelado? Sabe quanto fica na maquininha? Até dezoito reais. E nas outras formas de pagamento? A fonte de cada número está na tela.
 Pix na chave ou no QR Code impresso: para o MEI, em regra, custo zero, e cai na hora. Mas o Banco Central permite cobrar do MEI no Pix de venda. Leia o contrato.
 Pix pela maquininha: de zero a noventa centavos. Também cai na hora.
 No débito, de um real a dois e quarenta. Cai no dia seguinte.
