@@ -1,7 +1,7 @@
 # Negócio Peça por Peça (nome provisório) — série de empreendedorismo
 
 Perfil PESSOAL do Facebook do dono (monetizando). Pequeno empreendedor (MEI, comércio local, serviço).
-Só voz (ElevenLabs eleven_v4, voice_id Dt3IFiwrxXdZMMFz4Ai0, 1 geração, nunca repetir). 1 vídeo/dia após o piloto.
+Voz: testes com voz grátis; só a versão final aprovada vai na voz do dono no ElevenLabs (ver seção VOZ). 1 vídeo/dia após o piloto.
 Entrega MANUAL: Metricool e APIs da Meta não publicam em perfil pessoal. Para cada vídeo: link do Picsart +
 legenda num .txt na pasta do OneDrive "Área de Trabalho/Negócio Peça por Peça" (padrão de kwai/LEIA.md).
 
@@ -30,3 +30,10 @@ por dia e horário, .txt com legendas e links do Picsart). Passo a passo em COMO
   Fotos: só com licença livre para uso comercial (agente pesquisador-de-imagens); Google Imagens NÃO, por risco de direito
   autoral num perfil monetizado. 3D: Blender 4.2 já instalado (motor em tiktok-geopolitica/motor).
 - Agentes novos: pesquisador-de-imagens, pauteiro-empreendedorismo (.claude/agents/).
+
+## VOZ (decisão do dono, 27/11) — vale acima do que está escrito antes
+- Testes e versões de aprovação: SEMPRE voz grátis (edge-tts pt-BR-AntonioNeural; rodar com SSL_CERT_FILE=/root/.ccr/ca-bundle.crt
+  e --proxy "$HTTPS_PROXY"; ajustar --rate para caber em 75 s). Não gastar ElevenLabs.
+- Só a versão FINAL, já aprovada pelo dono e que vai ser postada, é regravada na voz do dono (ElevenLabs eleven_v4,
+  voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração) e re-renderizada.
+- Vídeo 01 (açaí) liberado para postar ("pode mandar bala").
