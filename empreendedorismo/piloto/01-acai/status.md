@@ -1,0 +1,5 @@
+- [x] Roteiro aprovado pelo dono (27/11) com ajuste: fontes na tela + pergunta final de interação
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.255 créditos, flow 9Gvm3sfv4VaLn7nsZx5S) → narracao.mp3 (73,0 s)
+- [x] palavras.py + alinhar.py → legendas.json
+- [x] render.py → final.mp4 (74,1 s, 1080x1920, -14 LUFS, anti-borda)
+- [ ] Dono aprova o vídeo final → Picsart + .txt no OneDrive (lote semanal)

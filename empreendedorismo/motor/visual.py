@@ -173,3 +173,35 @@ def legenda(im, palavras, t, y=1390):
         cor = AMBAR if atual else (BRANCO if on else CINZA2)
         d.text((x, y), p["w"], font=f, fill=cor)
         x += d.textlength(p["w"], font=f) + 18
+
+def icone_solar(im, cx, cy, esc=1.0, alfa=1.0, raio_sol=1.0):
+    """Painel solar inclinado + sol (flat)."""
+    L = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(L); a = int(255 * alfa); s = esc
+    sx, sy, r = cx + 150 * s, cy - 170 * s, 70 * s
+    for k in range(12):
+        ang = k * math.pi / 6; r1, r2 = r * 1.3, r * (1.3 + 0.35 * raio_sol)
+        d.line([(sx + r1 * math.cos(ang), sy + r1 * math.sin(ang)), (sx + r2 * math.cos(ang), sy + r2 * math.sin(ang))], fill=AMBAR + (a,), width=int(8 * s))
+    d.ellipse([sx - r, sy - r, sx + r, sy + r], fill=AMBAR + (a,))
+    tl, tr, br, bl = (cx - 230 * s, cy - 40 * s), (cx + 150 * s, cy - 40 * s), (cx + 230 * s, cy + 130 * s), (cx - 150 * s, cy + 130 * s)
+    d.polygon([tl, tr, br, bl], fill=(30, 70, 140, a), outline=(200, 215, 235, a))
+    for i in range(1, 4):  # linhas da grade do painel
+        f = i / 4
+        d.line([(tl[0] + (tr[0] - tl[0]) * f, tl[1]), (bl[0] + (br[0] - bl[0]) * f, bl[1])], fill=(200, 215, 235, a), width=int(4 * s))
+    for i in range(1, 3):
+        f = i / 3
+        d.line([(tl[0] + (bl[0] - tl[0]) * f, tl[1] + (bl[1] - tl[1]) * f), (tr[0] + (br[0] - tr[0]) * f, tr[1] + (br[1] - tr[1]) * f)], fill=(200, 215, 235, a), width=int(4 * s))
+    d.rectangle([cx - 10 * s, cy + 130 * s, cx + 10 * s, cy + 230 * s], fill=(160, 170, 185, a))
+    im.paste(L, (0, 0), L)
+
+def grade_pontos(im, prog, destaque=4, y=420, cor=VERDE, passo=84, faixa=0):
+    """100 pontos (10x10); os 'destaque' últimos acendem no fim. 'faixa' = quantos deles ficam
+    em verde mais apagado (ex.: "4 a 6 em cada 100" -> destaque=6, faixa=2)."""
+    d = ImageDraw.Draw(im); n = int(100 * ease(prog)); x0 = (W - passo * 9) / 2
+    for k in range(100):
+        i, j = k % 10, k // 10
+        cx, cy = x0 + i * passo, y + j * passo
+        on = k < n
+        c = (cor if k >= 100 - destaque and prog >= 1 else (CINZA2 if on else GRADE))
+        if k >= 100 - destaque and k < 100 - destaque + faixa and prog >= 1: c = tuple(int(v * 0.55) for v in cor)
+        r = int(passo * (0.36 if (k >= 100 - destaque and prog >= 1) else 0.29))
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=c)
