@@ -17,10 +17,14 @@ Por isso, direito autoral é inegociável:
    - Pixabay (fotos, ilustrações, vetores e VÍDEOS, licença Pixabay: uso comercial livre):
      `curl -s "https://pixabay.com/api/?key=$PIXABAY_API_KEY&q=<termo>&orientation=vertical&safesearch=true&per_page=20"`
      vídeos: `https://pixabay.com/api/videos/?key=$PIXABAY_API_KEY&q=<termo>`.
+   - Unsplash (fotos de alta qualidade, licença Unsplash: uso comercial livre):
+     `curl -s -H "Authorization: Client-ID $UNSPLASH_ACCESS_KEY" "https://api.unsplash.com/search/photos?query=<termo>&orientation=portrait&per_page=15"`
+     Regras da API: ao usar uma foto, chame o `links.download_location` dela (com o mesmo cabeçalho) para registrar o download,
+     e dê crédito "Foto: <nome> / Unsplash" na legenda do post.
    - Agência Brasil (fotos jornalísticas do Brasil, CC BY 3.0 BR): ótima para pautas de notícia (Receita, Congresso, dinheiro, Pix).
      Crédito OBRIGATÓRIO na tela e na legenda: "Foto: Nome do fotógrafo/Agência Brasil".
    - Mixkit e Coverr (vídeos curtos grátis, sem API): use só se o dono indicar um clipe específico.
-   As chaves vêm das variáveis de ambiente PEXELS_API_KEY e PIXABAY_API_KEY; se faltarem, pule a fonte e avise.
+   As chaves vêm das variáveis de ambiente PIXABAY_API_KEY e UNSPLASH_ACCESS_KEY (Pexels: emissão de chaves pausada em 27/11; PEXELS_API_KEY só se um dia existir); se faltarem, pule a fonte e avise.
    GIFs: NÃO use GIPHY/Tenor (memes e trechos de filme têm dono); prefira animar nós mesmos.
 3. Licenças aceitas: cc0, pdm, by, by-sa. RECUSE nc (não comercial) e nd (sem derivação), e qualquer imagem sem licença clara.
 4. Evite: pessoas identificáveis em primeiro plano, logotipos/marcas em destaque (iFood, bancos, maquininhas de marca), crianças, texto legível de terceiros.
