@@ -1,2 +1,6 @@
 NA_FILA Thu Nov 26 22:03:15 UTC 2026
 INICIO Thu Nov 26 22:03:15 UTC 2026
+FIM Thu Nov 26 23:48:34 UTC 2026
+NA_FILA Thu Nov 26 23:54:05 UTC 2026 (retomada: zona C com pôsteres anti-borda, quadros 629-963)
+INICIO Thu Nov 26 23:54:05 UTC 2026
+FIM Fri Nov 27 00:09:42 UTC 2026

@@ -420,6 +420,9 @@ zona_fim([(t0 - 0.3, t1 + 0.3)])
 zona_ini()
 t0, t1 = S[2]
 sala("C", 80, (0.95, 0.80, 0.45, 1), (0.82, 0.62, 0.32, 1), (0.25, 0.30, 0.55, 1))
+# anti-borda (QC 26/11): faixa de pôsteres coloridos acima do friso — nos closes da estante o topo ficava liso (desvio 1,7)
+for k in range(17):
+    caixa(_id("posterC"), (80 - 9.6 + k * 1.2, 4.38, 7.7 + (k % 3) * 0.35), (0.9, 0.06, 0.6), [ROSA, CIANO, AMARELO, VERDE, LARANJA][k % 5], unico=f"posterC{k % 5}")
 tsm = T(2, "semanas"); tjg = T(2, "jogadores"); tsu = T(2, "sumiu"); tbi = T(2, "biblioteca"); tfo = T(2, "força")
 tmv = T(2, "movimento"); tst = T(2, "Stop"); tpm = T(2, "parem"); tmt = T(2, "matar")
 for k in range(3):

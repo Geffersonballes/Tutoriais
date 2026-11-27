@@ -7,8 +7,9 @@
 - [x] palavras.py + alinhar.py — 8 blocos (17 palavras interpoladas, todas conferidas nos tempos)
 - [x] Melhoria (backlog, matchmaking "objeto nasce depois do corte"): objeto principal de cada zona já está em cena no corte; detalhes entram na palavra
 - [x] Cena tiktok-geopolitica/motor/cena_jogo_comprado.py (estilo C, Pixel, visual nível 2) + prévias conferidas (câmeras e posições corrigidas)
-- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — fila/início 22:03 UTC
-- [ ] compor.py → final.mp4 + capa.jpg (ANTI_BORDA ativo)
-- [ ] QC
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — fila/início 22:03, fim 23:48 UTC (1.155 quadros, ~5,5 s/quadro com 2 processos). Retomada parcial 23:54–00:09: zona C (quadros 629–963) refeita com faixa de pôsteres acima do friso (QC de borda: topo liso, desvio 1,7 no close da estante)
+- [x] compor.py → final.mp4 (77,0 s, 1080×1920, 30 fps, 45,1 MB) + capa.jpg; ANTI_BORDA ativo (padrão 1, não desligado)
+- [x] QC aprovado: capa legível (SEU JOGO COMPRADO / PODE MORRER?), gancho com data no 1º s, legendas sincronizadas, rótulos/pílulas acima do objeto, fontes na tela, selo IA, CTA SALVA/DESLIGA completo, pedido de like no fim, −14,2 LUFS / −0,8 dBTP; borda: desvio mínimo por linha nas 60 linhas de cima 3,9 e de baixo 4,0 (amostra a 2 fps, nenhuma faixa chapada)
+- Defeitos menores para o backlog (não corrigidos; backlog não editado nesta sessão): pílula NEM O DISCO SALVOU encosta no "31/03/2024" 3D (~5–6 s); no fim do bloco da multa o "R$ 500 MIL / OU 1%" fica cortado à esquerda quando a câmera vai ao círculo; Pixel fica fora de quadro nos blocos D e G
 - [x] legenda_post.txt
 - NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md
