@@ -12,3 +12,5 @@ tiktok-geopolitica/producao/*/preview*/
 tiktok-geopolitica/producao/*/*.mp4
 tiktok-geopolitica/producao/*/render_*.log
 serie-games/producao/*/curtir.mp3
+empreendedorismo/**/*.wav
+empreendedorismo/**/*.mp4
