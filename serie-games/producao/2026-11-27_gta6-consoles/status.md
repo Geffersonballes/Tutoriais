@@ -1,0 +1,13 @@
+# Status — 2026-11-27_gta6-consoles (games A — notícia, post 15:30 Cuiabá = 19:30 UTC de 27/11)
+- [x] Pauta: radar 2026-11-27_noticias.md, pauta 1 (nota 8,5): "O GTA 6 está matando PS5 e Xbox?" — ângulo: caminho do calor no console
+- [x] Checagem (checagem.md) APROVADA: Notebookcheck + Digital Trends (relato atribuído à assistência na Polônia); parte técnica com fontes próprias: PlayStation Blog (teardown oficial do PS5 Pro) + Hackaday (teardown oficial do PS5) (+ Tom's Hardware, Android Central). Reserva "caixa sem disco" não usada
+- [x] Conformidade: não afirma que o jogo quebra console; técnicos dizem que expõe defeito antigo; empresas não comentaram; consoles genéricos sem marca; nada de abrir console/trocar metal líquido
+- [x] Roteiro 8 blocos, 201 palavras; CTA AGUENTOU / FRITOU + like automático
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.283 créditos, flow NbJyD4ec6uiU4nSf9Yvy) → narracao.mp3 (72,4 s)
+- [x] palavras.py + alinhar.py — 8 blocos, 201 palavras
+- [x] Cena tiktok-geopolitica/motor/cena_gta6_consoles.py (estilo C, Pixel, visual nível 2, zonas por bloco) + prévias conferidas
+- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — ver render_estado.txt
+- [ ] compor.py → final.mp4 + capa.jpg
+- [ ] QC
+- NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md
+- Melhoria (backlog, matchmaking 26/11 'objetos nascem depois do corte'): objetos principais de cada zona já visíveis no corte; anotar 'feito' no backlog na sessão principal (fora do escopo de commit desta sessão)
