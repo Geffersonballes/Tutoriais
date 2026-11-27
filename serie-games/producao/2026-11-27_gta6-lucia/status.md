@@ -1,0 +1,13 @@
+# Status — 2026-11-27_gta6-lucia (games B — pauta do dono, post 21:30 Cuiabá = 01:30 UTC de 28/11)
+- [x] Pauta do dono (pautas_do_dono.md, 27/11): "Por que ninguém quer salvar a Lucia no GTA 6?" — ângulo humor + design de mundo aberto
+- [x] Checagem (checagem.md) APROVADA: VGTimes (23/11) + Fashion Times (25/11) para os relatos; design: GameAnalytics + Wikipedia/Hopson (Gamasutra 2001)
+- [x] Conformidade: sem arte/personagem/logo da Rockstar; Lucia não aparece (prisão genérica vazia); números atribuídos a jogadores
+- [x] Roteiro 8 blocos, 204 palavras; CTA PARTIU / SÓ MAIS UMA + like automático
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.317 créditos, flow ABXNtlIPz7Nf2936DG1r) → narracao.mp3 (71,0 s)
+- [x] palavras.py + alinhar.py — 8 blocos
+- [x] Cena tiktok-geopolitica/motor/cena_gta6_lucia.py (estilo C, Pixel pescando de barco, visual nível 2, zonas por bloco) + prévias conferidas
+- Melhoria do backlog aplicada: pisos xadrez de contraste alto (gta6-pirata-pc) + mar com ondas (mar_ondulado) nas zonas de mar
+- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — ver render_estado.txt
+- [ ] compor.py → final.mp4 + capa.jpg
+- [ ] QC
+- NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md, pautas_do_dono.md

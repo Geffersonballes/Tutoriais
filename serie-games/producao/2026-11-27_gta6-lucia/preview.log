@@ -1,0 +1,310 @@
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+Blender 4.2.3 LTS (hash 0e22e4fcea03 built 2024-10-14 23:31:34)
+Fra:19 Mem:227.21M (Peak 231.59M) | Time:00:07.72 | Rendering 1 / 8 samples
+Fra:19 Mem:227.21M (Peak 231.59M) | Time:00:14.19 | Rendering 8 / 8 samples
+Fra:19 Mem:191.66M (Peak 231.59M) | Time:00:14.20 | Compositing
+Fra:19 Mem:191.66M (Peak 231.59M) | Time:00:14.20 | Compositing | Initializing execution
+Fra:19 Mem:191.67M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 2-27
+Fra:19 Mem:191.67M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 3-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 4-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 5-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 6-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 7-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 8-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 9-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 10-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.20 | Compositing | Operation 11-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.23 | Compositing | Operation 12-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.23 | Compositing | Operation 13-27
+Fra:19 Mem:194.20M (Peak 231.59M) | Time:00:14.23 | Compositing | Operation 14-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.23 | Compositing | Operation 15-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 16-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 17-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 18-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 19-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 20-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 21-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 22-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 23-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 24-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 25-27
+Fra:19 Mem:195.69M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 26-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 27-27
+Fra:19 Mem:193.71M (Peak 231.59M) | Time:00:14.24 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_000.60.jpg'
+Time: 00:14.30 (Saving: 00:00.05)
+
+Fra:181 Mem:227.53M (Peak 232.11M) | Time:00:07.53 | Rendering 1 / 8 samples
+Fra:181 Mem:227.53M (Peak 232.11M) | Time:00:13.58 | Rendering 8 / 8 samples
+Fra:181 Mem:191.92M (Peak 232.11M) | Time:00:13.60 | Compositing
+Fra:181 Mem:191.92M (Peak 232.11M) | Time:00:13.61 | Compositing | Initializing execution
+Fra:181 Mem:191.93M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 2-27
+Fra:181 Mem:191.93M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 3-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 4-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 5-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 6-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 7-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 8-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 9-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 10-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.61 | Compositing | Operation 11-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.62 | Compositing | Operation 12-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.62 | Compositing | Operation 13-27
+Fra:181 Mem:194.47M (Peak 232.11M) | Time:00:13.62 | Compositing | Operation 14-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.62 | Compositing | Operation 15-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 16-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 17-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 18-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 19-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 20-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 21-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 22-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 23-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 24-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 25-27
+Fra:181 Mem:195.95M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 26-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 27-27
+Fra:181 Mem:193.97M (Peak 232.11M) | Time:00:13.63 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_006.00.jpg'
+Time: 00:13.66 (Saving: 00:00.02)
+
+Fra:721 Mem:219.56M (Peak 222.45M) | Time:00:06.79 | Rendering 1 / 8 samples
+Fra:721 Mem:219.56M (Peak 222.45M) | Time:00:14.03 | Rendering 8 / 8 samples
+Fra:721 Mem:186.07M (Peak 222.45M) | Time:00:14.05 | Compositing
+Fra:721 Mem:186.07M (Peak 222.45M) | Time:00:14.05 | Compositing | Initializing execution
+Fra:721 Mem:186.08M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 2-27
+Fra:721 Mem:186.08M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 3-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 4-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 5-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 6-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 7-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 8-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 9-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 10-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.05 | Compositing | Operation 11-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 12-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 13-27
+Fra:721 Mem:188.61M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 14-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 15-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 16-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 17-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 18-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 19-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 20-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 21-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 22-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 23-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 24-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 25-27
+Fra:721 Mem:190.09M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 26-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 27-27
+Fra:721 Mem:188.12M (Peak 222.45M) | Time:00:14.07 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_024.00.jpg'
+Time: 00:14.09 (Saving: 00:00.02)
+
+Fra:811 Mem:219.55M (Peak 222.45M) | Time:00:09.02 | Rendering 1 / 8 samples
+Fra:811 Mem:219.55M (Peak 222.45M) | Time:00:16.23 | Rendering 8 / 8 samples
+Fra:811 Mem:186.06M (Peak 222.45M) | Time:00:16.27 | Compositing
+Fra:811 Mem:186.06M (Peak 222.45M) | Time:00:16.28 | Compositing | Initializing execution
+Fra:811 Mem:186.07M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 2-27
+Fra:811 Mem:186.07M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 3-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 4-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 5-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 6-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 7-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 8-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 9-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 10-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.28 | Compositing | Operation 11-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 12-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 13-27
+Fra:811 Mem:188.60M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 14-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 15-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 16-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 17-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 18-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 19-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 20-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 21-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 22-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 23-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 24-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 25-27
+Fra:811 Mem:190.09M (Peak 222.45M) | Time:00:16.30 | Compositing | Operation 26-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.31 | Compositing | Operation 27-27
+Fra:811 Mem:188.11M (Peak 222.45M) | Time:00:16.31 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_027.00.jpg'
+Time: 00:16.33 (Saving: 00:00.02)
+
+Fra:946 Mem:219.11M (Peak 221.90M) | Time:00:09.98 | Rendering 1 / 8 samples
+Fra:946 Mem:219.11M (Peak 221.90M) | Time:00:17.00 | Rendering 8 / 8 samples
+Fra:946 Mem:185.70M (Peak 221.90M) | Time:00:17.02 | Compositing
+Fra:946 Mem:185.70M (Peak 221.90M) | Time:00:17.02 | Compositing | Initializing execution
+Fra:946 Mem:185.71M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 2-27
+Fra:946 Mem:185.71M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 3-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 4-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 5-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 6-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 7-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 8-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 9-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 10-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.02 | Compositing | Operation 11-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.03 | Compositing | Operation 12-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.03 | Compositing | Operation 13-27
+Fra:946 Mem:188.24M (Peak 221.90M) | Time:00:17.03 | Compositing | Operation 14-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.03 | Compositing | Operation 15-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 16-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 17-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 18-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 19-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 20-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 21-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 22-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 23-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 24-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 25-27
+Fra:946 Mem:189.73M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 26-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 27-27
+Fra:946 Mem:187.75M (Peak 221.90M) | Time:00:17.04 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_031.50.jpg'
+Time: 00:17.07 (Saving: 00:00.02)
+
+Fra:1081 Mem:219.12M (Peak 221.91M) | Time:00:09.18 | Rendering 1 / 8 samples
+Fra:1081 Mem:219.12M (Peak 221.91M) | Time:00:15.90 | Rendering 8 / 8 samples
+Fra:1081 Mem:185.71M (Peak 221.91M) | Time:00:15.93 | Compositing
+Fra:1081 Mem:185.71M (Peak 221.91M) | Time:00:15.93 | Compositing | Initializing execution
+Fra:1081 Mem:185.72M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 2-27
+Fra:1081 Mem:185.72M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 3-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 4-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 5-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 6-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 7-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 8-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 9-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 10-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.94 | Compositing | Operation 11-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.95 | Compositing | Operation 12-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.95 | Compositing | Operation 13-27
+Fra:1081 Mem:188.25M (Peak 221.91M) | Time:00:15.95 | Compositing | Operation 14-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.95 | Compositing | Operation 15-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.95 | Compositing | Operation 16-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.95 | Compositing | Operation 17-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 18-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 19-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 20-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 21-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 22-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 23-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 24-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 25-27
+Fra:1081 Mem:189.73M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 26-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 27-27
+Fra:1081 Mem:187.76M (Peak 221.91M) | Time:00:15.96 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_036.00.jpg'
+Time: 00:15.98 (Saving: 00:00.01)
+
+Fra:1651 Mem:220.27M (Peak 223.70M) | Time:00:05.95 | Rendering 1 / 8 samples
+Fra:1651 Mem:220.27M (Peak 223.70M) | Time:00:12.25 | Rendering 8 / 8 samples
+Fra:1651 Mem:186.39M (Peak 223.70M) | Time:00:12.27 | Compositing
+Fra:1651 Mem:186.39M (Peak 223.70M) | Time:00:12.28 | Compositing | Initializing execution
+Fra:1651 Mem:186.40M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 2-27
+Fra:1651 Mem:186.40M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 3-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 4-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 5-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 6-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 7-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 8-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 9-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 10-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.28 | Compositing | Operation 11-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.29 | Compositing | Operation 12-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.29 | Compositing | Operation 13-27
+Fra:1651 Mem:188.93M (Peak 223.70M) | Time:00:12.29 | Compositing | Operation 14-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 15-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 16-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 17-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 18-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 19-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 20-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 21-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 22-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 23-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 24-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 25-27
+Fra:1651 Mem:190.42M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 26-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 27-27
+Fra:1651 Mem:188.44M (Peak 223.70M) | Time:00:12.30 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_055.00.jpg'
+Time: 00:12.32 (Saving: 00:00.02)
+
+Fra:1861 Mem:221.82M (Peak 225.29M) | Time:00:08.08 | Rendering 1 / 8 samples
+Fra:1861 Mem:221.82M (Peak 225.29M) | Time:00:15.97 | Rendering 8 / 8 samples
+Fra:1861 Mem:187.89M (Peak 225.29M) | Time:00:15.98 | Compositing
+Fra:1861 Mem:187.89M (Peak 225.29M) | Time:00:15.99 | Compositing | Initializing execution
+Fra:1861 Mem:187.90M (Peak 225.29M) | Time:00:15.99 | Compositing | Operation 2-27
+Fra:1861 Mem:187.90M (Peak 225.29M) | Time:00:15.99 | Compositing | Operation 3-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:15.99 | Compositing | Operation 4-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:15.99 | Compositing | Operation 5-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:15.99 | Compositing | Operation 6-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:15.99 | Compositing | Operation 7-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:15.99 | Compositing | Operation 8-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:16.00 | Compositing | Operation 9-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:16.00 | Compositing | Operation 10-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:16.00 | Compositing | Operation 11-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 12-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 13-27
+Fra:1861 Mem:190.43M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 14-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 15-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 16-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 17-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 18-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 19-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 20-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 21-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.01 | Compositing | Operation 22-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.02 | Compositing | Operation 23-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.02 | Compositing | Operation 24-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.02 | Compositing | Operation 25-27
+Fra:1861 Mem:191.91M (Peak 225.29M) | Time:00:16.02 | Compositing | Operation 26-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:16.02 | Compositing | Operation 27-27
+Fra:1861 Mem:189.94M (Peak 225.29M) | Time:00:16.02 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_062.00.jpg'
+Time: 00:16.04 (Saving: 00:00.02)
+
+Fra:1945 Mem:232.67M (Peak 239.01M) | Time:00:08.30 | Rendering 1 / 8 samples
+Fra:1945 Mem:232.67M (Peak 239.01M) | Time:00:14.17 | Rendering 8 / 8 samples
+Fra:1945 Mem:195.68M (Peak 239.01M) | Time:00:14.24 | Compositing
+Fra:1945 Mem:195.68M (Peak 239.01M) | Time:00:14.25 | Compositing | Initializing execution
+Fra:1945 Mem:195.69M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 2-27
+Fra:1945 Mem:195.69M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 3-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 4-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 5-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 6-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 7-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 8-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 9-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 10-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.25 | Compositing | Operation 11-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 12-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 13-27
+Fra:1945 Mem:198.23M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 14-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 15-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 16-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 17-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 18-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 19-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 20-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 21-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 22-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 23-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 24-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 25-27
+Fra:1945 Mem:199.71M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 26-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 27-27
+Fra:1945 Mem:197.73M (Peak 239.01M) | Time:00:14.26 | Compositing | Operation 28-27
+Saved: 'serie-games/producao/2026-11-27_gta6-lucia/preview/p_064.80.jpg'
+Time: 00:14.28 (Saving: 00:00.02)
+
+
+Blender quit

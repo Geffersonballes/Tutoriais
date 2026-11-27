@@ -18,3 +18,4 @@ Horários desta sessão no YouTube: **08:00 e 20:00** (fora dos horários de gam
 | GTA 6 e os games por dentro, peça por peça (8:19) | agendado 28/11 19:00 (Metricool 443138034) | produto/youtube/longos/gta6-games |
 - 26/11: regra do dono — postar SÓ na marca 8356514 (nunca 8049742, 8357037 nem 8368938).
 - 26/11: o dono confirmou nesta sessão que os longos são agendados normalmente, sem rascunho (formato aprovado em 25/11).
+- 27/11: o dono ativou a verificação em duas etapas da Conta Google (requisito da monetização).
