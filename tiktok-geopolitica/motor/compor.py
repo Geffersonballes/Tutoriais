@@ -133,6 +133,24 @@ CAPA_DUR = G.get("capa", {}).get("dur", 1.3)
 # Pedido de like no final (decisão do dono, 24/11): voz + tela, LIGADO por padrão. "curtir": false desliga.
 CURTIR = G.get("curtir", True)
 CURTIR_FALA = G.get("curtir_fala", "Gostou do conteúdo? Então deixa o seu like!") if CURTIR else None
+_BALAO = {}
+def balao_comentario(txt, escala=1.0):
+    """Balão branco de comentário com rabinho, cabeçalho cinza genérico e texto escuro (sem nome/foto/@)."""
+    if txt not in _BALAO:
+        f1, f2 = fonte(30, "SemiBold"), fonte(46, "Bold")
+        lw = int(f2.getlength(txt)); bw = min(W - 90, lw + 96); bh = 168
+        im = Image.new("RGBA", (bw + 30, bh + 60), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+        d.rounded_rectangle((12, 16, 12 + bw, 16 + bh), 34, fill=(0, 0, 0, 90))
+        d.rounded_rectangle((4, 6, 4 + bw, 6 + bh), 34, fill=(255, 255, 255, 250))
+        d.polygon([(70, 6 + bh - 2), (130, 6 + bh - 2), (64, 6 + bh + 44)], fill=(255, 255, 255, 250))
+        d.rounded_rectangle((48, 34, 84, 60), 7, fill=(150, 154, 160)); d.polygon([(56, 59), (66, 59), (54, 69)], fill=(150, 154, 160))
+        d.text((96, 30), "comentário", font=f1, fill=(120, 124, 130))
+        d.text((48, 82), txt, font=f2, fill=(25, 25, 30))
+        _BALAO[txt] = im
+    im = _BALAO[txt]
+    if abs(escala - 1) < 1e-3: return im
+    return im.resize((max(1, int(im.width * escala)), max(1, int(im.height * escala))), Image.LANCZOS)
+
 def _dur(a): return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", a], capture_output=True, text=True).stdout)
 DUR_NARR = _dur(os.path.join(PASTA, "narracao.mp3"))
 
@@ -163,6 +181,10 @@ def overlay(t):
         a, b = resolver(fo["de"]), resolver(fo["ate"])
         if a <= t < b:
             texto_contorno(d, (W / 2, H * 0.80), fo["texto"], F_FONTE, (235, 235, 235), 3)
+    # balão de comentário (formato resposta ao comentário): sem nome, foto nem @
+    com = G.get("comentario")
+    if com and resolver(com["de"]) <= t < resolver(com["ate"]):
+        colar_centro(ov, balao_comentario(com["texto"], escala_pop(t, resolver(com["de"]), 0.25)), W / 2, H * com.get("y", 0.30))
     # pedido de like (depois da narração): só ele + marca, por cima de uma faixa escura
     if CURTIR and t >= DUR_NARR + 0.1:
         a = DUR_NARR + 0.1
@@ -175,12 +197,12 @@ def overlay(t):
     # CTA final
     cta = G.get("cta")
     if cta:
-        a1, a2 = resolver(cta["linha1"]), resolver(cta["linha2"])
+        a1 = resolver(cta["linha1"]); a2 = resolver(cta["linha2"]) if "linha2" in cta else 1e9
         if t >= a1:
             colar_centro(ov, camada_texto(cta["t1a"], F_CTA1, BRANCO, 6, escala_pop(t, a1)), W / 2, H * 0.14)
             colar_centro(ov, camada_texto(cta["t1b"], F_CTA2, BRANCO, 10, escala_pop(t, a1 + 0.5)), W / 2, H * 0.205)
-        if t >= a2:
-            colar_centro(ov, camada_texto(cta["t2a"], F_CTA1, BRANCO, 6, escala_pop(t, a2)), W / 2, H * 0.28)
+        if t >= a2 and cta.get("t2a") is not None:
+            if cta["t2a"]: colar_centro(ov, camada_texto(cta["t2a"], F_CTA1, BRANCO, 6, escala_pop(t, a2)), W / 2, H * 0.28)
             colar_centro(ov, camada_texto(cta["t2b"], F_CTA2, (80, 170, 255), 10, escala_pop(t, a2 + 0.5)), W / 2, H * 0.345)
         if t >= resolver(cta["marca_de"]):
             im = pilula(G.get("marca_canal", "PEÇA POR PEÇA"), "vermelho", escala_pop(t, resolver(cta["marca_de"])), fonte(40, "ExtraBold"))

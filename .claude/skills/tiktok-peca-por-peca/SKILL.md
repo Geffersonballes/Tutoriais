@@ -167,3 +167,6 @@ Poste SOMENTE na marca geffersonballes1 (8356514). NÃO use 8049742, 8357037 nem
 
 ## DURAÇÃO (decisão do dono, 26/11 — vale acima de "2 a 2,5 min")
 Vídeos de guerra passam a ter **75 a 90 s** (roteiro de ~190 a 230 palavras, 6 a 8 cenas). Motivo: no relatório de 26/11 os vídeos de 125–157 s tiveram a pior retenção (tempo médio 5–20 s, conclusão 0,3–1%). Corte o que for contexto secundário; mantenha gancho forte nos 3 primeiros segundos e o "Esse é o…" de cada peça.
+
+## VOZ (confirmado pelo dono, 26/11)
+Guerra continua com a voz **pt-BR-AntonioNeural (edge-tts)**. NÃO use ElevenLabs na guerra. (A voz do dono é só nos games.)

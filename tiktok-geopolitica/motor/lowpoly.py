@@ -725,3 +725,30 @@ def mar_ondulado(nome, loc, tam, cor, res=120, altura=0.35, escala_onda=6.0, t_f
     d = m.modifiers.new("ondas", "DISPLACE"); d.texture = tx; d.strength = altura; d.mid_level = 0.5
     d.texture_coords = "OBJECT"; d.texture_coords_object = ref
     return m
+
+# ---------- modelos do vídeo TNP (26/11) ----------
+def bandeira(nome, loc, cor, h=6.0, larg=2.4, alt=1.5, fase=0.0, unico=None):
+    """Mastro com bandeira ondulada (pano em grade com onda senoidal, sem país real) e ponteira esférica.
+    Devolve o mastro (pai); o pano é filho."""
+    mastro = cilindro(nome, (loc[0], loc[1], loc[2] + h / 2 if len(loc) > 2 else h / 2), 0.07 * h / 6, h, (0.78, 0.79, 0.80, 1), seg=8)
+    filho(mastro, esfera(_id("ponta"), (0, 0, h / 2 + 0.12), 0.16 * h / 6, (0.85, 0.70, 0.25, 1), sub=1))
+    bm = bmesh.new(); nx, nz = 10, 4
+    vs = [[bm.verts.new((larg * i / nx, 0.18 * math.sin(i / nx * 2.6 * math.pi + fase) * (i / nx) ** 0.7, alt * (j / nz - 1)))
+           for j in range(nz + 1)] for i in range(nx + 1)]
+    for i in range(nx):
+        for j in range(nz): bm.faces.new((vs[i][j], vs[i + 1][j], vs[i + 1][j + 1], vs[i][j + 1]))
+    pano = _new_obj(_id("pano"), bm, cor, unico)
+    for p in pano.data.polygons: p.use_smooth = True
+    filho(mastro, pano); pano.location = (0.05, 0, h / 2 - 0.15)
+    return mastro
+
+def documento(nome, loc, w=5.0, d=6.6):
+    """Tratado sobre um púlpito: folha branca com linhas de texto cinza, assinatura e selo dourado (o selo é devolvido à parte)."""
+    pulp = cilindro(nome, (loc[0], loc[1], 1.2), 1.4, 2.4, (0.42, 0.30, 0.20, 1), seg=12)
+    tampo = caixa(_id("tampo"), (0, 0, 1.35), (w + 0.8, d + 0.8, 0.3), (0.50, 0.36, 0.24, 1)); filho(pulp, tampo)
+    folha = caixa(_id("folha"), (0, 0, 1.55), (w, d, 0.08), (0.97, 0.96, 0.92, 1)); filho(pulp, folha)
+    for k in range(9):
+        ln = caixa(_id("linha"), (-0.3 + (0.3 if k % 3 == 2 else 0), d / 2 - 0.9 - k * 0.5, 1.6), (w * (0.62 if k % 3 == 2 else 0.8), 0.12, 0.03), (0.45, 0.45, 0.48, 1)); filho(pulp, ln)
+    ass = caixa(_id("assin"), (-w * 0.18, -d / 2 + 0.9, 1.6), (w * 0.38, 0.1, 0.03), (0.10, 0.20, 0.55, 1)); filho(pulp, ass)
+    selo = cilindro(_id("selo"), (loc[0] + w * 0.25, loc[1] - d / 2 + 1.0, 2.86), 0.6, 0.1, (0.90, 0.72, 0.20, 1), seg=16, unico="selo_ouro")
+    return pulp, selo
