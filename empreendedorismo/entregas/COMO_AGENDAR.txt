@@ -1,0 +1,20 @@
+Como agendar a semana de Reels no perfil pessoal (Meta Business Suite, pelo celular)
+
+O Metricool não lista o perfil pessoal (só as Páginas), por isso o agendamento é feito por você, uma vez por semana.
+
+O que chega toda semana
+Pasta no OneDrive: Área de Trabalho/Negócio Peça por Peça/Semana AAAA-MM-DD/
+- Semana_AAAA-MM-DD.txt — para cada dia: número do vídeo, dia e horário sugeridos, link para baixar o vídeo,
+  título, texto e hashtags prontos para colar.
+- Os vídeos em si vêm pelo link do Picsart (o conector do OneDrive só aceita arquivos de até 1 MB).
+
+Passo a passo (uns 2 minutos por vídeo)
+1. Baixe os vídeos da semana no celular pelos links do .txt.
+2. Abra o app Meta Business Suite e, no topo, troque para o seu perfil (modo profissional).
+3. Toque em Planejador (ou "Conteúdo" → "Planejador").
+4. Toque em Criar → Reel.
+5. Escolha o vídeo do dia na galeria.
+6. Cole a legenda do .txt (título + texto + hashtags).
+7. Ative o rótulo de conteúdo feito com IA se o app oferecer.
+8. Toque em Agendar, escolha o dia e o horário sugeridos e confirme.
+9. Repita para os outros dias. No fim, confira tudo no Planejador.

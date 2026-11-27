@@ -16,3 +16,10 @@ a publicação vira automática. Até lá: entrega manual pelo OneDrive + instru
 Meta Business Suite, que agenda posts em perfil com modo profissional.
 Confirmado depois: o Metricool NÃO lista o perfil. Entrega em LOTE SEMANAL (pasta por semana no OneDrive, vídeos numerados
 por dia e horário, .txt com legendas e links do Picsart). Passo a passo em COMO_AGENDAR.md. Não usar a página Balles Tech.
+
+## OneDrive (criado 27/11)
+- Pasta da série: "Área de Trabalho/Negócio Peça por Peça" — itemId 49EB6D02466CAE02!s0160f499c2b24bf28f61598b31b6ea98
+  - COMO_AGENDAR.txt — 49EB6D02466CAE02!sc34e81fa6544484188bbf578b8d59a4b
+  - Semana 2026-11-30/ — 49EB6D02466CAE02!s43ff1b38df3b45f49b293bc2b2432726
+    - Semana_2026-11-30.txt — 49EB6D02466CAE02!s1eeeb61bc3e343b59b0a1d71b0e11a5c (cópia local em entregas/)
+- Vídeo 01 (açaí), aprovado pelo dono 27/11: https://gcdn.picsart.com/picsart-mcp/fe200b0b-004b-40d9-90c9-42b60592f106.mp4
