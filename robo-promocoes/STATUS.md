@@ -9,7 +9,8 @@ Sequência revisada. ✅ feito · ⏳ aguardando terceiros · 👉 próximo · �
 - ✅ Formatos de mensagem aprovados (6 formatos + cupom), frases sem "amigas"
 - ✅ Grupo "Achadinhos da Lay" criado
 - ✅ **Chip exclusivo do robô** conseguido (26/11)
-- 👉 **Trocar o robô para o chip novo**: novo número no grupo como admin → `bash conectar-whatsapp.sh --trocar` → `enviar-teste`
+- ✅ Robô trocado para o chip novo (27/11)
+- 👉 Teste de envio pelo número novo (`enviar-teste`)
 - ⬜ Aquecer o chip novo (foto = logo, nome "Achadinhos da Lay", uso normal por alguns dias)
 - ⬜ Descrição final do grupo (dono vai alterar), foto, "só admins", mensagem de abertura
 - ⬜ Definir o número oficial de atendimento (pode ser o próprio chip do robô, atendido no celular)

@@ -264,6 +264,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 25/11/2026 | Criativo em vídeo v2 com as cores da marca (`instagram/criativos/…-v2-marca.mp4`): fundo preto com brilho dourado (PIL), logo pulsando no topo, cartão escuro com borda dourada, fonte Poppins (baixada do google/fonts), mesma narração da v1 (sem custo novo de voz). |
 | 25/11/2026 | Regra da marca: **não usar "amigas"** (público aberto a todos). Removido de `robo/frases.py` (8 frases), de `textos-do-grupo.md` (2 trechos) e da narração. Criativo v3 com narração nova (cerca de 219 créditos por versão). |
 | 26/11/2026 | ✅ **Chip exclusivo do robô** conseguido. Criado `STATUS.md` (sequência revisada) e a opção `--trocar` no `conectar-whatsapp.sh`. |
+| 27/11/2026 | ✅ Robô trocado para o **chip exclusivo** (`conectar-whatsapp.sh --trocar`): número novo admin do grupo, com foto da logo e nome "Achadinhos da Lay". Número pessoal desconectado. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
