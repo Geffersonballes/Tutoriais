@@ -14,3 +14,12 @@ tiktok-geopolitica/producao/*/render_*.log
 serie-games/producao/*/curtir.mp3
 empreendedorismo/**/*.wav
 empreendedorismo/**/*.mp4
+empreendedorismo/producao/*/frames/
+empreendedorismo/producao/*/teste*.png
+__pycache__/
+empreendedorismo/producao/*/frames/
+empreendedorismo/producao/*/frames_previa/
+empreendedorismo/producao/*/*.mp4
+empreendedorismo/producao/*/*.wav
+empreendedorismo/producao/*/render*.log
+empreendedorismo/producao/*/teste*.png

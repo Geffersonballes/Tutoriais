@@ -3,3 +3,4 @@
 - [x] palavras.py + alinhar.py → legendas.json
 - [x] render.py → final.mp4 (74,8 s, -14 LUFS, anti-borda)
 - [ ] Dono aprova → Picsart + .txt no OneDrive
+- [x] REPROVADO pelo dono (27/11): "não vamos fazer esse". Não publicar. Material fica só como referência.
