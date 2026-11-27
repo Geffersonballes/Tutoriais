@@ -44,3 +44,9 @@ por dia e horário, .txt com legendas e links do Picsart). Passo a passo em COMO
 - 3D na maior parte das cenas, com movimento de câmera; gráfico 2D só por cima (etiquetas, números, legenda).
 - Medido no teste: ~1 min por quadro a 24 amostras (4 núcleos). Render roda em segundo plano, por partes, salvando os quadros já
   prontos para retomar se a máquina reiniciar (mesmo esquema do render.sh/render_estado.txt dos games).
+
+## CAPA E PRIMEIRO QUADRO (27/11)
+- O Facebook usou o 1º quadro do açaí como miniatura ("R$ 0,00", contador zerado). Regra: o 1º quadro já mostra o gancho completo
+  (número cheio + pergunta), sem contador começando do zero.
+- Toda entrega leva capa.jpg (quadro do gancho, 1080x1920) junto com vídeo e legenda. Dono troca em Reel > ... > Editar > Capa.
+- Postar como Reel. O Facebook pode criar teste A/B automático: deixar rodar.
