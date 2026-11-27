@@ -146,6 +146,17 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
    Ideias de post automático: carrossel "Top 5 achadinhos do dia" (imagem gerada), reels com produto e stories.
    ⚠️ Pela API não dá para colocar **figurinha de link** no story, então o link (da landing) fica na bio.
 
+## 3.4 Amazon (Associados) — pesquisa de 27/11/2026
+
+- A **PA-API 5** está sendo descontinuada (a documentação da Amazon fala em 15/05/2026). O caminho novo é a **Creators API**.
+- A Creators API só fica disponível para associados **aceitos** (análise depois das primeiras vendas qualificadas).
+  Os blogs brasileiros falam em 3 vendas em 180 dias; a página do Japão pede 10 vendas em 30 dias para a API. **Confirmar no
+  portal associados.amazon.com.br → Ferramentas → Creators API.** O acesso precisa ser **solicitado**, não vem sozinho.
+- Plano: (1) conta de Associados (usar o Instagram e a landing como "site"); (2) até liberar a API, **fila manual**:
+  o dono cola links da SiteStripe (com a tag `-20`) numa planilha e o robô posta; (3) com a API, busca automática igual à Shopee.
+- ⚠️ Conformidade: as regras da Amazon restringem mostrar preço que não venha da API (preço desatualizado). A fila
+  manual deve postar o preço no mesmo dia em que foi conferido, com "sujeito a alteração". Passar pelo `promo-conformidade`.
+
 ## 4. Conectores do Claude
 
 - **Nenhum conector é necessário** para o robô funcionar: ele roda sozinho na VPS e
@@ -269,6 +280,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 27/11/2026 | ✅ Robô trocado para o **chip exclusivo** (`conectar-whatsapp.sh --trocar`): número novo admin do grupo, com foto da logo e nome "Achadinhos da Lay". Número pessoal desconectado. |
 | 27/11/2026 | ⚠️ Armadilha: havia **dois grupos "Achadinhos da Lay"**. O número novo estava só no novo (`120363414222856167@g.us`), e o `.env` apontava para o antigo: o teste "saiu", mas não chegou. Dono escolheu o **grupo novo**. O robô agora confere se participa dos `GRUPOS` antes de enviar (`conferir_grupos`). |
 | 27/11/2026 | ✅ Teste chegou no **grupo novo** enviado pelo **chip exclusivo**. Robô 100% pronto, faltando só a Open API da Shopee. |
+| 27/11/2026 | Dono quer incluir a **Amazon**. Pesquisa feita (§3.4): API só depois de vendas qualificadas; começar pela fila manual. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |

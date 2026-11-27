@@ -17,6 +17,11 @@ Sequência revisada. ✅ feito · ⏳ aguardando terceiros · 👉 próximo · �
 - ⬜ Com a API: colocar as chaves no `.env` → `python -m robo teste` (ofertas reais) → aprovar → `docker compose up -d robo`
 - ⬜ Teste real alguns dias só no grupo → depois divulgar
 
+## A2. Amazon
+- 👉 Conta no Amazon Associados (o dono já tem?)
+- ⬜ Fila manual (planilha → robô posta) até liberar a Creators API
+- ⬜ Creators API depois das primeiras vendas → busca automática
+
 ## B. Instagram e Facebook (sessão Instagram)
 - ✅ @achadinhosdalay40 profissional + Página do Facebook vinculada
 - ✅ Metricool conectado (marca "laycmballes")
