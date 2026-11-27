@@ -92,6 +92,8 @@ Mensagem pronta para mandar ao cliente pelo WhatsApp: ver §6.
 - **Trocar o número do robô** (ex.: sair do número pessoal para o chip exclusivo): primeiro coloque o número novo
   no grupo como admin, depois `git pull && bash conectar-whatsapp.sh --trocar` e leia o QR com o celular do **número novo**.
   O ID do grupo não muda, então `GRUPOS` continua igual.
+- Erro `no configuration file provided: not found` = terminal fora da pasta do robô (acontece a cada login novo).
+  Sempre começar com `cd /opt/tutoriais/robo-promocoes`. Nos comandos passados ao cliente, incluir o `cd` no começo.
 - Evolution API: imagem `evoapicloud/evolution-api:v2.3.7` (conferida no Docker Hub em 25/11/2026).
 - ⚠️ Produto: o repositório hoje é **público**. Antes de vender, mover o código do robô para um repositório **privado**
   e usar uma deploy key só de leitura na VPS de cada cliente.
