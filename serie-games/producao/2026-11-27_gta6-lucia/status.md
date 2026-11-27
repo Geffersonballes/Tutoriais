@@ -7,7 +7,8 @@
 - [x] palavras.py + alinhar.py — 8 blocos
 - [x] Cena tiktok-geopolitica/motor/cena_gta6_lucia.py (estilo C, Pixel pescando de barco, visual nível 2, zonas por bloco) + prévias conferidas
 - Melhoria do backlog aplicada: pisos xadrez de contraste alto (gta6-pirata-pc) + mar com ondas (mar_ondulado) nas zonas de mar
-- [ ] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — ver render_estado.txt
-- [ ] compor.py → final.mp4 + capa.jpg
-- [ ] QC
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) 16:34–18:56 UTC, 1130 quadros
+- [x] compor.py → final.mp4 (1080×1920, 75,5 s, 41,6 MB) + capa.jpg (anti-borda aplicada); rótulo do bloco 4 encurtado para "LONGA X RÁPIDA" (o original saía cortado nas laterais)
+- [x] QC APROVADO: capa legível em 270 px (POR QUE NINGUÉM / SALVA A LUCIA / NO GTA 6?), gancho com relógio + 15/20/30 h nos 1ºs segundos, legendas sincronizadas, pílulas/rótulos sem tapar o objeto, fontes na tela, selo IA, CTA PARTIU / SÓ MAIS UMA completo, pedido de like no fim, −14,3 LUFS; borda: desvio mínimo por linha nas 60 linhas de cima/baixo entre 3,6 e 11,1 (nenhuma faixa chapada)
+- Defeitos menores (para o backlog): "+1" do CTA nasce parcialmente fora do quadro à direita; Pixel cortado na borda esquerda em alguns planos das zonas do mapa (bloco 6) e da prisão; base do mar com pouca variação no fim (std 3,6, no limite)
 - NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md, pautas_do_dono.md
