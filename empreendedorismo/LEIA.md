@@ -14,3 +14,5 @@ Atualização 27/11 (sessão principal): o perfil é o "geffersonballes" (pessoa
 O dono vai testar se ele aparece para conectar no Metricool (marca geffersonballes1, id 8356514); se aparecer,
 a publicação vira automática. Até lá: entrega manual pelo OneDrive + instruções para agendar em lote pelo
 Meta Business Suite, que agenda posts em perfil com modo profissional.
+Confirmado depois: o Metricool NÃO lista o perfil. Entrega em LOTE SEMANAL (pasta por semana no OneDrive, vídeos numerados
+por dia e horário, .txt com legendas e links do Picsart). Passo a passo em COMO_AGENDAR.md. Não usar a página Balles Tech.
