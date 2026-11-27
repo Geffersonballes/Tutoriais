@@ -23,3 +23,10 @@ por dia e horário, .txt com legendas e links do Picsart). Passo a passo em COMO
   - Semana 2026-11-30/ — 49EB6D02466CAE02!s43ff1b38df3b45f49b293bc2b2432726
     - Semana_2026-11-30.txt — 49EB6D02466CAE02!s1eeeb61bc3e343b59b0a1d71b0e11a5c (cópia local em entregas/)
 - Vídeo 01 (açaí), aprovado pelo dono 27/11: https://gcdn.picsart.com/picsart-mcp/fe200b0b-004b-40d9-90c9-42b60592f106.mp4
+
+## Decisões 27/11 (depois do piloto)
+- Vídeo 02 (Balles Tech) reprovado: não publicar.
+- O dono quer ilustrações mais intuitivas, interativas e "responsivas" (tudo reagindo à fala), 3D melhor e FOTOS REAIS.
+  Fotos: só com licença livre para uso comercial (agente pesquisador-de-imagens); Google Imagens NÃO, por risco de direito
+  autoral num perfil monetizado. 3D: Blender 4.2 já instalado (motor em tiktok-geopolitica/motor).
+- Agentes novos: pesquisador-de-imagens, pauteiro-empreendedorismo (.claude/agents/).
