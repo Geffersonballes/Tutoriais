@@ -149,7 +149,9 @@ def cena7(im, t):
         d.rounded_rectangle([80, y + 56, 1000, y + 126], radius=18, fill=GRADE)
         if p > 0:
             d.rounded_rectangle([80, y + 56, 80 + max(24, 920 * v / 20 * p), y + 126], radius=18, fill=cor)
-            d.text((100 + max(24, 920 * v / 20 * p), y + 64), "– " + brl(v * p), font=fonte(44, "Black"), fill=BRANCO)
+            xb = 80 + max(24, 920 * v / 20 * p); rot_v = "– " + brl(v * p); f44 = fonte(44, "Black")
+            if xb + 20 + d.textlength(rot_v, font=f44) > 1000: d.text((xb - 20, y + 64), rot_v, font=f44, fill=BRANCO, anchor="ra")
+            else: d.text((xb + 20, y + 64), rot_v, font=f44, fill=BRANCO)
     if t >= tw(7, "desconto"):
         p = entra(t, tw(7, "desconto"))
         texto_centro(d, 1240 + int(20 * (1 - p)), "Saber o custo mostra onde cabe desconto", fonte(42, "ExtraBold"), AMBAR)
