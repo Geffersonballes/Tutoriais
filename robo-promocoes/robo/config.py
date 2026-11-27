@@ -47,6 +47,9 @@ PRECO_MAXIMO = _num("PRECO_MAXIMO", 300)            # R$
 NOTA_MINIMA = _num("NOTA_MINIMA", 4.5)
 VENDAS_MINIMAS = _num("VENDAS_MINIMAS", 50)
 
+# Fila manual (Amazon etc.): link CSV de uma planilha publicada na web. Vazio = desligado.
+FILA_CSV_URL = os.getenv("FILA_CSV_URL", "").strip()
+
 # Cupom (opcional): aparece como "🎟️ Cupom: *TEXTO*" em todas as ofertas até a validade (AAAA-MM-DD).
 # Só use cupom real e vigente. Ex.: CUPOM_TEXTO=resgate R$ 20 OFF na página da oferta
 CUPOM_TEXTO = os.getenv("CUPOM_TEXTO", "").strip()

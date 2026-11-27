@@ -5,6 +5,7 @@ Uso:
   python -m robo teste --exemplo  # usa produtos de exemplo (não precisa de chave)
   python -m robo formatos        # mostra todos os formatos de mensagem com um produto de exemplo
   python -m robo enviar-teste    # manda 1 mensagem de TESTE (exemplo) só para os GRUPOS do .env
+  python -m robo fila            # mostra o que a fila manual (planilha) postaria hoje, sem enviar
   python -m robo grupos           # lista os grupos do número do robô (para pegar os IDs)
   python -m robo rodar            # modo de produção: posta nos GRUPOS em loop
 """
@@ -17,7 +18,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import config, historico, mensagem, shopee, whatsapp
+from . import config, fila, historico, mensagem, shopee, whatsapp
 
 
 def log(*a):
@@ -128,6 +129,18 @@ def cmd_enviar_teste(args) -> None:
             time.sleep(config.PAUSA_ENTRE_GRUPOS)
 
 
+def cmd_fila(args) -> None:
+    itens = fila.ler()
+    if not config.FILA_CSV_URL:
+        print("FILA_CSV_URL não definido no .env.")
+    print(f"{len(itens)} item(ns) válidos para hoje (preço conferido hoje):")
+    for o in itens:
+        formato = mensagem.escolher_formato(o)
+        status = " (já postado)" if historico.ja_postado(o["id"]) else ""
+        print("\n" + "=" * 50 + f"\n[{o['loja']} · formato {formato}]{status} [imagem] {o['imagem']}\n" + "-" * 50)
+        print(mensagem.montar(o, formato))
+
+
 def cmd_grupos(args) -> None:
     for g in whatsapp.listar_grupos():
         print(f"{g.get('id')}  |  {g.get('subject')}  |  {g.get('size', '?')} pessoas")
@@ -173,10 +186,15 @@ def cmd_rodar(args) -> None:
             continue
         try:
             postar_top_se_for_hora()
-            ofertas = candidatas()
+            ofertas = [o for o in fila.ler() if not historico.ja_postado(o["id"])]
+            if ofertas:
+                log(f"Fila manual: {len(ofertas)} item(ns) para hoje")
+            elif config.SHOPEE_APP_ID:
+                ofertas = candidatas()
             if ofertas:
                 formato = mensagem.escolher_formato(ofertas[0])
-                o = com_link_afiliado(ofertas[0], exemplo=False, formato=formato)
+                o = ofertas[0] if ofertas[0].get("manual") else \
+                    com_link_afiliado(ofertas[0], exemplo=False, formato=formato)
                 texto = mensagem.montar(o, formato)
                 for grupo in config.GRUPOS:
                     whatsapp.enviar_imagem(grupo, o["imagem"], texto)
@@ -199,6 +217,7 @@ def main() -> None:
     t.add_argument("--exemplo", action="store_true", help="usa produtos de exemplo")
     t.add_argument("--quantidade", type=int, default=5)
     t.set_defaults(func=cmd_teste)
+    sub.add_parser("fila", help="mostra a fila manual de hoje").set_defaults(func=cmd_fila)
     sub.add_parser("formatos", help="mostra todos os formatos").set_defaults(func=cmd_formatos)
     e = sub.add_parser("enviar-teste", help="envia mensagem(ns) de teste aos GRUPOS")
     e.add_argument("--formato", default="padrao", choices=FORMATOS + ["top_do_dia", "todos"])
