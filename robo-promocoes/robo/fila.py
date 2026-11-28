@@ -41,7 +41,8 @@ def _data(texto: str) -> str:
     return ""
 
 
-def ler(texto_csv: str | None = None) -> list[dict]:
+def ler(texto_csv: str | None = None, motivos: list | None = None) -> list[dict]:
+    """Lê a fila. Se `motivos` for uma lista, recebe (nome, motivo) de cada linha ignorada."""
     if texto_csv is None:
         if not config.FILA_CSV_URL:
             return []
@@ -51,17 +52,24 @@ def ler(texto_csv: str | None = None) -> list[dict]:
         texto_csv = resp.text
     hoje = datetime.now(ZoneInfo(config.FUSO)).strftime("%Y-%m-%d")
     itens = []
+    def pula(l, motivo):
+        if motivos is not None:
+            motivos.append((l.get("nome") or l.get("link") or "(linha vazia)", motivo))
+
     for l in csv.DictReader(io.StringIO(texto_csv)):
         l = {(k or "").strip().lower(): (v or "").strip() for k, v in l.items()}
+        if not any(l.values()):
+            continue
         if l.get("ativo", "").lower() in ("não", "nao", "n", "0"):
-            continue
+            pula(l, "ativo = não"); continue
         if not l.get("link") or not l.get("nome") or not l.get("imagem"):
-            continue
-        if _data(l.get("conferido_em", "")) != hoje:
-            continue  # preço não conferido hoje
+            pula(l, "falta link, nome ou imagem"); continue
+        data = _data(l.get("conferido_em", ""))
+        if data != hoje:
+            pula(l, f"conferido_em {'vazio' if not data else data} (precisa ser hoje, {hoje})"); continue
         por, de = _preco(l.get("preco_por")), _preco(l.get("preco_de"))
         if por <= 0:
-            continue
+            pula(l, "preco_por vazio ou inválido"); continue
         de = de if de > por else por
         itens.append({
             "loja": (l.get("loja") or "manual").lower(),

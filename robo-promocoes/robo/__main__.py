@@ -130,9 +130,12 @@ def cmd_enviar_teste(args) -> None:
 
 
 def cmd_fila(args) -> None:
-    itens = fila.ler()
     if not config.FILA_CSV_URL:
-        print("FILA_CSV_URL não definido no .env.")
+        sys.exit("FILA_CSV_URL não definido no .env.")
+    motivos: list = []
+    itens = fila.ler(motivos=motivos)
+    for nome, motivo in motivos:
+        print(f"ignorado: {nome[:50]}  →  {motivo}")
     print(f"{len(itens)} item(ns) válidos para hoje (preço conferido hoje):")
     for o in itens:
         formato = mensagem.escolher_formato(o)
