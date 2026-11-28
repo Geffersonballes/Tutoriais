@@ -1,0 +1,13 @@
+{
+ "pasta": "serie-games/producao/2026-11-25_gta6-npcs",
+ "cena": "tiktok-geopolitica/motor/cena_gta_npcs.py",
+ "env": {},
+ "sessao": "principal",
+ "teste": true,
+ "criado": "2026-11-28T13:30",
+ "worker": "DESKTOP-60BPRSH",
+ "inicio": "2026-11-28T13:55:59",
+ "fim": "2026-11-28T13:56:16",
+ "status": "erro",
+ "erro": "a cena nao informou FRAMES. Fim do log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Render\\Tutoriais\\tiktok-geopolitica\\motor\\cena_gta_npcs.py\", line 102, in passeio\n    andar(P, ta, tb, per=0.56 / max(0.6, abs(vel) / 1.6))\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Render\\Tutoriais\\tiktok-geopolitica\\motor\\cena_gta_npcs.py\", line 81, in andar\n    for nm in (\"pernaE\", \"pernaD\", \"bracoE\", \"bracoD\"): rotk(P[nm], t0 - 0.02, 0, 7 if nm == \"bracoE\" e"
+}
