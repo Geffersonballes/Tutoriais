@@ -13,7 +13,7 @@ import json, os, sys, time, glob, shutil, subprocess, socket, datetime, re
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BRANCH = "claude/nifty-noether-jtt32a"
-BLENDER = os.environ.get("BLENDER") or next((p for p in [
+BLENDER = os.environ.get("BLENDER") or next((p for p in sorted(glob.glob(r"C:\Render\blender-4.2*\blender.exe") + glob.glob(r"C:\Render\blender-4.2*\*\blender.exe")) + [
     r"C:\Program Files\Blender Foundation\Blender 4.2\blender.exe",
     r"C:\Program Files\Blender Foundation\Blender\blender.exe",
     r"C:\Program Files (x86)\Steam\steamapps\common\Blender\blender.exe",
