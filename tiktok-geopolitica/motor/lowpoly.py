@@ -290,7 +290,8 @@ def modo_realista(hdri=None, samples=4, res=(540, 960), foco=None, abertura=0.35
     """Estilo B no Blender: EEVEE, céu HDRI de pôr do sol, sol quente, materiais PBR, quinas arredondadas
     e desfoque tilt-shift (efeito maquete). Chame depois de montar a cena."""
     s = bpy.context.scene
-    s.render.engine = "BLENDER_EEVEE_NEXT"
+    try: s.render.engine = "BLENDER_EEVEE_NEXT"     # Blender 4.2
+    except TypeError: s.render.engine = "BLENDER_EEVEE"   # Blender 4.3+ (Steam pode instalar a mais nova)
     s.render.resolution_x, s.render.resolution_y = res
     if os.environ.get("RES") == "1080": s.render.resolution_x, s.render.resolution_y = 1080, 1920   # renderizador com GPU (PC do dono)
     s.eevee.taa_render_samples = samples

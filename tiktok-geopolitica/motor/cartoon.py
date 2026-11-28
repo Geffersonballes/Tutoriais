@@ -230,7 +230,8 @@ def modo_cartoon(samples=6, res=(540, 960), ceu=((0.36, 0.64, 0.98), (0.80, 0.92
     """Estilo C: EEVEE, céu em degradê, sol branco suave + luz de preenchimento, cores saturadas e foscas,
     quinas bem arredondadas, sem desfoque de maquete."""
     s = bpy.context.scene
-    s.render.engine = "BLENDER_EEVEE_NEXT"
+    try: s.render.engine = "BLENDER_EEVEE_NEXT"     # Blender 4.2
+    except TypeError: s.render.engine = "BLENDER_EEVEE"   # Blender 4.3+ (Steam pode instalar a mais nova)
     s.render.resolution_x, s.render.resolution_y = res
     if os.environ.get("RES") == "1080": s.render.resolution_x, s.render.resolution_y = 1080, 1920   # renderizador com GPU (PC do dono)
     s.eevee.taa_render_samples = samples
