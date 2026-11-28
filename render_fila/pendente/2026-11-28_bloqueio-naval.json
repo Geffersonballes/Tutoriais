@@ -1,0 +1,9 @@
+{
+ "pasta": "tiktok-geopolitica/producao/2026-11-28_bloqueio-naval",
+ "cena": "tiktok-geopolitica/motor/cena_bloqueio.py",
+ "env": {
+  "REALISTA": "1"
+ },
+ "sessao": "guerra",
+ "criado": "2026-11-28T14:52"
+}
