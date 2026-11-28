@@ -51,9 +51,13 @@ def pegar():
 def render(job):
     pasta = os.path.join(RAIZ, job["pasta"]); cena = os.path.join(RAIZ, job["cena"])
     env = dict(os.environ, RES="1080", PASSO="1", **{k: str(v) for k, v in job.get("env", {}).items()})
-    saida = subprocess.run([BLENDER, "-b", "--factory-startup", "-P", cena, "--", pasta], cwd=RAIZ, env=env,
-                           capture_output=True, text=True, errors="ignore").stdout
-    n = int(re.search(r"FRAMES (\d+)", saida).group(1))
+    pr = subprocess.run([BLENDER, "-b", "--factory-startup", "-P", cena, "--", pasta], cwd=RAIZ, env=env,
+                        capture_output=True, text=True, errors="ignore")
+    saida = (pr.stdout or "") + (pr.stderr or "")
+    open(os.path.join(pasta, "render_pc_probe.log"), "w", encoding="utf-8").write(saida)
+    m = re.search(r"FRAMES (\d+)", saida)
+    if not m: raise RuntimeError("a cena nao informou FRAMES. Fim do log: " + saida[-1200:])
+    n = int(m.group(1))
     shutil.rmtree(os.path.join(pasta, "frames"), ignore_errors=True)
     t0 = time.time()
     with open(os.path.join(pasta, "render_pc.log"), "w") as log:
@@ -70,7 +74,8 @@ def render(job):
     return {"url": url, "quadros": n, "min_render": round(t_render / 60, 1)}
 
 def main():
-    print(f"Renderizador {NOME} | Blender: {BLENDER} | repo: {RAIZ}", flush=True)
+    ver = subprocess.run([BLENDER, "-b", "--version"], capture_output=True, text=True, errors="ignore").stdout.splitlines()[:1]
+    print(f"Renderizador {NOME} | {ver} | Blender: {BLENDER} | repo: {RAIZ}", flush=True)
     while True:
         try:
             job_id, job = pegar()
