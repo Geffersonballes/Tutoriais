@@ -1,0 +1,13 @@
+{
+ "pasta": "serie-games/producao/2026-11-25_gta6-npcs",
+ "cena": "tiktok-geopolitica/motor/cena_gta_npcs.py",
+ "env": {},
+ "sessao": "principal",
+ "teste": true,
+ "criado": "2026-11-28T13:30",
+ "worker": "DESKTOP-60BPRSH",
+ "inicio": "2026-11-28T13:39:37",
+ "fim": "2026-11-28T13:41:20",
+ "status": "erro",
+ "erro": "'NoneType' object has no attribute 'group'"
+}

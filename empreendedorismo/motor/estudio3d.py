@@ -167,7 +167,9 @@ def plano_camera(cam, alvo, t, pos, mira, ease=True):
 
 def config_render(amostras=16, raytracing=False, res=(1080, 1920)):
     s = bpy.context.scene
-    s.render.engine = "BLENDER_EEVEE_NEXT"; s.eevee.taa_render_samples = amostras
+    try: s.render.engine = "BLENDER_EEVEE_NEXT"  # Blender 4.2 a 4.x
+    except TypeError: s.render.engine = "BLENDER_EEVEE"  # Blender 5 (Steam) voltou ao nome antigo
+    s.eevee.taa_render_samples = amostras
     for k, v in (("use_shadows", True), ("use_raytracing", raytracing)):
         try: setattr(s.eevee, k, v)
         except Exception: pass
