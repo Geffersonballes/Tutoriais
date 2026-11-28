@@ -6,5 +6,9 @@
 - [x] palavras.py + alinhar.py (199/199 palavras)
 - [x] Cena tiktok-geopolitica/motor/cena_cs2_major.py (estilo C, Pixel, visual nível 2, 7 zonas)
 - Backlog aplicado: objetos de cada bloco nascem já no corte da câmera (item do matchmaking — sem plano vazio no início do bloco)
-- [ ] Prévias (dentro da trava) · [ ] Render · [ ] compor · [ ] QC
+- [x] Prévias (3 rodadas, dentro da trava, após o FIM do render Jason/Lucia às 16:30 UTC): Pixel afastado da borda, textos 3D abaixo da faixa das pílulas (z ≤ 4,3), chave do mata-mata em 2 lados
+- [x] Render PASSO=2 AMOSTRAS=8, 2 processos, flock — 16:38 → 19:13 UTC (1.100 quadros)
+- [x] compor.py → final.mp4 (71,8 s, 1080×1920, 30 fps, 42 MB) + capa.jpg; anti-borda padrão; trilha "epico"
+- [x] QC APROVADO: capa legível (COMO FUNCIONA O / MAJOR DE CS2?), gancho com pergunta no 1º s, legendas sincronizadas, rótulos/pílulas dentro das margens, fontes na tela (Strafe e Insider Gaming), selo IA, CTA PASSA/CAI, pedido de like no fim, −14,4 LUFS / −1,3 dBFS; borda: desvio mínimo por linha nas 60 linhas de cima/baixo ≥ 3,6 (sem faixa chapada)
+- Defeitos menores (backlog): check da zebra cobre "MD1"; "2" do degrau sob a legenda; textos 3D "= 6" e "1-0/0-1" pequenos
 - NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md, pautas_do_dono.md
