@@ -27,3 +27,4 @@ tiktok-geopolitica/assets/modelos/*/
 tiktok-geopolitica/motor/testes_visual/v3/frames/
 tiktok-geopolitica/motor/testes_visual/v3/*.mp4
 tiktok-geopolitica/motor/testes_visual/v3/*.log
+__pycache__/

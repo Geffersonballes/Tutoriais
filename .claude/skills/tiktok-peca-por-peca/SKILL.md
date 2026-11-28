@@ -170,3 +170,6 @@ Vídeos de guerra passam a ter **75 a 90 s** (roteiro de ~190 a 230 palavras, 6 
 
 ## VOZ (confirmado pelo dono, 26/11)
 Guerra continua com a voz **pt-BR-AntonioNeural (edge-tts)**. NÃO use ElevenLabs na guerra. (A voz do dono é só nos games.)
+
+## RENDER NO PC DO DONO (decisão do dono, 28/11)
+Todo render completo vai primeiro para a **fila do PC do dono** (GTX 1660 Super, 30 FPS reais, 1080x1920): siga `render_fila/LEIA.md` — commite a pasta pronta, crie `render_fila/pendente/<id>.json`, espere `render_fila/pronto/<id>.json` e agende com a `url`. **Plano B automático:** se o pedido não for pego em 20 min (continua em `pendente/`) ou ficar mais de 3 h em `em_andamento/`, ou voltar com `status: erro`, apague o pedido e renderize na nuvem como antes (PASSO=2). Faça o QC do final.mp4 baixado da url antes de agendar.
