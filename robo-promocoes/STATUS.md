@@ -18,8 +18,9 @@ Sequência revisada. ✅ feito · ⏳ aguardando terceiros · 👉 próximo · �
 - ⬜ Teste real alguns dias só no grupo → depois divulgar
 
 ## A2. Amazon
-- 👉 Conta no Amazon Associados (o dono já tem?)
-- ⬜ Fila manual (planilha → robô posta) até liberar a Creators API
+- ✅ Conta no Amazon Associados (tag laynnerballes-20), canais cadastrados
+- ✅ Fila manual (planilha → robô posta): 1ª oferta real postada em 28/11
+- ✅ Robô no automático (28/11), por enquanto só no grupo de teste
 - ⬜ Creators API depois das primeiras vendas → busca automática
 
 ## B. Instagram e Facebook (sessão Instagram)
