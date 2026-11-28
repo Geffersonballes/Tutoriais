@@ -11,7 +11,7 @@ def legenda(pasta):
     for linha in t.splitlines():
         if linha.strip().startswith("#"): tags += [h for h in linha.split() if h.lower() not in TIRA]
         elif linha.strip(): corpo.append(linha.strip())
-    return " ".join(corpo), " ".join(["#kwai", "#kwaibrasil", "#paravoce"] + tags + ["#pecaporpeca"])
+    return " ".join(corpo), " ".join(dict.fromkeys(["#kwai", "#kwaibrasil", "#paravoce"] + tags + ["#pecaporpeca"]))
 def link(par, url, texto):
     r_id = par.part.relate_to(url, "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink", is_external=True)
     h = OxmlElement("w:hyperlink"); h.set(qn("r:id"), r_id)
