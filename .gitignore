@@ -23,3 +23,7 @@ empreendedorismo/producao/*/*.mp4
 empreendedorismo/producao/*/*.wav
 empreendedorismo/producao/*/render*.log
 empreendedorismo/producao/*/teste*.png
+tiktok-geopolitica/assets/modelos/*/
+tiktok-geopolitica/motor/testes_visual/v3/frames/
+tiktok-geopolitica/motor/testes_visual/v3/*.mp4
+tiktok-geopolitica/motor/testes_visual/v3/*.log
