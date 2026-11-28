@@ -1,0 +1,14 @@
+# Status — 2026-11-28_gta6-jason-lucia-mocap (games A, post 28/11 15:30 Cuiabá = 19:30 UTC)
+- [x] Pauta do dono: "GTA 6: 10 anos para gravar Jason e Lucia?" (post da Fatos Desconhecidos, 26/11)
+- [x] Checagem (checagem.md) APROVADA com atribuição: nomes + créditos (AP, Critical Hits; apoio Complex/GTA Boom); "2016" só no post → "teriam", e o vídeo diz que o ano exato não foi confirmado
+- [x] Conformidade: nomes só em texto, sem rosto/foto/arte da Rockstar; Pixel de roupa de mocap
+- [x] Roteiro 8 blocos, 196 palavras; CTA SIM / NÃO + like automático
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.279 créditos, flow s06V1QdSArUWYTqAU6bB) → narracao.mp3 (72,9 s)
+- [x] palavras.py + alinhar.py — 8 blocos (parágrafos em linhas simples)
+- [x] Cena tiktok-geopolitica/motor/cena_gta6_mocap.py (estilo C, Pixel de roupa de captura, escala 0,85, zonas por bloco) + prévias conferidas
+- Backlog aplicado: objetos-chave/texto 3D acima da faixa da legenda; Pixel afastado da borda esquerda
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — fila/início 13:43, fim 16:30 UTC (1.158 quadros, ~17 s/quadro por processo)
+- [x] compor.py → final.mp4 (77,4 s, 1080×1920, 30 fps, 41,2 MB) + capa.jpg; ANTI_BORDA ativo (padrão)
+- [x] QC APROVADO: capa legível (10 ANOS PARA GRAVAR / JASON E LUCIA?), gancho com pergunta no 1º s, legendas sincronizadas, pílulas e rótulos dentro das margens, fontes na tela (AP/Critical Hits; Fatos Desconhecidos com '2016 não confirmado'; AP), selo IA, CTA SIM/NÃO completo, pedido de like no fim, −14,1 LUFS; borda: desvio mínimo por linha nas 60 linhas de cima/baixo entre 4,9 e 65,8 (sem faixa chapada)
+- Defeitos menores (anotados no backlog): '10 ANOS?' 3D encosta na borda direita e nasce durante a capa; '?' do bloco 6 atrás da pílula; cadeado do NDA desce pela faixa do rótulo
+- NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md, pautas_do_dono.md

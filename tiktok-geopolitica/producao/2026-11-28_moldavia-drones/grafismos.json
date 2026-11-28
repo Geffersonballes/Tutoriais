@@ -1,0 +1,474 @@
+{
+ "capa": {
+  "linhas": [
+   "7 DRONES",
+   "NUM PAÍS",
+   "FORA DA GUERRA"
+  ],
+  "destaque": [
+   0
+  ],
+  "dur": 1.3
+ },
+ "trilha": {
+  "clima": "tenso"
+ },
+ "subst": {
+  "mil novecentos e noventa e quatro": "1994",
+  "dezessete": "17"
+ },
+ "rotulos": [
+  {
+   "texto": "A MOLDÁVIA",
+   "de": [
+    1,
+    "Essa"
+   ],
+   "ate": [
+    1,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "NEUTRALIDADE",
+   "de": [
+    2,
+    "Essa"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O ESPINHO",
+   "de": [
+    3,
+    "Esse"
+   ],
+   "ate": [
+    3,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "TRANSBORDAMENTO",
+   "de": [
+    4,
+    "Esse"
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O ALERTA",
+   "de": [
+    5,
+    "Esse"
+   ],
+   "ate": [
+    5,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O IMPASSE",
+   "de": [
+    6,
+    "Esse"
+   ],
+   "ate": [
+    6,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O DILEMA",
+   "de": [
+    7,
+    "Esse"
+   ],
+   "ate": [
+    7,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "pilulas": [
+  {
+   "texto": "7 DRONES",
+   "ponto": "vermelho",
+   "de": [
+    0,
+    "Sete"
+   ],
+   "ate": [
+    0,
+    "Por"
+   ],
+   "y": 0.18,
+   "tam": 44
+  },
+  {
+   "texto": "CAPITAL: CHIȘINĂU",
+   "ponto": "azul",
+   "de": [
+    0,
+    "capital"
+   ],
+   "ate": [
+    0,
+    "Por"
+   ],
+   "y": 0.24,
+   "tam": 40
+  },
+  {
+   "texto": "UCRÂNIA",
+   "ponto": "azul",
+   "de": [
+    1,
+    "Ucrânia"
+   ],
+   "ate": [
+    1,
+    "Essa"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "ROMÊNIA · OTAN",
+   "ponto": "azul",
+   "de": [
+    1,
+    "Romênia"
+   ],
+   "ate": [
+    1,
+    "Essa"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "CONSTITUIÇÃO DE 1994",
+   "ponto": "azul",
+   "de": [
+    2,
+    "Constituição"
+   ],
+   "ate": [
+    2,
+    "Essa"
+   ],
+   "y": 0.18,
+   "tam": 40
+  },
+  {
+   "texto": "NEUTRA PARA SEMPRE",
+   "ponto": "azul",
+   "de": [
+    2,
+    "neutro"
+   ],
+   "ate": [
+    2,
+    "Essa"
+   ],
+   "y": 0.24,
+   "tam": 40
+  },
+  {
+   "texto": "SEM TROPAS ESTRANGEIRAS",
+   "ponto": "vermelho",
+   "de": [
+    2,
+    "tropas"
+   ],
+   "ate": [
+    2,
+    "Essa"
+   ],
+   "y": 0.3,
+   "tam": 38
+  },
+  {
+   "texto": "TRANSNÍSTRIA",
+   "ponto": "vermelho",
+   "de": [
+    3,
+    "Transnístria"
+   ],
+   "ate": [
+    3,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "SOLDADOS RUSSOS",
+   "ponto": "vermelho",
+   "de": [
+    3,
+    "soldados"
+   ],
+   "ate": [
+    3,
+    "Esse"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "GUERRA NA UCRÂNIA",
+   "ponto": "vermelho",
+   "de": [
+    4,
+    "guerra"
+   ],
+   "ate": [
+    4,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "DRONES NO CÉU MOLDAVO",
+   "ponto": "vermelho",
+   "de": [
+    4,
+    "entram"
+   ],
+   "ate": [
+    4,
+    "Esse"
+   ],
+   "y": 0.24,
+   "tam": 38
+  },
+  {
+   "texto": "17 DE NOVEMBRO",
+   "ponto": "azul",
+   "de": [
+    5,
+    "No"
+   ],
+   "ate": [
+    5,
+    "sete"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "7 DRONES",
+   "ponto": "vermelho",
+   "de": [
+    5,
+    "sete"
+   ],
+   "ate": [
+    5,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "5 CAÍRAM",
+   "ponto": "vermelho",
+   "de": [
+    5,
+    "cinco"
+   ],
+   "ate": [
+    5,
+    "Esse"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "ESPAÇO AÉREO FECHADO",
+   "ponto": "vermelho",
+   "de": [
+    5,
+    "fechado"
+   ],
+   "ate": [
+    5,
+    "Esse"
+   ],
+   "y": 0.3,
+   "tam": 38
+  },
+  {
+   "texto": "SANDU: CULPA DA RÚSSIA",
+   "ponto": "azul",
+   "de": [
+    6,
+    "culpa"
+   ],
+   "ate": [
+    6,
+    "Moscou"
+   ],
+   "y": 0.18,
+   "tam": 38
+  },
+  {
+   "texto": "SEM DEFESA CONTRA DRONES",
+   "ponto": "vermelho",
+   "de": [
+    6,
+    "admite"
+   ],
+   "ate": [
+    6,
+    "Moscou"
+   ],
+   "y": 0.24,
+   "tam": 36
+  },
+  {
+   "texto": "MOSCOU REJEITA",
+   "ponto": "vermelho",
+   "de": [
+    6,
+    "Moscou"
+   ],
+   "ate": [
+    6,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "\"SEM PROVA DA ORIGEM\"",
+   "ponto": "vermelho",
+   "de": [
+    6,
+    "prova"
+   ],
+   "ate": [
+    6,
+    "Esse"
+   ],
+   "y": 0.24,
+   "tam": 38
+  },
+  {
+   "texto": "AJUDA DE PARCEIROS",
+   "ponto": "azul",
+   "de": [
+    7,
+    "ajuda"
+   ],
+   "ate": [
+    7,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "CONTINUA NEUTRA",
+   "ponto": "azul",
+   "de": [
+    7,
+    "neutra"
+   ],
+   "ate": [
+    7,
+    "Esse"
+   ],
+   "y": 0.24
+  }
+ ],
+ "fontes": [
+  {
+   "texto": "Fontes: Min. da Defesa da Moldávia via Reuters e IBTimes (17/11)",
+   "de": [
+    0,
+    "Sete"
+   ],
+   "ate": [
+    0,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: Constituição da Moldávia (art. 11); Tribunal Constitucional",
+   "de": [
+    2,
+    "Então"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: Carnegie Endowment; Radio Moldova (23/11)",
+   "de": [
+    3,
+    "Mas"
+   ],
+   "ate": [
+    3,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: Reuters; IBTimes; Euronews (17/11)",
+   "de": [
+    5,
+    "No"
+   ],
+   "ate": [
+    7,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "cta": {
+  "linha1": [
+   9,
+   "Se"
+  ],
+  "t1a": "JÁ SABIA? COMENTE",
+  "t1b": "“GENERAL”",
+  "linha2": [
+   9,
+   "Se",
+   1
+  ],
+  "t2a": "NÃO SABIA? COMENTE",
+  "t2b": "“RECRUTA”",
+  "marca_de": [
+   9,
+   "recruta",
+   0,
+   0.4
+  ],
+  "marca": "PEÇA POR PEÇA · siga pra próxima"
+ }
+}

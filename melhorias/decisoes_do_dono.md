@@ -35,3 +35,4 @@
 - 27/11: série nova de EMPREENDEDORISMO para o perfil pessoal do Facebook (monetizando): pequeno empreendedor, cara profissional, pode usar a BallesTech, só voz do dono (ElevenLabs), 1/dia após piloto aprovado. Sessão session_01DxZEAHGZukfM3LxbjiVFRC. Postagem manual (API não publica em perfil pessoal).
 - 27/11: a série de empreendedorismo passou para a sessão session_01DxZEAKeETNnq7XVWzgHgFm (chaves do Pixabay/Unsplash). Passagem em empreendedorismo/PROXIMA_SESSAO.md.
 - 27/11: a sessão principal fica DESVINCULADA da série de empreendedorismo — não acompanha, não comenta e não troca mensagens com ela. A série é tratada só na sessão própria, direto com o dono.
+- 28/11: renders vão para a fila do PC do dono (render_fila/, worker.py na GTX 1660 Super, 30 FPS reais 1080p). Nuvem é plano B automático (20 min sem pegar, 3 h travado ou erro).

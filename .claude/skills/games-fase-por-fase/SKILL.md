@@ -96,3 +96,6 @@ Céu liso no topo e chão liso embaixo pareciam tarjas de vídeo reaproveitado e
 O `compor.py` aplica sozinho a `anti_borda` (vinheta suave + grão fixo) em todo vídeo novo (games e guerra).
 Vídeo já pronto/repost: `tiktok-geopolitica/motor/anti_borda_video.sh entrada.mp4 saida.mp4`.
 Na cena, evite uma faixa de cor única de ponta a ponta no topo ou na base (céu com degradê/nuvens, chão com textura).
+
+## RENDER NO PC DO DONO (decisão do dono, 28/11)
+Todo render completo vai primeiro para a **fila do PC do dono** (GTX 1660 Super, 30 FPS reais, 1080x1920): siga `render_fila/LEIA.md` — commite a pasta pronta, crie `render_fila/pendente/<id>.json`, espere `render_fila/pronto/<id>.json` e agende com a `url`. **Plano B automático:** se o pedido não for pego em 20 min (continua em `pendente/`) ou ficar mais de 3 h em `em_andamento/`, ou voltar com `status: erro`, apague o pedido e renderize na nuvem como antes (PASSO=2). Faça o QC do final.mp4 baixado da url antes de agendar.
