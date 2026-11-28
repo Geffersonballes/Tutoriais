@@ -56,7 +56,7 @@ def render(job):
     saida = (pr.stdout or "") + (pr.stderr or "")
     open(os.path.join(pasta, "render_pc_probe.log"), "w", encoding="utf-8").write(saida)
     m = re.search(r"FRAMES (\d+)", saida)
-    if not m: raise RuntimeError("a cena nao informou FRAMES. Fim do log: " + saida[-1200:])
+    if not m: raise RuntimeError("a cena nao informou FRAMES. Fim do log: " + saida[-1500:])
     n = int(m.group(1))
     shutil.rmtree(os.path.join(pasta, "frames"), ignore_errors=True)
     t0 = time.time()
@@ -82,7 +82,7 @@ def main():
             if not job_id: time.sleep(60); continue
             print(f"\n== {agora()} renderizando {job_id}: {job['pasta']}", flush=True)
             try: res = render(job); job.update(res, fim=agora(), status="ok")
-            except Exception as e: job.update(fim=agora(), status="erro", erro=str(e)[:500]); print("ERRO:", e, flush=True)
+            except Exception as e: job.update(fim=agora(), status="erro", erro=str(e)[-1500:]); print("ERRO:", e, flush=True)
             os.remove(os.path.join(RAIZ, "render_fila", "em_andamento", job_id + ".json"))
             json.dump(job, open(os.path.join(RAIZ, "render_fila", "pronto", job_id + ".json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
             git_push(f"render: {job_id} {job['status']}", ["render_fila", os.path.join(job["pasta"], "capa.jpg")] if os.path.exists(os.path.join(RAIZ, job["pasta"], "capa.jpg")) else ["render_fila"])
