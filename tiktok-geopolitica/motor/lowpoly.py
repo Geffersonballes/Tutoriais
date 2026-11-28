@@ -890,3 +890,74 @@ def coluna_fumaca(nome, loc, altura=22.0, raio=3.0, t0=0.0, t_fim=90.0, escura=T
             for kp in fc.keyframe_points: kp.interpolation = "LINEAR"
         bolhas.append(b)
     return bolhas
+
+# ---------- 28/11 (Moldávia): drone de asa delta mais detalhado, casa de vila, mapa com contornos ----------
+def drone_delta(nome, escala=1.0, cor=(0.55, 0.57, 0.58, 1)):
+    """Drone de ataque de asa delta (tipo Shahed/Geran, genérico): fuselagem cilíndrica, nariz cônico,
+    asa delta fina, duas derivas verticais nas pontas e hélice traseira. Frente = +Y."""
+    s = escala
+    fus = cilindro(nome, (0, 0, 0), 0.32 * s, 3.4 * s, cor, seg=10)
+    fus.rotation_euler = (math.radians(90), 0, 0)  # eixo do cilindro em Y
+    pai = vazio(nome + "_pai"); filho(pai, fus); fus.location = (0, 0, 0)
+    nariz = cilindro(_id("dNariz"), (0, 0, 0), 0.32 * s, 0.9 * s, (0.30, 0.32, 0.34, 1), seg=10, r2=0.04 * s, unico="dNariz")
+    nariz.rotation_euler = (math.radians(-90), 0, 0); filho(pai, nariz); nariz.location = (0, 2.15 * s, 0)
+    bm = bmesh.new()
+    vs = [bm.verts.new(v) for v in [(0, 1.1 * s, 0), (-2.4 * s, -1.6 * s, 0), (2.4 * s, -1.6 * s, 0)]]
+    bm.faces.new(vs); bmesh.ops.solidify(bm, geom=bm.faces[:], thickness=0.08 * s)
+    asa = _new_obj(_id("dAsa"), bm, cor); filho(pai, asa); asa.location = (0, 0, 0)
+    for sx in (-1, 1):
+        dv = caixa(_id("dDeriva"), (0, 0, 0), (0.06 * s, 0.7 * s, 0.7 * s), (0.30, 0.32, 0.34, 1), unico="dNariz")
+        filho(pai, dv); dv.location = (sx * 2.3 * s, -1.35 * s, 0.3 * s)
+    cubo = cilindro(_id("dCubo"), (0, 0, 0), 0.12 * s, 0.2 * s, C["escuro"], seg=6)
+    cubo.rotation_euler = (math.radians(90), 0, 0); filho(pai, cubo); cubo.location = (0, -1.8 * s, 0)
+    for k in range(2):
+        pa = caixa(_id("dPa"), (0, 0, 0), (1.3 * s, 0.04 * s, 0.14 * s), C["escuro"], unico="dPa")
+        filho(cubo, pa); pa.location = (0, 0, 0); pa.rotation_euler = (0, 0, math.radians(90 * k))
+    return pai
+
+def girar_helice(pai, t0, t1, rps=6.0):
+    """Gira a hélice (cubo) do drone_delta em torno do eixo de voo."""
+    for o in pai.children:
+        if o.name.startswith("dCubo"):
+            o.rotation_mode = "XYZ"
+            o.rotation_euler = (math.radians(90), 0, 0); o.keyframe_insert("rotation_euler", frame=f(t0))
+            o.rotation_euler = (math.radians(90), 0, 2 * math.pi * rps * (t1 - t0)); o.keyframe_insert("rotation_euler", frame=f(t1))
+            if o.animation_data and o.animation_data.action:
+                for fc in o.animation_data.action.fcurves:
+                    for kp in fc.keyframe_points: kp.interpolation = "LINEAR"
+
+def casa_vila(nome, loc, w=3.2, d=2.6, h=2.2, cor=(0.93, 0.90, 0.82, 1), teto=(0.72, 0.30, 0.20, 1), rot=0.0):
+    """Casa de vilarejo do Leste Europeu: paredes claras, telhado de duas águas, porta e 2 janelas."""
+    pai = caixa(nome, (loc[0], loc[1], h / 2), (w, d, h), cor, unico="casaVila")
+    bm = bmesh.new()
+    a, b, c = (-d / 2 - 0.25, 0), (d / 2 + 0.25, 0), (0, 1.3)
+    vs = []
+    for x in (-w / 2 - 0.2, w / 2 + 0.2):
+        vs.append([bm.verts.new((x, p[0], p[1])) for p in (a, b, c)])
+    bm.faces.new(vs[0][::-1]); bm.faces.new(vs[1])
+    for i in range(3):
+        j = (i + 1) % 3; bm.faces.new([vs[0][i], vs[0][j], vs[1][j], vs[1][i]])
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    tt = _new_obj(_id("casaTeto"), bm, teto, unico="casaTeto"); filho(pai, tt); tt.location = (0, 0, h / 2)
+    porta = caixa(_id("casaPorta"), (0, 0, 0), (0.7, 0.1, 1.3), (0.35, 0.22, 0.12, 1), unico="casaPorta"); filho(pai, porta); porta.location = (0, -d / 2 - 0.02, -h / 2 + 0.65)
+    for sx in (-1, 1):
+        j = caixa(_id("casaJan"), (0, 0, 0), (0.6, 0.1, 0.55), (0.35, 0.55, 0.75, 1), unico="casaJan"); filho(pai, j); j.location = (sx * w * 0.3, -d / 2 - 0.02, 0.15)
+    pai.rotation_euler = (0, 0, rot)
+    return pai
+
+def prisma_ll(nome, pontos, M, z=0.6, h=1.6, cor=(0.5, 0.7, 0.4, 1), unico=None):
+    """Território com contorno real: lista de (lon, lat) convertida por M(lon, lat) e extrudada (backlog: mapa abstrato)."""
+    bm = bmesh.new()
+    vs = [bm.verts.new((M(lo, la)[0], M(lo, la)[1], -h / 2)) for lo, la in pontos]
+    fa = bm.faces.new(vs)
+    ext = bmesh.ops.extrude_face_region(bm, geom=[fa])
+    bmesh.ops.translate(bm, vec=(0, 0, h), verts=[v for v in ext["geom"] if isinstance(v, bmesh.types.BMVert)])
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    ob = _new_obj(nome, bm, cor, unico); ob.location = (0, 0, z); return ob
+
+def texto3d(nome, texto, loc, tam=6.0, cor=(0.98, 0.98, 0.98, 1), espessura=0.4, unico=None):
+    """Nome de país em 3D deitado sobre o mapa (legível de cima)."""
+    cu = bpy.data.curves.new(nome, "FONT"); cu.body = texto; cu.size = tam; cu.extrude = espessura
+    cu.align_x = "CENTER"; cu.align_y = "CENTER"
+    ob = bpy.data.objects.new(nome, cu); bpy.context.collection.objects.link(ob)
+    ob.data.materials.append(mat(cor, unico)); ob.location = loc; return ob
