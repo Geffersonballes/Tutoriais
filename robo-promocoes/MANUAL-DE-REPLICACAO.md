@@ -163,6 +163,16 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 - ⚠️ Conformidade: as regras da Amazon restringem mostrar preço que não venha da API (preço desatualizado). A fila
   manual deve postar o preço no mesmo dia em que foi conferido, com "sujeito a alteração". Passar pelo `promo-conformidade`.
 
+## 3.5 Mercado Livre (Programa de Afiliados e Criadores), pesquisa de 28/11/2026
+
+- Cadastro: mercadolivre.com.br/l/afiliados-home (formulário com dados e redes sociais → e-mail de confirmação → ativar a
+  conta). Requisito citado pelos blogs: conta ativa no ML e **não ser vendedor** na plataforma.
+- Link: copiar a URL do produto → **gerador de links do painel de afiliados** → link curto. O link comum do produto
+  **não** gera comissão, e o link de afiliado não pode ser alterado. É proibido anunciar o link em buscadores.
+- Comissão de até ~16%, conforme a categoria (fonte: blogs; conferir a tabela no painel).
+- **Não achei uma API pública para gerar links de afiliado.** Plano: usar a **fila manual** (planilha, `loja = mercadolivre`),
+  igual à Amazon, com a mesma regra de preço conferido no dia. Foto: botão direito na imagem do anúncio (domínio mlstatic.com).
+
 ## 4. Conectores do Claude
 
 - **Nenhum conector é necessário** para o robô funcionar: ele roda sozinho na VPS e
@@ -291,6 +301,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 28/11/2026 | ✅ Fila manual funcionando na VPS: 1º produto Amazon (Box Shakespeare, link `link.amazon/…`) montado no formato padrão. Armadilha: `conferido_em` vazio → ignorado (o comando `fila` agora mostra o motivo). Criado `postar-agora`. |
 | 28/11/2026 | ✅ **Primeira oferta REAL postada** (Amazon, pela fila): a foto da Amazon (m.media-amazon.com) baixou certinho, o link `link.amazon` funcionou e o formato ficou perfeito no celular. Remetente: o chip exclusivo, com a logo. |
 | 28/11/2026 | ✅ **Robô ligado no automático** (`docker compose up -d robo`), por enquanto só com a fila da Amazon e só no grupo de teste. |
+| 28/11/2026 | Dono quer incluir o **Mercado Livre**. Pesquisa (§3.5): sem API pública de links de afiliado; entra pela fila manual. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |

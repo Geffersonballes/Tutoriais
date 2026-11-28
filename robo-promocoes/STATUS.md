@@ -23,6 +23,10 @@ Sequência revisada. ✅ feito · ⏳ aguardando terceiros · 👉 próximo · �
 - ✅ Robô no automático (28/11), por enquanto só no grupo de teste
 - ⬜ Creators API depois das primeiras vendas → busca automática
 
+## A3. Mercado Livre
+- 👉 Conta no Programa de Afiliados e Criadores (o dono já tem?)
+- ⬜ Produtos na fila manual (`loja = mercadolivre`, link do gerador do painel)
+
 ## B. Instagram e Facebook (sessão Instagram)
 - ✅ @achadinhosdalay40 profissional + Página do Facebook vinculada
 - ✅ Metricool conectado (marca "laycmballes")
