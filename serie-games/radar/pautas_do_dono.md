@@ -8,7 +8,7 @@ Cuidados: 2 fontes independentes, senão "segundo o Ei Nerd"/"teria sido". Pode 
 Post da página Fatos Desconhecidos (25/11): jogadores deixam a Lucia presa e passam 15–30 h na "vida tranquila" do Jason (pesca, barco, dinheiro, explorar Leonida). Ângulo com humor: por que mundo aberto prende tanto que a gente esquece a missão principal — atividades paralelas, ciclos de recompensa, liberdade, "só mais uma pescaria", como os estúdios desenham isso.
 Cuidados: tom de curiosidade, não de notícia; números atribuídos ("jogadores dizem que..."). Pode citar Jason e Lucia, sem arte/personagens/logo da Rockstar — 3D nosso com o Pixel (Pixel pescando de barco). Avisar a sessão principal ao agendar.
 
-## 28/11 — games A NOTÍCIA (post 15:30): "GTA 6: 10 anos para gravar Jason e Lucia?"
+## ✅ FEITO (post 445597528) — 28/11 — games A NOTÍCIA (post 15:30): "GTA 6: 10 anos para gravar Jason e Lucia?"
 Post da Fatos Desconhecidos (26/11): os atores seriam Dylan Rourke (Jason Duval) e Manni L. Perez (Lucia Caminos), que teriam começado no jogo em 2016 (~10 anos), sob acordo de sigilo; os nomes ganharam destaque com os créditos do jogo.
 Ângulo "peça por peça": como se grava um personagem de GTA — captura de movimento (roupa com marcadores, câmeras, o "volume"), captura facial, dublagem/sessão de voz, por que leva anos, e como funciona o NDA que impede o ator de contar que está no projeto.
 Cuidados: 2 fontes para nomes, ano de início e créditos (senão "segundo os créditos"/"segundo X"). Pode citar os nomes dos atores, mas SEM foto, rosto ou imagem deles e sem arte da Rockstar — 3D nosso: Pixel de roupa de mocap com bolinhas num estúdio. Tom de curiosidade, nada de fofoca pessoal. Avisar a sessão principal ao agendar.
