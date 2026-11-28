@@ -6,6 +6,7 @@ Uso:
   python -m robo formatos        # mostra todos os formatos de mensagem com um produto de exemplo
   python -m robo enviar-teste    # manda 1 mensagem de TESTE (exemplo) só para os GRUPOS do .env
   python -m robo fila            # mostra o que a fila manual (planilha) postaria hoje, sem enviar
+  python -m robo postar-agora    # posta 1 oferta DE VERDADE agora (fila primeiro) nos GRUPOS
   python -m robo grupos           # lista os grupos do número do robô (para pegar os IDs)
   python -m robo rodar            # modo de produção: posta nos GRUPOS em loop
 """
@@ -176,6 +177,35 @@ def postar_top_se_for_hora() -> None:
         log(f"Top do dia postado em {grupo}")
 
 
+def postar_uma() -> bool:
+    """Posta a próxima oferta (fila manual primeiro, depois Shopee) em todos os GRUPOS."""
+    ofertas = [o for o in fila.ler() if not historico.ja_postado(o["id"])]
+    if ofertas:
+        log(f"Fila manual: {len(ofertas)} item(ns) para hoje")
+    elif config.SHOPEE_APP_ID:
+        ofertas = candidatas()
+    if not ofertas:
+        log("Nada para postar agora.")
+        return False
+    formato = mensagem.escolher_formato(ofertas[0])
+    o = ofertas[0] if ofertas[0].get("manual") else \
+        com_link_afiliado(ofertas[0], exemplo=False, formato=formato)
+    texto = mensagem.montar(o, formato)
+    for grupo in config.GRUPOS:
+        whatsapp.enviar_imagem(grupo, o["imagem"], texto)
+        historico.registrar(o, grupo, formato)
+        log(f"Postado em {grupo} [{formato}]: {o['nome'][:60]}")
+        time.sleep(config.PAUSA_ENTRE_GRUPOS + random.uniform(0, 10))
+    return True
+
+
+def cmd_postar_agora(args) -> None:
+    if not config.GRUPOS:
+        sys.exit("Defina GRUPOS no .env.")
+    conferir_grupos()
+    postar_uma()
+
+
 def cmd_rodar(args) -> None:
     if not config.GRUPOS:
         sys.exit("Defina GRUPOS no .env (use 'python -m robo grupos' para ver os IDs).")
@@ -189,22 +219,7 @@ def cmd_rodar(args) -> None:
             continue
         try:
             postar_top_se_for_hora()
-            ofertas = [o for o in fila.ler() if not historico.ja_postado(o["id"])]
-            if ofertas:
-                log(f"Fila manual: {len(ofertas)} item(ns) para hoje")
-            elif config.SHOPEE_APP_ID:
-                ofertas = candidatas()
-            if ofertas:
-                formato = mensagem.escolher_formato(ofertas[0])
-                o = ofertas[0] if ofertas[0].get("manual") else \
-                    com_link_afiliado(ofertas[0], exemplo=False, formato=formato)
-                texto = mensagem.montar(o, formato)
-                for grupo in config.GRUPOS:
-                    whatsapp.enviar_imagem(grupo, o["imagem"], texto)
-                    historico.registrar(o, grupo, formato)
-                    log(f"Postado em {grupo} [{formato}]: {o['nome'][:60]}")
-                    time.sleep(config.PAUSA_ENTRE_GRUPOS + random.uniform(0, 10))
-            else:
+            if not postar_uma():
                 espera = 120  # tenta outra palavra logo
         except Exception as e:  # noqa: BLE001 - o robô não pode parar por um erro
             log(f"ERRO: {e}")
@@ -221,6 +236,7 @@ def main() -> None:
     t.add_argument("--quantidade", type=int, default=5)
     t.set_defaults(func=cmd_teste)
     sub.add_parser("fila", help="mostra a fila manual de hoje").set_defaults(func=cmd_fila)
+    sub.add_parser("postar-agora", help="posta 1 oferta de verdade agora").set_defaults(func=cmd_postar_agora)
     sub.add_parser("formatos", help="mostra todos os formatos").set_defaults(func=cmd_formatos)
     e = sub.add_parser("enviar-teste", help="envia mensagem(ns) de teste aos GRUPOS")
     e.add_argument("--formato", default="padrao", choices=FORMATOS + ["top_do_dia", "todos"])
