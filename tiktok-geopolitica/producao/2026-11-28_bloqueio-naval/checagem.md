@@ -1,0 +1,26 @@
+# Checagem de fatos — "Como funciona um bloqueio naval?" — 28/11/2026
+Pauta: nenhuma pauta `pendente` em `pautas_do_dono.md`. Notícia das últimas 48 h: em 26/11 (anúncio em 27/11) aviões dos EUA atingiram a popa do graneleiro Pacific Archer (bandeira de Palau), que saiu de Bandar Abbas e tentou furar o bloqueio aos portos iranianos no Golfo de Omã; o CENTCOM informou 158 navios redirecionados e 6 inutilizados. Mecanismo: como funciona um bloqueio naval (declaração, efetividade, interceptação, limite humanitário).
+Não repete o histórico: Ormuz (23/11) explicou o gargalo do estreito por onde passa o petróleo; aqui o tema é a ferramenta jurídico-militar do bloqueio. Descartadas: mísseis russos na Polônia (muito perto de "drones na Moldávia", hoje cedo), refinarias russas / rede elétrica de Kiev (refinaria 27/11, rede 25/11), Iêmen/houthis (Jazan 27/11), Armênia na OTSC (pouca repercussão em pt-BR).
+Verificador de fatos ⛔ + revisor de conformidade ⛔.
+
+| # | Afirmação no roteiro | Fonte 1 | Fonte 2 | Status |
+|---|---|---|---|---|
+| 1 | 158 navios mandados de volta, 6 inutilizados, segundo os EUA | RTÉ (28/11): "Six ships have been disabled and 158 redirected" (CENTCOM) | CENTCOM, comunicado "U.S. Forces Disable Commercial Vessel During Blockade Enforcement Against Iran" (27/11), citado por Marine Insight / Instituto GSEC (28/11): "redirected 158 … disabled six that refused to comply" | ✅ atribuído aos EUA |
+| 2 | Bloqueio = fechar os portos de um país pelo mar, sem invasão | Guide to Humanitarian Law (MSF), verbete "Blockade": operação para impedir a entrada/saída de navios dos portos/costa do inimigo | Lieber Institute (West Point), "London Calling: The Customary Law of Naval Blockade" | ✅ |
+| 3 | Precisa ser declarado/notificado: área (costa), data de início | Guide to Humanitarian Law: declaração oficial com data de início e limites geográficos (Manual de San Remo, §§ 93-94) | Lieber Institute: "must be established and its existence notified to all belligerents and neutral States" (Declaração de Londres, art. 8) | ✅ |
+| 4 | Vale para navios de todas as bandeiras (imparcial) | Lieber Institute: imparcialidade — mesmos critérios "irrespective of nationality" | CENTCOM (via Wikipedia, "2026 United States naval blockade of Iran"): aplicado "impartially" a navios de todas as nações | ✅ |
+| 5 | Precisa ser efetivo (navios de guerra vigiando de verdade), não só no papel | Lieber Institute: "any declared blockade must be effective" (Declaração de Londres, art. 2; Paris 1856) | Guide to Humanitarian Law: para valer contra terceiros, o bloqueio deve ser efetivo (SRM §§ 93-95) | ✅ |
+| 6 | Quem tenta passar recebe ordem de mudar a rota; se insistir, pode ser abordado, desviado ou capturado | CENTCOM (via Wikipedia): navios sem autorização "subject to interception, diversion, and capture"; casos Touska (abordado e apreendido), Tifani etc. | Manual de San Remo § 98 (navios mercantes que violam o bloqueio podem ser capturados) via Lieber Institute; CNN Portugal/Fox: navio ignorou "multiple warnings" | ✅ |
+| 7 | 26/11: Pacific Archer saiu do Irã, ignorou avisos, atingido na popa por avião; tripulação ilesa (segundo militares dos EUA) | CENTCOM via Marine Insight / The Hill / Fox (27/11): "despite multiple warnings … precision munitions that struck the stern … crew was unharmed" | RTÉ (28/11) e CNN Portugal (27/11): saiu de Bandar Abbas, atingido na popa, tripulação ilesa | ✅ atribuído |
+| 8 | Teerã chama o bloqueio de ilegal | Al Jazeera (13/4/2026): comando Khatam al-Anbiya — "illegal and … piracy" | Dawn (5/2026): embaixador iraniano — bloqueio "illegal", "war crime"; porta-voz Baghaei (Dawn/CGTN) | ✅ |
+| 9 | Teerã promete rompê-lo | Maritime Executive / Marine Insight (27/11): comandante da Marinha iraniana — operações "that will not only break the naval blockade…" | CNN Portugal (27/11): "a Marinha iraniana prometeu operações para romper o bloqueio"; RTÉ: Baqaei, "every available means" | ✅ |
+| 10 | Washington diz que vale para todo navio que entra ou sai do Irã | CENTCOM, comunicado "US to blockade ships entering or exiting Iranian ports" (abril/2026) | Wikipedia (citando CENTCOM): "applied only to ships going to and from Iran"; não impede trânsito para portos não iranianos | ✅ |
+| 11 | Bloqueio não pode ter como objetivo matar civis de fome | Manual de San Remo § 102 (via Guide to Humanitarian Law): proibido se o objetivo é fazer a população civil passar fome | Stanford Law ("Encirclement, Deprivation, and Humanity", revisão do SRM); Protocolo Adicional I, art. 54 | ✅ |
+
+Números na tela com fonte: "158 / 6" → "Fonte: CENTCOM via RTÉ (28/11)"; regras → "Manual de San Remo (1994); Declaração de Londres (1909)"; caso Pacific Archer → "Fonte: CENTCOM via Marine Insight e RTÉ (27–28/11)".
+
+## Revisão de conformidade ⛔ — APROVADA
+- Tom neutro: posições atribuídas ("segundo os Estados Unidos", "segundo os militares americanos", "Teerã chama…", "Washington diz…"); não diz se o bloqueio é legal ou ilegal.
+- Sem incitação, sem instrução operacional (nada sobre como furar ou executar bloqueio), sem imagens reais de vítimas; a tripulação "saiu ilesa" é dito.
+- Sem marca de terceiros no visual (navio genérico, sem bandeiras reais de países; nome do navio só na narração/legenda, como dado de notícia).
+- Selo "Conteúdo gerado com IA" + isAigc no post (a cargo da sessão que agenda).
