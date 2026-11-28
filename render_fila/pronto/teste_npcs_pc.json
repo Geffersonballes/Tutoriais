@@ -6,8 +6,10 @@
  "teste": true,
  "criado": "2026-11-28T13:30",
  "worker": "DESKTOP-60BPRSH",
- "inicio": "2026-11-28T13:39:37",
- "fim": "2026-11-28T13:41:20",
- "status": "erro",
- "erro": "'NoneType' object has no attribute 'group'"
+ "inicio": "2026-11-28T14:04:46",
+ "url": "https://gcdn.picsart.com/picsart-mcp/c8ab9b0f-4a8b-4fa9-b38a-9e3ff70c1870.mp4",
+ "quadros": 1883,
+ "min_render": 26.3,
+ "fim": "2026-11-28T14:39:48",
+ "status": "ok"
 }

@@ -1,0 +1,489 @@
+{
+ "capa": {
+  "linhas": [
+   "158 NAVIOS",
+   "MANDADOS",
+   "DE VOLTA"
+  ],
+  "destaque": [
+   0
+  ],
+  "dur": 1.3
+ },
+ "trilha": {
+  "clima": "tenso"
+ },
+ "subst": {
+  "cento e cinquenta e oito": "158",
+  "vinte e seis": "26",
+  "seis": "6"
+ },
+ "rotulos": [
+  {
+   "texto": "O BLOQUEIO",
+   "de": [
+    1,
+    "Esse"
+   ],
+   "ate": [
+    1,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "A DECLARAÇÃO",
+   "de": [
+    2,
+    "Essa"
+   ],
+   "ate": [
+    2,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O CERCO",
+   "de": [
+    3,
+    "Esse"
+   ],
+   "ate": [
+    3,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "A INTERCEPTAÇÃO",
+   "de": [
+    4,
+    "Essa"
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O RECADO",
+   "de": [
+    5,
+    "Esse"
+   ],
+   "ate": [
+    5,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O IMPASSE",
+   "de": [
+    6,
+    "Esse"
+   ],
+   "ate": [
+    6,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "O FREIO",
+   "de": [
+    7,
+    "Esse"
+   ],
+   "ate": [
+    7,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "pilulas": [
+  {
+   "texto": "158 DESVIADOS",
+   "ponto": "azul",
+   "de": [
+    0,
+    "Cento"
+   ],
+   "ate": [
+    0,
+    "Como"
+   ],
+   "y": 0.18,
+   "tam": 44
+  },
+  {
+   "texto": "6 INUTILIZADOS",
+   "ponto": "vermelho",
+   "de": [
+    0,
+    "Seis"
+   ],
+   "ate": [
+    0,
+    "Como"
+   ],
+   "y": 0.24,
+   "tam": 42
+  },
+  {
+   "texto": "SEM INVADIR",
+   "ponto": "azul",
+   "de": [
+    1,
+    "sem"
+   ],
+   "ate": [
+    1,
+    "Esse"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "PORTOS FECHADOS",
+   "ponto": "vermelho",
+   "de": [
+    1,
+    "fecha"
+   ],
+   "ate": [
+    1,
+    "Esse"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "QUAL COSTA",
+   "ponto": "azul",
+   "de": [
+    2,
+    "costa"
+   ],
+   "ate": [
+    2,
+    "Essa"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "DESDE QUANDO",
+   "ponto": "azul",
+   "de": [
+    2,
+    "desde"
+   ],
+   "ate": [
+    2,
+    "Essa"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "TODAS AS BANDEIRAS",
+   "ponto": "vermelho",
+   "de": [
+    2,
+    "todas"
+   ],
+   "ate": [
+    2,
+    "Essa"
+   ],
+   "y": 0.3,
+   "tam": 40
+  },
+  {
+   "texto": "SÓ NO PAPEL? NÃO VALE",
+   "ponto": "vermelho",
+   "de": [
+    3,
+    "papel"
+   ],
+   "ate": [
+    3,
+    "As"
+   ],
+   "y": 0.18,
+   "tam": 38
+  },
+  {
+   "texto": "BLOQUEIO EFETIVO",
+   "ponto": "azul",
+   "de": [
+    3,
+    "navios"
+   ],
+   "ate": [
+    3,
+    "Esse"
+   ],
+   "y": 0.18,
+   "tam": 40
+  },
+  {
+   "texto": "ORDEM: MUDAR DE ROTA",
+   "ponto": "azul",
+   "de": [
+    4,
+    "ordem"
+   ],
+   "ate": [
+    4,
+    "Se"
+   ],
+   "y": 0.18,
+   "tam": 38
+  },
+  {
+   "texto": "ABORDADO",
+   "ponto": "vermelho",
+   "de": [
+    4,
+    "abordado"
+   ],
+   "ate": [
+    4,
+    "Essa"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "DESVIADO",
+   "ponto": "vermelho",
+   "de": [
+    4,
+    "desviado"
+   ],
+   "ate": [
+    4,
+    "Essa"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "CAPTURADO",
+   "ponto": "vermelho",
+   "de": [
+    4,
+    "capturado"
+   ],
+   "ate": [
+    4,
+    "Essa"
+   ],
+   "y": 0.3
+  },
+  {
+   "texto": "26 DE NOVEMBRO",
+   "ponto": "azul",
+   "de": [
+    5,
+    "Em"
+   ],
+   "ate": [
+    5,
+    "cargueiro"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "PACIFIC ARCHER",
+   "ponto": "azul",
+   "de": [
+    5,
+    "cargueiro"
+   ],
+   "ate": [
+    5,
+    "atingido"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "IGNOROU OS AVISOS",
+   "ponto": "vermelho",
+   "de": [
+    5,
+    "ignorou"
+   ],
+   "ate": [
+    5,
+    "atingido"
+   ],
+   "y": 0.24,
+   "tam": 40
+  },
+  {
+   "texto": "ATINGIDO NA POPA",
+   "ponto": "vermelho",
+   "de": [
+    5,
+    "atingido"
+   ],
+   "ate": [
+    5,
+    "tripulação"
+   ],
+   "y": 0.18,
+   "tam": 40
+  },
+  {
+   "texto": "TRIPULAÇÃO ILESA",
+   "ponto": "azul",
+   "de": [
+    5,
+    "tripulação"
+   ],
+   "ate": [
+    5,
+    "Esse"
+   ],
+   "y": 0.18,
+   "tam": 40
+  },
+  {
+   "texto": "TEERÃ: \"ILEGAL\"",
+   "ponto": "vermelho",
+   "de": [
+    6,
+    "Teerã"
+   ],
+   "ate": [
+    6,
+    "Washington"
+   ],
+   "y": 0.18
+  },
+  {
+   "texto": "PROMETE ROMPER",
+   "ponto": "vermelho",
+   "de": [
+    6,
+    "promete"
+   ],
+   "ate": [
+    6,
+    "Washington"
+   ],
+   "y": 0.24
+  },
+  {
+   "texto": "WASHINGTON: VALE PARA TODOS",
+   "ponto": "azul",
+   "de": [
+    6,
+    "Washington"
+   ],
+   "ate": [
+    6,
+    "Esse"
+   ],
+   "y": 0.18,
+   "tam": 34
+  },
+  {
+   "texto": "PROIBIDO: MATAR CIVIS DE FOME",
+   "ponto": "vermelho",
+   "de": [
+    7,
+    "bloqueio"
+   ],
+   "ate": [
+    7,
+    "Esse"
+   ],
+   "y": 0.18,
+   "tam": 34
+  }
+ ],
+ "fontes": [
+  {
+   "texto": "Fonte: Comando Central dos EUA via RTÉ e Marine Insight (27–28/11)",
+   "de": [
+    0,
+    "Cento"
+   ],
+   "ate": [
+    0,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: Declaração de Londres (1909); Manual de San Remo (1994)",
+   "de": [
+    2,
+    "Então"
+   ],
+   "ate": [
+    4,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fontes: Comando Central dos EUA via RTÉ, CNN Portugal e Marine Insight",
+   "de": [
+    5,
+    "Em"
+   ],
+   "ate": [
+    6,
+    "@fim",
+    0,
+    0.3
+   ]
+  },
+  {
+   "texto": "Fonte: Manual de San Remo (§ 102); Protocolo Adicional I (art. 54)",
+   "de": [
+    7,
+    "E"
+   ],
+   "ate": [
+    7,
+    "@fim",
+    0,
+    0.3
+   ]
+  }
+ ],
+ "cta": {
+  "linha1": [
+   9,
+   "Se"
+  ],
+  "t1a": "JÁ SABIA? COMENTE",
+  "t1b": "“GENERAL”",
+  "linha2": [
+   9,
+   "Se",
+   1
+  ],
+  "t2a": "NÃO SABIA? COMENTE",
+  "t2b": "“RECRUTA”",
+  "marca_de": [
+   9,
+   "recruta",
+   0,
+   0.4
+  ],
+  "marca": "PEÇA POR PEÇA · siga pra próxima"
+ }
+}

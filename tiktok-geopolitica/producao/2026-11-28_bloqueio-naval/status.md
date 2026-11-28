@@ -1,0 +1,11 @@
+# Status — 2026-11-28_bloqueio-naval (série 1 "Peça por Peça", guerra)
+- [x] Pauta: sem pauta pendente; notícia de 26–28/11 (Pacific Archer atingido ao furar o bloqueio dos EUA aos portos do Irã; 158 desviados, 6 inutilizados). Mecanismo: como funciona um bloqueio naval.
+- [x] Checagem (checagem.md) — APROVADA, 11 afirmações com 2 fontes; conformidade APROVADA
+- [x] Roteiro cascata + narracao_tts.txt (209 palavras, 7 elos + parabéns + CTA GENERAL/RECRUTA)
+- [x] Voz edge-tts pt-BR-AntonioNeural +12% (84,3 s) + palavras/legendas (seg. 5/6 corrigidos à mão: Whisper pulou "A tripulação saiu ilesa")
+- [x] Cena Blender `motor/cena_bloqueio.py` (REALISTA=1), palco único: costa com porto, linha de corvetas, mar com ondas (`mar_ondulado`, backlog do mar liso dos mísseis), fumaça com `coluna_fumaca` (backlog Moldávia). Modelos novos em lowpoly.py: `graneleiro` (porões, guindastes de convés, castelo com janelas) e `guindaste_porto`. Câmera: chaves novas agora sempre BEZIER (antes herdavam o CONSTANT do `corte`)
+- [x] grafismos.json (capa "158 NAVIOS / MANDADOS / DE VOLTA", 7 rótulos, 22 pílulas, 4 fontes, CTA, trilha "tenso"); prévia do compor OK
+- [x] titulo.txt, legenda_post.txt, kwai_produto.txt
+- [x] Render no PC do dono (DESKTOP-60BPRSH, 2.691 quadros a 30 fps, 23 min; pego 14:40, pronto 15:14 Cuiabá) → url Picsart https://gcdn.picsart.com/picsart-mcp/ddd640c9-9500-41de-ba5a-5163e561cd6e.mp4 (baixado como final.mp4)
+- [x] QC APROVADO (qc_sheet.jpg): 89,9 s; 1080x1920; 30 fps; −14,1 LUFS; pico −1,5 dBTP; sem tela preta; capa legível em 270 px; gancho com navios em chamas e meia-volta nos 3 primeiros s; legenda sincronizada (158, 6, 26); rótulos/pílulas acima do objeto; fontes na tela; selo de IA; CTA GENERAL/RECRUTA completo; "Deixa o like" no fim. Defeitos menores no backlog
+- [ ] Agendamento/Kwai/histórico: NÃO feito nesta sessão (pedido) — fica com a sessão que chamou

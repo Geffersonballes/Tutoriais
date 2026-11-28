@@ -149,6 +149,7 @@ def personagem(arquivo, cores, escala=0.55, mangas=False, calca_longa=False, ten
         bm = bmesh.new(); bm.from_mesh(so.data)
         bmesh.ops.delete(bm, geom=[v for v in bm.verts if v.co.y > L.x * 0.02], context="VERTS")   # só a metade de baixo
         bm.to_mesh(so.data); bm.free(); extras.append(so)
+    bpy.context.view_layer.update()
     for e in extras:
         mw = e.matrix_world.copy(); e.parent = arm; e.parent_type = "BONE"; e.parent_bone = "Head"; e.matrix_world = mw
     def acao(nome):
@@ -184,23 +185,25 @@ def cabeca_pixel(O, k, cor_fone, cor_cabelo):
         pecas.append(o); return o
     PELE_ = (0.96, 0.76, 0.60); PRETO_ = (0.03, 0.03, 0.04)
     esf((0, 0, 0.55), 0.58, PELE_, (1.0, 0.95, 1.02), seg=48, sub=1)                                   # cabeça
+    n_cab = len(pecas)
     for x in (-0.2, 0.2):
         R["olhos"].append(esf((x, -0.49, 0.62), 0.105, PRETO_, (1, 0.55, 1.25), rough=0.15))          # olhos
         R["brilhos"].append(esf((x + 0.03, -0.555, 0.685), 0.032, (1, 1, 1), rough=0.3, emis=1.5))  # brilho
         R["brilhos"].append(esf((x - 0.035, -0.55, 0.575), 0.014, (1, 1, 1), rough=0.3, emis=1.5))
-        bpy.ops.mesh.primitive_cylinder_add(radius=0.024 * k, depth=0.15 * k, vertices=12, location=P(x, -0.52, 0.83),
+        bpy.ops.mesh.primitive_cylinder_add(radius=0.022 * k, depth=0.14 * k, vertices=12, location=P(x, -0.545, 0.765),
                                             rotation=(0, math.radians(90 + (6 if x < 0 else -6)), 0))  # sobrancelha suave
         sb = bpy.context.object; sb.data.materials.append(mcor(cor_cabelo, 0.6)); sb.modifiers.new("b", "BEVEL").width = 0.02 * k
         pecas.append(sb)
         esf((x * 1.68, -0.44, 0.43), 0.085, (1.0, 0.55, 0.52), (1, 0.45, 0.65), rough=0.7)            # bochecha
-    R["sorriso"] = meio_anel((0, -0.545, 0.47), 0.14, 0.03, (0.40, 0.08, 0.06))
-    R["boca"] = esf((0, -0.52, 0.415), 0.105, (0.42, 0.06, 0.08), (1.15, 0.45, 0.04), rough=0.5)      # boca (abre na fala)
-    esf((0, -0.575, 0.535), 0.062, (0.93, 0.66, 0.52), sub=0)                                          # nariz-bolinha
+    R["sorriso"] = meio_anel((0, -0.55, 0.47), 0.12, 0.021, (0.30, 0.07, 0.05))
+    R["boca"] = esf((0, -0.515, 0.42), 0.095, (0.30, 0.04, 0.06), (1.0, 0.45, 0.02), rough=0.5)      # boca (abre na fala)
+    esf((0, -0.565, 0.535), 0.05, (0.95, 0.70, 0.58), sub=0)                                          # nariz-bolinha
+    for o in pecas[n_cab:]: o["sem_linha"] = 1          # olhos, brilho, sobrancelhas, bochechas, boca, nariz: sem casca de contorno
     # cabelo: calota + nuca + franja + mechas espetadas
     esf((0, 0.06, 0.86), 0.6, cor_cabelo, (1.03, 1.0, 0.58), seg=32)
     esf((0, 0.17, 0.60), 0.565, cor_cabelo, (1.0, 0.86, 0.92), seg=32)
     for i, x in enumerate((-0.36, -0.18, 0.0, 0.18, 0.36)):
-        cone((x, -0.40 + abs(x) * 0.25, 0.97 - abs(x) * 0.12), 0.13, 0.34, (math.radians(150), math.radians(x * 40), 0), cor_cabelo)
+        cone((x, -0.36 + abs(x) * 0.25, 1.04 - abs(x) * 0.12), 0.12, 0.28, (math.radians(150), math.radians(x * 40), 0), cor_cabelo)
     for kk in range(7):
         a = -0.45 + kk * 0.15
         cone((a, 0.08 + abs(a) * 0.2, 1.10 - abs(a) * 0.3), 0.13, 0.40, (math.radians(-25), math.radians(a * 70), 0), cor_cabelo)
@@ -233,7 +236,7 @@ def falar(R, f0, f1):
     b = R["boca"]; z0 = b.scale[2]; fr = f0; k = 0
     b.keyframe_insert("scale", index=2, frame=f0 - 2)
     while fr < f1:
-        b.scale[2] = z0 * (14 if k % 2 == 0 else 3); b.keyframe_insert("scale", index=2, frame=fr); fr += 4 + (k % 3 == 0); k += 1
+        b.scale[2] = z0 * (20 if k % 2 == 0 else 5); b.keyframe_insert("scale", index=2, frame=fr); fr += 4 + (k % 3 == 0); k += 1
     b.scale[2] = z0; b.keyframe_insert("scale", index=2, frame=f1 + 2)
 
 _trk = [0]
@@ -518,6 +521,9 @@ fo = bpy.data.objects.new("fill", fill); s.collection.objects.link(fo); fo.rotat
 if os.environ.get("VISUAL", "2") != "0":
     visual_nivel2(s, sol)
     cam.data.dof.aperture_fstop = float(os.environ.get("FSTOP", "2.0"))
+    for o in bpy.data.objects:                       # detalhes do rosto: contorno grosso fica feio, tira a casca
+        if o.get("sem_linha"):
+            for md in [m for m in o.modifiers if m.name == "linha"]: o.modifiers.remove(md)
 
 os.makedirs(SAIDA, exist_ok=True)
 s.render.image_settings.file_format = "JPEG"; s.render.image_settings.quality = 92
@@ -528,7 +534,8 @@ if modo == "rosto":                     # close-ups do rosto (imagens paradas)
     if cam.data.dof.use_dof: cam.data.dof.focus_object = ar; cam.data.dof.aperture_fstop = 2.8
     cam.animation_data_clear()
     for q in [int(x) for x in lista.split(",")]:
-        s.frame_set(q); hp = ar.matrix_world.translation.copy()
+        s.frame_set(q); bpy.context.view_layer.update(); hp = ar.matrix_world.translation.copy()
+        print("ROSTO", q, tuple(round(x, 2) for x in hp), tuple(round(x, 2) for x in (px.matrix_world @ px.pose.bones["Head"].head)))
         rz = px.matrix_world.to_euler().z; frente = Vector((math.sin(rz), -math.cos(rz), 0))
         cam.location = hp + frente * 2.3 + Vector((0.25, 0, 0.12)); bpy.context.view_layer.update()
         s.render.filepath = os.path.join(SAIDA, "rosto_%04d.jpg" % q); bpy.ops.render.render(write_still=True)

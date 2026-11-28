@@ -290,7 +290,8 @@ def modo_realista(hdri=None, samples=4, res=(540, 960), foco=None, abertura=0.35
     """Estilo B no Blender: EEVEE, céu HDRI de pôr do sol, sol quente, materiais PBR, quinas arredondadas
     e desfoque tilt-shift (efeito maquete). Chame depois de montar a cena."""
     s = bpy.context.scene
-    s.render.engine = "BLENDER_EEVEE_NEXT"
+    try: s.render.engine = "BLENDER_EEVEE_NEXT"     # Blender 4.2
+    except TypeError: s.render.engine = "BLENDER_EEVEE"   # Blender 4.3+ (Steam pode instalar a mais nova)
     s.render.resolution_x, s.render.resolution_y = res
     if os.environ.get("RES") == "1080": s.render.resolution_x, s.render.resolution_y = 1080, 1920   # renderizador com GPU (PC do dono)
     s.eevee.taa_render_samples = samples
@@ -963,3 +964,51 @@ def texto3d(nome, texto, loc, tam=6.0, cor=(0.98, 0.98, 0.98, 1), espessura=0.4,
     cu.align_x = "CENTER"; cu.align_y = "CENTER"
     ob = bpy.data.objects.new(nome, cu); bpy.context.collection.objects.link(ob)
     ob.data.materials.append(mat(cor, unico)); ob.location = loc; return ob
+
+# ---------- 28/11 (bloqueio naval): graneleiro detalhado e guindaste de porto ----------
+def graneleiro(nome, escala=1.0, cor_casco=(0.16, 0.24, 0.36, 1), cor_conves=(0.62, 0.22, 0.16, 1)):
+    """Graneleiro (bulk carrier) genérico: casco em cunha com fundo vermelho abaixo da linha d'água, 5 tampas de porão
+    em relevo, 4 guindastes de convés (coluna + lança inclinada), castelo branco na popa com janelas da ponte,
+    asas da ponte e chaminé com faixa. Sem bandeira nem nome. Frente = +Y."""
+    e = escala
+    bm = bmesh.new()
+    pts = [(-0.85, -4.6), (0.85, -4.6), (0.9, 3.0), (0.0, 5.0), (-0.9, 3.0)]
+    base = [bm.verts.new((x * e * 0.85, y * e * 0.98, -0.55 * e)) for x, y in pts]
+    topo = [bm.verts.new((x * e, y * e, 0.55 * e)) for x, y in pts]
+    bm.faces.new(list(reversed(base))); bm.faces.new(topo)
+    for i in range(len(pts)):
+        j = (i + 1) % len(pts); bm.faces.new([base[i], base[j], topo[j], topo[i]])
+    me = bpy.data.meshes.new(nome); bm.to_mesh(me); bm.free()
+    casco = bpy.data.objects.new(nome, me); bpy.context.collection.objects.link(casco); casco.data.materials.append(mat(cor_casco))
+    fundo = caixa(_id("fundoG"), (0, 0, 0), (1.55 * e, 8.9 * e, 0.22 * e), (0.62, 0.14, 0.12, 1)); filho(casco, fundo); fundo.location = (0, -0.2 * e, -0.42 * e)
+    conv = caixa(_id("convG"), (0, 0, 0), (1.62 * e, 7.4 * e, 0.06 * e), cor_conves); filho(casco, conv); conv.location = (0, 0.2 * e, 0.56 * e)
+    for k in range(5):
+        y = (2.9 - k * 1.3) * e
+        t = caixa(_id("porao"), (0, 0, 0), (1.15 * e, 0.95 * e, 0.16 * e), (0.70, 0.28, 0.18, 1), unico="tampaPorao"); filho(casco, t); t.location = (0, y, 0.66 * e)
+        cr = caixa(_id("crista"), (0, 0, 0), (1.17 * e, 0.08 * e, 0.06 * e), (0.45, 0.16, 0.12, 1), unico="cristaPorao"); filho(casco, cr); cr.location = (0, y, 0.76 * e)
+    amarelo = (0.95, 0.78, 0.18, 1)
+    for k in range(4):
+        y = (2.25 - k * 1.3) * e
+        col = cilindro(_id("colG"), (0, 0, 0), 0.12 * e, 0.9 * e, amarelo, seg=8, unico="guindG"); filho(casco, col); col.location = (0.62 * e, y, 1.0 * e)
+        lan = caixa(_id("lancaG"), (0, 0, 0), (0.08 * e, 1.5 * e, 0.08 * e), amarelo, unico="guindG"); filho(casco, lan)
+        lan.location = (0.45 * e, y + 0.45 * e, 1.55 * e); lan.rotation_euler = (math.radians(28), 0, math.radians(12))
+    cast = caixa(_id("castG"), (0, 0, 0), (1.5 * e, 1.1 * e, 1.4 * e), C["branco"]); filho(casco, cast); cast.location = (0, -3.85 * e, 1.25 * e)
+    ponte = caixa(_id("ponteG"), (0, 0, 0), (2.1 * e, 0.6 * e, 0.28 * e), C["branco"]); filho(casco, ponte); ponte.location = (0, -3.55 * e, 2.05 * e)
+    jan = caixa(_id("janG"), (0, 0, 0), (1.4 * e, 0.05 * e, 0.12 * e), (0.05, 0.08, 0.12, 1)); filho(casco, jan); jan.location = (0, -3.24 * e, 2.05 * e)
+    for z in (1.0, 1.45):
+        jl = caixa(_id("janL"), (0, 0, 0), (1.2 * e, 0.05 * e, 0.08 * e), (0.10, 0.12, 0.16, 1)); filho(casco, jl); jl.location = (0, -3.29 * e, z * e)
+    cham = caixa(_id("chamG"), (0, 0, 0), (0.55 * e, 0.6 * e, 0.9 * e), (0.20, 0.22, 0.24, 1)); filho(casco, cham); cham.location = (0, -4.25 * e, 2.4 * e)
+    fx = caixa(_id("faixaChG"), (0, 0, 0), (0.57 * e, 0.62 * e, 0.16 * e), (0.95, 0.95, 0.95, 1)); filho(casco, fx); fx.location = (0, -4.25 * e, 2.55 * e)
+    mast = cilindro(_id("mastG"), (0, 0, 0), 0.04 * e, 1.0 * e, C["escuro"], seg=5); filho(casco, mast); mast.location = (0, 3.9 * e, 1.05 * e)
+    return casco
+
+def guindaste_porto(nome, loc, h=9.0, cor=(0.85, 0.20, 0.15, 1)):
+    """Guindaste de contêiner (pórtico) de cais: 4 pernas, viga superior e lança que avança sobre a água (+Y)."""
+    x, y = loc[0], loc[1]
+    base = caixa(nome, (x, y, h), (4.0, 3.0, 0.6), cor)
+    for dx in (-1.8, 1.8):
+        for dy in (-1.3, 1.3):
+            p = caixa(_id("pernaGP"), (0, 0, 0), (0.35, 0.35, h), cor, unico="pernaGP_%s" % nome); filho(base, p); p.location = (dx, dy, -h / 2)
+    lanca = caixa(_id("lancaGP"), (0, 0, 0), (0.7, 11.0, 0.5), cor); filho(base, lanca); lanca.location = (0, 3.5, 0.5)
+    cab = caixa(_id("cabGP"), (0, 0, 0), (1.0, 1.2, 0.8), C["branco"]); filho(base, cab); cab.location = (0, 2.0, -0.6)
+    return base

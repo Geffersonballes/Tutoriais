@@ -1,0 +1,16 @@
+{
+ "pasta": "tiktok-geopolitica/producao/2026-11-28_bloqueio-naval",
+ "cena": "tiktok-geopolitica/motor/cena_bloqueio.py",
+ "env": {
+  "REALISTA": "1"
+ },
+ "sessao": "guerra",
+ "criado": "2026-11-28T14:52",
+ "worker": "DESKTOP-60BPRSH",
+ "inicio": "2026-11-28T14:40:07",
+ "url": "https://gcdn.picsart.com/picsart-mcp/ddd640c9-9500-41de-ba5a-5163e561cd6e.mp4",
+ "quadros": 2691,
+ "min_render": 23.0,
+ "fim": "2026-11-28T15:14:43",
+ "status": "ok"
+}
