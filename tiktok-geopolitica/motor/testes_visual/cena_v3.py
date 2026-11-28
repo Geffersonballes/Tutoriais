@@ -123,7 +123,7 @@ def personagem(arquivo, cores, escala=0.55, mangas=False, calca_longa=False, ten
         fora = [f for f in bm.faces if f.material_index in tirar or
                 max(set(dom[v.index] for v in f.verts), key=[dom[v.index] for v in f.verts].count) == "Head"]
         bmesh.ops.delete(bm, geom=fora, context="FACES"); bm.to_mesh(me); bm.free()
-        extras, rosto = cabeca_pixel(O, 0.27 * H / 1.184, fone or (0.55, 0.95, 0.20), cores.get("Hair", (0.16, 0.10, 0.08)))
+        extras, rosto = cabeca_pixel(O, 0.30 * H / 1.184, fone or (0.55, 0.95, 0.20), cores.get("Hair", (0.16, 0.10, 0.08)))
         fone = None; sorriso = False
     if fone:
         bpy.ops.mesh.primitive_torus_add(major_radius=L.x * 0.56, minor_radius=L.x * 0.05, major_segments=40, minor_segments=8,
@@ -400,9 +400,9 @@ def predio_cartoon(cx, y0, w, d, h, cor, loja, i):
         tw = w * 0.62 / n
         t = caixa((cx - w * 0.08 - w * 0.31 + tw * (k + 0.5), y0 - 0.7, 3.0), (tw, 1.4, 0.12), toldo if k % 2 == 0 else (0.98, 0.97, 0.94), bev=False)
         t.rotation_euler[0] = math.radians(-18)
-    pw = min(w * 0.6, 0.62 * len(loja) + 0.8)
+    pw = min(w * 0.75, 0.48 * len(loja) + 0.9)
     caixa((cx - w * 0.08, y0 - 0.18, 4.15), (pw, 0.16, 0.85), toldo)
-    texto(loja, (cx - w * 0.08, y0 - 0.30, 4.15), 0.55, (0.99, 0.98, 0.95))
+    texto(loja, (cx - w * 0.08, y0 - 0.30, 4.15), 0.55 * min(1.0, (pw - 0.6) / (0.48 * len(loja))), (0.99, 0.98, 0.95))
     # telhado: caixa de ar-condicionado / caixa d'água
     if random.random() < 0.6: caixa((cx - w * 0.2, y0 + d * 0.6, h + 0.8), (1.4, 1.0, 0.8), (0.82, 0.84, 0.86))
     else:
@@ -469,7 +469,7 @@ p2, a2 = personagem("Casual3_Male", {"Shirt": (0.55, 0.85, 0.40), "Pants": (0.30
 andar(p2, a2("Walk"), -12, 6.8, 18, 1, math.radians(90))
 p3, a3 = personagem("Suit_Female", {"Shirt": (0.96, 0.96, 0.96), "Black": (0.25, 0.22, 0.45), "Hair": (0.20, 0.12, 0.08)},
                     tenis=(0.15, 0.12, 0.25))
-andar(p3, a3("Walk"), 12, -4.9, -10, 1, math.radians(-90))
+andar(p3, a3("Walk"), 5, -4.9, -14, 1, math.radians(-90))
 
 # carro passando (pista de cá) e um estacionado
 car, rodas = carro("Taxi")
@@ -487,8 +487,8 @@ alvo = bpy.data.objects.new("alvo_cam", None); s.collection.objects.link(alvo)
 cd = bpy.data.cameras.new("cam"); cd.lens = 30; cd.sensor_fit = "VERTICAL"; cd.sensor_height = 24
 cam = bpy.data.objects.new("cam", cd); s.collection.objects.link(cam); s.camera = cam
 tc = cam.constraints.new("TRACK_TO"); tc.target = alvo; tc.track_axis = "TRACK_NEGATIVE_Z"; tc.up_axis = "UP_Y"
-for fr, ax, cx_, cy_, cz_, az in ((1, x_ini + 0.3, x_ini + 1.6, -13.2, 2.7, 1.15), (f_para, x_para, x_para + 1.2, -12.0, 2.45, 1.2),
-                                  (F(5.3), x_para + 0.1, x_para + 0.6, -11.3, 2.25, 1.25), (NQ, x_para + 0.1, x_para + 0.4, -11.0, 2.2, 1.3)):
+for fr, ax, cx_, cy_, cz_, az in ((1, x_ini + 0.3, x_ini + 1.5, -11.6, 2.3, 1.2), (f_para, x_para, x_para + 1.1, -10.8, 2.15, 1.22),
+                                  (F(5.3), x_para + 0.1, x_para + 0.6, -10.3, 2.0, 1.25), (NQ, x_para + 0.1, x_para + 0.4, -10.0, 1.95, 1.3)):
     chave(alvo, "location", fr, (ax, PX_Y, az), "BEZIER"); chave(cam, "location", fr, (cx_, cy_, cz_), "BEZIER")
 for o in (alvo, cam):
     for fc in o.animation_data.action.fcurves:
