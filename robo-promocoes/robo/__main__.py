@@ -220,7 +220,8 @@ def cmd_rodar(args) -> None:
         try:
             postar_top_se_for_hora()
             if not postar_uma():
-                espera = 120  # tenta outra palavra logo
+                # com Shopee: tenta outra palavra logo; só com a fila: confere a planilha a cada 10 min
+                espera = 120 if config.SHOPEE_APP_ID else 600
         except Exception as e:  # noqa: BLE001 - o robô não pode parar por um erro
             log(f"ERRO: {e}")
             espera = 300

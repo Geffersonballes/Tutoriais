@@ -289,6 +289,7 @@ Plano (cliente #1 decidiu: Instagram **novo** "Achadinhos da Lay", com postagem 
 | 27/11/2026 | Dono quer incluir a **Amazon**. Pesquisa feita (§3.4): API só depois de vendas qualificadas; começar pela fila manual. |
 | 27/11/2026 | Amazon Associados do cliente #1: tag `laynnerballes-20`, aviso "Sua conta será analisada em breve", 0 vendas, sem API. Criada a **fila manual** (`robo/fila.py`: planilha publicada como CSV → robô posta, só com preço conferido HOJE; comando `python -m robo fila`). A fila tem prioridade sobre a Shopee e funciona mesmo sem as chaves da Shopee. |
 | 28/11/2026 | ✅ Fila manual funcionando na VPS: 1º produto Amazon (Box Shakespeare, link `link.amazon/…`) montado no formato padrão. Armadilha: `conferido_em` vazio → ignorado (o comando `fila` agora mostra o motivo). Criado `postar-agora`. |
+| 28/11/2026 | ✅ **Primeira oferta REAL postada** (Amazon, pela fila): a foto da Amazon (m.media-amazon.com) baixou certinho, o link `link.amazon` funcionou e o formato ficou perfeito no celular. Remetente: o chip exclusivo, com a logo. |
 | 25/11/2026 | Criados mais 8 agentes (mineração, tendências, métricas, postagens, copy, crítico, gerentes de produto e de operações). |
 | 25/11/2026 | Criados 9 agentes de apoio `promo-*` (ver §7). |
 | 25/11/2026 | Textos do grupo prontos em `textos-do-grupo.md` (descrição, boas-vindas fixada, aviso de grupo cheio, abertura), com aviso de link de afiliado. Modelo reaproveitável para os próximos clientes (trocar o nome). |
