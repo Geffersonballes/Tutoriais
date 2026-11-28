@@ -15,7 +15,9 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BRANCH = "claude/nifty-noether-jtt32a"
 BLENDER = os.environ.get("BLENDER") or next((p for p in [
     r"C:\Program Files\Blender Foundation\Blender 4.2\blender.exe",
-    r"C:\Program Files\Blender Foundation\Blender\blender.exe", shutil.which("blender") or ""] if p and os.path.exists(p)), "blender")
+    r"C:\Program Files\Blender Foundation\Blender\blender.exe",
+    r"C:\Program Files (x86)\Steam\steamapps\common\Blender\blender.exe",
+    r"C:\Program Files\Steam\steamapps\common\Blender\blender.exe", shutil.which("blender") or ""] if p and os.path.exists(p)), "blender")
 NOME = socket.gethostname()
 PY = sys.executable
 

@@ -18,4 +18,4 @@ python -m pip install pillow numpy scipy edge-tts
 winget install Gyan.FFmpeg
 python render_fila\worker.py
 ```
-Deixe o terminal aberto. Blender 4.2 LTS instalado no caminho padrão (ou defina `BLENDER`).
+Deixe o terminal aberto. Blender 4.2 LTS (pela Steam: Propriedades → Betas → escolher "4.2 LTS"; ou pelo blender.org). O worker acha sozinho o caminho padrão e o da Steam; senão defina `BLENDER`.
