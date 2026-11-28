@@ -232,6 +232,7 @@ def modo_cartoon(samples=6, res=(540, 960), ceu=((0.36, 0.64, 0.98), (0.80, 0.92
     s = bpy.context.scene
     s.render.engine = "BLENDER_EEVEE_NEXT"
     s.render.resolution_x, s.render.resolution_y = res
+    if os.environ.get("RES") == "1080": s.render.resolution_x, s.render.resolution_y = 1080, 1920   # renderizador com GPU (PC do dono)
     s.eevee.taa_render_samples = samples
     for k, v in (("use_shadows", True), ("use_raytracing", True), ("shadow_ray_count", 1), ("shadow_step_count", 4),
                  ("use_gtao", True), ("gtao_distance", 0.6)):

@@ -1,5 +1,6 @@
 """Biblioteca low-poly reutilizável para a série (roda dentro do Blender).
 Tudo é criado por código: nada de modelos de terceiros, estilo consistente em todo vídeo."""
+import os
 import bpy, bmesh, math, random
 from mathutils import Vector, Quaternion
 
@@ -291,6 +292,7 @@ def modo_realista(hdri=None, samples=4, res=(540, 960), foco=None, abertura=0.35
     s = bpy.context.scene
     s.render.engine = "BLENDER_EEVEE_NEXT"
     s.render.resolution_x, s.render.resolution_y = res
+    if os.environ.get("RES") == "1080": s.render.resolution_x, s.render.resolution_y = 1080, 1920   # renderizador com GPU (PC do dono)
     s.eevee.taa_render_samples = samples
     for k, v in (("use_shadows", True), ("use_raytracing", True), ("shadow_ray_count", 1), ("shadow_step_count", 4)):
         try: setattr(s.eevee, k, v)
