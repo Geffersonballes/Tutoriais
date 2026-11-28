@@ -1,0 +1,14 @@
+# Status — 2026-11-27_gta6-caixa-sem-disco (games, post 28/11 13:00 Cuiabá = 17:00 UTC)
+- [x] Pauta: radar 2026-11-27_noticias.md, pauta 2 (nota 7,5): "Por que a caixa do GTA 6 não tem disco?" — mecanismo: código de resgate (pauta 1 já feita; 3 = Black Friday de hoje, perde validade)
+- [x] Checagem (checagem.md) APROVADA: sem disco (Rockstar via GamesRadar/Push Square/Engadget); 200.759 em 4 dias (Famitsu via Gematsu + PSU, atribuído); 90% digital (chefe da Take-Two, atribuído); código visível/usado = relatos (Engadget, Notebookcheck, Dexerto)
+- [x] Conformidade: não ensina o truque da lanterna; caixa/servidor/console genéricos, sem arte nem logo; Pixel
+- [x] Roteiro 8 blocos, 189 palavras; CTA DISCO / DIGITAL + like automático
+- [x] Voz do dono (ElevenLabs eleven_v4, voice Dt3IFiwrxXdZMMFz4Ai0, 1 geração, ~1.192 créditos, flow KIGdkcdZMdW1iVpBEHMR) → narracao.mp3 (65,6 s)
+- [x] palavras.py + alinhar.py — 8 blocos
+- [x] Cena tiktok-geopolitica/motor/cena_gta6_caixa.py (estilo C, Pixel escala 0,85 inteiro em quadro, plano geral a 7,4 m, zonas por bloco, objetos principais já no corte) + prévias conferidas
+- Backlog aplicado: salas claras com ladrilho de contraste maior (2ª cor do piso bem mais escura)
+- [x] Render (PASSO=2 AMOSTRAS=8, 2 processos, flock) — fila/início 22:05, fim 00:36 UTC (1.048 quadros, ~17 s/quadro por processo)
+- [x] compor.py → final.mp4 (70,1 s, 1080×1920, 30 fps, 37,0 MB) + capa.jpg; ANTI_BORDA ativo (padrão); rótulo do bloco 2 encurtado para "COMO FUNCIONA" (o longo encostava nas laterais)
+- [x] QC APROVADO: capa legível em 270 px (A CAIXA DO GTA 6 / NÃO TEM DISCO?), gancho com pergunta no 1º s, legendas sincronizadas, rótulos/pílulas dentro das margens, fontes na tela (Famitsu via Gematsu/PSU; Take-Two; Engadget/Notebookcheck), selo IA, CTA DISCO/DIGITAL completo, pedido de like no fim, −14,2 LUFS / −1,3 dBFS; borda: desvio mínimo por linha nas 60 linhas de cima/baixo entre 4,7 e 19,9 (sem faixa chapada)
+- Defeitos menores (anotados no backlog): texto 3D "USADO" do bloco 3 fica sob a legenda (a pílula CARIMBO: USADA cobre a informação); mão do Pixel encosta na borda esquerda no "90%"; nuvenzinha da barra escondida atrás da nuvem grande
+- NÃO fazer nesta sessão: Picsart, Metricool, OneDrive, kwai/, historico.md, pautas_do_dono.md
